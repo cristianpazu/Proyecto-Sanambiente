@@ -1,2 +1,2 @@
 # Proyecto-Sanambiente
-En este repositorio se debe subir todo los adelantos del proyecto de San ambiente en la parte de todos los equipos que lo integran.
+En este repositorio se subirán todos los adelantos del proyecto de Sanambiente por parte de todos los equipos de trabajo que lo integran.
