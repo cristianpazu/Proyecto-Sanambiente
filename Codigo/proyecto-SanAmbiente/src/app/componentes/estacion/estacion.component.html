@@ -1,0 +1,62 @@
+<div id="contenedorPrincipal">
+    <form action="" method="post">
+  
+      <fieldset>
+        <legend>Regiones:</legend>
+        <div>
+          <input type="text" name="idRegion" placeholder="* ID" disabled />
+        </div>
+        <div>
+          <input type="text" name="nombreRegion" placeholder="* Nombre" />
+        </div>
+        <div>
+          <textarea name="areaObservaciones" placeholder="Observaciones"></textarea>
+          <br>
+  
+          <div id="contenedorGrilla">
+            <form action="" method="post">
+              <fieldset>
+                <legend>Lista de regiones:</legend>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadioInline1">ID</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadioInline2">Nombre</label>
+                </div>
+  
+                <table id="tabla">
+                  <caption></caption>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Observacion</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Sur</td>
+                    <td>Sur de colombia</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Norte</td>
+                    <td>Norte de colombia</td>
+                  </tr>
+                </table>
+              </fieldset>
+  
+            </form>
+            <br>
+            <div class="small">* Campos obligatorios</div>
+          </div>
+  
+        </div>
+        <br>
+        <input type="submit" name="btnNuevo" value="Nuevo" />&nbsp;
+        <input type="submit" name="btnEditar" value="Editar" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="btnGuardar" value="Guardar" />
+      </fieldset>
+      
+    </form>
+  </div>
