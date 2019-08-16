@@ -13,7 +13,7 @@ export class CiudadComponent implements OnInit {
 
     this.forma = new FormGroup({
       'nombre': new FormControl('' , [Validators.required, Validators.minLength(3)]),
-      'observacion': new FormControl('', Validators.nullValidator)
+      'observacion': new FormControl('', [Validators.nullValidator,Validators.maxLength(245)])
     })
 
 
