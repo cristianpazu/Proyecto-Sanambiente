@@ -1,0 +1,52 @@
+footer{
+    color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+nav{
+  position: fixed;
+  height: 100%;
+  left: 0px;
+}
+
+#main-container{
+  position: fixed;
+  left: 300px;
+}
+
+
+/* error validacion campo formulario */
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid red;
+}
+
+/* animaciones  */
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }

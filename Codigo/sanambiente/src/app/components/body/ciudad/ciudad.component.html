@@ -1,0 +1,104 @@
+<div class="container animated fadeIn fast" id="main-container">
+    <h1>Ciudad</h1>
+    <hr>
+    <form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+        <div>
+            <div class="form-group row">
+                <label class="col-1 col-form-label">ID</label>
+                <div class="col-6">
+                    <input class="form-control" type="text" placeholder="ID" name="id">
+                </div>
+            </div>
+            <div class="form-group row" [ngClass]="{ 'has-danger': !forma.get('nombre').valid }">
+                <label class="col-1 col-form-label">Nombre</label>
+                <div class="col-6">
+                    <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+                    <div *ngIf="forma.controls['nombre'].errors?.required"
+                        class="form-control-feedback">
+                        Este campo es requerido
+                    </div>
+                    <div *ngIf="forma.controls['nombre'].errors?.minlength"
+                        class="form-control-feedback">
+                        Por lo menos {{ forma.controls['nombre'].errors?.minlength.requiredLength }} caracteres.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-1 col-form-label">Region</label>
+                <div class="col-6">
+                    <select class="form-control" id="Select">
+                        <option>Seleccione una opcion</option>
+                        <option>Norte</option>
+                        <option>Occidente</option>
+                        <option>Oriente</option>
+                        <option>Sur</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-1 col-form-label">Observacion</label>
+                <div class="col-6">
+                    <textarea class="form-control" id="Textarea1" placeholder="Observacion" rows="4"></textarea>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="form-group row" id="caja-botones">
+            <label class="col-1 col-form-label">&nbsp;</label>
+            <div class="input-group col-md-8">
+                <button type="submit" class="btn btn-outline-primary">
+                    Nuevo
+                </button>&nbsp;&nbsp;&nbsp;
+                <button type="submit" class="btn btn-outline-primary">
+                    Editar
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="container">
+        <h3>Lista de ciudades</h3>
+        <form class="form-inline my-2 my-lg-0" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search">&nbsp;&nbsp;
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </form>
+        <br>
+        <table class="table col-6">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Obervacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>sur</td>
+                    <td>..</td>
+                    <td>..</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Norte</td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Sur</td>
+                    <td>..  </td>
+                    <td>..</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
