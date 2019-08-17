@@ -12,17 +12,13 @@ export class RegionComponent implements OnInit {
 
   constructor() { 
 
+
     this.forma = new FormGroup({
       'nombre': new FormControl('' , [Validators.required, Validators.minLength(3)]),
       'observacion': new FormControl('', [Validators.nullValidator,Validators.maxLength(245)])
     })
 
 
-  }
-
-  guardarCambios(){
-    console.log( this.forma.value );
-    console.log( this.forma );
   }
 
 
