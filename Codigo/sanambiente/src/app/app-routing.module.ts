@@ -7,6 +7,7 @@ import { MttoComponent } from './components/body/mtto/mtto.component';
 import { AlertaComponent } from './components/body/alerta/alerta.component';
 import { OrganizacionComponent } from './components/body/organizacion/organizacion.component';
 import { CategoriaComponent } from './components/body/categoria/categoria.component';
+import { LoginComponent } from './components/body/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'alerta', component:AlertaComponent },
   { path: 'organizacion', component:OrganizacionComponent },
   { path: 'categoria', component:CategoriaComponent },
+  { path: 'login', component:LoginComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  
 ];
 
 @NgModule({

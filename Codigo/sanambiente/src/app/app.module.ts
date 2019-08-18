@@ -14,6 +14,7 @@ import { AlertaComponent } from './components/body/alerta/alerta.component';
 import { MttoComponent } from './components/body/mtto/mtto.component';
 import { OrganizacionComponent } from './components/body/organizacion/organizacion.component';
 import { CategoriaComponent } from './components/body/categoria/categoria.component';
+import { LoginComponent } from './components/body/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CategoriaComponent } from './components/body/categoria/categoria.compon
     AlertaComponent,
     MttoComponent,
     OrganizacionComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
