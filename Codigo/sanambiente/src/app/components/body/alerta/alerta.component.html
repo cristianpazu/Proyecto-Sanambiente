@@ -4,15 +4,15 @@
     <form [formGroup]="forma" (ngSubmit)="guardarCambios()">
         <div>
             <div class="form-group row">
-                <label class="col-1 col-form-label">ID</label>
-                <div class="col-6">
+                <label class="col-2 col-form-label">ID</label>
+                <div class="col-2">
                     <input class="form-control" type="text" placeholder="ID" name="id" disabled>
                 </div>
             </div>
             <div class="form-group row" [ngClass]="{ 'has-danger': !forma.get('nombre').valid }">
-                <label class="col-1 col-form-label">Nombre</label>
+                <label class="col-2 col-form-label">Nombre</label>
                 <div class="col-6">
-                    <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+                    <input class="form-control" type="text" formControlName="nombre">
                     <div *ngIf="forma.controls['nombre'].errors?.required" class="form-control-feedback">
                         Este campo es requerido
                     </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-1 col-form-label">Estacion</label>
+                <label class="col-2 col-form-label">Estacion</label>
                 <div class="col-6">
                     <select class="form-control" id="Select">
                         <option>Seleccione una opcion</option>
@@ -34,9 +34,9 @@
                 </div>
             </div>
             <div class="form-group row" [ngClass]="{ 'has-danger': !forma.get('observacion').valid }">
-                <label class="col-1 col-form-label">Observacion</label>
+                <label class="col-2 col-form-label">Observacion</label>
                 <div class="col-6">
-                    <textarea class="form-control" id="Textarea1" placeholder="Observacion" rows="4"
+                    <textarea class="form-control" id="Textarea1" rows="4"
                         formControlName="observacion"></textarea>
                     <div *ngIf="forma.controls['observacion'].errors?.maxlength" class="form-control-feedback">
                         Maximo {{ forma.controls['observacion'].errors?.maxlength.requiredLength }} caracteres.
@@ -45,8 +45,8 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-1 col-form-label">Medio de envio</label>
-                <div class="col-6">
+                <label class="col-2 col-form-label">Medio de envio</label>
+                <div class="col-7">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">E-mail</label>
@@ -87,16 +87,15 @@
         </div>
     </form>
 
-    <hr>
-
     <div class="container">
         <h3>Lista de Alertas</h3>
+        <hr>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="search">&nbsp;&nbsp;
             <button class="btn btn-outline-primary" type="submit">Buscar</button>
         </form>
         <br>
-        <table class="table col-6">
+        <table class="table col-12">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
