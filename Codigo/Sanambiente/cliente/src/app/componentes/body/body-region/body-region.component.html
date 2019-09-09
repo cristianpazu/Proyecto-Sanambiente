@@ -1,0 +1,87 @@
+<div class="container animated fadeIn fast" id="main-container">
+    <h1>Region</h1>
+    <hr>
+    <form [formGroup]="forma">
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">ID</label>
+                <div class="col-2">
+                    <input class="form-control" type="text" name="id" disabled="false">
+                </div>
+            </div>
+            <div class="form-group row" [ngClass]="{'has-danger': !forma.get('nombre').valid}">
+                <label class="col-2 col-form-label">Nombre</label>
+                <div class="col-6">
+
+                    <input [(ngModel)]="region.nombre_region" class="form-control" formControlName="nombre" type="text"
+                        autofocus>
+
+                    <div *ngIf="forma.controls['nombre'].errors?.required" class="form-control-feedback">
+                        Este campo es requerido
+                    </div>
+
+                    <div *ngIf="forma.controls['nombre'].errors?.minlength" class="form-control-feedback">
+                        Por lo menos {{forma.controls['nombre'].errors?.minlength.requiredLength}} caracteres
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row" [ngClass]="{'has-danger': !forma.get('observacion').valid}">
+                <label class="col-2 col-form-label">Observacion</label>
+                <div class="col-6">
+                    <!--
+                        
+                    data-ng-minLength="1" data-ng-model="createrprofilefields.observacion" required highlight-on-error
+                 
+                --> <textarea maxlength="250" [(ngModel)]="region.observacion_region" ng-thim="false"
+                        class="form-control" formControlName="observacion" id="Textarea1" rows="4">
+                </textarea>
+                    <span>{{250-region.observacion_region.length}} Caracteres restantes</span>
+                    <div *ngIf="forma.controls['observacion'].errors?.maxlength" class="form-control-feedback">
+                        Maximo {{forma.controls['observacion'].errors?.maxlength.requiredLength}} caracteres
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="caja-botones" class="form-group-row">
+            <label class="col-1 col-form-label">&nbsp;</label>
+            <div class="col-md-8">
+                <button class="btn btn-outline-primary">
+                    Nuevo
+                </button>&nbsp;&nbsp;&nbsp;
+                <button type="submit" class="btn btn-outline-primary">
+                    Actualizar
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" (click)="crearNuevaRegion()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <div class="container" id="div-tabla">
+        <h3>Lista de Regiones</h3>
+        <form>
+            <input type="search" name="search" aria-label="search" [(ngModel)]="searchText" autocomplete="off" 
+            placeholder="&#61442; Buscar">&nbsp;&nbsp;
+        </form>
+        <br>
+        <table class="table col-6 table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Obervacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let region of listaregiones | filter:searchText" >
+                    <td> {{region.id_region}} </td>
+                    <td> {{region.nombre_region}} </td>
+                    <td> {{region.observacion_region}} </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
