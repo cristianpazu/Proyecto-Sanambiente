@@ -10,16 +10,21 @@ position: fixed;
 height: 100%;
 left: 0px;
 }
-
-#main-container{
-position: fixed;
-left: 300px;
-border: 1px solid rgb(151, 142,142);
-width: 50%;
-padding-top: 10px;
+#menu{
+  float: left;
+  width: 20%;
+  font-size: 15px;
+font-family: sans-serif;
 }
 
-
+#main-container{
+position: relative;
+left: 10px;
+border: 1px solid rgb(151, 142,142);
+width: 100%;
+height: auto;
+padding-top: 10px;
+}
 /* error validacion campo formulario */
 .ng-invalid.ng-touched:not(form){
 border: 1px solid red;
@@ -28,6 +33,7 @@ border: 1px solid red;
 #caja-botones{
   margin: 30px;
   margin-left: 205px;
+  font-size: 15px;
 }
 /* animaciones  */
 .animated {
@@ -59,9 +65,19 @@ border: 1px solid red;
 }
 #div-tabla{
 overflow: auto;
-  height: 200px;
+  height: auto ;
   width: 550px;
 }
 #paragraph{
   height: 100vh;
+}
+#tamaño-fuente-input{
+font-size: 11pt;
+}
+#tamaño-fuente-alerta{
+  font-size: 8pt;
+}
+#fuente-general{
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

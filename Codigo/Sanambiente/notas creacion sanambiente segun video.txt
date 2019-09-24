@@ -25,4 +25,4 @@ cdk scrollable y dispatcher
 contrase�a postgresql: admin2019
 man entorno js
 creacion de componentes: 1:37:00
-03/09/2019 ---> video: minuto 02:46:00
+03/09/2019 ---> video: minuto 03:06:00

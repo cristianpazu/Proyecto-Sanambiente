@@ -1,6 +1,7 @@
 import {Router} from 'express';
-import regionControlador from '../../controlador/controladorRegiones/regionesControlador';
+import regionesControlador from '../../controlador/controladorRegiones/regionesControlador';
 
+// cambie el nombre de regionControlador a regionesControlador
 class RegionesRutas{
 public router: Router=Router();
 
@@ -9,12 +10,12 @@ constructor(){
     // y despues ejecuta ese metodo configuracion.
     }
     configuracion():void{
-        this.router.get('/',regionControlador.listarRegiones); // La ruta inicial de la aplicacion, cuando visiten la ruta
+        this.router.get('/',regionesControlador.listarRegiones); // La ruta inicial de la aplicacion, cuando visiten la ruta
         //inicial voy a listar TODAS las regiones
-        this.router.get('/:id_region',regionControlador.listarRegion);
-        this.router.post('/',regionControlador.crearRegion);
+        this.router.get('/:id_region',regionesControlador.listarRegion);
+        this.router.post('/',regionesControlador.crearRegion);
        // this.router.delete('/:id',sanambienteControlador.eliminar);
-        this.router.put('/:id_region',regionControlador.actualizarRegion);
+        this.router.put('/:id_region',regionesControlador.actualizarRegion);
     }
 }
 

@@ -1,0 +1,34 @@
+<div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
+    <button [routerLink]="['/region/agregar_region']" class="btn btn-outline-primary btn-lg">Nueva Region</button>
+    <br><br><br>
+    <h3>Lista de Regiones</h3>
+    <form>
+        <input type="search" name="search" aria-label="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Buscar">&nbsp;&nbsp;
+            
+    </form>
+    <br>
+    <table class="table col-6 table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Obervacion</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let region of listaregiones | filter:searchText">
+                <td> {{region.id_region}} </td>
+                <td> {{region.nombre_region}} </td>
+                <td> {{region.observacion_region}} </td>
+                <td>
+                    <a [routerLink]="['/region/editar_region',region.id_region]" class="btn btn-outline-primary">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    

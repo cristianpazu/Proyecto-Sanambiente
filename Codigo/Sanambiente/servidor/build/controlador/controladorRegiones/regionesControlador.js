@@ -27,20 +27,16 @@ class RegionesControlador {
     listarRegion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id_region } = req.params;
-            const regiones = yield basedatos_1.default.query('SELECT * FROM regiones where id_region=$1', [id_region]);
-            /*console.log(regiones.length);
-              if(regiones.length>0){
-                  return res.json(regiones[0]);
-              }
-              res.status(404).json({text: "La region no existe"});*/
-            res.json(regiones.rows);
-            res.json({ message: 'Region encontrada' });
+            const region = yield basedatos_1.default.query('SELECT * FROM regiones where id_region=$1', [id_region]);
+            if (region.length != 0) {
+                res.status(200).json({
+                    region: region.rows
+                });
+            }
         });
     }
     crearRegion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            // pool.connect();
-            // res.json(pool);
             yield basedatos_1.default.query('INSERT INTO regiones (nombre_region, observacion_region) VALUES ($1,$2)', [req.body.nombre_region, req.body.observacion_region]);
             res.json({ message: 'Region creada correctamente' });
         });
