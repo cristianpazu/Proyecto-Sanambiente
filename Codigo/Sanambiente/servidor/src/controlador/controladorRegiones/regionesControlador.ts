@@ -5,7 +5,7 @@ import pool from '../../basedatos';
 class RegionesControlador {
 
    public async listarRegiones(req: Request, res: Response) {
-      const regiones = await pool.query('select * FROM regiones');
+      const regiones = await pool.query('select * FROM regiones order by id_region');
       if (regiones.length != 0) {
          res.status(200).json({
             regiones: regiones.rows

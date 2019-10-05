@@ -16,7 +16,7 @@ const basedatos_1 = __importDefault(require("../../basedatos"));
 class RegionesControlador {
     listarRegiones(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const regiones = yield basedatos_1.default.query('select * FROM regiones');
+            const regiones = yield basedatos_1.default.query('select * FROM regiones order by id_region');
             if (regiones.length != 0) {
                 res.status(200).json({
                     regiones: regiones.rows
