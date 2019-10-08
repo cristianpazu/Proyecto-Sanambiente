@@ -10,21 +10,15 @@ export class ListRegionComponent implements OnInit {
 
   @HostBinding('class') classes='row';
 
-  listaregiones:any=[]; // propiedad de tipo arreglo que me almacenara las regiones encontrados
+  public arrayRegions:any=[];
   searchText;
-  constructor(private regionesServicio: RegionesService) { }
+
+  constructor(private regionService: RegionesService) { }
 
   ngOnInit() {
-    this.obtenerRegiones();// refresca la lista de las regiones cada vez que creo una region nueva
+  this.getRegions();
   }
-  obtenerRegiones() {
-    this.regionesServicio.obtenerRegiones().subscribe(
-      async (res: any) => {
-        this.listaregiones = await res.regiones;
-        
-      },
-
-      err => console.error(err)
-    );
+  async getRegions() {
+    this.arrayRegions = await this.regionService.viewRegions();
   }
 }

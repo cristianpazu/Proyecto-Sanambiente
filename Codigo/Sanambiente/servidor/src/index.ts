@@ -5,6 +5,8 @@ import cors from 'cors';
 import indexRutas from './rutas/indexRutas';
 import regionesRutas from './rutas/rutasRegiones/regionesRutas';
 import ciudadesRutas from './rutas/rutasCiudades/ciudadesRutas';
+import citiesRoutes from './Components/Cities_Component/Cities_Route';
+import regionRoutes from './Components/Region_Component/Region_Route';
 
 class Servidor{ // Clase que inicia el servidor usando typescript, del lado del servidor.
     public app: Application; // app es de tipo application
@@ -33,7 +35,8 @@ class Servidor{ // Clase que inicia el servidor usando typescript, del lado del 
         // va a configurar app, por eso es de tipo void.
         this.app.use('/',indexRutas); // utilizo el enrutador que exporte en el archivo indexRutas.ts
         this.app.use('/api/regiones',regionesRutas); // esta ruta solo estara disponible cuando el usuario ingrese a region
-        this.app.use('/api/ciudades',ciudadesRutas);
+        this.app.use('/api/city', citiesRoutes);
+        this.app.use('/api/region', regionRoutes);
     }
 
     iniciar():void{ // metodo para inicializar el servidor. Para ejecutar un tipico app.listen para que el servidor comience

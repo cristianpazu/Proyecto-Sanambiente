@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding  } from '@angular/core';
 import { CiudadesService } from '../../../servicios/serviciosCiudad/ciudades.service'; //importo el servicio
 
+
 @Component({
   selector: 'app-list-ciudad',
   templateUrl: './list-ciudad.component.html',
@@ -10,20 +11,19 @@ export class ListCiudadComponent implements OnInit {
 
   @HostBinding('class') classes='row';
 
-  listarciudades:any=[]; // propiedad de tipo arreglo que me almacenara las regiones encontrados
+  public arrayCities:any=[];
   searchText;
-  constructor(private ciudadesServicio: CiudadesService) { }
+
+  constructor(private cityService: CiudadesService) { }
 
   ngOnInit() {
-    this.obtenerCiudades();// refresca la lista de las regiones cada vez que creo una region nueva
+    this.getCities();
   }
-  obtenerCiudades() {
-    this.ciudadesServicio.obtenerCiudades().subscribe(
-      async (res: any) => {
-        this.listarciudades = await res.ciudades;
-      },
-      err => console.error(err)
-    );
+
+  async getCities() {
+    this.arrayCities = await this.cityService.viewCities();
   }
+
 }
+
 

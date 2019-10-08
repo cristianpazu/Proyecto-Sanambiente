@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './componentes/body/home/home.component';
+
 import { BodyRegionComponent } from './componentes/body/body-region/body-region.component';
 import { ListRegionComponent } from './componentes/body/list-region/list-region.component';
+
 import { BodyCiudadComponent } from './componentes/body/body-ciudad/body-ciudad.component';
 import { ListCiudadComponent } from './componentes/body/list-ciudad/list-ciudad.component';
 
@@ -29,33 +31,34 @@ const rutas: Routes = [
     component: ListRegionComponent // a la interfaz principal de region
   },
   {
-    path: 'region/agregar_region', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
+    path: 'region/add_region', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
     component: BodyRegionComponent // redireccionada a la interfaz principal de region
   },
   {
-    path: 'region/editar_region/:id_region', 
+    path: 'region/edit_region/:id_region', 
     component: BodyRegionComponent
   },
+  /*----------------------------------- Aqui Creo las rutas ciudad -------------------------------------------*/
 
 {
-  path: 'ciudad',
-  redirectTo: '/ciudad',
+  path: 'city',
+  redirectTo: '/city',
   pathMatch: 'full'
 },
 {
-  path: 'ciudad', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
+  path: 'city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
   component: ListCiudadComponent // a la interfaz principal de region
 },
 
 {
-  path: 'ciudad/agregar_ciudad', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
+  path: 'city/add_city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
   component: BodyCiudadComponent // redireccionada a la interfaz principal de region
 },
-/*----------------------------------- Aqui Creo las rutas ciudad -------------------------------------------
+
 {
-  path: 'ciudad/editar_ciudad/:id_ciudad', 
+  path: 'city/edit_city/:id_ciudad', 
   component: BodyCiudadComponent
-}*/
+}
 ];
 
 @NgModule({

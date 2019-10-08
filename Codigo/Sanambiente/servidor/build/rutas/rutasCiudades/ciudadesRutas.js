@@ -12,15 +12,18 @@ class CiudadesRutas {
         // y despues ejecuta ese metodo configuracion.
     }
     configuracion() {
-        this.router.get('/', ciudadesControlador_1.default.listarCiudades); // La ruta inicial de la aplicacion, cuando visiten la ruta
-        //inicial voy a listar TODAS las regiones
+        /* La ruta inicial de la aplicacion, cuando visiten la ruta inicial ciudades voy a listar
+            TODAS las regiones*/
+        this.router.get('/', ciudadesControlador_1.default.listarCiudades);
         this.router.get('/:id_ciudad', ciudadesControlador_1.default.listarCiudad);
         this.router.post('/', ciudadesControlador_1.default.crearCiudad);
-        // this.router.delete('/:id',sanambienteControlador.eliminar);
         this.router.put('/:id_ciudad', ciudadesControlador_1.default.actualizarCiudad);
+        this.router.get('/', ciudadesControlador_1.default.ciudadlistarRegiones);
     }
 }
-const ciudadesRutas = new CiudadesRutas(); // Despues de que se instancia la clase IndexRutas, la guardo dentro de una constante 
-// llamada indexRutas
-exports.default = ciudadesRutas.router; // Despues exporto esa instancia de clase; pero no todo, solo el enrutador "router"
-// Nos vamos a index.ts y utilizo el enrutador "router" que acabo de crear.
+/* Despues de que se instancia la clase IndexRutas, la guardo dentro de una constante
+llamada ciudadesRutas*/
+const ciudadesRutas = new CiudadesRutas();
+/* Despues exporto esa instancia de clase; pero no todo, solo el enrutador "router"
+Nos vamos a index.ts y utilizo el enrutador "router" que acabo de crear.*/
+exports.default = ciudadesRutas.router;

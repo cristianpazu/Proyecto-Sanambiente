@@ -16,8 +16,8 @@ const basedatos_1 = __importDefault(require("../../basedatos"));
 class CiudadesControlador {
     listarCiudades(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const ciudades = yield basedatos_1.default.query('select id_ciudad, nombre_ciudad, regiones.nombre_region' +
-                ',observacion_ciudad FROM regiones, ciudades where regiones.id_region=ciudades.id_region;');
+            const ciudades = yield basedatos_1.default.query('select id_ciudad, nombre_ciudad, observacion_ciudad ' +
+                ',regiones.nombre_region FROM regiones, ciudades where regiones.id_region=ciudades.id_region order by id_ciudad;');
             if (ciudades.length != 0) {
                 res.status(200).json({
                     ciudades: ciudades.rows
@@ -28,8 +28,8 @@ class CiudadesControlador {
     listarCiudad(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id_ciudad } = req.params;
-            const ciudad = yield basedatos_1.default.query('SELECT id_ciudad, nombre_ciudad, regiones.nombre_region' +
-                ',observacion_ciudad FROM regiones, ciudades where regiones.id_region=ciudades.id_region and id_ciudad=$1', [id_ciudad]);
+            const ciudad = yield basedatos_1.default.query('SELECT id_ciudad, nombre_ciudad, regiones.id_region, observacion_ciudad ' +
+                ',regiones.nombre_region FROM regiones, ciudades where regiones.id_region=ciudades.id_region and id_ciudad=$1', [id_ciudad]);
             if (ciudad.length != 0) {
                 res.status(200).json({
                     ciudad: ciudad.rows
@@ -48,6 +48,16 @@ class CiudadesControlador {
             const { id_ciudad } = req.params;
             yield basedatos_1.default.query('update ciudades set nombre_ciudad=$1,id_region=$2,observacion_ciudad=$3 where id_ciudad =$4', [req.body.nombre_ciudad, req.body.id_region, req.body.observacion_ciudad, id_ciudad]);
             res.json({ text: 'Ciudad Actualizada' });
+        });
+    }
+    ciudadlistarRegiones(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const regionesCiudades = yield basedatos_1.default.query('select id_region, nombre_region FROM regiones order by id_region');
+            if (regionesCiudades.length != 0) {
+                res.status(200).json({
+                    regionesCiudades: regionesCiudades.rows
+                });
+            }
         });
     }
 }
