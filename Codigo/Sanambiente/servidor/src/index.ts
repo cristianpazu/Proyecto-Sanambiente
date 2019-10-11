@@ -34,7 +34,7 @@ class Servidor{ // Clase que inicia el servidor usando typescript, del lado del 
     rutas(): void{ // metodo para establecer de app las rutas de mi servidor este metodo no devuelve nada porque lo 
         // va a configurar app, por eso es de tipo void.
         this.app.use('/',indexRutas); // utilizo el enrutador que exporte en el archivo indexRutas.ts
-        this.app.use('/api/regiones',regionesRutas); // esta ruta solo estara disponible cuando el usuario ingrese a region
+       // this.app.use('/api/regiones',regionesRutas); // esta ruta solo estara disponible cuando el usuario ingrese a region
         this.app.use('/api/city', citiesRoutes);
         this.app.use('/api/region', regionRoutes);
     }

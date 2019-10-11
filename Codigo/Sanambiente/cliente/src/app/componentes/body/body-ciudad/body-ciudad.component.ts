@@ -38,7 +38,7 @@ export class BodyCiudadComponent implements OnInit {
   async createCity() {
     if(this.formCity.valid) {
       await this.cityService.createCity(this.formCity.value);
-      this.router.navigate(['/ciudad']);
+      this.router.navigate(['/city']);
     }
   }
 
