@@ -50,7 +50,6 @@ class CityService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
-
 }
 
 const cityService = new CityService();
