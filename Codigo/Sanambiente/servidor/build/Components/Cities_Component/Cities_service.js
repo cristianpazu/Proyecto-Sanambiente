@@ -57,6 +57,7 @@ class CityService {
             try {
                 const { id_ciudad } = request.params;
                 let city = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewCity, [id_ciudad]);
+                console.log(city.rows);
                 if (city.rows.length === 0) {
                     return Promise.resolve(Handle_Message_1.default(response, 200, 'City doesn´t exist'));
                 }

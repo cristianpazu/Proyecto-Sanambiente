@@ -8,7 +8,8 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexRutas_1 = __importDefault(require("./rutas/indexRutas"));
 const Cities_Route_1 = __importDefault(require("./Components/Cities_Component/Cities_Route"));
-const Region_Route_1 = __importDefault(require("./Components/Region_Component/Region_Route"));
+const Regions_Route_1 = __importDefault(require("./Components/Regions_Component/Regions_Route"));
+const Ranks_Route_1 = __importDefault(require("./Components/Ranks_Component/Ranks_Route"));
 class Servidor {
     constructor() {
         // app que es una propiedad de la clase.
@@ -33,7 +34,8 @@ class Servidor {
         this.app.use('/', indexRutas_1.default); // utilizo el enrutador que exporte en el archivo indexRutas.ts
         // this.app.use('/api/regiones',regionesRutas); // esta ruta solo estara disponible cuando el usuario ingrese a region
         this.app.use('/api/city', Cities_Route_1.default);
-        this.app.use('/api/region', Region_Route_1.default);
+        this.app.use('/api/region', Regions_Route_1.default);
+        this.app.use('/api/rank', Ranks_Route_1.default);
     }
     iniciar() {
         // a escuchar

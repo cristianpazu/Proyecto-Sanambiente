@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import CityService from './Cities_service';
+import CityService from './Cities_Service';
 
 
 class CitiesRoute {

@@ -1,6 +1,3 @@
-//import keys from './keys';
-//import pg from 'pg-promise';
-
 
 const { Pool } = require('pg');
 

@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './componentes/body/home/home.component';
+import { HomeComponent } from './Components/body/Home/Home.component';
 
-import { BodyRegionComponent } from './componentes/body/body-region/body-region.component';
-import { ListRegionComponent } from './componentes/body/list-region/list-region.component';
+import { RegionsBodyComponent } from './Components/body/Regions_Body/Regions_Body.component';
+import { RegionsListComponent } from './Components/body/Regions_List/Regions_List.component';
 
-import { BodyCiudadComponent } from './componentes/body/body-ciudad/body-ciudad.component';
-import { ListCiudadComponent } from './componentes/body/list-ciudad/list-ciudad.component';
+import { CitiesBodyComponent } from './Components/body/Cities_Body/Cities_Body.component';
+import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.component';
+
+import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
+import { RanksListComponent } from './Components/Body/Ranks_List/Ranks_List.component';
+
+
 
 const rutas: Routes = [
 
@@ -20,7 +25,7 @@ const rutas: Routes = [
     path: 'home', // Nombre de la ruta
     component: HomeComponent // Componente el cual se caragar cuando se utilice la ruta /games
   },
-/*----------------------------------- Aqui Creo las rutas region -------------------------------------------*/
+  /*----------------------------------- Aqui Creo las rutas region ----------------------------------------*/
   {
     path: 'region',
     redirectTo: '/region',
@@ -28,37 +33,58 @@ const rutas: Routes = [
   },
   {
     path: 'region', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
-    component: ListRegionComponent // a la interfaz principal de region
+    component: RegionsListComponent // a la interfaz principal de region
   },
   {
     path: 'region/add_region', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
-    component: BodyRegionComponent // redireccionada a la interfaz principal de region
+    component: RegionsBodyComponent // redireccionada a la interfaz principal de region
   },
   {
-    path: 'region/edit_region/:id_region', 
-    component: BodyRegionComponent
+    path: 'region/edit_region/:id_region',
+    component: RegionsBodyComponent
   },
-  /*----------------------------------- Aqui Creo las rutas ciudad -------------------------------------------*/
+  /*----------------------------------- Aqui Creo las rutas ciudad --------------------------------------*/
 
-{
-  path: 'city',
-  redirectTo: '/city',
-  pathMatch: 'full'
-},
-{
-  path: 'city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
-  component: ListCiudadComponent // a la interfaz principal de region
-},
+  {
+    path: 'city',
+    redirectTo: '/city',
+    pathMatch: 'full'
+  },
+  {
+    path: 'city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
+    component: CitiesListComponent // a la interfaz principal de ciudad
+  },
 
-{
-  path: 'city/add_city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
-  component: BodyCiudadComponent // redireccionada a la interfaz principal de region
-},
+  {
+    path: 'city/add_city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
+    component: CitiesBodyComponent // redireccionada a la interfaz principal de region
+  },
 
-{
-  path: 'city/edit_city/:id_ciudad', 
-  component: BodyCiudadComponent
-}
+  {
+    path: 'city/edit_city/:id_ciudad',
+    component: CitiesBodyComponent
+  },
+  /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
+
+  {
+    path: 'rank',
+    redirectTo: '/rank',
+    pathMatch: 'full'
+  },
+  {
+    path: 'rank',
+    component: RanksListComponent
+  },
+
+  {
+    path: 'rank/add_rank',
+    component: RanksBodyComponent
+  },
+
+  {
+    path: 'rank/edit_rank/:id_rank',
+    component: RanksBodyComponent
+  }
 ];
 
 @NgModule({
@@ -66,12 +92,3 @@ const rutas: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-/*
-const rutas: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'region', component: BodyRegionComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
-];
-
-*/

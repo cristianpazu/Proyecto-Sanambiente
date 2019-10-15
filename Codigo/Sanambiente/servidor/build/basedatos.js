@@ -1,6 +1,4 @@
 "use strict";
-//import keys from './keys';
-//import pg from 'pg-promise';
 Object.defineProperty(exports, "__esModule", { value: true });
 const { Pool } = require('pg');
 const connectionData = {

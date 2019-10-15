@@ -41,6 +41,7 @@ class CityService implements BaseService<any> {
         try {
             const { id_ciudad } = request.params;
             let city = await ConnectionDataBase.query(handlerQuery.viewCity, [id_ciudad]);
+            console.log(city.rows);
             if (city.rows.length === 0) {
                 return Promise.resolve(handleMessage(response, 200, 'City doesn´t exist'));
             } else {
@@ -50,7 +51,6 @@ class CityService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
-
 }
 
 const cityService = new CityService();

@@ -6,31 +6,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './componentes/header/header.component';
-import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
-import { HomeComponent } from './componentes/body/home/home.component';
+import { HeaderComponent } from './Components/Header/Header.component';
+import { NavigationComponent } from './Components/Navigation/Navigation.component';
+import { HomeComponent } from './Components/body/Home/Home.component';
 
-import { BodyRegionComponent } from './componentes/body/body-region/body-region.component';
-import { RegionesService } from './servicios/serviciosRegion/regiones.service';
-import { ListRegionComponent } from './componentes/body/list-region/list-region.component';
+import { RegionsBodyComponent } from './Components/body/Regions_Body/Regions_Body.component';
+import { RegionsService } from './Services/Regions_Service/Regions_Service';
+import { RegionsListComponent } from './Components/body/Regions_List/Regions_List.component';
 
-import { BodyCiudadComponent } from './componentes/body/body-ciudad/body-ciudad.component';
-import { CiudadesService } from './servicios/serviciosCiudad/ciudades.service';
-import { ListCiudadComponent } from './componentes/body/list-ciudad/list-ciudad.component';
+import { CitiesBodyComponent } from './Components/body/Cities_Body/Cities_Body.component';
+import { CitiesService } from './Services/Cities_Service/Cities_Service';
+import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; // importar para el filtro de las tablas
-import BaseService from './servicios/Base_Service/Base_Service';
+import BaseService from './Services/Base_Service/Base_Service';
+import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
+import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavegacionComponent,
+    NavigationComponent,
     HomeComponent,
-    BodyRegionComponent,
-    ListRegionComponent,
-    BodyCiudadComponent,
-    ListCiudadComponent
+    RegionsBodyComponent,
+    RegionsListComponent,
+    CitiesBodyComponent,
+    CitiesListComponent,
+    RanksBodyComponent,
+    RanksListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +45,8 @@ import BaseService from './servicios/Base_Service/Base_Service';
     Ng2SearchPipeModule
   ],
   providers: [
-    RegionesService, // es el proveedor de los metodos para pedir los datos
-    CiudadesService,
+    RegionsService, // es el proveedor de los metodos para pedir los datos
+    CitiesService,
     BaseService
   ],
   bootstrap: [AppComponent]
