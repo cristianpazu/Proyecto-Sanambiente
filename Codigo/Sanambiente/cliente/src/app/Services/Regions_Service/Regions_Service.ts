@@ -15,14 +15,16 @@ export class RegionsService {
     
   }
 
-  /*viewRegion() {
-    return this.baseService.view(`${environment.viewRegion}`).toPromise().then((data: any) => data.message).catch((error) => error);
-  }*/
-
   viewRegions() {
     return this.baseService.view(`${environment.viewRegions}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  updateRegion(){
+  updateRegion(body: Region, id_region: number) {
+    return this.baseService.update(body, `${environment.hostUpdateRegion}/${id_region}`);
   }
+
+  viewRegionById(id_region: number) {
+    return this.baseService.view(`${environment.hostviewRegionById}/${id_region}`);
+  }
+
 }

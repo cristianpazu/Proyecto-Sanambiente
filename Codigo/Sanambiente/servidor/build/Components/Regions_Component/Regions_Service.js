@@ -33,6 +33,7 @@ class RegionService {
             try {
                 const { id_region } = request.params;
                 let { nombre_region, observacion_region } = request.body;
+                console.log(id_region, '\n', request.body);
                 yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateRegion'], [nombre_region, observacion_region, id_region]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Region'));
             }

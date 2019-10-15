@@ -10,10 +10,12 @@ export class RegionsListComponent implements OnInit {
 
   @HostBinding('class') classes='row';
 
-  public arrayRegions:any=[];
+  public arrayRegions: Array<any>;
   searchText;
 
-  constructor(private regionService: RegionsService) { }
+  constructor(private regionService: RegionsService) {
+    this.arrayRegions = [];
+   }
 
   ngOnInit() {
   this.getRegions();

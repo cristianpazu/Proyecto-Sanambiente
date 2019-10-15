@@ -5,11 +5,10 @@ export const environment = {
   viewCities: "http://localhost:3000/api/city/viewCities",
   viewCityById: "http://localhost:3000/api/city/viewCityById",
   viewRegion: "http://localhost:3000/api/region/viewRegion",
-
   hostCreateRegion: "http://localhost:3000/api/region/createRegion",
   hostUpdateRegion: "http://localhost:3000/api/region/updateRegions",
   viewRegions: "http://localhost:3000/api/region/viewRegions",
-  viewRegionById: "http://localhost:3000/api/region/viewRegionById",
+  hostviewRegionById: "http://localhost:3000/api/region/viewRegionById",
 
   production: false
 };

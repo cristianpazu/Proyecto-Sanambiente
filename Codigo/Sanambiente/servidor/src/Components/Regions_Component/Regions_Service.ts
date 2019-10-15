@@ -21,6 +21,7 @@ class RegionService implements BaseService<any> {
         try {
             const { id_region } = request.params;
             let { nombre_region, observacion_region } = request.body;
+            console.log(id_region, '\n', request.body)
             await ConnectionDataBase.query(handlerQuery['updateRegion'], [nombre_region, observacion_region, id_region]);
             return Promise.resolve(handleMessage(response, 200, 'Update Region'))
 

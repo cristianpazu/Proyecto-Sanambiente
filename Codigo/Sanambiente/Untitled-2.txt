@@ -31,10 +31,10 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label">Observacion</label>
                 <div class="col-6">
-                    <!--data-ng-minLength="1" data-ng-model="createrprofilefields.observacion" required highlight-on-error -->
+                 <!--data-ng-minLength="1" data-ng-model="createrprofilefields.observacion" required highlight-on-error -->
                     <textarea [(ngModel)]="ciudad.observacion_ciudad" ng-thim="false" class="form-control"
                         formControlName="observacion" rows="4" id="tamaño-fuente-input">
-              </textarea>
+                    </textarea>
                     <span id="tamaño-fuente-alerta">{{250-ciudad.observacion_ciudad.length}} Caracteres restantes</span>
                     <div *ngIf="forma.controls['observacion'].errors?.maxlength" class="form-control-feedback">
                         Maximo {{forma.controls['observacion'].errors?.maxlength.requiredLength}} caracteres

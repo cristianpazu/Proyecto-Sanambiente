@@ -18,4 +18,13 @@ export default class BaseService {
     view(route: string) {
         return this.httpClient.get(`${route}`);
     }
+
+    async update(body, route: string) {
+        return this.httpClient.put(`${route}`, body).subscribe(async (responseServer: any) => {
+            let message = await responseServer.message;
+            if (message != 'Error') {
+                return message;
+            }
+        })
+    }
 }

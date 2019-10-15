@@ -24,4 +24,12 @@ export class CitiesService {
     return this.baseService.view(`${environment.viewCities}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
+  viewRegionById(id_ciudad: number) {
+    return this.baseService.view(`${environment.viewCityById}/${id_ciudad}`);
+  }
+
+  updateCity(body: City, id_ciudad: number) {
+    return this.baseService.update(body, `${environment.hostUpdateCity}/${id_ciudad}`);
+  }
+
 }
