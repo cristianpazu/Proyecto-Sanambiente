@@ -1,0 +1,129 @@
+API_URI='http://localhost:3000/api'; // almaceno la ruta de la api dentro de una variable
+
+  constructor(private http: HttpClient) { } // Intancio la interfaz HttpClient mediante una variable de tipo HttpClient en el constructor
+  
+  obtenerCiudades(){ // obtiene las ciudades guardadas en el servidor
+    return this.http.get(`${this.API_URI}/ciudades`); // retorna todas las ciudades desde el modulo http haciendo una petecion get desde mi api
+  }
+
+  obtenerCiudad(id_ciudad: string){
+    return this.http.get(`${this.API_URI}/ciudades/${id_ciudad}`); // retorna una ciudad que coincida con el id que le estoy pasando
+  }
+
+  guardarCiudad(ciudad: Ciudad){ // al momento de guardar una region necesito un objeto de tipo Region. Utilizo la interfaz importada desde region.ts
+    return this.http.post(`${this.API_URI}/ciudades`, ciudad); // envio una petecion post a mi api con el objeto region que cree
+  }
+    
+  actualizarCiudad(id_ciudad: string|number, nuevosDatosCiudad: Ciudad): Observable<Ciudad>{ 
+    // envio una peticion put a mi api donde actualizo la region que corresponda al id que envio con los 
+    //datos actualizados que estan guardados dentro de la varible nuevosDatosregion
+    return this.http.put(`${this.API_URI}/ciudades/${id_ciudad}`,nuevosDatosCiudad); 
+  }
+  ciudadObtenerRegiones() { // obtiene las regiones guardadas en el servidor
+    return this.http.get(`${this.API_URI}/ciudades/ciudades_regiones`); // retorna todas las regiones desde el modulo http haciendo una petecion get desde mi api
+  }
+
+
+
+  
+  actualizarCiudad() {
+    this.ciudadesServicio.actualizarCiudad(this.ciudad.id_ciudad, this.ciudad)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/ciudad']);
+        },
+        err => console.error(err)
+      )
+  }
+
+
+  
+  /* creo un objeto HostBinding que se llenara con los datos de la ciudad, para enviarlos al 
+  servidor y guardar los datos.*/
+
+  @HostBinding('class') classes = 'row';
+
+  regionSeleccionada: number;
+
+  ciudad: Ciudad = {
+    id_ciudad: 0,
+    nombre_ciudad: '',
+    id_region: 0,
+    observacion_ciudad: '',
+  };
+  regionesCiudad: any = [];
+
+  edit: boolean = false;
+  forma: FormGroup;
+
+  constructor(private ciudadesServicio: CiudadesService, private router: Router,
+    private activedRoute: ActivatedRoute, private cdr: ChangeDetectorRef) { // instancio el servicio dentro de una variable llamada regionServicio
+
+    this.forma = new FormGroup({
+      'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'observacion': new FormControl('', [Validators.required, Validators.maxLength(250)])
+    })
+  }
+
+  guardarCambios() {
+    console.log(this.forma.value);
+    console.log(this.forma);
+  }
+  capturarRegion() {
+    // Pasamos la region seleccionada a la variable id_region dentro del arreglo ciudad
+    this.ciudad.id_region = this.regionSeleccionada;
+  }
+
+  ngOnInit() {
+    const params = this.activedRoute.snapshot.params;
+    if (params.id_ciudad) {
+      this.ciudadesServicio.obtenerCiudad(params.id_ciudad).subscribe(
+        async (res: any) => {
+          this.ciudad = await res.ciudad[0];
+          console.log(this.ciudad);
+          this.edit = true;
+        },
+        err => console.error(err)
+      );
+    }
+    this.obtenerRegionesCiudades();
+  }
+
+  // Maneja la deteccion de cambios
+  ngAfterViewInit(): void {
+    this.cdr.detectChanges();
+  }
+
+  obtenerRegionesCiudades() {
+    this.ciudadesServicio.ciudadObtenerRegiones().subscribe(
+      async (res: any) => {
+        this.regionesCiudad = await res.regionesCiudades;
+        console.log(this.regionesCiudad);
+      },
+      err => console.error(err)
+    );
+  }
+
+  crearNuevaCiudad() {
+    delete this.ciudad.id_ciudad; // elimino el id que me trae el arreglo region, ya en mi base de datos el campo id_region es autoincremental
+    this.ciudadesServicio.guardarCiudad(this.ciudad)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/ciudad']);
+        },
+        err => console.error(err)
+      )
+  }
+
+  actualizarCiudad() {
+    this.ciudadesServicio.actualizarCiudad(this.ciudad.id_ciudad, this.ciudad)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigate(['/ciudad']);
+        },
+        err => console.error(err)
+      )
+  }
