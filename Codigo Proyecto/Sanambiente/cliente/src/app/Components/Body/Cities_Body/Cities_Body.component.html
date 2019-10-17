@@ -1,0 +1,74 @@
+<div class="container animated fadeIn fast" id="main-container" id="fuente-general">
+    <h1>Ciudad</h1>
+    <hr>
+    <form [formGroup]="formCity">
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">ID ciudad</label>
+            <div class="col-6">
+                <input class="form-control" type="number" id="textId_ciudad" id="tamaño-fuente-input"  value={{arrayCities.id_ciudad}} disabled>
+            </div>
+        </div>
+        <!-- Campo para nombre de la ciudad -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre ciudad</label>
+            <div class="col-6">
+                <input class="form-control" formControlName="nombre_ciudad" type="text" autofocus id="textNombre"
+                    [(ngModel)]="arrayCities.nombre_ciudad"
+                    id="tamaño-fuente-input">
+                <div *ngIf="formCity.controls['nombre_ciudad'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+                <div *ngIf="formCity.controls['nombre_ciudad'].errors?.minlength" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Por lo menos {{formCity.controls['nombre_ciudad'].errors?.minlength.requiredLength}} caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row" [hidden]="hide==false">
+                <label class="col-2 col-form-label">Region de la ciudad</label>
+                <div class="col-6">
+                    <input class="form-control" type="text" id="textId_ciudad" id="tamaño-fuente-input"  
+                    value={{arrayCities.nombre_region}} disabled>
+                </div>
+        </div>
+
+        <!-- Campo para observaciones  -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Observacion</label>
+            <div class="col-6">
+                <textarea ng-thim="false" class="form-control" formControlName="observacion_ciudad" rows="4"
+                    [(ngModel)]="arrayCities.observacion_ciudad" id="tamaño-fuente-input" maxlength="50">
+                    </textarea>
+                <div *ngIf="formCity.controls['observacion_ciudad'].errors?.maxlength" class="form-control-feedback">
+                    Maximo {{forma.controls['observacion_ciudad'].errors?.maxlength.requiredLength}} caracteres
+                </div>
+            </div>
+        </div>
+        
+        <!-- Campo para region -->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Region</label>
+                <div class="col-6">
+                    <select formControlName="id_region" class="form-control" type="number" id="textId_region"
+                        id="tamaño-fuente-input">
+                        <option *ngFor="let regionCiudad of regionCity" value="{{regionCiudad.id_region}}">
+                            {{regionCiudad.nombre_region}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div id="caja-botones" class="form-group-row">
+                <label class="col-1 col-form-label">&nbsp;</label>
+                <div class="col-md-8">
+                    <button type="button" [disabled]="!formCity.valid" class="btn btn-outline-primary btn-lg"
+                    (click)=" edit ? updateCity() : createCity()">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

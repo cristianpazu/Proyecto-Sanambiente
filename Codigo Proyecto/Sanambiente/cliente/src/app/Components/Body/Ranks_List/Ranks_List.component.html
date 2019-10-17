@@ -1,0 +1,38 @@
+<div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
+    <button [routerLink]="['/rank/add_rank']" class="btn btn-outline-primary btn-lg">Nuevo Rango</button>
+    <br><br><br>
+    <h3>Lista de Rangos</h3>
+    <form>
+        <input type="search" name="search" aria-label="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Buscar">&nbsp;&nbsp;
+    </form>
+    <br>
+    <table class="table col-6 table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Valor Minimo</th>
+                <th scope="col">Valor Maximo</th>
+                <th scope="col">Estacion</th>
+                <th scope="col">Obervacion</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rango of arrayRanks | filter:searchText">
+                <td> {{rango.id_rango}} </td>
+                <td> {{rango.nombre_rango}} </td>
+                <td> {{rango.valorMinimo}} </td>
+                <td> {{rango.valorMaximo}} </td>
+                <td> {{rango.nombre_estacion}} </td>
+                <td> {{rango.observacion_rango}} </td>
+                <td>
+                    <a [routerLink]="['/rank/edit_rank',rango.id_rango]" class="btn btn-outline-primary">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
