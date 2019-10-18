@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router'; // la propiedad activa
 
 import { RegionsService } from '../../../Services/Regions_Service/Regions_Service'; //importo el servicio
 
+
 @Component({
   selector: 'app-Regions_Body',
   templateUrl: './Regions_Body.component.html',
