@@ -1,7 +1,7 @@
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
     <h1>Ciudad</h1>
     <hr>
-    <form class="formrun" [formGroup]="formCity" data-formrun-alert-dialog>
+    <form [formGroup]="formCity">
 
         <!-- Campo para ID solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
@@ -13,15 +13,12 @@
         </div>
 
         <!-- Campo para el nombre -->
-        <div class="form-group row" data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger"
-            data-formrun-target="nombre-ciudad">
+        <div class="form-group row">
             <label class="col-2 col-form-label">Nombre ciudad</label>
 
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_ciudad" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayCities.nombre_ciudad" id="tamaño-fuente-input" maxlength="50"
-                    data-formrun-required data-formrun-class-if-success="form-control-success"
-                    data-formrun-class-if-error="form-control-danger" name="nombre-ciudad">
+                    [(ngModel)]="arrayCities.nombre_ciudad" id="tamaño-fuente-input" maxlength="50">
 
                 <div *ngIf="formCity.controls['nombre_ciudad'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
@@ -47,14 +44,11 @@
         </div>
 
         <!-- Campo para observaciones  -->
-        <div class="form-group row" data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger"
-            data-formrun-target="observacion-ciudad">
+        <div class="form-group row">
             <label class="col-2 col-form-label">Observacion</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_ciudad" rows="4"
-                    [(ngModel)]="arrayCities.observacion_ciudad" id="tamaño-fuente-input" maxlength="50"
-                    data-formrun-required data-formrun-class-if-success="form-control-success"
-                    data-formrun-class-if-error="form-control-danger" name="observacion-ciudad">
+                    [(ngModel)]="arrayCities.observacion_ciudad" id="tamaño-fuente-input" maxlength="50">
                 </textarea>
 
                 <div *ngIf="formCity.controls['observacion_ciudad'].errors?.required" class="form-control-feedback"
@@ -73,14 +67,11 @@
 
         <!-- Campo para region -->
         <div>
-            <div class="form-group row" data-formrun-class-if-success="has-success"
-                data-formrun-class-if-error="has-danger" data-formrun-target="region-ciudad">
+            <div class="form-group row">
                 <label class="col-2 col-form-label">Región</label>
                 <div class="col-6">
                     <select formControlName="id_region" class="form-control" type="number" id="textId_region"
-                        id="tamaño-fuente-input" data-formrun-required
-                        data-formrun-class-if-success="form-control-success"
-                        data-formrun-class-if-error="form-control-danger" name="region-ciudad">
+                        id="tamaño-fuente-input" data-formrun-required>
                         <option *ngFor="let regionCiudad of regionCity" value="{{regionCiudad.id_region}}"
                             name="region-ciudad">
                             {{regionCiudad.nombre_region}}
@@ -98,7 +89,7 @@
             <div id="caja-botones" class="form-group-row">
                 <label class="col-1 col-form-label">&nbsp;</label>
                 <div class="col-md-8">
-                    <button type="button" [disabled]="!formCity.valid" class="btn btn-outline-primary btn-sm"
+                    <button type="button" [disabled]="!formCity.valid" class="btn btn-outline-primary btn-lg"
                         (click)=" edit ? updateCity() : createCity()">
                         Guardar
                     </button>

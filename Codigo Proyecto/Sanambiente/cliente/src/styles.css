@@ -29,11 +29,11 @@ padding-top: 10px;
 
 /* error validacion campo formulario */
 .ng-invalid.ng-touched:not(form){
-border: 1px solid red;
+border-left: 6px solid red; 
 }
 /* validacion OK campo formulario */
 .ng-valid.ng-touched:not(form){
-  border: 1px solid green;
+  border-left: 6px solid green;
 }
 
 #caja-botones{
