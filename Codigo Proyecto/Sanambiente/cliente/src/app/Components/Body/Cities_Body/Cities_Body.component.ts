@@ -30,9 +30,9 @@ export class CitiesBodyComponent implements OnInit {
 
   constructor(private cityService: CitiesService, private router: Router, private activedRoute: ActivatedRoute, private cdr: ChangeDetectorRef) { 
     this.formCity = new FormGroup({
-      'nombre_ciudad': new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+      'nombre_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_region': new FormControl('', [Validators.required]),
-      'observacion_ciudad': new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      'observacion_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayCities = {};
   }
