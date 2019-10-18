@@ -1,5 +1,5 @@
 <div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
-    <button [routerLink]="['/city/add_city']" class="btn btn-outline-primary btn-lg">Nueva Ciudad</button>
+    <button [routerLink]="['/city/add_city']" class="btn btn-outline-primary btn-sm">Nueva Ciudad</button>
     <br><br><br>
     <h3>Lista de Ciudades</h3>
     <form>
@@ -24,7 +24,7 @@
                 <td> {{city.nombre_region}} </td>
                 <td> {{city.observacion_ciudad}} </td>
                 <td>
-                    <a [routerLink]="['/city/edit_city',city.id_ciudad]" class="btn btn-outline-primary">
+                    <a [routerLink]="['/city/edit_city',city.id_ciudad]" class="btn btn-outline-primary btn-sm">
                         Editar
                     </a>
                 </td>

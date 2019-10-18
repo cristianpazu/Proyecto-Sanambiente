@@ -1,5 +1,5 @@
 <div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
-    <button [routerLink]="['/region/add_region']" class="btn btn-outline-primary btn-lg">Nueva Region</button>
+    <button [routerLink]="['/region/add_region']" class="btn btn-outline-primary btn-sm">Nueva Region</button>
     <br><br><br>
     <h3>Lista de Regiones</h3>
     <form>
@@ -22,7 +22,7 @@
                 <td> {{region.nombre_region}} </td>
                 <td> {{region.observacion_region}} </td>
                 <td>
-                    <a [routerLink]="['/region/edit_region',region.id_region]" class="btn btn-outline-primary">
+                    <a [routerLink]="['/region/edit_region',region.id_region]" class="btn btn-outline-primary btn-sm">
                         Editar
                     </a>
                 </td>
