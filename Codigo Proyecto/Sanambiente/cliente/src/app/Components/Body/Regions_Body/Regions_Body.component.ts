@@ -12,14 +12,7 @@ import { RegionsService } from '../../../Services/Regions_Service/Regions_Servic
 })
 export class RegionsBodyComponent implements OnInit {
 
-  ngOnInit(): void {
-    this.viewDataById()
-  }
-
   public formRegion: FormGroup;
-
-  @HostBinding('class') classes = 'row';
-
   public edit: boolean = false;
   public arrayRegions;
   public lengthRegions: number;
@@ -27,12 +20,18 @@ export class RegionsBodyComponent implements OnInit {
 
   constructor(private regionService: RegionsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionServicio
     this.formRegion = new FormGroup({
-      'nombre_region': new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
-      'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      'nombre_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayRegions = {};
+    
   }
 
+  ngOnInit(): void {
+    this.viewDataById()
+  }
+
+  @HostBinding('class') classes = 'row';
 
   async createRegion() {
     if (this.formRegion.valid) {
@@ -41,7 +40,6 @@ export class RegionsBodyComponent implements OnInit {
     }
   }
   
-
   async viewDataById() {
     let id = this.activedRoute.snapshot.params.id_region;
     if(id !== undefined) {

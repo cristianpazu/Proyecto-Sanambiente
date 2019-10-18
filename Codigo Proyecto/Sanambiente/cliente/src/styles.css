@@ -32,10 +32,12 @@ border: 1px solid red;
 }
 
 #caja-botones{
-  margin: 30px;
-  margin-left: 205px;
-  font-size: 15px;
+  margin: 40px;
+  margin-left: 605px;
+  /* float: right; */
 }
+
+
 /* animaciones  */
 .animated {
   -webkit-animation-duration: 1s;

@@ -1,50 +1,71 @@
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
     <h1>Region</h1>
     <hr>
-    <form [formGroup]="formRegion">
+    <form class="formrun" data-formrun-alert-dialog [formGroup]="formRegion">
+
+        <!-- Campo para ID solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">ID region</label>
-            <div class="col-6">
-                <input class="form-control" type="number" autofocus id="textId_region"
-                    id="tamaño-fuente-input" value={{arrayRegions.id_region}} disabled>
+            <label class="col-6 col-form-label">ID region</label>
+            <div class="col-2">
+                <input class="form-control" type="number" autofocus id="textId_region" id="tamaño-fuente-input"
+                    value={{arrayRegions.id_region}} disabled>
             </div>
         </div>
-        <!-- Campo para nombre de la region -->
-        <div class="form-group row">
+
+        <!-- Campo para el nombre -->
+        <div class="form-group row" data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger"
+            data-formrun-target="nombre-region">
             <label class="col-2 col-form-label">Nombre region</label>
             <div class="col-6">
-                <input class="form-control" [(ngModel)]="arrayRegions.nombre_region" formControlName="nombre_region" type="text" autofocus id="textNombre"
-                    id="tamaño-fuente-input">
+                <input class="form-control" formControlName="nombre_region" type="text" autofocus id="textNombre"
+                    [(ngModel)]="arrayRegions.nombre_region" id="tamaño-fuente-input" maxlength="50"
+                    data-formrun-required data-formrun-class-if-success="form-control-success"
+                    data-formrun-class-if-error="form-control-danger" name="nombre-region">
+
                 <div *ngIf="formRegion.controls['nombre_region'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-                <div *ngIf="formRegion.controls['nombre_region'].errors?.minlength" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    Por lo menos {{formRegion.controls['nombre_region'].errors?.minlength.requiredLength}} caracteres
+
+                <div *ngIf="formRegion.controls['nombre_region'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Maximo 50 caracteres.
+                    </div>
                 </div>
+
             </div>
         </div>
+
         <!-- Campo para observaciones  -->
-        <div class="form-group row">
+        <div class="form-group row" data-formrun-class-if-success="has-success" data-formrun-class-if-error="has-danger"
+        data-formrun-target="observacion-region">
             <label class="col-2 col-form-label">Observacion</label>
-            <div class="col-6">          
+            <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_region" rows="4"
-                    id="tamaño-fuente-input" [(ngModel)]="arrayRegions.observacion_region" maxlength="50"> 
+                    [(ngModel)]="arrayRegions.observacion_region" id="tamaño-fuente-input" maxlength="50"
+                    data-formrun-required data-formrun-class-if-success="form-control-success"
+                    data-formrun-class-if-error="form-control-danger" name="observacion-region">
                </textarea>
-                <span id="tamaño-fuente-alerta">{{50-arrayRegions.observacion_region}} Caracteres
-                    restantes</span>
-                <div *ngIf="formRegion.controls['observacion_region'].errors?.maxlength" class="form-control-feedback">
-                    Maximo {{formRegion.controls['observacion_region'].errors?.maxlength.requiredLength}} caracteres
+
+                <div *ngIf="formRegion.controls['observacion_region'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
                 </div>
+
+                <div *ngIf="formRegion.controls['observacion_region'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Maximo 50 caracteres.
+                    </div>
+                </div>
+
             </div>
         </div>
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">
                 <button type="button" class="btn btn-outline-primary btn-sm" [disabled]="!formRegion.valid"
-                (click)=" edit ? updateRegion() : createRegion()">
-                Guardar
+                    (click)=" edit ? updateRegion() : createRegion()">
+                    Guardar
                 </button>
             </div>
         </div>
