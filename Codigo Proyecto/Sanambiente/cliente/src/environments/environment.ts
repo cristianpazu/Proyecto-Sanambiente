@@ -1,3 +1,6 @@
+/* Esta clase contiene las constantes que albergan las rutas del lado del servidor, para cada metodo 
+  de las vistas*/
+
 export const environment = {
   hostCreateCity: "http://localhost:3000/api/city/createCity",
   hostUpdateCity: "http://localhost:3000/api/city/updateCities",

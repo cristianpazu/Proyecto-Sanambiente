@@ -1,5 +1,7 @@
+<!-- Clase que contiene el HTML de la vista de region (Empleada para crear y actulizar una region) -->
+
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
-    <h1>Region</h1>
+    <h1>Región</h1>
     <hr>
     <form [formGroup]="formRegion">
 
@@ -14,7 +16,7 @@
 
         <!-- Campo para el nombre -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre region</label>
+            <label class="col-2 col-form-label">Nombre región</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_region" type="text"  id="textNombre"
                     [(ngModel)]="arrayRegions.nombre_region" id="tamaño-fuente-input" maxlength="50">
@@ -26,7 +28,7 @@
 
                 <div *ngIf="formRegion.controls['nombre_region'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 caracteres.
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
                 </div>
 
@@ -35,7 +37,7 @@
 
         <!-- Campo para observaciones  -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Observacion</label>
+            <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_region" rows="4"
                     [(ngModel)]="arrayRegions.observacion_region" id="tamaño-fuente-input" maxlength="50">
@@ -48,7 +50,7 @@
 
                 <div *ngIf="formRegion.controls['observacion_region'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 caracteres.
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
                 </div>
 

@@ -1,4 +1,6 @@
 "use strict";
+/* Esta clase contiene la constante en la cual se encuentran las sentencias SQL utilizadas para
+la interaccion con la base de datos, por parte de cada tabla parametro*/
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handlerQuery = {
     createCity: 'INSERT INTO ciudades (nombre_ciudad,id_region,observacion_ciudad) VALUES ($1,$2,$3)',
