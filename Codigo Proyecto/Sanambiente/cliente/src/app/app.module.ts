@@ -23,6 +23,12 @@ import BaseService from './Services/Base_Service/Base_Service';
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
 
+import { CategoriesBodyComponent } from './Components/Body/Categories_Body/Categories_Body.component';
+import { CategoriesListComponent } from './Components/Body/Categories_List/Categories_List.component';
+import { CategoriesService } from './Services/Categories_Service/Categories_Service';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +40,10 @@ import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.com
     CitiesBodyComponent,
     CitiesListComponent,
     RanksBodyComponent,
-    RanksListComponent
+    RanksListComponent,
+    CategoriesBodyComponent,
+    CategoriesListComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -47,6 +56,7 @@ import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.com
   providers: [
     RegionsService, // es el proveedor de los metodos para pedir los datos
     CitiesService,
+    CategoriesService,
     BaseService
   ],
   bootstrap: [AppComponent]

@@ -8,6 +8,9 @@ import { RegionsListComponent } from './Components/body/Regions_List/Regions_Lis
 import { CitiesBodyComponent } from './Components/body/Cities_Body/Cities_Body.component';
 import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.component';
 
+import { CategoriesBodyComponent } from './Components/Body/Categories_Body/Categories_Body.component';
+import { CategoriesListComponent } from './Components/Body/Categories_List/Categories_List.component';
+
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components/Body/Ranks_List/Ranks_List.component';
 
@@ -64,6 +67,31 @@ const rutas: Routes = [
     path: 'city/edit_city/:id_ciudad',
     component: CitiesBodyComponent
   },
+
+  /*----------------------------------- Aqui Creo las rutas categoria ------------------------------------*/
+
+
+  {
+    path: 'category',
+    redirectTo: '/category',
+    pathMatch: 'full'
+  },
+  {
+    path: 'category', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
+    component: CategoriesListComponent // a la interfaz principal de ciudad
+  },
+
+  {
+    path: 'category/add_category', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
+    component: CategoriesBodyComponent // redireccionada a la interfaz principal de region
+  },
+
+  {
+    path: 'category/edit_category/:id_categoria',
+    component: CategoriesBodyComponent
+  },
+
+
   /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
 
   {
