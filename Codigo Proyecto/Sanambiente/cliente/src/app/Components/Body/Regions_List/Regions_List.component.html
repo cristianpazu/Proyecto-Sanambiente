@@ -1,7 +1,9 @@
+<!-- Clase que contiene el HTML de la vista de region (Empleada para listar en la tabla las regiones existentes) -->
+
 <div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
-    <button [routerLink]="['/region/add_region']" class="btn btn-outline-primary btn-lg">Nueva Region</button>
+    <button [routerLink]="['/region/add_region']" class="btn btn-outline-primary btn-lg">Nueva Región</button>
     <br><br><br>
-    <h3>Lista de Regiones</h3>
+    <h3>Lista de Regiónes</h3>
     <form>
         <input type="search" name="search" aria-label="search" [(ngModel)]="searchText" autocomplete="off"
             placeholder="Buscar">&nbsp;&nbsp;
@@ -12,7 +14,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Obervacion</th>
+                <th scope="col">Observación</th>
                 <th scope="col"></th>
             </tr>
         </thead>

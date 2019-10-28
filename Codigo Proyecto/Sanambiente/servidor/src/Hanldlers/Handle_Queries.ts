@@ -1,3 +1,6 @@
+/* Esta clase contiene la constante en la cual se encuentran las sentencias SQL utilizadas para 
+la interaccion con la base de datos, por parte de cada tabla parametro*/
+
 export const handlerQuery = {
     createCity: 'INSERT INTO ciudades (nombre_ciudad,id_region,observacion_ciudad) VALUES ($1,$2,$3)',
     viewCities: 'SELECT id_ciudad, nombre_ciudad, observacion_ciudad, regiones.nombre_region FROM regiones, ciudades where regiones.id_region=ciudades.id_region order by id_ciudad;',
