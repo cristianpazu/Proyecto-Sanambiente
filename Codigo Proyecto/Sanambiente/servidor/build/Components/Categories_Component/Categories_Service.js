@@ -24,7 +24,7 @@ class CategoryService {
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create category'));
             }
             catch (error) {
-                Promise.reject(Handle_Message_1.default(response, 404, 'Error Crar conexion'));
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error Crear conexion'));
             }
         });
     }

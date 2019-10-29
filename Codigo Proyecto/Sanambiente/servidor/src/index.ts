@@ -6,6 +6,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import citiesRoutes from './Components/Cities_Component/Cities_Route';
 import regionsRoutes from './Components/Regions_Component/Regions_Route';
+import categoriesRutes from './Components/Categories_Component/Categories_Rute';
 import ranksRoutes from './Components/Ranks_Component/Ranks_Route';
 
 // Clase Servidor cuyos metodos se utilizaran más a adelante
@@ -32,6 +33,7 @@ class Servidor {
     rutas(): void {
         this.app.use('/api/city', citiesRoutes);
         this.app.use('/api/region', regionsRoutes);
+        this.app.use('/api/category', categoriesRutes);
         this.app.use('/api/rank', ranksRoutes);
     }
 

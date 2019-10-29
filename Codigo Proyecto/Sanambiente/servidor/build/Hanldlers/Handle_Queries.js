@@ -20,5 +20,5 @@ exports.handlerQuery = {
     createCategory: 'INSERT INTO categorias (nombre_categoria, observacion_categoria) VALUES ($1,$2)',
     viewCategories: 'SELECT * FROM categorias order by id_categoria',
     viewCategory: 'SELECT * FROM categorias where id_categoria=$1',
-    updateCategory: 'UPDATE categorias set nombre_categoria=$1,observacion_categoria=$2 where id_categoria=$3',
+    updateCategory: 'UPDATE categorias set nombre_categoria=$1, observacion_categoria=$2 where id_categoria=$3',
 };

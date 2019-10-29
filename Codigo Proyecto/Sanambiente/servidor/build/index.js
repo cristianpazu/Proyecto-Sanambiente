@@ -10,6 +10,7 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const Cities_Route_1 = __importDefault(require("./Components/Cities_Component/Cities_Route"));
 const Regions_Route_1 = __importDefault(require("./Components/Regions_Component/Regions_Route"));
+const Categories_Rute_1 = __importDefault(require("./Components/Categories_Component/Categories_Rute"));
 const Ranks_Route_1 = __importDefault(require("./Components/Ranks_Component/Ranks_Route"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
@@ -31,6 +32,7 @@ class Servidor {
     rutas() {
         this.app.use('/api/city', Cities_Route_1.default);
         this.app.use('/api/region', Regions_Route_1.default);
+        this.app.use('/api/category', Categories_Rute_1.default);
         this.app.use('/api/rank', Ranks_Route_1.default);
     }
     // Metodo que identifica el puerto usado para la conexion en el servidor
