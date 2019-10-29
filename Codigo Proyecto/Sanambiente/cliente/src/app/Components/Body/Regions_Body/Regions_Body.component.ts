@@ -1,10 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router'; // la propiedad activateRoute permite saber lo que estoy recibiendo como parametro
-
 import { RegionsService } from '../../../Services/Regions_Service/Regions_Service'; //importo el servicio
-
 
 @Component({
   selector: 'app-Regions_Body',

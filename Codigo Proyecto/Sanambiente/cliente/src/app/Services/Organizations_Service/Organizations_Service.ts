@@ -12,7 +12,6 @@ export class OrganizationsService {
 
   createOrganization (body: Organization) {
     return this.baseService.create(body, `${environment.hostCreateOrganization}`);
-    
   }
 
   viewOrganizations() {

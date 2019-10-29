@@ -12,6 +12,7 @@ const Cities_Route_1 = __importDefault(require("./Components/Cities_Component/Ci
 const Regions_Route_1 = __importDefault(require("./Components/Regions_Component/Regions_Route"));
 const Categories_Rute_1 = __importDefault(require("./Components/Categories_Component/Categories_Rute"));
 const Ranks_Route_1 = __importDefault(require("./Components/Ranks_Component/Ranks_Route"));
+const Organizations_Route_1 = __importDefault(require("./Components/Organizations_Component/Organizations_Route"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     // Constructor en el cual se instancian los metodos a ejecutar
@@ -34,6 +35,7 @@ class Servidor {
         this.app.use('/api/region', Regions_Route_1.default);
         this.app.use('/api/category', Categories_Rute_1.default);
         this.app.use('/api/rank', Ranks_Route_1.default);
+        this.app.use('/api/organization', Organizations_Route_1.default);
     }
     // Metodo que identifica el puerto usado para la conexion en el servidor
     iniciar() {

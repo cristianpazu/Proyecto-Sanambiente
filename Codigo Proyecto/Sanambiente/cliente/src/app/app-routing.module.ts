@@ -1,5 +1,4 @@
 /*Clase que contiene las rutas del lado del cliente que empleara cada vista */
-
 import { NgModule } from '@angular/core'; // Angular lo importa por defecto
 import { Routes, RouterModule } from '@angular/router'; // Componente de angular para manejar rutas
 
@@ -20,6 +19,7 @@ import { CategoriesListComponent } from './Components/Body/Categories_List/Categ
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components/Body/Ranks_List/Ranks_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para organiacion */
 import { OrganizationsListComponent } from './Components/Body/Organizations_List/Organizations_List.component';
 import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body/Organizations_Body.component';
 
@@ -65,26 +65,13 @@ const rutas: Routes = [
   },
 
   /*----------------------------------- Aqui Creo las rutas ciudad --------------------------------------*/
-  {
-    path: 'city',
-    redirectTo: '/city',
-    pathMatch: 'full'
-  },
+  { path: 'city', redirectTo: '/city', pathMatch: 'full' },
 
   /* Ruta que utiliza el cliente cuando ingresa a la vista principal de region y esta redireccionada 
     al componente logico del formulario que lista las ciudades existentes */
-  {
-    path: 'city', 
-    component: CitiesListComponent
-  },
-  {
-    path: 'city/add_city',
-    component: CitiesBodyComponent
-  },
-  {
-    path: 'city/edit_city/:id_ciudad',
-    component: CitiesBodyComponent
-  },
+  { path: 'city',  component: CitiesListComponent },
+  { path: 'city/add_city', component: CitiesBodyComponent },
+  { path: 'city/edit_city/:id_ciudad', component: CitiesBodyComponent },
 
   /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
   {
@@ -105,11 +92,11 @@ const rutas: Routes = [
     component: RanksBodyComponent
   },
 
-  /*---- Rutas de Organizacion ------*/
-  // { path: 'organization', redirectTo: '/organization', pathMatch: 'full' },
-  // { path: 'organization', component: OrganizationsListComponent },
-  // { path: 'organization/add_organization', component: OrganizationsBodyComponent },
-  // { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent }
+  /*--- Rutas de Organizacion ---*/
+  { path: 'organization', redirectTo: '/organization', pathMatch: 'full' },
+  { path: 'organization', component: OrganizationsListComponent }, // Ruta para listar todos los registros  
+  { path: 'organization/add_organization', component: OrganizationsBodyComponent },  // Ruta para adicionar registros  
+  { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent } // Ruta para editar registros
 ];
 
 @NgModule({

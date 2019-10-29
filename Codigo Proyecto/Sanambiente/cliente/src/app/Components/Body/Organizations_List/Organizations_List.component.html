@@ -1,3 +1,5 @@
+<!-- Clase que contiene el HTML de la vista de organizacion (Empleada para listar en la tabla las organizaciones existentes) -->
+
 <div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
     <button [routerLink]="['/organization/add_organization']" class="btn btn-outline-primary btn-lg">Nueva organización</button>
     <br><br><br>
@@ -12,15 +14,15 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre organización</th>
-                <th scope="col">Obervación</th>
+                <th scope="col">Observación</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let organization of arrayOrganizations | filter:searchText">
-                <td> {{organization.id_organizacion}} </td>
-                <td> {{organization.nombre_organizacion}} </td>
-                <td> {{organization.observacion_organizacion}} </td>
+                <td> {{ organization.id_organizacion }} </td>
+                <td> {{ organization.nombre_organizacion }} </td>
+                <td> {{ organization.observacion_organizacion }} </td>
                 <td>
                     <a [routerLink]="['/organization/edit_organization',organization.id_organizacion]" class="btn btn-outline-primary btn-lg">
                         Editar

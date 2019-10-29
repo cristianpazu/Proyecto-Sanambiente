@@ -8,6 +8,7 @@ import citiesRoutes from './Components/Cities_Component/Cities_Route';
 import regionsRoutes from './Components/Regions_Component/Regions_Route';
 import categoriesRutes from './Components/Categories_Component/Categories_Rute';
 import ranksRoutes from './Components/Ranks_Component/Ranks_Route';
+import organizationsRoutes from './Components/Organizations_Component/Organizations_Route';
 
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
@@ -35,6 +36,7 @@ class Servidor {
         this.app.use('/api/region', regionsRoutes);
         this.app.use('/api/category', categoriesRutes);
         this.app.use('/api/rank', ranksRoutes);
+        this.app.use('/api/organization', organizationsRoutes);
     }
 
     // Metodo que identifica el puerto usado para la conexion en el servidor

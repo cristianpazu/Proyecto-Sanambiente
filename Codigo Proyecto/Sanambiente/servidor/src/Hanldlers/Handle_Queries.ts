@@ -23,4 +23,9 @@ export const handlerQuery = {
     viewCategories: 'SELECT * FROM categorias order by id_categoria',
     viewCategory: 'SELECT * FROM categorias where id_categoria=$1',
     updateCategory: 'UPDATE categorias set nombre_categoria=$1, observacion_categoria=$2 where id_categoria=$3',
+
+    createOrganizacion: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion) VALUES ($1,$2)',
+    viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',
+    viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',
+    updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2 where id_organizacion=$3',
 }
