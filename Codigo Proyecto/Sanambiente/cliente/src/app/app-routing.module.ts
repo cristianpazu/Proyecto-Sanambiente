@@ -42,23 +42,23 @@ const rutas: Routes = [
     redirectTo: '/region',
     pathMatch: 'full'
   },
-  
+
   /* Ruta que utiliza el cliente cuando ingresa a la vista principal de region y esta redireccionada 
     al componente logico del formulario que lista las regiones existentes*/
   {
-    path: 'region', 
+    path: 'region',
     component: RegionsListComponent
   },
 
   /* Ruta que utiliza el cliente cuando añade una nueva region y esta redireccionada al componente logico 
     del formulario para dicha accion */
   {
-    path: 'region/add_region', 
-    component: RegionsBodyComponent 
+    path: 'region/add_region',
+    component: RegionsBodyComponent
   },
 
-    /* Ruta que utiliza el cliente cuando actualiza una region y esta redireccionada al componente logico 
-    del formulario para dicha accion */
+  /* Ruta que utiliza el cliente cuando actualiza una region y esta redireccionada al componente logico 
+  del formulario para dicha accion */
   {
     path: 'region/edit_region/:id_region',
     component: RegionsBodyComponent
@@ -69,7 +69,7 @@ const rutas: Routes = [
 
   /* Ruta que utiliza el cliente cuando ingresa a la vista principal de region y esta redireccionada 
     al componente logico del formulario que lista las ciudades existentes */
-  { path: 'city',  component: CitiesListComponent },
+  { path: 'city', component: CitiesListComponent },
   { path: 'city/add_city', component: CitiesBodyComponent },
   { path: 'city/edit_city/:id_ciudad', component: CitiesBodyComponent },
 
@@ -97,6 +97,7 @@ const rutas: Routes = [
   { path: 'organization', component: OrganizationsListComponent }, // Ruta para listar todos los registros  
   { path: 'organization/add_organization', component: OrganizationsBodyComponent },  // Ruta para adicionar registros  
   { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent } // Ruta para editar registros
+
 ];
 
 @NgModule({

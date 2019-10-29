@@ -18,7 +18,7 @@ export const environment = {
   hostUpdateOrganization: "http://localhost:3000/api/organization/updateOrganizations",
   viewOrganizations: "http://localhost:3000/api/organization/viewOrganizations",
   hostviewOrganizationById: "http://localhost:3000/api/organization/viewOrganizationById",
-
+ // categorias
   hostCreateCategory: "http://localhost:3000/api/category/createCategory",
   hostUpdateCategory: "http://localhost:3000/api/category/updateCategories",
   viewCategories: "http://localhost:3000/api/category/viewCategories",
