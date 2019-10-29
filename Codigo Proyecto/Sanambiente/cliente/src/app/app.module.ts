@@ -22,13 +22,13 @@ import { CitiesBodyComponent } from './Components/body/Cities_Body/Cities_Body.c
 import { CitiesService } from './Services/Cities_Service/Cities_Service';
 import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.component';
 
-import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
-import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
-
 /* Importo los componentes y servicios creados para organizacion */
 import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body/Organizations_Body.component';
 import { OrganizationsService } from './Services/Organizations_Service/Organizations_Service';
 import { OrganizationsListComponent } from './Components/Body/Organizations_List/Organizations_List.component';
+
+import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
+import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
 
 @NgModule({
   declarations: [
