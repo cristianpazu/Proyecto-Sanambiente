@@ -28,7 +28,7 @@ class CityService implements BaseService<any> {
         }
     }
 
-    async view(_: Request, response: Response): Promise<any> {
+    async view(request: Request, response: Response): Promise<any> {
         try {
             let cities = await ConnectionDataBase.query(handlerQuery['viewCities']);
             return Promise.resolve(handleMessage(response, 200, cities.rows));

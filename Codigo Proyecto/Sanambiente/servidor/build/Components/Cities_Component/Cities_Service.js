@@ -41,7 +41,7 @@ class CityService {
             }
         });
     }
-    view(_, response) {
+    view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let cities = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewCities']);

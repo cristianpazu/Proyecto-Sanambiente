@@ -11,7 +11,8 @@ import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.c
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components/Body/Ranks_List/Ranks_List.component';
 
-
+import { OrganizationsListComponent } from './Components/Body/Organizations_List/Organizations_List.component';
+import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body/Organizations_Body.component';
 
 const rutas: Routes = [
 
@@ -20,11 +21,11 @@ const rutas: Routes = [
     redirectTo: '/home', // Cuando visiten la pagina inicial, se redireccionara a la ruta llamada home. La cual debo crear
     pathMatch: 'full' // Caracteristica que se le asigna solo a la ruta inicial.
   },
-
   {
     path: 'home', // Nombre de la ruta
     component: HomeComponent // Componente el cual se caragar cuando se utilice la ruta /games
   },
+
   /*----------------------------------- Aqui Creo las rutas region ----------------------------------------*/
   {
     path: 'region',
@@ -43,8 +44,8 @@ const rutas: Routes = [
     path: 'region/edit_region/:id_region',
     component: RegionsBodyComponent
   },
-  /*----------------------------------- Aqui Creo las rutas ciudad --------------------------------------*/
 
+  /*----------------------------------- Aqui Creo las rutas ciudad --------------------------------------*/
   {
     path: 'city',
     redirectTo: '/city',
@@ -54,18 +55,16 @@ const rutas: Routes = [
     path: 'city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta redireccionada
     component: CitiesListComponent // a la interfaz principal de ciudad
   },
-
   {
     path: 'city/add_city', // ruta que utiliza el cliente cuando consulta y guarda datos y esta 
     component: CitiesBodyComponent // redireccionada a la interfaz principal de region
   },
-
   {
     path: 'city/edit_city/:id_ciudad',
     component: CitiesBodyComponent
   },
-  /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
 
+  /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
   {
     path: 'rank',
     redirectTo: '/rank',
@@ -75,16 +74,20 @@ const rutas: Routes = [
     path: 'rank',
     component: RanksListComponent
   },
-
   {
     path: 'rank/add_rank',
     component: RanksBodyComponent
   },
-
   {
     path: 'rank/edit_rank/:id_rank',
     component: RanksBodyComponent
-  }
+  },
+
+  /*---- Rutas de Organizacion ------*/
+  // { path: 'organization', redirectTo: '/organization', pathMatch: 'full' },
+  // { path: 'organization', component: OrganizationsListComponent },
+  // { path: 'organization/add_organization', component: OrganizationsBodyComponent },
+  // { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent }
 ];
 
 @NgModule({
