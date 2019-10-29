@@ -23,7 +23,6 @@ export class CitiesListComponent implements OnInit {
   async getCities() {
     this.arrayCities = await this.cityService.viewCities();
     console.log(this.arrayCities);
-    console.log();
   }
 }
 

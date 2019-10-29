@@ -12,10 +12,20 @@ import { HeaderComponent } from './Components/Header/Header.component';
 import { NavigationComponent } from './Components/Navigation/Navigation.component';
 import { HomeComponent } from './Components/Body/Home/Home.component';
 
+import { AppRoutingModule } from './app-routing.module'; // Permite trabajar con rutas
+import { AppComponent } from './app.component'; // Angular lo importa por defecto
+import { FormsModule } from '@angular/forms'; // Permite crear validaciones a los formularios
+import { ReactiveFormsModule } from '@angular/forms'; // Permite trabajar con formularios reactivos
+import { HeaderComponent } from './Components/Header/Header.component'; // Importo el componente Header (Barra de menu)
+import { NavigationComponent } from './Components/Navigation/Navigation.component'; // Importo el componente navigation (Menu de navegacion)
+import { HomeComponent } from './Components/Body/Home/Home.component'; // Importo el componente home (Vista del inicio)
+
+/* Importo los componentes y servicios creados para region*/
 import { RegionsBodyComponent } from './Components/body/Regions_Body/Regions_Body.component';
 import { RegionsService } from './Services/Regions_Service/Regions_Service';
 import { RegionsListComponent } from './Components/body/Regions_List/Regions_List.component';
 
+/* Importo los componentes y servicios creados para ciudad*/
 import { CitiesBodyComponent } from './Components/body/Cities_Body/Cities_Body.component';
 import { CitiesService } from './Services/Cities_Service/Cities_Service';
 import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.component';
@@ -29,6 +39,7 @@ import { OrganizationsListComponent } from './Components/Body/Organizations_List
 
 @NgModule({
   declarations: [
+    // Declaro los componentes o propiedades importadas desde cada clase
     AppComponent,
     HeaderComponent,
     NavigationComponent,
@@ -43,6 +54,7 @@ import { OrganizationsListComponent } from './Components/Body/Organizations_List
     OrganizationsListComponent
   ],
   imports: [
+    // Importo los componentes que importados desde los modulos de angular
     BrowserModule,
     AppRoutingModule,
     FormsModule,

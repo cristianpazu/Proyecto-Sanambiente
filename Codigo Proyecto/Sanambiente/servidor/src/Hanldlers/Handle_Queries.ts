@@ -1,3 +1,6 @@
+/* Esta clase contiene la constante en la cual se encuentran las sentencias SQL utilizadas para 
+la interaccion con la base de datos, por parte de cada tabla parametro*/
+
 export const handlerQuery = {
     createCity: 'INSERT INTO ciudades (nombre_ciudad,id_region,observacion_ciudad) VALUES ($1,$2,$3)',
     viewCities: 'SELECT id_ciudad, nombre_ciudad, observacion_ciudad, regiones.nombre_region FROM regiones, ciudades where regiones.id_region=ciudades.id_region order by id_ciudad;',
@@ -15,4 +18,9 @@ export const handlerQuery = {
     viewRank: 'SELECT * FROM rangos where id_rango=$1',
     updateRank: 'UPDATE rangos set nombre_rango=$1, valorMinimo=$2, valorMaximo=$3, id_estacion=$4, observacion_region=$5 where id_rango=$6',
     viewStationsRank: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
+
+    createCategory: 'INSERT INTO categorias (nombre_categoria, observacion_categoria) VALUES ($1,$2)',
+    viewCategories: 'SELECT * FROM categorias order by id_categoria',
+    viewCategory: 'SELECT * FROM categorias where id_categoria=$1',
+    updateCategory: 'UPDATE categorias set nombre_categoria=$1, observacion_categoria=$2 where id_categoria=$3',
 }

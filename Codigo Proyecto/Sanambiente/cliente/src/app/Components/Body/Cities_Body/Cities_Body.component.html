@@ -1,3 +1,5 @@
+<!-- Clase que contiene el HTML de la vista de ciudad (Empleada para crear y actulizar una ciudad) -->
+
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
     <h1>Ciudad</h1>
     <hr>
@@ -27,7 +29,7 @@
 
                 <div *ngIf="formCity.controls['nombre_ciudad'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 caracteres.
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
                 </div>
 
@@ -36,7 +38,7 @@
 
         <!-- Campo Region solo cuando se utiliza el metodo editar  -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">Region de la ciudad</label>
+            <label class="col-2 col-form-label">Región de la ciudad</label>
             <div class="col-6">
                 <input class="form-control" type="text" id="textId_ciudad" id="tamaño-fuente-input"
                     value={{arrayCities.nombre_region}} disabled>
@@ -45,7 +47,7 @@
 
         <!-- Campo para observaciones  -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Observacion</label>
+            <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_ciudad" rows="4"
                     [(ngModel)]="arrayCities.observacion_ciudad" id="tamaño-fuente-input" maxlength="50">
@@ -58,7 +60,7 @@
 
                 <div *ngIf="formCity.controls['observacion_ciudad'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 caracteres.
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
                 </div>
 

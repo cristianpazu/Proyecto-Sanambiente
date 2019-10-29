@@ -1,10 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+/* Clase que contiene los servicios de manera generica del lado del cliente*/
+
+import { Injectable } from '@angular/core'; // Angular lo importa por defecto
+import { HttpClient } from '@angular/common/http'; // Permite utilizar los servicios http
 
 @Injectable()
 export default class BaseService {
 
     constructor(private httpClient: HttpClient) { }
+
+    // Se implementa los servicios http y se instancia el tipo de elemeto que utilizara cada uno de ellos
 
     async create(body, route: string) {
         return this.httpClient.post(`${route}`, body).subscribe(async (responseServer: any) => {
