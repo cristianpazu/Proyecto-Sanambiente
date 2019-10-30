@@ -27,6 +27,11 @@ import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body
 import { OrganizationsService } from './Services/Organizations_Service/Organizations_Service';
 import { OrganizationsListComponent } from './Components/Body/Organizations_List/Organizations_List.component';
 
+/* Importo los componentes y servicios creados para Categorias */
+import { CategoriesBodyComponent } from './Components/Body/Categories_Body/Categories_Body.component';
+import { CategoriesService } from './Services/Categories_Service/Categories_Service';
+import { CategoriesListComponent } from './Components/Body/Categories_List/Categories_List.component';
+
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
 
@@ -41,10 +46,12 @@ import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.com
     RegionsListComponent,
     CitiesBodyComponent,
     CitiesListComponent,
-    RanksBodyComponent,
-    RanksListComponent,
     OrganizationsBodyComponent,
-    OrganizationsListComponent
+    OrganizationsListComponent,
+    CategoriesBodyComponent,
+    CategoriesListComponent,
+    RanksBodyComponent,
+    RanksListComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -59,7 +66,8 @@ import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.com
     BaseService,
     RegionsService, 
     CitiesService,
-    OrganizationsService
+    OrganizationsService,
+    CategoriesService
   ],
   bootstrap: [AppComponent]
 })

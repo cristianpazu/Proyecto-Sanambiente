@@ -1,11 +1,11 @@
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
-    <h1>Categoria</h1>
+    <h1>Categoría</h1>
     <hr>
     <form [formGroup]="formCategory">
 
         <!-- Campo para ID solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-6 col-form-label">ID Categoria</label>
+            <label class="col-6 col-form-label">ID Categoría</label>
             <div class="col-2">
                 <input class="form-control" type="number" id="textId_categoria" id="tamaño-fuente-input"
                     value={{arrayCategories.id_categoria}} disabled>
@@ -14,7 +14,7 @@
 
         <!-- Campo para el nombre -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre Categoria</label>
+            <label class="col-2 col-form-label">Nombre Categoría</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_categoria" type="text"  id="textNombre"
                     [(ngModel)]="arrayCategories.nombre_categoria" id="tamaño-fuente-input" maxlength="50">
@@ -35,7 +35,7 @@
 
         <!-- Campo para observaciones  -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Observacion</label>
+            <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_categoria" rows="4"
                     [(ngModel)]="arrayCategories.observacion_categoria" id="tamaño-fuente-input" maxlength="250">

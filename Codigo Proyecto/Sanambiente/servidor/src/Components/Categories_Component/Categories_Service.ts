@@ -1,9 +1,13 @@
+/*Esta clase contiene la configuracion de los servicios del lado del servidor
+ utilizados para la tabla Categoria */
+
 import BaseService from '../Base_Component/Base_Service';
 import ConnectionDataBase from '../../basedatos';
 import { handlerQuery } from '../../Hanldlers/Handle_Queries';
 import { Request, Response } from 'express';
 import handleMessage from '../../Hanldlers/Handle_Message';
 
+// Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class CategoryService implements BaseService<any> {
 
     async create(request: Request, response: Response): Promise<any> {
@@ -12,7 +16,7 @@ class CategoryService implements BaseService<any> {
             await ConnectionDataBase.query(handlerQuery['createCategory'], [nombre_categoria, observacion_categoria]);
             return Promise.resolve(handleMessage(response, 200, 'Create category'));
         } catch (error) {
-            Promise.reject(handleMessage(response, 404, 'Error Crear conexion'));
+            Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
 
@@ -54,5 +58,6 @@ class CategoryService implements BaseService<any> {
     }
 }
 
+// Se crea y exporta una constante que contiene los servicios de esta clase.
 const categoryService = new CategoryService();
 export default categoryService;

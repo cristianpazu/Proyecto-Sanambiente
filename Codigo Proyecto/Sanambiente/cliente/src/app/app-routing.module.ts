@@ -13,6 +13,7 @@ import { RegionsListComponent } from './Components/body/Regions_List/Regions_Lis
 import { CitiesBodyComponent } from './Components/body/Cities_Body/Cities_Body.component';
 import { CitiesListComponent } from './Components/body/Cities_List/Cities_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para Categorias */
 import { CategoriesBodyComponent } from './Components/Body/Categories_Body/Categories_Body.component';
 import { CategoriesListComponent } from './Components/Body/Categories_List/Categories_List.component';
 
@@ -62,6 +63,34 @@ const rutas: Routes = [
   {
     path: 'region/edit_region/:id_region',
     component: RegionsBodyComponent
+  },
+
+  /*----------------------------------- Aqui Creo las rutas Categoria -------------------------------------*/
+  {
+    path: 'category',
+    redirectTo: '/category',
+    pathMatch: 'full'
+  },
+
+  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de Categoria y esta redireccionada 
+    al componente logico del formulario que lista las Categorias existentes*/
+  {
+    path: 'category',
+    component: CategoriesListComponent
+  },
+
+  /* Ruta que utiliza el cliente cuando añade una nueva Categoria y esta redireccionada al componente logico 
+    del formulario para dicha accion */
+  {
+    path: 'category/add_category',
+    component: CategoriesBodyComponent
+  },
+
+  /* Ruta que utiliza el cliente cuando actualiza una Categoria y esta redireccionada al componente logico 
+  del formulario para dicha accion */
+  {
+    path: 'category/edit_category/:id_categoria',
+    component: CategoriesBodyComponent
   },
 
   /*----------------------------------- Aqui Creo las rutas ciudad --------------------------------------*/
