@@ -35,6 +35,11 @@ import { CategoriesListComponent } from './Components/Body/Categories_List/Categ
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
 
+/* Importo los componentes y servicios creados para Alertas */
+import { AlertsBodyComponent } from './Components/Body/Alerts_Body/Alerts_Body.component';
+import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.component';
+import { AlertsService } from './Services/Alerts_Service/Alerts_Service';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -51,7 +56,9 @@ import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.com
     CategoriesBodyComponent,
     CategoriesListComponent,
     RanksBodyComponent,
-    RanksListComponent
+    RanksListComponent,
+    AlertsBodyComponent,
+    AlertsListComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -67,7 +74,8 @@ import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.com
     RegionsService, 
     CitiesService,
     OrganizationsService,
-    CategoriesService
+    CategoriesService,
+    AlertsService    
   ],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,7 @@ const cors_1 = __importDefault(require("cors"));
 const Cities_Route_1 = __importDefault(require("./Components/Cities_Component/Cities_Route"));
 const Regions_Route_1 = __importDefault(require("./Components/Regions_Component/Regions_Route"));
 const Categories_Rute_1 = __importDefault(require("./Components/Categories_Component/Categories_Rute"));
+const Alerts_Route_1 = __importDefault(require("./Components/Alerts_Component/Alerts_Route"));
 const Ranks_Route_1 = __importDefault(require("./Components/Ranks_Component/Ranks_Route"));
 const Organizations_Route_1 = __importDefault(require("./Components/Organizations_Component/Organizations_Route"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
@@ -34,6 +35,7 @@ class Servidor {
         this.app.use('/api/city', Cities_Route_1.default);
         this.app.use('/api/region', Regions_Route_1.default);
         this.app.use('/api/category', Categories_Rute_1.default);
+        this.app.use('/api/alert', Alerts_Route_1.default);
         this.app.use('/api/rank', Ranks_Route_1.default);
         this.app.use('/api/organization', Organizations_Route_1.default);
     }

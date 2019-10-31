@@ -1,6 +1,6 @@
 "use strict";
 /*Esta clase contiene la configuracion de los servicios del lado del servidor
- utilizados para la tabla regiones */
+ utilizados para la tabla Alerta */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -18,13 +18,13 @@ const basedatos_1 = __importDefault(require("../../basedatos"));
 const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
-class RegionService {
+class AlertService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_region, observacion_region } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createRegion'], [nombre_region, observacion_region]);
-                return Promise.resolve(Handle_Message_1.default(response, 200, 'Created Region'));
+                let { nombre_alerta, observacion_alerta, tipo_alerta } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createAlert'], [nombre_alerta, observacion_alerta, tipo_alerta]);
+                return Promise.resolve(Handle_Message_1.default(response, 200, 'Create alert'));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
@@ -34,33 +34,21 @@ class RegionService {
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id_region } = request.params;
-                let { nombre_region, observacion_region } = request.body;
-                console.log(id_region, '\n', request.body);
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateRegion'], [nombre_region, observacion_region, id_region]);
-                return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Region'));
+                const { id_alerta } = request.params;
+                let { nombre_alerta, observacion_alerta, tipo_alerta } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateAlert'], [nombre_alerta, observacion_alerta, tipo_alerta, id_alerta]);
+                return Promise.resolve(Handle_Message_1.default(response, 200, 'Update alert'));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
             }
         });
     }
-    view(request, response) {
+    view(_, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegionsCity']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
-            }
-            catch (error) {
-                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
-            }
-        });
-    }
-    viewR(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegions']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
+                let alerts = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewAlerts']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, alerts.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
@@ -70,13 +58,14 @@ class RegionService {
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id_region } = request.params;
-                let region = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewRegion, [id_region]);
-                if (region.rows.length === 0) {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Region doesn´t exist'));
+                const { id_alerta } = request.params;
+                let alert = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewAlert, [id_alerta]);
+                console.log(alert.rows);
+                if (alert.rows.length === 0) {
+                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Alert doesn´t exist'));
                 }
                 else {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, region.rows));
+                    return Promise.resolve(Handle_Message_1.default(response, 200, alert.rows));
                 }
             }
             catch (error) {
@@ -86,5 +75,5 @@ class RegionService {
     }
 }
 // Se crea y exporta una constante que contiene los servicios de esta clase.
-const regionService = new RegionService();
-exports.default = regionService;
+const alertService = new AlertService();
+exports.default = alertService;

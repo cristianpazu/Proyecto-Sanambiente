@@ -23,6 +23,11 @@ export const environment = {
   hostUpdateCategory: "http://localhost:3000/api/category/updateCategories",
   viewCategories: "http://localhost:3000/api/category/viewCategories",
   hostviewCategoryById: "http://localhost:3000/api/category/viewCategoryById",
+ // Alertas
+  hostCreateAlert: "http://localhost:3000/api/alert/createAlert",
+  hostUpdateAlert: "http://localhost:3000/api/alert/updateAlerts",
+  viewAlerts: "http://localhost:3000/api/alert/viewAlerts",
+  hostviewAlertById: "http://localhost:3000/api/alert/viewAlertById",
 
   production: false
 };

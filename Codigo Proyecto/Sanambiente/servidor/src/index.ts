@@ -7,6 +7,7 @@ import cors from 'cors';
 import citiesRoutes from './Components/Cities_Component/Cities_Route';
 import regionsRoutes from './Components/Regions_Component/Regions_Route';
 import categoriesRutes from './Components/Categories_Component/Categories_Rute';
+import alertsRutes from './Components/Alerts_Component/Alerts_Route';
 import ranksRoutes from './Components/Ranks_Component/Ranks_Route';
 import organizationsRoutes from './Components/Organizations_Component/Organizations_Route';
 
@@ -35,6 +36,7 @@ class Servidor {
         this.app.use('/api/city', citiesRoutes);
         this.app.use('/api/region', regionsRoutes);
         this.app.use('/api/category', categoriesRutes);
+        this.app.use('/api/alert', alertsRutes);
         this.app.use('/api/rank', ranksRoutes);
         this.app.use('/api/organization', organizationsRoutes);
     }

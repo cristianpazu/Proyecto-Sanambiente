@@ -24,6 +24,11 @@ export const handlerQuery = {
     viewCategory: 'SELECT * FROM categorias where id_categoria=$1',
     updateCategory: 'UPDATE categorias set nombre_categoria=$1, observacion_categoria=$2 where id_categoria=$3',
 
+    createAlert: 'INSERT INTO alertas (nombre_alerta, observacion_alerta, tipo_alerta) VALUES ($1,$2,$3)',
+    viewAlerts: 'SELECT * FROM alertas order by id_alerta',
+    viewAlert: 'SELECT * FROM alertas where id_alerta=$1',
+    updateAlert: 'UPDATE alertas set nombre_alerta=$1, observacion_alerta=$2, tipo_alerta=$3 where id_alerta=$4',
+
     createOrganizacion: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion) VALUES ($1,$2)',
     viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',
     viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',

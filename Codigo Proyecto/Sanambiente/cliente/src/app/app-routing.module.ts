@@ -24,6 +24,10 @@ import { RanksListComponent } from './Components/Body/Ranks_List/Ranks_List.comp
 import { OrganizationsListComponent } from './Components/Body/Organizations_List/Organizations_List.component';
 import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body/Organizations_Body.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para alerta */
+import { AlertsBodyComponent } from './Components/Body/Alerts_Body/Alerts_Body.component';
+import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.component';
+
 const rutas: Routes = [
 
   /* --------------------------------------Rutas de la vista home--------------------------------------- */
@@ -102,7 +106,38 @@ const rutas: Routes = [
   { path: 'city/add_city', component: CitiesBodyComponent },
   { path: 'city/edit_city/:id_ciudad', component: CitiesBodyComponent },
 
+
+
+  /*----------------------------------- Aqui Creo las rutas Alerta  -------------------------------------*/
+    {
+      path: 'alerta',
+      redirectTo: '/alerta',
+      pathMatch: 'full'
+    },
+  
+    /* Ruta que utiliza el cliente cuando ingresa a la vista principal de alerta y esta redireccionada 
+      al componente logico del formulario que lista las alertas existentes*/
+    {
+      path: 'alert',
+      component: AlertsListComponent
+    },
+  
+    /* Ruta que utiliza el cliente cuando añade una nueva alerta y esta redireccionada al componente logico 
+      del formulario para dicha accion */
+    {
+      path: 'alert/add_alert',
+      component: AlertsBodyComponent
+    },
+  
+    /* Ruta que utiliza el cliente cuando actualiza una alerta y esta redireccionada al componente logico 
+    del formulario para dicha accion */
+    {
+      path: 'alert/edit_alert/:id_alerta',
+      component: AlertsBodyComponent
+    },
+
   /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
+  
   {
     path: 'rank',
     redirectTo: '/rank',

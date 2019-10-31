@@ -14,7 +14,7 @@ class RegionService implements BaseService<any> {
         try {
             let { nombre_region, observacion_region } = request.body;
             await ConnectionDataBase.query(handlerQuery['createRegion'], [nombre_region, observacion_region]);
-            return Promise.resolve(handleMessage(response, 200, 'Create Region'));
+            return Promise.resolve(handleMessage(response, 200, 'Created Region'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
