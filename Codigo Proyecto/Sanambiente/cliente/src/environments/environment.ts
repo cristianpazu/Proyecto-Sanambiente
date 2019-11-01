@@ -28,6 +28,11 @@ export const environment = {
   hostUpdateAlert: "http://localhost:3000/api/alert/updateAlerts",
   viewAlerts: "http://localhost:3000/api/alert/viewAlerts",
   hostviewAlertById: "http://localhost:3000/api/alert/viewAlertById",
+ // Base de tiempo 
+  hostCreateTime: "http://localhost:3000/api/time/createTime",
+  hostUpdateTime: "http://localhost:3000/api/time/updateTimes",
+  viewTimes: "http://localhost:3000/api/time/viewTimes",
+  hostviewTimeById: "http://localhost:3000/api/time/viewTimeById",
 
   production: false
 };

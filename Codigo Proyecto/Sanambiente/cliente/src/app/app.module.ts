@@ -40,6 +40,12 @@ import { AlertsBodyComponent } from './Components/Body/Alerts_Body/Alerts_Body.c
 import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.component';
 import { AlertsService } from './Services/Alerts_Service/Alerts_Service';
 
+/* Importo los componentes y servicios creados para Bases de tiempos */
+
+import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.component';
+import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
+import { TimesService } from './Services/Times_Service/Times_Service';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -58,7 +64,9 @@ import { AlertsService } from './Services/Alerts_Service/Alerts_Service';
     RanksBodyComponent,
     RanksListComponent,
     AlertsBodyComponent,
-    AlertsListComponent
+    AlertsListComponent,
+    TimesBodyComponent,
+    TimesListComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -75,7 +83,8 @@ import { AlertsService } from './Services/Alerts_Service/Alerts_Service';
     CitiesService,
     OrganizationsService,
     CategoriesService,
-    AlertsService    
+    AlertsService,
+    TimesService    
   ],
   bootstrap: [AppComponent]
 })

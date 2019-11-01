@@ -28,6 +28,9 @@ import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body
 import { AlertsBodyComponent } from './Components/Body/Alerts_Body/Alerts_Body.component';
 import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.component';
 
+import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.component';
+import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
+
 const rutas: Routes = [
 
   /* --------------------------------------Rutas de la vista home--------------------------------------- */
@@ -160,7 +163,35 @@ const rutas: Routes = [
   { path: 'organization', redirectTo: '/organization', pathMatch: 'full' },
   { path: 'organization', component: OrganizationsListComponent }, // Ruta para listar todos los registros  
   { path: 'organization/add_organization', component: OrganizationsBodyComponent },  // Ruta para adicionar registros  
-  { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent } // Ruta para editar registros
+  { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent }, // Ruta para editar registros
+
+  /*----------------------------------- Aqui Creo las rutas Base de Tiempo  -------------------------------------*/
+  {
+    path: 'time',
+    redirectTo: '/time',
+    pathMatch: 'full'
+  },
+
+  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de base de tiempo y esta redireccionada 
+    al componente logico del formulario que lista las bases de tiempo existentes*/
+  {
+    path: 'time',
+    component: TimesListComponent
+  },
+
+  /* Ruta que utiliza el cliente cuando añade una nueva base de tiempo y esta redireccionada al componente logico 
+    del formulario para dicha accion */
+  {
+    path: 'time/add_time',
+    component: TimesBodyComponent
+  },
+
+  /* Ruta que utiliza el cliente cuando actualiza una base de tiempo y esta redireccionada al componente logico 
+  del formulario para dicha accion */
+  {
+    path: 'time/edit_time/:id_tiempo',
+    component: TimesBodyComponent
+  },
 
 ];
 

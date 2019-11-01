@@ -33,4 +33,9 @@ export const handlerQuery = {
     viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',
     viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',
     updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2 where id_organizacion=$3',
+
+    createTime: 'INSERT INTO tiempos (nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo) VALUES ($1,$2,$3,$4)',
+    viewTimes: 'SELECT * FROM tiempos order by id_tiempo',
+    viewTime: 'SELECT * FROM tiempos where id_tiempo=$1',
+    updateTime:'UPDATE tiempos set nombre_tiempo=$1, escala_tiempo=$2, observacion_tiempo=$3, alerta_tiempo=$4 where id_tiempo=$5',
 }
