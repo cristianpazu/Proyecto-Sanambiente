@@ -16,6 +16,8 @@ export class RanksBodyComponent implements OnInit {
   public formRank: FormGroup;
   public stationRank: Array<any> = [];
   public stationSelect: number;
+  public edit = false;
+  public hide = false;
 
   @HostBinding('class') classes = 'row';
 
@@ -31,6 +33,7 @@ export class RanksBodyComponent implements OnInit {
   async createRank() {
     if (this.formRank.valid) {
       await this.ranksService.createRank(this.formRank.value);
+      alert('Rango creado correctamente');
       this.router.navigate(['/rank']);
     }
   }
