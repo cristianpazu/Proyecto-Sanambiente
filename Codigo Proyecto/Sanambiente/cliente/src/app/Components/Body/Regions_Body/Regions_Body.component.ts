@@ -14,11 +14,11 @@ export class RegionsBodyComponent implements OnInit {
   public edit: boolean = false;
   public arrayRegions;
   public lengthRegions: number;
-  public hide=false;
+  public hide = false;
 
   constructor(private regionService: RegionsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionServicio
     this.formRegion = new FormGroup({
-      'nombre_region': new FormControl('', [Validators.required, Validators.maxLength(49.9) ]),
+      'nombre_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayRegions = {};
@@ -34,17 +34,18 @@ export class RegionsBodyComponent implements OnInit {
   async createRegion() {
     if (this.formRegion.valid) {
       await this.regionService.createRegion(this.formRegion.value);
+      alert('Region creada correctamente');
       this.router.navigate(['/region']);
     }
   }
-  
+
   async viewDataById() {
     let id = this.activedRoute.snapshot.params.id_region;
-    if(id !== undefined) {
+    if (id !== undefined) {
       let region = await this.regionService.viewRegionById(id).subscribe((element: any) => {
         this.arrayRegions = element.message[0];
         this.edit = true;
-        this.hide= true;
+        this.hide = true;
       });
     }
   }
@@ -56,6 +57,7 @@ export class RegionsBodyComponent implements OnInit {
       observacion_region: this.arrayRegions.observacion_region
     })
     this.regionService.updateRegion(this.formRegion.value, id)
-      this.router.navigate(['/region']);
+    alert('Region actualizada correctamente');
+    this.router.navigate(['/region']);
   }
 }
