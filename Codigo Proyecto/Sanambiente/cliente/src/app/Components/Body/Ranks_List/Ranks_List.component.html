@@ -1,7 +1,7 @@
 <!-- Clase que contiene el HTML de la vista de rango (Empleada para listar en la tabla los rangos existentes) -->
 
 <div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
-    <button [routerLink]="['/rank/add_rank']" class="btn btn-outline-primary btn-sm">Nuevo Rango</button>
+    <button [routerLink]="['/rank/add_rank']" class="btn btn-outline-primary btn-lg">Nuevo Rango</button>
     <br><br><br>
     <h3>Lista de Rangos</h3>
     <form>
@@ -30,7 +30,7 @@
                 <td> {{rango.nombre_estacion}} </td>
                 <td> {{rango.observacion_rango}} </td>
                 <td>
-                    <a [routerLink]="['/rank/edit_rank',rango.id_rango]" class="btn btn-outline-primary btn-sm">
+                    <a [routerLink]="['/rank/edit_rank',rango.id_rango]" class="btn btn-outline-primary btn-lg">
                         Editar
                     </a>
                 </td>

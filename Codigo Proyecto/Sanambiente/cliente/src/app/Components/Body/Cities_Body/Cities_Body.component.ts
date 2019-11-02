@@ -1,9 +1,10 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router'; // la propiedad activateRoute permite saber lo que estoy recibiendo como parametro
-import { CitiesService } from '../../../Services/Cities_Service/Cities_Service'; //importo el servicio
-import { ChangeDetectorRef } from '@angular/core'; // Permite manejar la deteccion de cambios
-import { escapeIdentifier } from '@angular/compiler/src/output/abstract_emitter';
+/* Clase que contiene los metodos y la logica de la vista html en la cual se crean y editan las ciudades*/
+
+/* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
+import { Component, OnInit, HostBinding } from '@angular/core'; // Angular lo importa por defecto
+import { FormGroup, FormControl, Validators } from '@angular/forms'; // Caracteristicas que permiten crear y manejar validaciones para formularios
+import { Router, ActivatedRoute } from '@angular/router'; // La propiedad activateRoute permite saber lo que se esta recibiendo como parametro
+import { CitiesService } from '../../../Services/Cities_Service/Cities_Service'; //Importo los servicios de la clase Cities_Service
 
 @Component({
   selector: 'app-Cities_Body',
@@ -12,23 +13,16 @@ import { escapeIdentifier } from '@angular/compiler/src/output/abstract_emitter'
 })
 export class CitiesBodyComponent implements OnInit {
 
-  
-  ngOnInit(): void {
-    this.viewRegion();
-    this.viewDataById();
-  }
+  public formCity: FormGroup; // La variable formCity permite administrar las validaciones y restricciones del formulario
+  public regionCity: Array<any> = []; // La variable regionCity almacena el listado de las regiones existentes
+  public regionSelect: number; // Identifica el id de la region seleccionada al crear una ciudad
+  public arrayCities: any; // La variable arrayCities almacena el listado de las ciudades existentes. Utilizada cuando se edita una ciudad
+  public edit = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva ciudad o se esta editando una ciudad
+  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la ciudad, en la vista html
 
- 
-  public formCity: FormGroup;
-  public regionCity: Array<any> = [];
-  public regionSelect: number;
-  public arrayCities: any; 
-  public edit = false;
-  public hide=false;
+  @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
-  @HostBinding('class') classes = 'row';
-
-  constructor(private cityService: CitiesService, private router: Router, private activedRoute: ActivatedRoute, private cdr: ChangeDetectorRef) { 
+  constructor(private cityService: CitiesService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formCity = new FormGroup({
       'nombre_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_region': new FormControl('', [Validators.required]),
@@ -37,32 +31,39 @@ export class CitiesBodyComponent implements OnInit {
     this.arrayCities = {};
   }
 
+  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Cities_Body */
+  ngOnInit(): void {
+    this.viewRegion(); // Carga las regiones existentes
+    this.viewDataById(); // Toma el id de la cuidad, cuando se vaya a editar alguna de ellas
+  }
+
+  /* Método con el cual se crea una nueva ciudad */
   async createCity() {
-    if(this.formCity.valid) {
+    if (this.formCity.valid) {
       await this.cityService.createCity(this.formCity.value);
+      alert('Ciudad creada correctamente');
       this.router.navigate(['/city']);
     }
   }
 
+  /* Método con el cual se listan las regiones existentes */
   async viewRegion() {
     this.regionCity = (await this.cityService.viewRegion());
   }
 
-  snapshotRegion() {
-    console.log(this.regionSelect);
-  }
-
+  /* Método con el cual se identifica la ciudad cuya información va a ser actualizada */
   async viewDataById() {
     let id = this.activedRoute.snapshot.params.id_ciudad;
-    if(id !== undefined) {
+    if (id !== undefined) {
       let region = await this.cityService.viewRegionById(id).subscribe(async (element: any) => {
         this.arrayCities = await element.message[0];
         this.edit = true;
-        this.hide=true;
+        this.hide = true;
       });
     }
   }
 
+  /* Método con el cual se actualiza la información de la ciudad seleccionada */
   async updateCity() {
     let id = this.activedRoute.snapshot.params.id_ciudad;
     this.formCity.patchValue({
@@ -70,6 +71,7 @@ export class CitiesBodyComponent implements OnInit {
       observacion_ciudad: this.arrayCities.observacion_ciudad,
     })
     this.cityService.updateCity(this.formCity.value, id)
+    alert('Ciudad actualizada correctamente');
     this.router.navigate(['/city']);
   }
 }

@@ -4,16 +4,16 @@
     <h1>Rango</h1>
     <hr>
     <form [formGroup]="formRank">
-        <div class="form-group row">
+        <!-- Campo para ID solo se muestra cuando se edita -->
+        <div class="form-group row" [hidden]="hide==false">
             <label class="col-2 col-form-label">ID Rango</label>
             <div class="col-6">
-                <input class="form-control" type="number" id="textId_rango"
-                id="tamaño-fuente-input" disabled>
+                <input class="form-control" type="number" id="textId_rango" id="tamaño-fuente-input" disabled>
             </div>
         </div>
         <!-- Campo para nombre del rango -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre Rango</label>
+            <label class="col-2 col-form-label">Nombre del Rango</label>
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_rango" type="text" autofocus id="textNombre_Rango"
                     id="tamaño-fuente-input">
@@ -76,18 +76,18 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label">Estación</label>
                 <div class="col-6">
-                    <select class="form-control" type="number" id="textId_estacion"
-                        id="tamaño-fuente-input">
+                    <select class="form-control" type="number" id="textId_estacion" id="tamaño-fuente-input">
                         <option *ngFor="let estacionRango of stationRank" value="{{estacionRango.id_estacion}}">
                             {{estacionRango.nombre_estacion}}
                         </option>
                     </select>
                 </div>
             </div>
+            <!-- Boton de guardar -->
             <div id="caja-botones" class="form-group-row">
                 <label class="col-1 col-form-label">&nbsp;</label>
                 <div class="col-md-8">
-                    <button [disabled]="!formRank.valid" class="btn btn-outline-primary btn-sm" (click)="createRank()">
+                    <button [disabled]="!formRank.valid" class="btn btn-outline-primary btn-lg" (click)="createRank()">
                         Guardar
                     </button>
                 </div>
