@@ -1,0 +1,68 @@
+<div class="container animated fadeIn fast" id="main-container" id="fuente-general">
+    <h1>Organización</h1>
+    <hr>
+    <form [formGroup]="formOrganization">
+
+        <!-- Campo para ID solo se muestra cuando se edita -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-6 col-form-label">ID Organización</label>
+            <div class="col-2">
+                <input class="form-control" type="number" id="textId_organizacion" id="tamaño-fuente-input"
+                    value={{arrayOrganizations.id_organizacion}} disabled>
+            </div>
+        </div>
+
+        <!-- Campo para el nombre -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre Organización</label>
+            <div class="col-6">
+                <input autofocus class="form-control" formControlName="nombre_organizacion" type="text"  id="textNombre"
+                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" maxlength="50">
+
+                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+
+                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Maximo 50 carácteres.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Campo para observaciones  -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Observación</label>
+            <div class="col-6">
+                <textarea ng-thim="false" class="form-control" formControlName="observacion_organizacion" rows="4"
+                    [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
+               </textarea>
+
+                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+
+                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Maximo 50 carácteres.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div id="caja-botones" class="form-group-row">
+            <label class="col-1 col-form-label">&nbsp;</label>
+            <div class="col-md-8">
+                <button type="button" class="btn btn-outline-primary btn-lg" [disabled]="!formOrganization.valid"
+                    (click)=" edit ? updateOrganization() : createOrganization()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
