@@ -41,6 +41,7 @@ export const handlerQuery = {
 
     createStation: 'INSERT INTO organizaciones (nombre_estacion, serial_estacion, nombre_corto_estacion, id_organizacion, id_categoria, id_tiempo, observacion_estacion, id_region, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)',
     viewStations: 'SELECT id_estacion, nombre_estacion, serial_estacion, nombre_corto_estacion, protocolo_estacion, observacion_estacion FROM estaciones order by id_estacion;',
+    
     viewStation: 'SELECT id_ciudad, nombre_ciudad, regiones.id_region, observacion_ciudad, regiones.nombre_region FROM regiones, ciudades where regiones.id_region=ciudades.id_region and id_ciudad=$1',
     updateStation: 'UPDATE organizaciones set nombre_estacion=$1,serial_estacion=$2,nombre_corto_estacion=$3,id_organizacion=$4,id_categoria=$5,id_tiempo=$6,observacion_estacion=$7,id_region=$8,id_ciudad=$9,latitud_estacion=$10,longitud_estacion=$11,elevacion_estacion=$12,gmt_estacion=$13,protocolo_estacion=$14 where id_estacion =$15',
    
