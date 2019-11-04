@@ -19,6 +19,7 @@ class CategoriesRoute {
         this.router.get('/viewCategoryById/:id_categoria', Categories_Service_1.default.viewById);
         this.router.get('/viewCategories', Categories_Service_1.default.view);
         this.router.put('/updateCategories/:id_categoria', Categories_Service_1.default.update);
+        this.router.get('/viewNameCategories', Categories_Service_1.default.viewNameCate);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

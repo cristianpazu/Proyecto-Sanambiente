@@ -17,9 +17,9 @@ class RegionRoute {
     configuracion() {
         this.router.post('/createRegion', Regions_Service_1.default.create);
         this.router.get('/viewRegionById/:id_region', Regions_Service_1.default.viewById);
-        this.router.get('/viewRegions', Regions_Service_1.default.viewR);
+        this.router.get('/viewRegions', Regions_Service_1.default.view);
         this.router.put('/updateRegions/:id_region', Regions_Service_1.default.update);
-        this.router.get('/viewRegion', Regions_Service_1.default.view);
+        this.router.get('/viewNameRegion', Regions_Service_1.default.viewNameR);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

@@ -18,9 +18,9 @@ class RegionRoute {
     configuracion(): void {
        this.router.post('/createRegion', RegionService.create);
        this.router.get('/viewRegionById/:id_region', RegionService.viewById);
-       this.router.get('/viewRegions', RegionService.viewR);
+       this.router.get('/viewRegions', RegionService.view);
        this.router.put('/updateRegions/:id_region', RegionService.update);
-       this.router.get('/viewRegion', RegionService.view)
+       this.router.get('/viewNameRegion', RegionService.viewNameR)
     }
 }
 

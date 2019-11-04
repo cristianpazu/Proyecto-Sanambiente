@@ -22,12 +22,12 @@ class StationService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_region, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_region, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion]);
+                let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create station'));
             }
             catch (error) {
-                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error al enviar la info'));
             }
         });
     }
@@ -35,8 +35,8 @@ class StationService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_estacion } = request.params;
-                let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_region, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_region, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion, id_estacion]);
+                let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion, id_estacion]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update station'));
             }
             catch (error) {

@@ -19,7 +19,8 @@
         this.router.post('/createTime', timeService.create);
         this.router.get('/viewTimeById/:id_tiempo', timeService.viewById);
         this.router.put('/updateTimes/:id_tiempo', timeService.update);
-        this.router.get('/viewTimes', timeService.view)
+        this.router.get('/viewTimes', timeService.view);
+        this.router.get('/viewNameTimes', timeService.viewNameT);
      }
  }
  

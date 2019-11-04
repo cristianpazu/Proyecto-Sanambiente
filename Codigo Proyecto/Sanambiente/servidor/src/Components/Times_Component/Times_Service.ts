@@ -31,7 +31,18 @@
              Promise.reject(handleMessage(response, 404, 'Error'));
          }
      }
- 
+
+    // metodo para ver solo el nombre de los tiempos en una lista desplegable
+    async viewNameT(request: Request, response: Response): Promise<any> {
+        try {
+            let regions = await ConnectionDataBase.query(handlerQuery['viewTimesStation']);
+            return Promise.resolve(handleMessage(response, 200, regions.rows));
+        } catch (error) {
+            Promise.reject(handleMessage(response, 404, 'Error'));
+        }
+    }
+
+    // metodo para ver todas los tiempos con todos sus campos 
      async view(_: Request, response: Response): Promise<any> {
          try {
              let times = await ConnectionDataBase.query(handlerQuery['viewTimes']);

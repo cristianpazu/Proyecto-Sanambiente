@@ -2,8 +2,7 @@
  utilizadas para la tabla estaciones */
 
 import { Router } from 'express';
-import Stations_Service from './Stations_Service'; // Se importa la constante StationsService de la clase Station_Service
-import stationService from './Stations_Service';
+import stationService from './Stations_Service';  // Se importa la constante StationsService de la clase Station_Service
 
 
 class StationsRoute {

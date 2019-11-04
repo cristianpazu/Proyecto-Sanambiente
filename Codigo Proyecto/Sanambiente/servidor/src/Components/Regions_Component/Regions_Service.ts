@@ -33,7 +33,8 @@ class RegionService implements BaseService<any> {
         }
     }
 
-    async view(request: Request, response: Response): Promise<any> {
+    // metodo para ver solo el nombre de las regiones en una lista desplegable
+    async viewNameR(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewRegionsCity']);
             return Promise.resolve(handleMessage(response, 200, regions.rows));
@@ -42,7 +43,8 @@ class RegionService implements BaseService<any> {
         }
     }
 
-    async viewR(request: Request, response: Response): Promise<any> {
+    // metodo para ver todas las regiones con todos sus campos 
+    async view(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewRegions']);
             return Promise.resolve(handleMessage(response, 200, regions.rows));

@@ -44,6 +44,19 @@ class TimeService {
             }
         });
     }
+    // metodo para ver solo el nombre de los tiempos en una lista desplegable
+    viewNameT(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewTimesStation']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
+    // metodo para ver todas los tiempos con todos sus campos 
     view(_, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

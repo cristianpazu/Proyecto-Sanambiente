@@ -45,6 +45,19 @@ class CategoryService {
             }
         });
     }
+    // metodo para ver solo el nombre de las categorias en una lista desplegable
+    viewNameCate(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewCategoriesStation']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
+    // metodo para ver todas las categorias con todos sus campos
     view(_, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

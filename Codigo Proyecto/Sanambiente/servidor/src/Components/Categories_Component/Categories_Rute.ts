@@ -20,6 +20,7 @@ class CategoriesRoute {
        this.router.get('/viewCategoryById/:id_categoria', CategoryService.viewById);
        this.router.get('/viewCategories', CategoryService.view);
        this.router.put('/updateCategories/:id_categoria', CategoryService.update);
+       this.router.get('/viewNameCategories', CategoryService.viewNameCate);
     }
 }
 

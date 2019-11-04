@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const Stations_Service_1 = __importDefault(require("./Stations_Service"));
+const Stations_Service_1 = __importDefault(require("./Stations_Service")); // Se importa la constante StationsService de la clase Station_Service
 class StationsRoute {
     constructor() {
         this.router = express_1.Router();

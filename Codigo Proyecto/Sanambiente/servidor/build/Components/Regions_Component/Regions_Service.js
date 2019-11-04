@@ -45,7 +45,8 @@ class RegionService {
             }
         });
     }
-    view(request, response) {
+    // metodo para ver solo el nombre de las regiones en una lista desplegable
+    viewNameR(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegionsCity']);
@@ -56,7 +57,8 @@ class RegionService {
             }
         });
     }
-    viewR(request, response) {
+    // metodo para ver todas las regiones con todos sus campos 
+    view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegions']);
