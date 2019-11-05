@@ -46,7 +46,7 @@ class RegionService {
         });
     }
     // metodo para ver solo el nombre de las regiones en una lista desplegable
-    viewNameR(request, response) {
+    viewRegions(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegionsCity']);
