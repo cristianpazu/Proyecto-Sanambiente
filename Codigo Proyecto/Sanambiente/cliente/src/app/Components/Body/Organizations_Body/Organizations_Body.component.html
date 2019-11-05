@@ -40,6 +40,7 @@
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_organizacion" rows="4"
                     [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
                </textarea>
+               <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
 
                 <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">

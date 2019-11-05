@@ -24,7 +24,14 @@ export class TimesBodyComponent implements OnInit {
       'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'alerta_tiempo': new FormControl(),
     });
-    this.arrayTimes = {};
+    this.arrayTimes = {
+
+      nombre_tiempo: '',
+      escala_tiempo: Date,
+      observacion_tiempo: '',
+      alerta_tiempo: '' 
+
+    };
   }
 
   ngOnInit(): void {
@@ -36,6 +43,7 @@ export class TimesBodyComponent implements OnInit {
   async createTime() {
     if (this.formTime.valid) {
       await this.timesService.createTime(this.formTime.value);
+      alert('Base de Tiempo creada correctamente');
       this.router.navigate(['/time']);
     }
   }
@@ -60,6 +68,7 @@ export class TimesBodyComponent implements OnInit {
       alerta_tiempo: this.arrayTimes.alerta_tiempo,
     })
     this.timesService.updateTime(this.formTime.value, id)
+      alert('Base de Tiempo actualizada correctamente');
       this.router.navigate(['/time']);
   }
 }

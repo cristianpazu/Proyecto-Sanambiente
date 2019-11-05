@@ -24,7 +24,13 @@ export class AlertsBodyComponent implements OnInit {
       'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(249.9)]),
       'tipo_alerta': new FormControl(),
     });
-    this.arrayAlerts = {};
+    this.arrayAlerts = {
+
+      nombre_alerta: '',
+      observacion_alerta: '',
+      tipo_alerta: ''
+      
+    };
   }
 
   ngOnInit(): void {
@@ -36,6 +42,7 @@ export class AlertsBodyComponent implements OnInit {
   async createAlert() {
     if (this.formAlert.valid) {
       await this.alertsService.createAlert(this.formAlert.value);
+      alert('Alerta creada correctamente');
       this.router.navigate(['/alert']);
     }
   }
@@ -59,6 +66,7 @@ export class AlertsBodyComponent implements OnInit {
       tipo_alerta: this.arrayAlerts.tipo_alerta
     })
     this.alertsService.updateAlert(this.formAlert.value, id)
+    alert('Alerta actualizada correctamente');
     this.router.navigate(['/alert']);
   }
 

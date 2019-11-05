@@ -24,7 +24,11 @@ export class CategoriesBodyComponent implements OnInit {
       'nombre_categoria': new FormControl('', [Validators.required, Validators.maxLength(49.9) ]),
       'observacion_categoria': new FormControl('', [Validators.required, Validators.maxLength(249.9)]),
     }); 
-    this.arrayCategories = {};
+    this.arrayCategories = {
+
+      nombre_categoria: '',
+      observacion_categoria: ''
+    };
 }
   ngOnInit(): void {
     this.viewDataById()
@@ -35,6 +39,7 @@ export class CategoriesBodyComponent implements OnInit {
   async createCategory() {
     if (this.formCategory.valid) {
       await this.categoriesService.createCategory(this.formCategory.value);
+      alert('Categoría creada correctamente');
       this.router.navigate(['/category']);
     }
   }
@@ -57,6 +62,7 @@ export class CategoriesBodyComponent implements OnInit {
       observacion_categoria: this.arrayCategories.observacion_categoria
     })
     this.categoriesService.updateCategory(this.formCategory.value, id)
+      alert('Categoría actualizada correctamente');
       this.router.navigate(['/category']);
   }
   

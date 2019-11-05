@@ -23,7 +23,12 @@ export class RegionsBodyComponent implements OnInit {
       'nombre_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
-    this.arrayRegions = {};
+    this.arrayRegions = {
+
+      nombre_region: '',
+      observacion_region: ''
+      
+    };
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Regions_Body */

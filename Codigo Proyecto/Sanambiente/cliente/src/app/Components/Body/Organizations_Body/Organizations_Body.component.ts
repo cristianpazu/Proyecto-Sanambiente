@@ -23,7 +23,12 @@ export class OrganizationsBodyComponent implements OnInit {
       'nombre_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
-    this.arrayOrganizations = {};
+    this.arrayOrganizations = {
+
+      nombre_organizacion: '',
+      observacion_organizacion: ''
+      
+    };
 
   }
 

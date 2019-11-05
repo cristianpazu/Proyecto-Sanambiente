@@ -38,6 +38,7 @@
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_region" rows="4"
                     [(ngModel)]="arrayRegions.observacion_region" id="tamaño-fuente-input" maxlength="50">
                </textarea>
+               <span>{{50-arrayRegions.observacion_region.length}} Caracteres restantes</span>
                 <!-- Validacion para el campo Observación de la región -->
                 <div *ngIf="formRegion.controls['observacion_region'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">

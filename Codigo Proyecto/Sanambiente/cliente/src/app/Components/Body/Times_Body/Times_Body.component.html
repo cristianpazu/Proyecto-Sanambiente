@@ -56,9 +56,10 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
-                <textarea ng-thim="false" class="form-control" formControlName="observacion_tiempo" rows="4"
+                <textarea  data-ls-module="charCounter" ng-thim="false" class="form-control" formControlName="observacion_tiempo" rows="4"
                     [(ngModel)]="arrayTimes.observacion_tiempo" id="tamaño-fuente-input" maxlength="50">
                 </textarea>
+                <span>{{50-arrayTimes.observacion_tiempo.length}} Caracteres restantes</span>
 
                 <div *ngIf="formTime.controls['observacion_tiempo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
