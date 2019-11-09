@@ -17,24 +17,28 @@
                 <!-- Columnas de la tabla-->
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Región</th>
+                    <th scope="col">Nombre estación</th>
+                    <th scope="col">Serial</th>
+                    <th scope="col">Nombre corto</th>
+                    <th scope="col">Protocolo</th>
                     <th scope="col">Observación</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Filas de la tabla-->
-                <tr *ngFor="let city of arrayCities | filter:searchText">
-                    <td> {{city.id_ciudad}} </td>
-                    <td> {{city.nombre_ciudad}} </td>
-                    <td> {{city.nombre_region}} </td>
-                    <td> {{city.observacion_ciudad}} </td>
+                <tr *ngFor="let station of arrayStations | filter:searchText">
+                    <td> {{station.id_estacion}} </td>
+                    <td> {{station.nombre_estacion}} </td>
+                    <td> {{station.serial_estacion}} </td>
+                    <td> {{station.nombre_corto_estacion}} </td>
+                    <td> {{station.protocolo_estacion}} </td>
+                    <td> {{station.observacion_estacion}} </td>
                     <td>
                         <!-- Boton para actualizar la informacion de una ciudad -->
-                        <a [routerLink]="['/city/edit_city',city.id_ciudad]" class="btn btn-outline-primary btn-lg">
+                        <!-- <a [routerLink]="['/city/edit_city',city.id_ciudad]" class="btn btn-outline-primary btn-lg">
                             Editar
-                        </a>
+                        </a> -->
                     </td>
                 </tr>
             </tbody>
