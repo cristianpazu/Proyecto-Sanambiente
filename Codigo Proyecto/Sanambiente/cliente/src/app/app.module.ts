@@ -46,6 +46,10 @@ import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.comp
 import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
 import { TimesService } from './Services/Times_Service/Times_Service';
 
+/* Importo los componentes y servicios creados para las estaciones */
+import { StationsBodyComponent } from './Components/Body/Stations_Body/Stations_Body.component';
+import { StationsListComponent } from './Components/Body/Stations_List/Stations_List.component';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -66,7 +70,9 @@ import { TimesService } from './Services/Times_Service/Times_Service';
     AlertsBodyComponent,
     AlertsListComponent,
     TimesBodyComponent,
-    TimesListComponent
+    TimesListComponent,
+    StationsBodyComponent,
+    StationsListComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular

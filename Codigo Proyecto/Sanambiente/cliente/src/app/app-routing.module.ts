@@ -31,6 +31,10 @@ import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.c
 import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.component';
 import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para estaciones */
+import { StationsBodyComponent  } from './Components/Body/Stations_Body/Stations_Body.component';
+import { StationsListComponent } from './Components/Body/Stations_List/Stations_List.component';
+
 const rutas: Routes = [
 
   /* --------------------------------------Rutas de la vista home--------------------------------------- */
@@ -112,35 +116,35 @@ const rutas: Routes = [
 
 
   /*----------------------------------- Aqui Creo las rutas Alerta  -------------------------------------*/
-    {
-      path: 'alerta',
-      redirectTo: '/alerta',
-      pathMatch: 'full'
-    },
-  
-    /* Ruta que utiliza el cliente cuando ingresa a la vista principal de alerta y esta redireccionada 
-      al componente logico del formulario que lista las alertas existentes*/
-    {
-      path: 'alert',
-      component: AlertsListComponent
-    },
-  
-    /* Ruta que utiliza el cliente cuando añade una nueva alerta y esta redireccionada al componente logico 
-      del formulario para dicha accion */
-    {
-      path: 'alert/add_alert',
-      component: AlertsBodyComponent
-    },
-  
-    /* Ruta que utiliza el cliente cuando actualiza una alerta y esta redireccionada al componente logico 
+  {
+    path: 'alerta',
+    redirectTo: '/alerta',
+    pathMatch: 'full'
+  },
+
+  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de alerta y esta redireccionada 
+    al componente logico del formulario que lista las alertas existentes*/
+  {
+    path: 'alert',
+    component: AlertsListComponent
+  },
+
+  /* Ruta que utiliza el cliente cuando añade una nueva alerta y esta redireccionada al componente logico 
     del formulario para dicha accion */
-    {
-      path: 'alert/edit_alert/:id_alerta',
-      component: AlertsBodyComponent
-    },
+  {
+    path: 'alert/add_alert',
+    component: AlertsBodyComponent
+  },
+
+  /* Ruta que utiliza el cliente cuando actualiza una alerta y esta redireccionada al componente logico 
+  del formulario para dicha accion */
+  {
+    path: 'alert/edit_alert/:id_alerta',
+    component: AlertsBodyComponent
+  },
 
   /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
-  
+
   {
     path: 'rank',
     redirectTo: '/rank',
@@ -164,6 +168,12 @@ const rutas: Routes = [
   { path: 'organization', component: OrganizationsListComponent }, // Ruta para listar todos los registros  
   { path: 'organization/add_organization', component: OrganizationsBodyComponent },  // Ruta para adicionar registros  
   { path: 'organization/edit_organization/:id_organizacion', component: OrganizationsBodyComponent }, // Ruta para editar registros
+
+  /*--- Rutas de Estaciones ---*/
+  { path: 'station', redirectTo: '/station', pathMatch: 'full' },
+  { path: 'station', component: StationsListComponent }, // Ruta para listar todos los registros  
+  { path: 'station/add_station', component: StationsBodyComponent },  // Ruta para adicionar registros  
+  { path: 'station/edit_station/:id_station', component: StationsBodyComponent }, // Ruta para editar registros
 
   /*----------------------------------- Aqui Creo las rutas Base de Tiempo  -------------------------------------*/
   {
@@ -191,7 +201,7 @@ const rutas: Routes = [
   {
     path: 'time/edit_time/:id_tiempo',
     component: TimesBodyComponent
-  },
+  }
 
 ];
 
