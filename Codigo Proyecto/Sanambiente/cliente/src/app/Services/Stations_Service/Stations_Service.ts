@@ -19,13 +19,21 @@ export class StationsService {
     return this.baseService.create(body, `${environment.hostCreateStation}`);
   }
 
-  // viewRegionById(id_ciudad: number) {
-  //   return this.baseService.view(`${environment.viewCityById}/${id_ciudad}`);
-  // }
+  viewStationById(id_estacion: number) {
+    return this.baseService.view(`${environment.viewStationById}/${id_estacion}`);
+  }
 
-  // viewRegion() {
-  //   return this.baseService.view(`${environment.viewRegion}`).toPromise().then((data: any) => data.message).catch((error) => error);
-  // }
+  viewCategory() {
+    return this.baseService.view(`${environment.viewCategory}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
+  viewTime() {
+    return this.baseService.view(`${environment.viewTime}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
+  viewRegion() {
+    return this.baseService.view(`${environment.viewRegion}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
 
   viewStations() {
     return this.baseService.view(`${environment.viewStations}`).toPromise().then((data: any) => data.message).catch((error) => error);
