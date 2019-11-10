@@ -31,8 +31,8 @@ export class StationsService {
     return this.baseService.view(`${environment.viewTime}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewRegion() {
-    return this.baseService.view(`${environment.viewRegion}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  viewRegionS() {
+    return this.baseService.view(`${environment.viewRegionS}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
   viewStations() {

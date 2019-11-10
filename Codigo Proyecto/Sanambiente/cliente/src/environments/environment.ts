@@ -39,6 +39,7 @@ export const environment = {
   viewStationById: "http://localhost:3000/api/time/viewTimeById",
   viewCategory: "http://localhost:3000/api/category/viewCategories",
   viewTime: "http://localhost:3000/api/time/viewTimes",
+  viewRegionS: "http://localhost:3000/api/region/viewRegions",
 
   production: false
 };

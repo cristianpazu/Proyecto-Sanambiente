@@ -15,7 +15,7 @@ export class StationsBodyComponent implements OnInit {
 
   public formStation: FormGroup; // La variable formStation permite administrar las validaciones y restricciones del formulario
   public regionStation: Array<any> = []; // La variable regionStation almacena el listado de las regiones existentes
-  public categoryStation: Array<any> = []; // La variable categoriaStation almacena el listado de las categorias existentes
+  public categoryStation: Array<any> = []; // La variable categoryStation almacena el listado de las categorias existentes
   public timeStation: Array<any> = []; // La variable timeStation almacena el listado de los tiempos existentes
   
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
@@ -31,16 +31,15 @@ export class StationsBodyComponent implements OnInit {
       'nombre_corto_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_categoria': new FormControl('', [Validators.required]),
       'id_tiempo': new FormControl('', [Validators.required]),
-      
-      'id_region': new FormControl('', [Validators.required]),
       'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'id_region': new FormControl('', [Validators.required]),
     })
     this.arrayStations = {};
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
   ngOnInit(): void {
-    this.viewRegion(); // Carga las regiones existentes
+    this.viewRegionS(); // Carga las regiones existentes
     this.viewCategory(); // Carga las categorias existentes
     this.viewTime(); // Carga los tiempos existentes
     this.viewDataById(); // Toma el id de la estacion, cuando se vaya a editar alguna de ellas
@@ -66,8 +65,8 @@ export class StationsBodyComponent implements OnInit {
   }
 
   /* Método con el cual se listan las regiones existentes */
-  async viewRegion() {
-    this.regionStation = (await this.stationService.viewRegion());
+  async viewRegionS() {
+    this.regionStation = (await this.stationService.viewRegionS());
   }
 
   /* Método con el cual se identifica la estacion cuya información va a ser actualizada */
