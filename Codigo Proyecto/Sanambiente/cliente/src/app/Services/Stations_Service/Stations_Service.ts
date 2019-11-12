@@ -35,6 +35,17 @@ export class StationsService {
     return this.baseService.view(`${environment.viewRegionS}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
+
+
+
+
+  viewCityS() {
+    return this.baseService.view(`${environment.viewCitiesS}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
+
+
+
   viewStations() {
     return this.baseService.view(`${environment.viewStations}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }

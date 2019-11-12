@@ -15,9 +15,10 @@ export class StationsBodyComponent implements OnInit {
 
   public formStation: FormGroup; // La variable formStation permite administrar las validaciones y restricciones del formulario
   public regionStation: Array<any> = []; // La variable regionStation almacena el listado de las regiones existentes
+  public cityStation: Array<any> = []; // La variable cityStation almacena el listado de las ciudades existentes en la region seleccionada
   public categoryStation: Array<any> = []; // La variable categoryStation almacena el listado de las categorias existentes
   public timeStation: Array<any> = []; // La variable timeStation almacena el listado de los tiempos existentes
-  
+
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
   public edit = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva estacion o se esta editando una estacion
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la estacion, en la vista html
@@ -31,8 +32,10 @@ export class StationsBodyComponent implements OnInit {
       'nombre_corto_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_categoria': new FormControl('', [Validators.required]),
       'id_tiempo': new FormControl('', [Validators.required]),
-      'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_region': new FormControl('', [Validators.required]),
+      'id_ciudad': new FormControl('', [Validators.required]),
+      'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+
     })
     this.arrayStations = {};
   }
@@ -40,9 +43,11 @@ export class StationsBodyComponent implements OnInit {
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
   ngOnInit(): void {
     this.viewRegionS(); // Carga las regiones existentes
+    this.viewCityS(); // Carga las ciudades existentes en la region seleccionada
     this.viewCategory(); // Carga las categorias existentes
     this.viewTime(); // Carga los tiempos existentes
     this.viewDataById(); // Toma el id de la estacion, cuando se vaya a editar alguna de ellas
+
   }
 
   /* Método con el cual se crea una nueva estacion */
@@ -67,7 +72,17 @@ export class StationsBodyComponent implements OnInit {
   /* Método con el cual se listan las regiones existentes */
   async viewRegionS() {
     this.regionStation = (await this.stationService.viewRegionS());
+;  }
+
+
+
+  /* Método con el cual se listan las ciudades existentes en la region seleccionada*/
+  async viewCityS() {
+    this.cityStation = (await this.stationService.viewCityS());
   }
+
+
+
 
   /* Método con el cual se identifica la estacion cuya información va a ser actualizada */
   async viewDataById() {
@@ -82,7 +97,7 @@ export class StationsBodyComponent implements OnInit {
   }
 
   /* Método con el cual se actualiza la información de la estacion seleccionada */
-  async updateCity() {
+  async updateStation() {
     let id = this.activedRoute.snapshot.params.id_estacion;
     this.formStation.patchValue({
       nombre_estacion: this.arrayStations.nombre_estacion,

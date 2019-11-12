@@ -20,7 +20,7 @@ class CitiesRoute {
         this.router.get('/viewCityById/:id_ciudad', CityService.viewById);
         this.router.get('/viewCities', CityService.view);
         this.router.put('/updateCities/:id_ciudad', CityService.update);
-        this.router.get('/viewNameCities', CityService.viewNameC);
+        this.router.get('/viewCities', CityService.viewNameC);
     }
 }
 

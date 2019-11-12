@@ -19,7 +19,7 @@ class CitiesRoute {
         this.router.get('/viewCityById/:id_ciudad', Cities_Service_1.default.viewById);
         this.router.get('/viewCities', Cities_Service_1.default.view);
         this.router.put('/updateCities/:id_ciudad', Cities_Service_1.default.update);
-        this.router.get('/viewNameCities', Cities_Service_1.default.viewNameC);
+        this.router.get('/viewCities', Cities_Service_1.default.viewNameC);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

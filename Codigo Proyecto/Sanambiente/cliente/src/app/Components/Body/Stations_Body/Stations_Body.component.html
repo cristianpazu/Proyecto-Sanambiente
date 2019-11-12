@@ -119,10 +119,10 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label">Base de tiempos estación</label>
                 <div class="col-6">
-                    <select formControlName="id_tiempo" class="form-control"  type="number" id="textId_estacion" 
+                    <select formControlName="id_tiempo" class="form-control" type="number" id="textId_estacion"
                         id="tamaño-fuente-input" data-formrun-required>
-                        <option *ngFor="let tiemposEstacion of timeStation"
-                            value="{{tiemposEstacion.id_tiempo}}" name="tiempo-estacion">
+                        <option *ngFor="let tiemposEstacion of timeStation" value="{{tiemposEstacion.id_tiempo}}"
+                            name="tiempo-estacion">
                             {{tiemposEstacion.nombre_tiempo}}
                         </option>
                     </select>
@@ -136,11 +136,79 @@
             </div>
         </div>
 
+        <!-- Campo de tipo input, que muestra el nombre actual de la region, solo cuando se edita una estacion -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Región actual</label>
+            <div class="col-6">
+                <input class="form-control" type="text" id="textID_estacion" id="tamaño-fuente-input"
+                    value={{arrayStations.nombre_region}} disabled>
+            </div>
+        </div>
+        <!-- Campo para regiones con la cual se relaciona la estacion-->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Región estación</label>
+                <div class="col-6">
+                    <select formControlName="id_region" class="form-control" type="number" id="textId_estacion"
+                        id="tamaño-fuente-input" data-formrun-required>
+                        <option *ngFor="let regionesEstacion of regionStation" value="{{regionesEstacion.id_region}}"
+                            name="region-estacion">
+                            {{regionesEstacion.nombre_region}}
+                        </option>
+                    </select>
+
+                    <!-- Validacion para el campo regiones de la estacion -->
+                    <div *ngIf="formStation.controls['id_region'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                        Este campo es requerido
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo de tipo input, que muestra el nombre actual de la ciudad, solo cuando se edita una estacion -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Ciudad actual</label>
+            <div class="col-6">
+                <input class="form-control" type="text" id="textID_estacion" id="tamaño-fuente-input"
+                    value={{arrayStations.nombre_ciudad}} disabled>
+            </div>
+        </div>
+        <!-- Campo para ciudades con la cual se relaciona la region a su vez con la estacion-->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Ciudad estación</label>
+                <div class="col-6">
+                    <select formControlName="id_ciudad" class="form-control" type="number" id="textId_estacion"
+                        id="tamaño-fuente-input" data-formrun-required>
+                        <option *ngFor="let ciudadesEstacion of cityStation" value="{{ciudadesEstacion.id_ciudad}}"
+                            name="ciudad-estacion">
+                            {{ciudadesEstacion.nombre_ciudad}}
+                        </option>
+                    </select>
+
+                    <!-- Validacion para el campo ciudades de la estacion -->
+                    <div *ngIf="formStation.controls['id_ciudad'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                        Este campo es requerido
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        
+
+
+
         <!-- Campo para observación de la estacion  -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
-                <textarea ng-thim="false" class="form-control" formControlName="observacion_estacion" rows="4" 
+                <textarea ng-thim="false" class="form-control" formControlName="observacion_estacion" rows="4"
                     [(ngModel)]="arrayStations.observacion_estacion" id="tamaño-fuente-input" maxlength="50">
                 </textarea>
                 <span>{{50-arrayStations.observacion_estacion.length}} Caracteres restantes</span>
@@ -159,35 +227,11 @@
             </div>
         </div>
 
-        <!-- Campo de tipo input, que muestra el ID de la estacion, solo cuando se edita una estacion -->
-        <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">Región acl</label>
-            <div class="col-6">
-                <input class="form-control" type="text" id="textId_estacion" id="tamaño-fuente-input"
-                    value={{arrayStations.nombre_region}} disabled>
-            </div>
-        </div>
-        <!-- Campo para region con la cual se relaciona la estacion-->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Región estación</label>
-                <div class="col-6">
-                    <select formControlName="id_region" class="form-control" type="number" id="textId_region"
-                        id="tamaño-fuente-input" data-formrun-required>
-                        <option *ngFor="let regionEstacion of regionStation" value="{{regionEstacion.id_region}}"
-                            name="region-ciudad">
-                            {{regionEstacion.nombre_region}}
-                        </option>
-                    </select>
 
-                    <!-- Validacion para el campo region de la estacion -->
-                    <div *ngIf="formStation.controls['id_region'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                        Este campo es requerido
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
+
 
 
 
