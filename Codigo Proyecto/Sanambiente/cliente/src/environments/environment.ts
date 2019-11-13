@@ -33,10 +33,10 @@ export const environment = {
   viewTimes: "http://localhost:3000/api/time/viewTimes",
   hostviewTimeById: "http://localhost:3000/api/time/viewTimeById",
   // Estaciones
-  hostCreateStation: "http://localhost:3000/api/time/createStation",
-  hostUpdateStation: "http://localhost:3000/api/time/updateTimes",
+  hostCreateStation: "http://localhost:3000/api/station/createStation",
+  hostUpdateStation: "http://localhost:3000/api/station/updateStations",
   viewStations: "http://localhost:3000/api/station/viewStations",
-  viewStationById: "http://localhost:3000/api/time/viewTimeById",
+  viewStationById: "http://localhost:3000/api/station/viewTimeById",
   viewCategory: "http://localhost:3000/api/category/viewCategories",
   viewTime: "http://localhost:3000/api/time/viewTimes",
   viewRegionS: "http://localhost:3000/api/region/viewRegions",

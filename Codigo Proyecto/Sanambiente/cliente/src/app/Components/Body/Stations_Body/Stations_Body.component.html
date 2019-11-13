@@ -91,6 +91,7 @@
                 <div class="col-6">
                     <select formControlName="id_categoria" class="form-control" type="number" id="textId_estacion"
                         id="tamaño-fuente-input" data-formrun-required>
+                        <option disabled selected>Sin definir</option>
                         <option *ngFor="let categoriaEstacion of categoryStation"
                             value="{{categoriaEstacion.id_categoria}}" name="categoria-estacion">
                             {{categoriaEstacion.nombre_categoria}}
@@ -121,6 +122,7 @@
                 <div class="col-6">
                     <select formControlName="id_tiempo" class="form-control" type="number" id="textId_estacion"
                         id="tamaño-fuente-input" data-formrun-required>
+                        <option disabled selected>Sin definir</option>
                         <option *ngFor="let tiemposEstacion of timeStation" value="{{tiemposEstacion.id_tiempo}}"
                             name="tiempo-estacion">
                             {{tiemposEstacion.nombre_tiempo}}
@@ -151,6 +153,7 @@
                 <div class="col-6">
                     <select formControlName="id_region" class="form-control" type="number" id="textId_estacion"
                         id="tamaño-fuente-input" data-formrun-required>
+                        <option disabled selected>Sin definir</option>
                         <option *ngFor="let regionesEstacion of regionStation" value="{{regionesEstacion.id_region}}"
                             name="region-estacion">
                             {{regionesEstacion.nombre_region}}
@@ -181,6 +184,7 @@
                 <div class="col-6">
                     <select formControlName="id_ciudad" class="form-control" type="number" id="textId_estacion"
                         id="tamaño-fuente-input" data-formrun-required>
+                        <option disabled selected>Sin definir</option>
                         <option *ngFor="let ciudadesEstacion of cityStation" value="{{ciudadesEstacion.id_ciudad}}"
                             name="ciudad-estacion">
                             {{ciudadesEstacion.nombre_ciudad}}
@@ -196,11 +200,183 @@
             </div>
         </div>
 
+        <!-- Campo para la latitud de la estacion -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Latitud</label>
+            <div class="col-6">
+                <input class="form-control" formControlName="latitud_estacion" type="text" autofocus id="textLatitud"
+                    [(ngModel)]="arrayStations.latitud_estacion" id="tamaño-fuente-input" maxlength="50">
+                <!-- Validacion para el campo latitud de la estacion -->
+                <div *ngIf="formStation.controls['latitud_estacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+                <!-- Mensaje de restricción para el campo latitud de la estacion -->
+                <div *ngIf="formStation.controls['latitud_estacion'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo decimales -->
+                <div *ngIf="formStation.controls['latitud_estacion'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben ser decimales(.) o enteros
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo para la Longitud de la estacion -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Longitud</label>
+            <div class="col-6">
+                <input class="form-control" formControlName="longitud_estacion" type="text" autofocus id="textLongitud"
+                    [(ngModel)]="arrayStations.longitud_estacion" id="tamaño-fuente-input" maxlength="50">
+                <!-- Validacion para el campo Longitud de la estacion -->
+                <div *ngIf="formStation.controls['longitud_estacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+                <!-- Mensaje de restricción para el campo Longitud de la estacion -->
+                <div *ngIf="formStation.controls['longitud_estacion'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo decimales -->
+                <div *ngIf="formStation.controls['longitud_estacion'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben ser decimales(.) o enteros
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo para la Elevacion de la estacion -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Elevación</label>
+            <div class="col-6">
+                <input class="form-control" formControlName="elevacion_estacion" type="text" autofocus
+                    id="textElevacion" [(ngModel)]="arrayStations.elevacion_estacion" id="tamaño-fuente-input"
+                    maxlength="50">
+                <!-- Validacion para el campo Elevacion de la estacion -->
+                <div *ngIf="formStation.controls['elevacion_estacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+                <!-- Mensaje de restricción para el campo Elevacion de la estacion -->
+                <div *ngIf="formStation.controls['elevacion_estacion'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo decimales -->
+                <div *ngIf="formStation.controls['elevacion_estacion'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben ser decimales(.) o enteros
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo para GMT de la estacion-->
+        <!-- <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">GMT</label>
+                <div class="col-6">
+                    <select formControlName="gmt_estacion" class="form-control" type="text" id="textGmt_estacion"
+                        id="tamaño-fuente-input" data-formrun-required>
+                        <option disabled selected>Sin definir</option>
+                        <option value="gmt" name="gmt-estacion">
+                            cali
+                        </option>
+                        <option value="gmt1" name="gmt-estacion">
+                            bogota
+                        </option>
+                    </select>
+
+                    Validacion para el campo ciudades de la estacion
+                    <div *ngIf="formStation.controls['id_ciudad'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                        Este campo es requerido
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Campo para protocolo de la estacion-->
+        <!-- <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Protocolo</label>
+                <div class="col-6">
+                    <select formControlName="gmt_estacion" class="form-control" type="text" id="textGmt_estacion"
+                        id="tamaño-fuente-input" data-formrun-required>
+                        <option disabled selected>Sin definir</option>
+                        <option value="gmt">
+                            FTP
+                        </option>
+                        <option value="gmt1">
+                            MODBUS
+                        </option>
+                    </select>
+                    Validacion para el campo ciudades de la estacion
+                    <div *ngIf="formStation.controls['id_ciudad'].errors?.required" class="form-control-feedback"
+                                id="tamaño-fuente-alerta">
+                                Este campo es requerido
+                            </div>
+                </div>
+            </div>
+        </div> -->
 
 
 
 
-        
+
+
+
+        <!-- Campo para el nombre de la estacion -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">gmt</label>
+            <div class="col-6">
+                <input class="form-control" formControlName="gmt_estacion" type="text" autofocus id="textNombre"
+                    [(ngModel)]="arrayStations.gmt_estacion" id="tamaño-fuente-input" maxlength="50">
+                <!-- Validacion para el campo nombre de la estacion -->
+                <div *ngIf="formStation.controls['gmt_estacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+                <!-- Mensaje de restricción para el campo nombre de la estacion -->
+                <div *ngIf="formStation.controls['gmt_estacion'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Campo para el nombre de la estacion -->
+                <div class="form-group row">
+                        <label class="col-2 col-form-label">protocolo</label>
+                        <div class="col-6">
+                            <input class="form-control" formControlName="protocolo_estacion" type="text" autofocus id="textNombre"
+                                [(ngModel)]="arrayStations.protocolo_estacion" id="tamaño-fuente-input" maxlength="50">
+                            <!-- Validacion para el campo nombre de la estacion -->
+                            <div *ngIf="formStation.controls['protocolo_estacion'].errors?.required" class="form-control-feedback"
+                                id="tamaño-fuente-alerta">
+                                Este campo es requerido
+                            </div>
+                            <!-- Mensaje de restricción para el campo nombre de la estacion -->
+                            <div *ngIf="formStation.controls['protocolo_estacion'].errors?.maxlength" class="form-control-feedback">
+                                <div class="alert alert-danger">
+                                    <strong>Alerta!</strong> Máximo 50 carácteres.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+
+
+
+
 
 
 
@@ -227,27 +403,11 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Boton de guardar de estacion -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">
-                <button type="button" [disabled]="!formStation.valid" class="btn btn-outline-primary btn-lg"
+                <button type="button" class="btn btn-outline-primary btn-lg" [disabled]="!formStation.valid"
                     (click)=" edit ? updateStation() : createStation()">
                     Guardar
                 </button>

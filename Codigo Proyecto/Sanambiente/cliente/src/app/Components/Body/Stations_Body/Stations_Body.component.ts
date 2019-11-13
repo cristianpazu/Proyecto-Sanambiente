@@ -18,7 +18,6 @@ export class StationsBodyComponent implements OnInit {
   public cityStation: Array<any> = []; // La variable cityStation almacena el listado de las ciudades existentes en la region seleccionada
   public categoryStation: Array<any> = []; // La variable categoryStation almacena el listado de las categorias existentes
   public timeStation: Array<any> = []; // La variable timeStation almacena el listado de los tiempos existentes
-
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
   public edit = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva estacion o se esta editando una estacion
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la estacion, en la vista html
@@ -34,20 +33,23 @@ export class StationsBodyComponent implements OnInit {
       'id_tiempo': new FormControl('', [Validators.required]),
       'id_region': new FormControl('', [Validators.required]),
       'id_ciudad': new FormControl('', [Validators.required]),
+      'latitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]), // --> decimales y enteros ** ^\d+\.\d{0,2}$ --> solo decimales  
+      'longitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
+      'elevacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
+      'gmt_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'protocolo_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-
     })
     this.arrayStations = {};
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
   ngOnInit(): void {
+    this.viewDataById(); // Toma el id de la estacion, cuando se vaya a editar alguna de ellas
     this.viewRegionS(); // Carga las regiones existentes
     this.viewCityS(); // Carga las ciudades existentes en la region seleccionada
     this.viewCategory(); // Carga las categorias existentes
     this.viewTime(); // Carga los tiempos existentes
-    this.viewDataById(); // Toma el id de la estacion, cuando se vaya a editar alguna de ellas
-
   }
 
   /* Método con el cual se crea una nueva estacion */
@@ -101,6 +103,13 @@ export class StationsBodyComponent implements OnInit {
     let id = this.activedRoute.snapshot.params.id_estacion;
     this.formStation.patchValue({
       nombre_estacion: this.arrayStations.nombre_estacion,
+      serial_estacion: this.arrayStations.serial_estacion,
+      nombre_corto_estacion: this.arrayStations.nombre_corto_estacion,
+      latitud_estacion: this.arrayStations.latitud_estacion,
+      longitud_estacion: this.arrayStations.longitud_estacion,
+      elevacion_estacion: this.arrayStations.elevacion_estacion,
+      gmt_estacion: this.arrayStations.gmt_estacion,
+      protocolo_estacion: this.arrayStations.protocolo_estacion,
       observacion_estacion: this.arrayStations.observacion_estacion,
     })
     this.stationService.updateStation(this.formStation.value, id)
