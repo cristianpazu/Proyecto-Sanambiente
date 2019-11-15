@@ -40,7 +40,9 @@ export class StationsBodyComponent implements OnInit {
       'protocolo_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
-    this.arrayStations = {};
+    this.arrayStations = {
+      observacion_estacion:''
+    };
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
@@ -92,6 +94,7 @@ export class StationsBodyComponent implements OnInit {
     if (id !== undefined) {
       let station = await this.stationService.viewStationById(id).subscribe(async (element: any) => {
         this.arrayStations = await element.message[0];
+        console.log(this.arrayStations);
         this.edit = true;
         this.hide = true;
       });

@@ -173,7 +173,7 @@ const rutas: Routes = [
   { path: 'station', redirectTo: '/station', pathMatch: 'full' },
   { path: 'station', component: StationsListComponent }, // Ruta para listar todos los registros  
   { path: 'station/add_station', component: StationsBodyComponent },  // Ruta para adicionar registros  
-  { path: 'station/edit_station/:id_station', component: StationsBodyComponent }, // Ruta para editar registros
+  { path: 'station/edit_station/:id_estacion', component: StationsBodyComponent }, // Ruta para editar registros
 
   /*----------------------------------- Aqui Creo las rutas Base de Tiempo  -------------------------------------*/
   {

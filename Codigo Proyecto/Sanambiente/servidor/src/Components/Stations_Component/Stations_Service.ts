@@ -12,7 +12,7 @@ class StationService implements BaseService<any> {
 
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion } = request.body;
+            let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion } = request.body;        
             await ConnectionDataBase.query(handlerQuery['createStation'], [ nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion ]);
             return Promise.resolve(handleMessage(response, 200, 'Create station'));
         } catch (error) {

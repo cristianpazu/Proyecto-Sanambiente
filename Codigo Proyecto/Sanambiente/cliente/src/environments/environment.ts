@@ -36,7 +36,7 @@ export const environment = {
   hostCreateStation: "http://localhost:3000/api/station/createStation",
   hostUpdateStation: "http://localhost:3000/api/station/updateStations",
   viewStations: "http://localhost:3000/api/station/viewStations",
-  viewStationById: "http://localhost:3000/api/station/viewTimeById",
+  viewStationById: "http://localhost:3000/api/station/viewStationById",
   viewCategory: "http://localhost:3000/api/category/viewCategories",
   viewTime: "http://localhost:3000/api/time/viewTimes",
   viewRegionS: "http://localhost:3000/api/region/viewRegions",

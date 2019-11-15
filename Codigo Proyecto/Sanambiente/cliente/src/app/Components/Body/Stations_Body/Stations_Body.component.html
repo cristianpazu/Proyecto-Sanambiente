@@ -21,15 +21,15 @@
                 <input class="form-control" formControlName="nombre_estacion" type="text" autofocus id="textNombre"
                     [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input" maxlength="50">
                 <!-- Validacion para el campo nombre de la estacion -->
-                <div *ngIf="formStation.controls['nombre_estacion'].errors?.required" class="form-control-feedback"
+                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
-                </div>
-                <!-- Mensaje de restricción para el campo nombre de la estacion -->
+                </div> 
+                <!-- Mensaje de restricción para el campo nombre de la estacion-->
                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -46,11 +46,11 @@
                     Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo nombre de la estacion -->
-                <div *ngIf="formStation.controls['serial_estacion'].errors?.maxlength" class="form-control-feedback">
+                 <div *ngIf="formStation.controls['serial_estacion'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
 
@@ -62,12 +62,12 @@
                     id="textNombreCorto" [(ngModel)]="arrayStations.nombre_corto_estacion" id="tamaño-fuente-input"
                     maxlength="50">
                 <!-- Validacion para el campo nombre corto de la estacion -->
-                <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.required"
+                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                     Este campo es requerido
-                </div>
+                </div> 
                 <!-- Mensaje de restricción para el campo nombre de la estacion -->
-                <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.maxlength"
+                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
@@ -99,7 +99,7 @@
                     </select>
 
                     <!-- Validacion para el campo categoria de la estacion -->
-                    <div *ngIf="formStation.controls['id_categoria'].errors?.required" class="form-control-feedback"
+                     <div *ngIf="formStation.controls['id_categoria'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
                     </div>
@@ -130,10 +130,10 @@
                     </select>
 
                     <!-- Validacion para el campo tiempos de la estacion -->
-                    <div *ngIf="formStation.controls['id_tiempo'].errors?.required" class="form-control-feedback"
+                     <div *ngIf="formStation.controls['id_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
                     </select>
 
                     <!-- Validacion para el campo regiones de la estacion -->
-                    <div *ngIf="formStation.controls['id_region'].errors?.required" class="form-control-feedback"
+                     <div *ngIf="formStation.controls['id_region'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
                     </div>
@@ -192,7 +192,7 @@
                     </select>
 
                     <!-- Validacion para el campo ciudades de la estacion -->
-                    <div *ngIf="formStation.controls['id_ciudad'].errors?.required" class="form-control-feedback"
+                     <div *ngIf="formStation.controls['id_ciudad'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
                     </div>
@@ -207,7 +207,7 @@
                 <input class="form-control" formControlName="latitud_estacion" type="text" autofocus id="textLatitud"
                     [(ngModel)]="arrayStations.latitud_estacion" id="tamaño-fuente-input" maxlength="50">
                 <!-- Validacion para el campo latitud de la estacion -->
-                <div *ngIf="formStation.controls['latitud_estacion'].errors?.required" class="form-control-feedback"
+                 <div *ngIf="formStation.controls['latitud_estacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
@@ -346,7 +346,7 @@
                     Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo nombre de la estacion -->
-                <div *ngIf="formStation.controls['gmt_estacion'].errors?.maxlength" class="form-control-feedback">
+                 <div *ngIf="formStation.controls['gmt_estacion'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
@@ -360,12 +360,12 @@
                             <input class="form-control" formControlName="protocolo_estacion" type="text" autofocus id="textNombre"
                                 [(ngModel)]="arrayStations.protocolo_estacion" id="tamaño-fuente-input" maxlength="50">
                             <!-- Validacion para el campo nombre de la estacion -->
-                            <div *ngIf="formStation.controls['protocolo_estacion'].errors?.required" class="form-control-feedback"
+                             <div *ngIf="formStation.controls['protocolo_estacion'].errors?.required" class="form-control-feedback"
                                 id="tamaño-fuente-alerta">
                                 Este campo es requerido
                             </div>
                             <!-- Mensaje de restricción para el campo nombre de la estacion -->
-                            <div *ngIf="formStation.controls['protocolo_estacion'].errors?.maxlength" class="form-control-feedback">
+                             <div *ngIf="formStation.controls['protocolo_estacion'].errors?.maxlength" class="form-control-feedback">
                                 <div class="alert alert-danger">
                                     <strong>Alerta!</strong> Máximo 50 carácteres.
                                 </div>
@@ -389,7 +389,7 @@
                 </textarea>
                 <span>{{50-arrayStations.observacion_estacion.length}} Caracteres restantes</span>
                 <!-- Validacion para el campo Observación de la estacion -->
-                <div *ngIf="formStation.controls['observacion_estacion'].errors?.required" class="form-control-feedback"
+                 <div *ngIf="formStation.controls['observacion_estacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
