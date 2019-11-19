@@ -19,8 +19,8 @@ class RankService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createRank'], [nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango]);
+                let { nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createRank'], [nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Rank'));
             }
             catch (error) {
@@ -32,8 +32,8 @@ class RankService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_rango } = request.params;
-                let { nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateRank'], [nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango, id_rango]);
+                let { nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateRank'], [nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango, id_rango]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Rank'));
             }
             catch (error) {

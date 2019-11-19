@@ -9,8 +9,8 @@ class RankService implements BaseService<any> {
 
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango } = request.body;
-            await ConnectionDataBase.query(handlerQuery['createRank'], [nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango]);
+            let { nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango } = request.body;
+            await ConnectionDataBase.query(handlerQuery['createRank'], [nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango]);
             return Promise.resolve(handleMessage(response, 200, 'Create Rank'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
@@ -20,8 +20,8 @@ class RankService implements BaseService<any> {
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_rango } = request.params;
-            let { nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango } = request.body;
-            await ConnectionDataBase.query(handlerQuery['updateRank'], [nombre_rango, valorMinimo, valorMaximo, id_estacion, observacion_rango, id_rango]);
+            let { nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango } = request.body;
+            await ConnectionDataBase.query(handlerQuery['updateRank'], [nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango, id_rango]);
             return Promise.resolve(handleMessage(response, 200, 'Update Rank'))
 
         } catch (error) {

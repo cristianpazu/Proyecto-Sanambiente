@@ -27,7 +27,6 @@ export class CitiesListComponent implements OnInit {
   /* Método con el cual se obtienen las ciudades existentes */
   async getCities() {
     this.arrayCities = await this.cityService.viewCities();
-    console.log(this.arrayCities);
   }
 }
 

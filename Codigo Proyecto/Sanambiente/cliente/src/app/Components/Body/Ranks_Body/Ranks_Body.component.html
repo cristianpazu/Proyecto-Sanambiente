@@ -16,14 +16,23 @@
             <label class="col-2 col-form-label">Nombre del Rango</label>
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_rango" type="text" autofocus id="textNombre_Rango"
-                    id="tamaño-fuente-input">
+                    id="tamaño-fuente-input" maxlength="50">
+                <!-- Validacion para el campo nombre del rango -->
                 <div *ngIf="formRank.controls['nombre_rango'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-                <div *ngIf="formRank.controls['nombre_rango'].errors?.minlength" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    Por lo menos {{formRank.controls['nombre_rango'].errors?.minlength.requiredLength}} carácteres
+                <!-- Mensaje de restricción para el campo nombre del rango-->
+                <div *ngIf="formRank.controls['nombre_rango'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo letras -->
+                <div *ngIf="formRank.controls['nombre_rango'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> El valor debe ser en letras.
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,15 +40,24 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Valor mínimo</label>
             <div class="col-6">
-                <input class="form-control" formControlName="valorMinimo" type="text" autofocus id="textRango_Minimo"
-                    id="tamaño-fuente-input">
-                <div *ngIf="formRank.controls['valorMinimo'].errors?.required" class="form-control-feedback"
+                <input class="form-control" formControlName="valor_minimo" type="text" autofocus id="textRango_Minimo"
+                    [(ngModel)]="arrayRanks.valor_minimo" id="tamaño-fuente-input" maxlength="20">
+                <!-- Validacion para el campo valor minimo del rango -->
+                <div *ngIf="formRank.controls['valor_minimo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-                <div *ngIf="formRank.controls['valorMinimo'].errors?.minlength" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    Por lo menos {{formRank.controls['valorMinimo'].errors?.minlength.requiredLength}} carácteres
+                <!-- Mensaje de restricción para el campo valor minimo del rango-->
+                <div *ngIf="formRank.controls['valor_minimo'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 20 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo numeros -->
+                <div *ngIf="formRank.controls['valor_minimo'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> El valor debe ser un número entero.
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,40 +65,70 @@
         <div class="form-group row">
             <label class="col-2 col-form-label"> Valor Máximo</label>
             <div class="col-6">
-                <input class="form-control" formControlName="valorMaximo" type="text" autofocus id="textRango_Maximo"
-                    id="tamaño-fuente-input">
-                <div *ngIf="formRank.controls['valorMaximo'].errors?.required" class="form-control-feedback"
+                <input class="form-control" formControlName="valor_maximo" type="text" autofocus id="textRango_Maximo"
+                    [(ngModel)]="arrayRanks.valor_maximo" id="tamaño-fuente-input" maxlength="20">
+                <!-- Validacion para el campo valor maximo del rango -->
+                <div *ngIf="formRank.controls['valor_maximo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-                <div *ngIf="formRank.controls['valorMaximo'].errors?.minlength" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    Por lo menos {{formRank.controls['valorMaximo'].errors?.minlength.requiredLength}} carácteres
+                <!-- Mensaje de restricción para el campo valor maximo del rango-->
+                <div *ngIf="formRank.controls['valor_maximo'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 20 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo numeros -->
+                <div *ngIf="formRank.controls['valor_maximo'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> El valor debe ser un número entero.
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Campo para observaciones  -->
+        <!-- Campo para observaciones del rango -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_rango" rows="4"
-                    id="tamaño-fuente-input">
+                    [(ngModel)]="arrayRanks.observacion_rango" id="tamaño-fuente-input" maxlength="50">
                     </textarea>
+                <span>{{50-arrayRanks.observacion_rango.length}} Caracteres restantes</span>
+                <!-- Validacion para el campo Observación del rango -->
+                <div *ngIf="formRank.controls['observacion_rango'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+                <!-- Mensaje de restricción para el campo Observación del rango -->
                 <div *ngIf="formRank.controls['observacion_rango'].errors?.maxlength" class="form-control-feedback">
-                    Maximo {{forma.controls['observacion_rango'].errors?.maxlength.requiredLength}} carácteres
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo letras -->
+                <div *ngIf="formRank.controls['observacion_rango'].errors?.pattern" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> El valor debe ser en letras.
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Campo para region -->
+        <!-- Campo para estacion -->
         <div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">Estación</label>
                 <div class="col-6">
-                    <select class="form-control" type="number" id="textId_estacion" id="tamaño-fuente-input">
+                    <select formControlName="id_estacion" class="form-control" type="number" id="textId_estacion"
+                        id="tamaño-fuente-input">
                         <option *ngFor="let estacionRango of stationRank" value="{{estacionRango.id_estacion}}">
                             {{estacionRango.nombre_estacion}}
                         </option>
                     </select>
+                    <!-- Validacion para el campo estacion del rango -->
+                    <div *ngIf="formRank.controls['id_estacion'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                        Este campo es requerido
+                    </div>
                 </div>
             </div>
             <!-- Boton de guardar -->

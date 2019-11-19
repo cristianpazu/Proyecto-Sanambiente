@@ -15,7 +15,8 @@ export class RanksBodyComponent implements OnInit {
 
   public formRank: FormGroup;
   public stationRank: Array<any> = [];
-  public stationSelect: number;
+  public arrayRanks: any;
+  //public stationSelect: number;
   public edit = false;
   public hide = false;
 
@@ -23,13 +24,17 @@ export class RanksBodyComponent implements OnInit {
 
   constructor(private ranksService: RanksService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formRank = new FormGroup({
-      'nombre_rango': new FormControl('', [Validators.required, Validators.minLength(3)]),
-      'valorMinimo': new FormControl('', [Validators.required, Validators.minLength(1)]),
-      'valorMaximo': new FormControl('', [Validators.required, Validators.minLength(1)]),
-      'observacion_rango': new FormControl('', [Validators.required, Validators.maxLength(250)]),
+      'nombre_rango': new FormControl('', [Validators.required, Validators.maxLength(49.9),Validators.pattern(/^[a-zA-Z]*$/)]),
+      'valor_minimo': new FormControl('', [Validators.required, Validators.maxLength(19.9), Validators.pattern(/^[0-9]\d{0,20}$/)]),
+      'valor_maximo': new FormControl('', [Validators.required, Validators.maxLength(19.9), Validators.pattern(/^[0-9]\d{0,20}$/)]),
+      'id_estacion': new FormControl('', [Validators.required]),
+      'observacion_rango': new FormControl('', [Validators.required, Validators.maxLength(49.9),Validators.pattern(/^[a-zA-Z]*$/)]),
     })
+    this.arrayRanks = {
+      observacion_rango: ''
+    };
   }
-
+// /^[a-zA-Z]*$/
   async createRank() {
     if (this.formRank.valid) {
       await this.ranksService.createRank(this.formRank.value);

@@ -41,6 +41,12 @@ export const environment = {
   viewTime: "http://localhost:3000/api/time/viewTimes",
   viewRegionS: "http://localhost:3000/api/region/viewRegions",
   viewCitiesS: "http://localhost:3000/api/city/viewCities",
+  // rango
+  hostCreateRank: "http://localhost:3000/api/city/createCity",
+  hostUpdateRank: "http://localhost:3000/api/city/updateCities",
+  viewRanks: "http://localhost:3000/api/city/viewCities",
+  viewRankById: "http://localhost:3000/api/city/viewCityById",
+  viewStation: "http://localhost:3000/api/region/viewRegions",
 
   production: false
 };

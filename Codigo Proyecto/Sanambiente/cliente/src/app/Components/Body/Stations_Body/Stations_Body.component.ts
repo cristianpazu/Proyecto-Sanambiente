@@ -86,8 +86,6 @@ export class StationsBodyComponent implements OnInit {
   }
 
 
-
-
   /* Método con el cual se identifica la estacion cuya información va a ser actualizada */
   async viewDataById() {
     let id = this.activedRoute.snapshot.params.id_estacion;

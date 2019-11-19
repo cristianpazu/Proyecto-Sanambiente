@@ -12,9 +12,9 @@ class RankRoute {
     }
     configuracion() {
         this.router.post('/createRank', Ranks_Service_1.default.create);
-        this.router.get('/viewRankById/:id_region', Ranks_Service_1.default.viewById);
+        this.router.get('/viewRankById/:id_rango', Ranks_Service_1.default.viewById);
         this.router.get('/viewRanks', Ranks_Service_1.default.viewR);
-        this.router.put('/updateRanks/:id_region', Ranks_Service_1.default.update);
+        this.router.put('/updateRanks/:id_rango', Ranks_Service_1.default.update);
         this.router.get('/viewStations', Ranks_Service_1.default.view);
     }
 }

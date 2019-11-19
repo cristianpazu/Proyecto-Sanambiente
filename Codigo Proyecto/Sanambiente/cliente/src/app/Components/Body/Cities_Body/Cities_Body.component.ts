@@ -15,7 +15,6 @@ export class CitiesBodyComponent implements OnInit {
 
   public formCity: FormGroup; // La variable formCity permite administrar las validaciones y restricciones del formulario
   public regionCity: Array<any> = []; // La variable regionCity almacena el listado de las regiones existentes
-  public regionSelect: number; // Identifica el id de la region seleccionada al crear una ciudad
   public arrayCities: any; // La variable arrayCities almacena el listado de las ciudades existentes. Utilizada cuando se edita una ciudad
   public edit = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva ciudad o se esta editando una ciudad
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la ciudad, en la vista html
@@ -34,7 +33,7 @@ export class CitiesBodyComponent implements OnInit {
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Cities_Body */
   ngOnInit(): void {
     this.viewRegion(); // Carga las regiones existentes
-    this.viewDataById(); // Toma el id de la cuidad, cuando se vaya a editar alguna de ellas
+    this.viewCityById(); // Toma el id de la cuidad, cuando se vaya a editar alguna de ellas
   }
 
   /* Método con el cual se crea una nueva ciudad */
@@ -52,7 +51,7 @@ export class CitiesBodyComponent implements OnInit {
   }
 
   /* Método con el cual se identifica la ciudad cuya información va a ser actualizada */
-  async viewDataById() {
+  async viewCityById() {
     let id = this.activedRoute.snapshot.params.id_ciudad;
     if (id !== undefined) {
       let region = await this.cityService.viewRegionById(id).subscribe(async (element: any) => {

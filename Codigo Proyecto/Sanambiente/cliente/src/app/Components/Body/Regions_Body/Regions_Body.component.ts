@@ -33,7 +33,7 @@ export class RegionsBodyComponent implements OnInit {
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Regions_Body */
   ngOnInit(): void {
-    this.viewDataById() // Toma el id de la region, cuando se vaya a editar alguna de ellas
+    this.viewRegionById() // Toma el id de la region, cuando se vaya a editar alguna de ellas
   }
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
@@ -48,7 +48,7 @@ export class RegionsBodyComponent implements OnInit {
   }
 
   /* Método con el cual se identifica la region cuya información va a ser actualizada */
-  async viewDataById() {
+  async viewRegionById() {
     let id = this.activedRoute.snapshot.params.id_region;
     if (id !== undefined) {
       let region = await this.regionService.viewRegionById(id).subscribe((element: any) => {

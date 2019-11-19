@@ -3,8 +3,8 @@
 export interface Rank {
     id_rango?: number;
     nombre_rango?: string;
-    valorMinimo?: number;
-    valorMaximo?: number;
+    valor_minimo?: number;
+    valor_maximo?: number;
     id_estacion?:number;
     observacion_rango?: string;
 }
