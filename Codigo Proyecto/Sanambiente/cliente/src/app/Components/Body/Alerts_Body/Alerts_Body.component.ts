@@ -22,7 +22,7 @@ export class AlertsBodyComponent implements OnInit {
     this.formAlert = new FormGroup({
       'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(249.9)]),
-      'tipo_alerta': new FormControl(),
+      'tipo_alerta': new FormControl('', [Validators.required]),
     });
     this.arrayAlerts = {
 

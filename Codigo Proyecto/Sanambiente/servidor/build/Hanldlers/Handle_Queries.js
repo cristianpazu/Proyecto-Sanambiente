@@ -49,4 +49,9 @@ exports.handlerQuery = {
     viewTimesStation: 'SELECT id_tiempo, nombre_tiempo FROM tiempos order by id_tiempo',
     viewRegionsStation: 'SELECT id_region, nombre_region FROM regiones order by id_region',
     viewCitiesStation: 'SELECT id_ciudad, nombre_ciudad FROM ciudades order by id_ciudad',
+    viewGmtStation: 'SELECT id_gmt, nombre_gmt FROM gmt order by id_gmt',
+    createGmt: 'INSERT INTO gmt (nombre_gmt, observacion_gmt) VALUES ($1,$2)',
+    viewGmts: 'SELECT * FROM gmt order by id_gmt',
+    viewGmt: 'SELECT * FROM gmt where id_gmt=$1',
+    updateGmt: 'UPDATE gmt set nombre_gmt=$1, observacion_gmt=$2 where id_gmt=$3',
 };

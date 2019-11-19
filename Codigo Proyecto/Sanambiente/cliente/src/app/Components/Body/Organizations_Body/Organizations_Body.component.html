@@ -17,7 +17,7 @@
             <label class="col-2 col-form-label">Nombre Organización</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_organizacion" type="text"  id="textNombre"
-                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input"  pattern="[a-z ]+" maxlength="50">
 
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
