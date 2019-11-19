@@ -20,7 +20,7 @@
 
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_tiempo" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
 
                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
@@ -38,75 +38,93 @@
 
         <!-- Campo para Escala de Tiempo -->
         <div>
-                <div class="form-group row">
-                    <label class="col-2 col-form-label">Escala de Tiempo</label>
-                    <div class="col-6">
-                        <input formControlName="escala_tiempo" class="form-control" type="Time" id="textEscala_tiempo"
-                            id="tamaño-fuente-input" data-formrun-required value={{arrayTimes.escala_tiempo}}>
-                            
-                        <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
-                            id="tamaño-fuente-alerta">
-                            Este campo es requerido
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Escala de Tiempo</label>
+                <div class="col-6">
+
+                    <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
+                    <div class="form-group row" [hidden]="hide==false">
+                        <input class="form-control" type="text" id="textId_ciudad" id="tamaño-fuente-input"
+                            value={{arrayTimes.escala_tiempo}} disabled>
+                    </div>
+
+                    <input formControlName="escala_tiempo" class="form-control" type="number" id="textEscala_tiempo"
+                        id="tamaño-fuente-input" pattern="^[0-9]+" data-formrun-required
+                        [(ngModel)]="arrayTimes.escala_tiempo" value={{arrayTimes.escala_tiempo}} min="1" max="1440">
+                    Digite escala de tiempo en minutos
+                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                        Este campo es requerido
+                    </div>
+
+                    <!-- Mensaje de restricción para el campo Escala de tiempo -->
+                <div *ngIf="formTime.controls['escala_tiempo'].errors?.max" class="form-control-feedback">
+                        <div class="alert alert-danger">
+                            <strong>Alerta!</strong> Máximo 1440 Minutos.
                         </div>
-    
                     </div>
+
                 </div>
-
-        <!-- Campo para observaciones  -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Observación</label>
-            <div class="col-6">
-                <textarea  data-ls-module="charCounter" ng-thim="false" class="form-control" formControlName="observacion_tiempo" rows="4"
-                    [(ngModel)]="arrayTimes.observacion_tiempo" id="tamaño-fuente-input" maxlength="50">
-                </textarea>
-                <span>{{50-arrayTimes.observacion_tiempo.length}} Caracteres restantes</span>
-
-                <div *ngIf="formTime.controls['observacion_tiempo'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    Este campo es requerido
-                </div>
-
-                <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
-                    </div>
-                </div>
-
             </div>
-        </div>
 
-        <!-- Campo para Alerta de Tiempo -->
-        <div>
+            <!-- Campo para observaciones  -->
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Observación</label>
+                <div class="col-6">
+                    <textarea data-ls-module="charCounter" ng-thim="false" class="form-control"
+                        formControlName="observacion_tiempo" rows="4" [(ngModel)]="arrayTimes.observacion_tiempo"
+                        id="tamaño-fuente-input" maxlength="50">
+                </textarea>
+                    <span>{{50-arrayTimes.observacion_tiempo.length}} Caracteres restantes</span>
+
+                    <div *ngIf="formTime.controls['observacion_tiempo'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                        Este campo es requerido
+                    </div>
+
+                    <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength"
+                        class="form-control-feedback">
+                        <div class="alert alert-danger">
+                            <strong>Alerta!</strong> Máximo 50 carácteres.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Campo para Alerta de Tiempo -->
+            <div>
                 <div class="form-group row">
                     <label class="col-2 col-form-label">Tipo de Alerta</label>
                     <div class="col-6">
                         <select formControlName="alerta_tiempo" class="form-control" type="text" id="textAlerta_tiempo"
-                            id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.alerta_tiempo" value={{arrayTimes.alerta_tiempo}}>
+                            id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.alerta_tiempo"
+                            value={{arrayTimes.alerta_tiempo}}>
                             <option value="Fax">Fax</option>
                             <option value="Email">Email</option>
                             <option value="Mensaje de texto">Mensaje de texto</option>
                         </select>
-    
+
                         <div *ngIf="formTime.controls['alerta_tiempo'].errors?.required" class="form-control-feedback"
                             id="tamaño-fuente-alerta">
                             Este campo es requerido
                         </div>
-    
+
                     </div>
                 </div>
 
 
-            <div id="caja-botones" class="form-group-row">
-                <label class="col-1 col-form-label">&nbsp;</label>
-                <div class="col-md-8">
-                    <button type="button" [disabled]="!formTime.valid" class="btn btn-outline-primary btn-lg"
-                        (click)=" edit ? updateTime() : createTime()">
-                        Guardar
-                    </button>
+                <div id="caja-botones" class="form-group-row">
+                    <label class="col-1 col-form-label">&nbsp;</label>
+                    <div class="col-md-8">
+                        <button type="button" [disabled]="!formTime.valid" class="btn btn-outline-primary btn-lg"
+                            (click)=" edit ? updateTime() : createTime()">
+                            Guardar
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         </div>
 
     </form>

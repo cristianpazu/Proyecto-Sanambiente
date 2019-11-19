@@ -19,7 +19,7 @@
             <label class="col-2 col-form-label">Nombre Estación</label>
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_estacion" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input"  pattern="[a-z ]+" maxlength="50">
                 <!-- Validacion para el campo nombre de la estacion -->
                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
@@ -60,7 +60,7 @@
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_corto_estacion" type="text" autofocus
                     id="textNombreCorto" [(ngModel)]="arrayStations.nombre_corto_estacion" id="tamaño-fuente-input"
-                    maxlength="50">
+                    pattern="[a-z ]+" maxlength="50">
                 <!-- Validacion para el campo nombre corto de la estacion -->
                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
@@ -299,18 +299,16 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">protocolo</label>
             <div class="col-6">
-                <input class="form-control" formControlName="protocolo_estacion" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayStations.protocolo_estacion" id="tamaño-fuente-input" maxlength="50">
+                <select class="form-control" formControlName="protocolo_estacion" type="text" id="textNombre"
+                    [(ngModel)]="arrayStations.protocolo_estacion" id="tamaño-fuente-input">
+                    <option value="Fax">FTP</option>
+                    <option value="Email">Modbus</option>
+                </select>
+
                 <!-- Validacion para el campo protocolo de la estacion -->
                 <div *ngIf="formStation.controls['protocolo_estacion'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
-                </div>
-                <!-- Mensaje de restricción para el campo protocolo de la estacion -->
-                <div *ngIf="formStation.controls['protocolo_estacion'].errors?.maxlength" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
-                    </div>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@ export class StationsBodyComponent implements OnInit {
       'longitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
       'elevacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
       'gmt_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'protocolo_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'protocolo_estacion': new FormControl('', [Validators.required]),
       'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayStations = {

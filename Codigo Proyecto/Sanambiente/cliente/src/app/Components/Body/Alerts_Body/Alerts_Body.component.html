@@ -19,13 +19,13 @@
 
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_alerta" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" maxlength="50">
-
+                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
+                <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['nombre_alerta'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-
+                <!-- Mensaje de restricción para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['nombre_alerta'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
@@ -44,11 +44,13 @@
                 </textarea>
                 <span>{{50-arrayAlerts.observacion_alerta.length}} Caracteres restantes</span>
 
+                <!-- Validacion para el campo Observación de la Alerta -->
                 <div *ngIf="formAlert.controls['observacion_alerta'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
+                <!-- Mensaje de restricción para el campo Observación de la Alerta -->
                 <div *ngIf="formAlert.controls['observacion_alerta'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
@@ -68,7 +70,7 @@
                         <option value="Email">Email</option>
                         <option value="Mensaje de texto">Mensaje de texto</option>
                     </select>
-
+                    <!-- Validacion para el campo tipo de Alerta  -->
                     <div *ngIf="formAlert.controls['tipo_alerta'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
@@ -76,7 +78,8 @@
 
                 </div>
             </div>
-
+            
+        <!-- boton Guardar Alerta -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">

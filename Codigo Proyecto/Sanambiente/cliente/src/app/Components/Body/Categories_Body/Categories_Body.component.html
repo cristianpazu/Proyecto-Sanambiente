@@ -17,13 +17,15 @@
             <label class="col-2 col-form-label">Nombre Categoría</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_categoria" type="text"  id="textNombre"
-                    [(ngModel)]="arrayCategories.nombre_categoria" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayCategories.nombre_categoria" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
 
+                <!-- Validacion para el campo nombre de la Categiria -->    
                 <div *ngIf="formCategory.controls['nombre_categoria'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
+                <!-- Mensaje de restricción para el campo nombre de la Categiria -->
                 <div *ngIf="formCategory.controls['nombre_categoria'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 caracteres.
@@ -41,12 +43,14 @@
                     [(ngModel)]="arrayCategories.observacion_categoria" id="tamaño-fuente-input" maxlength="250">
                </textarea>
                <span>{{50-arrayCategories.observacion_categoria.length}} Caracteres restantes</span>
-
+                
+               <!-- Validacion para el campo Observacion de la Categiria --> 
                 <div *ngIf="formCategory.controls['observacion_categoria'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
+                <!-- Mensaje de restricción para el campo Observacion de la Categiria -->
                 <div *ngIf="formCategory.controls['observacion_categoria'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 250 caracteres.
@@ -55,6 +59,8 @@
 
             </div>
         </div>
+
+        <!-- boton guardar Categoria -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">
