@@ -41,16 +41,18 @@ export const handlerQuery = {
 
     createStation: 'INSERT INTO estaciones (nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',
     viewStations: 'SELECT * FROM estaciones order by id_estacion;',
-    
     viewStation: 'SELECT estaciones.id_estacion, nombre_estacion, serial_estacion, nombre_corto_estacion, categorias.id_categoria, tiempos.id_tiempo, observacion_estacion, regiones.id_region, ciudades.id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, gmt_estacion, protocolo_estacion, categorias.nombre_categoria, tiempos.nombre_tiempo, regiones.nombre_region, ciudades.nombre_ciudad FROM estaciones, regiones, ciudades, tiempos, categorias where regiones.id_region=ciudades.id_region and ciudades.id_ciudad=estaciones.id_ciudad and tiempos.id_tiempo=estaciones.id_tiempo and categorias.id_categoria=estaciones.id_categoria and estaciones.id_estacion=$1',
-    
     updateStation: 'UPDATE estaciones set nombre_estacion=$1,serial_estacion=$2,nombre_corto_estacion=$3,id_categoria=$4,id_tiempo=$5,observacion_estacion=$6,id_ciudad=$7,latitud_estacion=$8,longitud_estacion=$9,elevacion_estacion=$10,gmt_estacion=$11,protocolo_estacion=$12 where id_estacion =$13',
-    
     viewCategoriesStation: 'SELECT id_categoria, nombre_categoria FROM categorias order by id_categoria',
     viewTimesStation: 'SELECT id_tiempo, nombre_tiempo FROM tiempos order by id_tiempo',
     viewRegionsStation: 'SELECT id_region, nombre_region FROM regiones order by id_region',
     viewCitiesStation: 'SELECT id_ciudad, nombre_ciudad FROM ciudades order by id_ciudad',
+    viewGmtStation: 'SELECT id_gmt, nombre_gmt FROM gmt order by id_gmt',
 
+    createGmt: 'INSERT INTO gmt (nombre_gmt, observacion_gmt) VALUES ($1,$2)',
+    viewGmts: 'SELECT * FROM gmt order by id_gmt',
+    viewGmt: 'SELECT * FROM gmt where id_gmt=$1',
+    updateGmt: 'UPDATE gmt set nombre_gmt=$1, observacion_gmt=$2 where id_gmt=$3',
 
 }
 

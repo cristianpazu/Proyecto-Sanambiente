@@ -32,8 +32,11 @@ import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.comp
 import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
 
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para estaciones */
-import { StationsBodyComponent  } from './Components/Body/Stations_Body/Stations_Body.component';
+import { StationsBodyComponent } from './Components/Body/Stations_Body/Stations_Body.component';
 import { StationsListComponent } from './Components/Body/Stations_List/Stations_List.component';
+
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para gmt */
+import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component';
 
 const rutas: Routes = [
 
@@ -174,6 +177,12 @@ const rutas: Routes = [
   { path: 'station', component: StationsListComponent }, // Ruta para listar todos los registros  
   { path: 'station/add_station', component: StationsBodyComponent },  // Ruta para adicionar registros  
   { path: 'station/edit_station/:id_estacion', component: StationsBodyComponent }, // Ruta para editar registros
+
+  /*--- Rutas de Gmt --
+  { path: 'gmt', redirectTo: '/gmt', pathMatch: 'full' },
+  { path: 'gmt', component: GmtListComponent }, // Ruta para listar todos los registros  
+  { path: 'gmt/add_gmt', component: StationsBodyComponent },  // Ruta para adicionar registros  
+  { path: 'gmt/edit_gmt/:id_gmt', component: StationsBodyComponent }, // Ruta para editar registros-*/
 
   /*----------------------------------- Aqui Creo las rutas Base de Tiempo  -------------------------------------*/
   {

@@ -50,6 +50,9 @@ import { TimesService } from './Services/Times_Service/Times_Service';
 import { StationsBodyComponent } from './Components/Body/Stations_Body/Stations_Body.component';
 import { StationsListComponent } from './Components/Body/Stations_List/Stations_List.component';
 
+/* Importo los componentes y servicios creados para las GMT */
+import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -72,7 +75,8 @@ import { StationsListComponent } from './Components/Body/Stations_List/Stations_
     TimesBodyComponent,
     TimesListComponent,
     StationsBodyComponent,
-    StationsListComponent
+    StationsListComponent,
+    // GmtListComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
