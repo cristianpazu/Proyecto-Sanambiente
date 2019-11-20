@@ -10,10 +10,10 @@ export interface Station {
     observacion_estacion?: string;
     id_ciudad?: number;
     id_region?:number;
+    id_gmt?:number;
     latitud_estacion?: string;
     longitud_estacion?: string;
     elevacion_estacion?: string;
-    gmt_estacion?: string;
     protocolo_estacion?: string;
 }
 

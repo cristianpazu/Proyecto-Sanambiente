@@ -34,7 +34,10 @@ export class StationsService {
   viewRegionS() {
     return this.baseService.view(`${environment.viewRegionS}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+  
+  viewGmt() {
+    return this.baseService.view(`${environment.viewGmtS}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
 
 
 

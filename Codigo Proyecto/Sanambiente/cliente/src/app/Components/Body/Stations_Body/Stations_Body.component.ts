@@ -18,6 +18,7 @@ export class StationsBodyComponent implements OnInit {
   public cityStation: Array<any> = []; // La variable cityStation almacena el listado de las ciudades existentes en la region seleccionada
   public categoryStation: Array<any> = []; // La variable categoryStation almacena el listado de las categorias existentes
   public timeStation: Array<any> = []; // La variable timeStation almacena el listado de los tiempos existentes
+  public gmtStation: Array<any> = []; // La variable gmtStation almacena el listado de los gmt existentes
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
   public edit = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva estacion o se esta editando una estacion
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la estacion, en la vista html
@@ -33,15 +34,15 @@ export class StationsBodyComponent implements OnInit {
       'id_tiempo': new FormControl('', [Validators.required]),
       'id_region': new FormControl('', [Validators.required]),
       'id_ciudad': new FormControl('', [Validators.required]),
+      'id_gmt': new FormControl('', [Validators.required]),
       'latitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]), // --> decimales y enteros ** ^\d+\.\d{0,2}$ --> solo decimales  
       'longitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
       'elevacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
-      'gmt_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'protocolo_estacion': new FormControl('', [Validators.required]),
       'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayStations = {
-      observacion_estacion:''
+      observacion_estacion: ''
     };
   }
 
@@ -52,6 +53,7 @@ export class StationsBodyComponent implements OnInit {
     this.viewCityS(); // Carga las ciudades existentes en la region seleccionada
     this.viewCategory(); // Carga las categorias existentes
     this.viewTime(); // Carga los tiempos existentes
+    this.viewGmt(); // Carga los gmt existentes
   }
 
   /* Método con el cual se crea una nueva estacion */
@@ -76,9 +78,12 @@ export class StationsBodyComponent implements OnInit {
   /* Método con el cual se listan las regiones existentes */
   async viewRegionS() {
     this.regionStation = (await this.stationService.viewRegionS());
-;  }
+  }
 
-
+  /* Método con el cual se listan los gmt existentes */
+  async viewGmt() {
+    this.gmtStation = (await this.stationService.viewGmt());
+  }
 
   /* Método con el cual se listan las ciudades existentes en la region seleccionada*/
   async viewCityS() {
@@ -109,7 +114,6 @@ export class StationsBodyComponent implements OnInit {
       latitud_estacion: this.arrayStations.latitud_estacion,
       longitud_estacion: this.arrayStations.longitud_estacion,
       elevacion_estacion: this.arrayStations.elevacion_estacion,
-      gmt_estacion: this.arrayStations.gmt_estacion,
       protocolo_estacion: this.arrayStations.protocolo_estacion,
       observacion_estacion: this.arrayStations.observacion_estacion,
     })
