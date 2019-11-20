@@ -17,9 +17,9 @@ class GmtRoute {
     configuracion() {
         this.router.post('/createGmt', Gmt_Service_1.default.create);
         this.router.get('/viewGmtById/:id_gmt', Gmt_Service_1.default.viewById);
-        this.router.get('/viewGmts', Gmt_Service_1.default.view);
+        this.router.get('/viewGmt', Gmt_Service_1.default.view);
         this.router.put('/updateGmt/:id_gmt', Gmt_Service_1.default.update);
-        this.router.get('/viewGmts', Gmt_Service_1.default.viewNameGmt);
+        this.router.get('/viewGmt', Gmt_Service_1.default.viewNameGmt);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

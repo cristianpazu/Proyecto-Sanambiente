@@ -18,9 +18,9 @@ class GmtRoute {
     configuracion(): void {
        this.router.post('/createGmt', GmtService.create);
        this.router.get('/viewGmtById/:id_gmt', GmtService.viewById);
-       this.router.get('/viewGmts', GmtService.view);
+       this.router.get('/viewGmt', GmtService.view);
        this.router.put('/updateGmt/:id_gmt', GmtService.update);
-       this.router.get('/viewGmts', GmtService.viewNameGmt);
+       this.router.get('/viewGmt', GmtService.viewNameGmt);
     }
 }
 

@@ -41,12 +41,18 @@ export const environment = {
   viewTime: "http://localhost:3000/api/time/viewTimes",
   viewRegionS: "http://localhost:3000/api/region/viewRegions",
   viewCitiesS: "http://localhost:3000/api/city/viewCities",
+
   // rango
   hostCreateRank: "http://localhost:3000/api/city/createCity",
   hostUpdateRank: "http://localhost:3000/api/city/updateCities",
   viewRanks: "http://localhost:3000/api/city/viewCities",
   viewRankById: "http://localhost:3000/api/city/viewCityById",
   viewStation: "http://localhost:3000/api/region/viewRegions",
+  // gmt
+  hostCreateGmt: "http://localhost:3000/api/gmt/createGmt",
+  hostUpdateGmt: "http://localhost:3000/api/gmt/updateGmt",
+  viewGmt: "http://localhost:3000/api/gmt/viewGmt",
+  viewGmtById: "http://localhost:3000/api/gmt/viewGmtById",
 
   production: false
 };

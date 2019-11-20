@@ -49,9 +49,12 @@ import { TimesService } from './Services/Times_Service/Times_Service';
 /* Importo los componentes y servicios creados para las estaciones */
 import { StationsBodyComponent } from './Components/Body/Stations_Body/Stations_Body.component';
 import { StationsListComponent } from './Components/Body/Stations_List/Stations_List.component';
+import { StationsService } from './Services/Stations_Service/Stations_Service';
 
 /* Importo los componentes y servicios creados para las GMT */
 import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component';
+import { GmtBodyComponent } from './Components/Body/Gmt_Body/Gmt_Body.component';
+import { GmtService } from './Services/Gmt_Service/Gmt_Service';
 
 @NgModule({
   declarations: [
@@ -76,7 +79,8 @@ import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component'
     TimesListComponent,
     StationsBodyComponent,
     StationsListComponent,
-    // GmtListComponent
+    GmtListComponent,
+    GmtBodyComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -94,7 +98,9 @@ import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component'
     OrganizationsService,
     CategoriesService,
     AlertsService,
-    TimesService    
+    TimesService,
+    GmtService,
+    StationsService    
   ],
   bootstrap: [AppComponent]
 })

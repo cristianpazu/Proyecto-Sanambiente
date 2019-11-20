@@ -1,3 +1,7 @@
+/* Clase que contiene los metodos y la logica de la vista html en la cual se crean y editan las categorias*/
+
+/* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
+
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { CategoriesService } from '../../../Services/Categories_Service/Categories_Service';
 

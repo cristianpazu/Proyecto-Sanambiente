@@ -72,7 +72,7 @@ class GmtService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_gmt } = request.params;
-                let gmt = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewCategory, [id_gmt]);
+                let gmt = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewGmt, [id_gmt]);
                 console.log(gmt.rows);
                 if (gmt.rows.length === 0) {
                     return Promise.resolve(Handle_Message_1.default(response, 200, 'gmt doesn´t exist'));

@@ -1,1 +1,32 @@
-<p>gmt-list works!</p>
+<div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
+    <button [routerLink]="['/gmt/add_gmt']" class="btn btn-outline-primary btn-lg">Nuevo Gmt</button>
+    <br><br><br>
+    <h3>Lista de Gmt</h3>
+    <form>
+        <input type="search" name="search" aria-label="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Buscar">&nbsp;&nbsp;
+    </form>
+    <br>
+    <table class="table col-6 table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre GMT</th>
+                <th scope="col">Observación</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let gmt of arrayGmt | filter:searchText">
+                <td> {{gmt.id_gmt}} </td>
+                <td> {{gmt.nombre_gmt}} </td>
+                <td> {{gmt.observacion_gmt}} </td>
+                <td>
+                    <a [routerLink]="['/gmt/edit_gmt',gmt.id_gmt]" class="btn btn-outline-primary btn-lg">
+                        Editar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

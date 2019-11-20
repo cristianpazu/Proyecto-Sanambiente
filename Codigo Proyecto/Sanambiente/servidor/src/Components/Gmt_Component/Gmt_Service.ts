@@ -54,7 +54,7 @@ class GmtService implements BaseService<any> {
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_gmt } = request.params;
-            let gmt = await ConnectionDataBase.query(handlerQuery.viewCategory, [id_gmt]);
+            let gmt = await ConnectionDataBase.query(handlerQuery.viewGmt, [id_gmt]);
             console.log(gmt.rows);
             if (gmt.rows.length === 0) {
                 return Promise.resolve(handleMessage(response, 200, 'gmt doesn´t exist'));

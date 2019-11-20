@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GmtServiceService } from './gmt-service.service';
+import { CategoriesService } from './Categories_Service';
 
-describe('GmtServiceService', () => {
+describe('CategoriesService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GmtServiceService = TestBed.get(GmtServiceService);
+    const service: CategoriesService = TestBed.get(CategoriesService);
     expect(service).toBeTruthy();
   });
 });

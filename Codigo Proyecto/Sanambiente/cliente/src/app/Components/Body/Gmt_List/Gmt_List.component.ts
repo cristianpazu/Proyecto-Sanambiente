@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { GmtService } from '../../../Services/Gmt_Service/Gmt_Service';
+
+
 
 @Component({
-  selector: 'app-gmt-list',
-  templateUrl: './gmt-list.component.html',
-  styleUrls: ['./gmt-list.component.css']
+  selector: 'app-Gmt_List',
+  templateUrl: './Gmt_List.component.html',
+  styleUrls: ['./Gmt_List.component.css']
 })
 export class GmtListComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes='row';
+
+  public arrayGmt: Array<any>;
+  searchText;
+
+  constructor(private gmtService: GmtService) {
+    this.arrayGmt = [];
+   }
 
   ngOnInit() {
+    this.getGmt();
+  }
+  async getGmt(){
+    this.arrayGmt = await this.gmtService.viewGmt();
   }
 
 }
