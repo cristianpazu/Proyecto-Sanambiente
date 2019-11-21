@@ -6,7 +6,7 @@ export const environment = {
   hostUpdateCity: "http://localhost:3000/api/city/updateCities",
   viewCities: "http://localhost:3000/api/city/viewCities",
   viewCityById: "http://localhost:3000/api/city/viewCityById",
-  viewRegion: "http://localhost:3000/api/region/viewRegions",
+  viewRegion: "http://localhost:3000/api/region/viewRegionsCity",
   // region
   hostCreateRegion: "http://localhost:3000/api/region/createRegion",
   hostUpdateRegion: "http://localhost:3000/api/region/updateRegions",
@@ -42,13 +42,12 @@ export const environment = {
   viewRegionS: "http://localhost:3000/api/region/viewRegions",
   viewCitiesS: "http://localhost:3000/api/city/viewCities",
   viewGmtS: "http://localhost:3000/api/gmt/viewGmt",
-
   // rango
-  hostCreateRank: "http://localhost:3000/api/city/createCity",
-  hostUpdateRank: "http://localhost:3000/api/city/updateCities",
-  viewRanks: "http://localhost:3000/api/city/viewCities",
-  viewRankById: "http://localhost:3000/api/city/viewCityById",
-  viewStation: "http://localhost:3000/api/region/viewRegions",
+  hostCreateRank: "http://localhost:3000/api/rank/createRank",
+  hostUpdateRank: "http://localhost:3000/api/rank/updateRanks",
+  viewRanks: "http://localhost:3000/api/rank/viewRanks",
+  viewRankById: "http://localhost:3000/api/rank/viewRankById",
+  viewStation: "http://localhost:3000/api/station/viewStationsRank",
   // gmt
   hostCreateGmt: "http://localhost:3000/api/gmt/createGmt",
   hostUpdateGmt: "http://localhost:3000/api/gmt/updateGmt",

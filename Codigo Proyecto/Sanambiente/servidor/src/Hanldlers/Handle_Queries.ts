@@ -15,8 +15,8 @@ export const handlerQuery = {
     updateRegion: 'UPDATE regiones set nombre_region=$1,observacion_region=$2 where id_region=$3',
     // rango
     createRank: 'INSERT INTO rangos (nombre_rango, valor_minimo, valor_maximo, id_estacion, observacion_rango) VALUES ($1,$2,$3,$4,$5)',
-    viewRanks: 'SELECT * FROM rangos order by id_rango',
-    viewRank: 'SELECT * FROM rangos where id_rango=$1',
+    viewRanks: 'SELECT id_rango, nombre_rango,valor_minimo, valor_maximo, observacion_rango, estaciones.nombre_estacion FROM estaciones, rangos where estaciones.id_estacion = rangos.id_estacion order by id_rango',
+    viewRank: 'SELECT id_rango, nombre_rango,valor_minimo,valor_maximo, estaciones.id_estacion, observacion_rango, estaciones.nombre_estacion FROM estaciones, rangos where estaciones.id_estacion=rangos.id_estacion and id_rango=$1',
     updateRank: 'UPDATE rangos set nombre_rango=$1, valor_minimo=$2, valor_maximo=$3, id_estacion=$4, observacion_region=$5 where id_rango=$6',
     viewStationsRank: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
     // categoria

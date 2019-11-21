@@ -22,6 +22,7 @@
                     <th scope="col">Nombre corto</th>
                     <th scope="col">Protocolo</th>
                     <th scope="col">Observación</th>
+                    <th scope="col">Categoria</th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                     <td> {{station.nombre_corto_estacion}} </td>
                     <td> {{station.protocolo_estacion}} </td>
                     <td> {{station.observacion_estacion}} </td>
+                    <td> {{station.id_categoria}} </td>
                     <td>
                         <!-- Boton para actualizar la informacion de una estacion -->
                         <a [routerLink]="['/station/edit_station',station.id_estacion]" class="btn btn-outline-primary btn-lg">

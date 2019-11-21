@@ -1,4 +1,4 @@
-/* Clase que contiene los metodos y la logica de la vista html en la cual se crean y editan las ciudades*/
+/* Clase que contiene los metodos y la logica de la vista html en la cual se listan las ciudades*/
 
 /* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
 import { Component, OnInit, HostBinding  } from '@angular/core'; // Angular lo importa por defecto

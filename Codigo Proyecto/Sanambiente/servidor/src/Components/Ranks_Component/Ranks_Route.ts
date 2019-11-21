@@ -12,7 +12,7 @@ class RankRoute {
     configuracion(): void {
         this.router.post('/createRank', RankService.create);
         this.router.get('/viewRankById/:id_rango', RankService.viewById);
-        this.router.get('/viewRanks', RankService.viewR);
+        this.router.get('/viewRanks', RankService.view);
         this.router.put('/updateRanks/:id_rango', RankService.update);
         this.router.get('/viewStations', RankService.view)
     }

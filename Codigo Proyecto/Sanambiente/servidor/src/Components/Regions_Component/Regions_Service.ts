@@ -33,7 +33,7 @@ class RegionService implements BaseService<any> {
         }
     }
 
-    // metodo para ver solo el nombre de las regiones en una lista desplegable
+    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de ciudad
     async viewRegions(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewRegionsCity']);

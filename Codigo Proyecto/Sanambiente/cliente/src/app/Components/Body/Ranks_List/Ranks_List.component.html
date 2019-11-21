@@ -18,15 +18,15 @@
                 <th scope="col">Valor Máximo</th>
                 <th scope="col">Estación</th>
                 <th scope="col">Observación</th>
-                <th scope="col"></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let rango of arrayRanks | filter:searchText">
                 <td> {{rango.id_rango}} </td>
                 <td> {{rango.nombre_rango}} </td>
-                <td> {{rango.valorMinimo}} </td>
-                <td> {{rango.valorMaximo}} </td>
+                <td> {{rango.valor_minimo}} </td>
+                <td> {{rango.valor_maximo}} </td>
                 <td> {{rango.nombre_estacion}} </td>
                 <td> {{rango.observacion_rango}} </td>
                 <td>

@@ -44,7 +44,7 @@ class CityService {
             }
         });
     }
-    // metodo para ver solo el nombre de las ciudades en una lista desplegable
+    // metodo para ver solo el nombre de las ciudades en una lista desplegable la utiliza la tabla se estacion
     viewNameC(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -56,7 +56,7 @@ class CityService {
             }
         });
     }
-    // metodo para ver todas las ciudades con todos sus campos
+    // metodo para ver todas las ciudades con todos sus campos los cuales se listan en la tabla de ciudades
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -68,6 +68,7 @@ class CityService {
             }
         });
     }
+    // metodo para ver la ciudad con todos sus campos los cuales se utilizaran cuando se vaya a modificar la cuidad
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

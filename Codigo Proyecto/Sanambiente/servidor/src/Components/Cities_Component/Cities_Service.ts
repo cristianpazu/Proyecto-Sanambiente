@@ -32,7 +32,7 @@ class CityService implements BaseService<any> {
         }
     }
 
-    // metodo para ver solo el nombre de las ciudades en una lista desplegable
+    // metodo para ver solo el nombre de las ciudades en una lista desplegable la utiliza la tabla se estacion
     async viewNameC(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewCitiesStation']);
@@ -42,7 +42,7 @@ class CityService implements BaseService<any> {
         }
     }
 
-    // metodo para ver todas las ciudades con todos sus campos
+    // metodo para ver todas las ciudades con todos sus campos los cuales se listan en la tabla de ciudades
     async view(request: Request, response: Response): Promise<any> {
         try {
             let cities = await ConnectionDataBase.query(handlerQuery['viewCities']);
@@ -52,6 +52,7 @@ class CityService implements BaseService<any> {
         }
     }
 
+    // metodo para ver la ciudad con todos sus campos los cuales se utilizaran cuando se vaya a modificar la cuidad
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_ciudad } = request.params;

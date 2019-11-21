@@ -8,7 +8,8 @@
         <div class="form-group row" [hidden]="hide==false">
             <label class="col-2 col-form-label">ID Rango</label>
             <div class="col-6">
-                <input class="form-control" type="number" id="textId_rango" id="tamaño-fuente-input" disabled>
+                <input class="form-control" type="number" id="textId_rango" id="tamaño-fuente-input" 
+                value={{arrayRanks.id_rango}} disabled>
             </div>
         </div>
         <!-- Campo para nombre del rango -->
@@ -16,7 +17,7 @@
             <label class="col-2 col-form-label">Nombre del Rango</label>
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_rango" type="text" autofocus id="textNombre_Rango"
-                    id="tamaño-fuente-input" maxlength="50">
+                [(ngModel)]="arrayRanks.nombre_rango" id="tamaño-fuente-input" maxlength="50">
                 <!-- Validacion para el campo nombre del rango -->
                 <div *ngIf="formRank.controls['nombre_rango'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
@@ -36,6 +37,15 @@
                 </div>
             </div>
         </div>
+        <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un rango -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Estacion del rango</label>
+            <div class="col-6">
+                <input class="form-control" type="text" id="textNombre_estacion" id="tamaño-fuente-input"
+                    value={{arrayRanks.nombre_estacion}} disabled>
+            </div>
+        </div>
+        
         <!-- Campo para rango minimo -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Valor Mínimo</label>

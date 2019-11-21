@@ -31,17 +31,8 @@ class RankService implements BaseService<any> {
 
     async view(request: Request, response: Response): Promise<any> {
         try {
-            let stations = await ConnectionDataBase.query(handlerQuery['viewStationsRank']);
+            let stations = await ConnectionDataBase.query(handlerQuery['viewRanks']);
             return Promise.resolve(handleMessage(response, 200, stations.rows));
-        } catch (error) {
-            Promise.reject(handleMessage(response, 404, 'Error'));
-        }
-    }
-
-    async viewR(request: Request, response: Response): Promise<any> {
-        try {
-            let ranks = await ConnectionDataBase.query(handlerQuery['viewRanks']);
-            return Promise.resolve(handleMessage(response, 200, ranks.rows));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }

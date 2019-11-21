@@ -15,16 +15,24 @@ export class RanksService{
 /* Se crean los metodos utilizados por la vista de rango */
 
   createRank (body: Rank) {
-    return this.baseService.create(body, `${environment.hostCreateCity}`);
+    return this.baseService.create(body, `${environment.hostCreateRank}`);
     
   }
 
   viewStation() {
-    return this.baseService.view(`${environment.viewRegion}`).toPromise().then((data: any) => data.message).catch((error) => error);
+    return this.baseService.view(`${environment.viewStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
   viewRanks() {
-    return this.baseService.view(`${environment.viewCities}`).toPromise().then((data: any) => data.message).catch((error) => error);
+    return this.baseService.view(`${environment.viewRanks}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
+  viewRankById(id_rango: number) {
+    return this.baseService.view(`${environment.viewRankById}/${id_rango}`);
+  }
+
+  updateRank(body: Rank, id_rango: number) {
+    return this.baseService.update(body, `${environment.hostUpdateRank}/${id_rango}`);
   }
 
 }

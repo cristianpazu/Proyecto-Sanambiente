@@ -44,19 +44,8 @@ class RankService {
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewStationsRank']);
+                let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRanks']);
                 return Promise.resolve(Handle_Message_1.default(response, 200, stations.rows));
-            }
-            catch (error) {
-                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
-            }
-        });
-    }
-    viewR(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                let ranks = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRanks']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, ranks.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));

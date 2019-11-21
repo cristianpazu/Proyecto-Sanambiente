@@ -73,6 +73,18 @@ class StationService {
             }
         });
     }
+    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de rango
+    viewStations(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewStationsRank']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, stations.rows));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
 }
 // Se crea y exporta una constante que contiene los servicios de esta clase.
 const stationService = new StationService();

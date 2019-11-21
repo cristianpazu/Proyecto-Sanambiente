@@ -39,133 +39,43 @@ import { StationsListComponent } from './Components/Body/Stations_List/Stations_
 import { GmtBodyComponent } from './Components/Body/Gmt_Body/Gmt_Body.component';
 import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component';
 
+
+/* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
 
-  /* --------------------------------------Rutas de la vista home--------------------------------------- */
-  {
-    path: '', // En path definimos el nombre de nuestra ruta. Si esta vacia es porque sera la tura inical de la app
-    redirectTo: '/home', // Cuando visiten la pagina inicial, se redireccionara a la ruta llamada home. La cual debo crear
-    pathMatch: 'full' // Caracteristica que se le asigna solo a la ruta inicial.
-  },
-  {
-    path: 'home', // Nombre de la ruta
-    component: HomeComponent // Componente el cual se caragar cuando se utilice la ruta /games
-  },
+  /*--- Ruta de vista principal ---*/
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent }, // Ruta para la pagina vista principal
 
-  /*----------------------------------- Aqui Creo las rutas region ----------------------------------------*/
-  {
-    path: 'region',
-    redirectTo: '/region',
-    pathMatch: 'full'
-  },
+  /*--- Rutas de region ---*/
+  { path: 'region', redirectTo: '/region', pathMatch: 'full' },
+  { path: 'region', component: RegionsListComponent }, // Ruta para listar todos los registros  
+  { path: 'region/add_region', component: RegionsBodyComponent },  // Ruta para adicionar registros  
+  { path: 'region/edit_region/:id_region', component: RegionsBodyComponent }, // Ruta para editar registros 
 
-  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de region y esta redireccionada 
-    al componente logico del formulario que lista las regiones existentes*/
-  {
-    path: 'region',
-    component: RegionsListComponent
-  },
+  /*--- Rutas de Organizacion ---*/
+  { path: 'category', redirectTo: '/category', pathMatch: 'full' },
+  { path: 'category', component: CategoriesListComponent }, // Ruta para listar todos los registros  
+  { path: 'category/add_category', component: CategoriesBodyComponent },  // Ruta para adicionar registros  
+  { path: 'category/edit_category/:id_categoria', component: CategoriesBodyComponent }, // Ruta para editar registros  
 
-  /* Ruta que utiliza el cliente cuando añade una nueva region y esta redireccionada al componente logico 
-    del formulario para dicha accion */
-  {
-    path: 'region/add_region',
-    component: RegionsBodyComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando actualiza una region y esta redireccionada al componente logico 
-  del formulario para dicha accion */
-  {
-    path: 'region/edit_region/:id_region',
-    component: RegionsBodyComponent
-  },
-
-  /*----------------------------------- Aqui Creo las rutas Categoria -------------------------------------*/
-  {
-    path: 'category',
-    redirectTo: '/category',
-    pathMatch: 'full'
-  },
-
-  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de Categoria y esta redireccionada 
-    al componente logico del formulario que lista las Categorias existentes*/
-  {
-    path: 'category',
-    component: CategoriesListComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando añade una nueva Categoria y esta redireccionada al componente logico 
-    del formulario para dicha accion */
-  {
-    path: 'category/add_category',
-    component: CategoriesBodyComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando actualiza una Categoria y esta redireccionada al componente logico 
-  del formulario para dicha accion */
-  {
-    path: 'category/edit_category/:id_categoria',
-    component: CategoriesBodyComponent
-  },
-
-  /*----------------------------------- Aqui Creo las rutas ciudad --------------------------------------*/
+  /*--- Rutas de ciudad ---*/
   { path: 'city', redirectTo: '/city', pathMatch: 'full' },
-
-  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de region y esta redireccionada 
-    al componente logico del formulario que lista las ciudades existentes */
   { path: 'city', component: CitiesListComponent },
   { path: 'city/add_city', component: CitiesBodyComponent },
   { path: 'city/edit_city/:id_ciudad', component: CitiesBodyComponent },
 
+  /*--- Rutas de alerta ---*/
+  { path: 'alert', redirectTo: '/alert', pathMatch: 'full' },
+  { path: 'alert', component: AlertsListComponent }, // Ruta para listar todos los registros  
+  { path: 'alert/add_alert', component: AlertsBodyComponent },  // Ruta para adicionar registros  
+  { path: 'alert/edit_alert/:id_alerta', component: AlertsBodyComponent }, // Ruta para editar registros
 
-
-  /*----------------------------------- Aqui Creo las rutas Alerta  -------------------------------------*/
-  {
-    path: 'alerta',
-    redirectTo: '/alerta',
-    pathMatch: 'full'
-  },
-
-  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de alerta y esta redireccionada 
-    al componente logico del formulario que lista las alertas existentes*/
-  {
-    path: 'alert',
-    component: AlertsListComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando añade una nueva alerta y esta redireccionada al componente logico 
-    del formulario para dicha accion */
-  {
-    path: 'alert/add_alert',
-    component: AlertsBodyComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando actualiza una alerta y esta redireccionada al componente logico 
-  del formulario para dicha accion */
-  {
-    path: 'alert/edit_alert/:id_alerta',
-    component: AlertsBodyComponent
-  },
-
-  /*----------------------------------- Aqui Creo las rutas rango ----------------------------------------*/
-
-  {
-    path: 'rank',
-    redirectTo: '/rank',
-    pathMatch: 'full'
-  },
-  {
-    path: 'rank',
-    component: RanksListComponent
-  },
-  {
-    path: 'rank/add_rank',
-    component: RanksBodyComponent
-  },
-  {
-    path: 'rank/edit_rank/:id_rank',
-    component: RanksBodyComponent
-  },
+  /*--- Rutas de rango ---*/
+  { path: 'rank', redirectTo: '/rank', pathMatch: 'full' },
+  { path: 'rank', component: RanksListComponent }, // Ruta para listar todos los registros  
+  { path: 'rank/add_rank', component: RanksBodyComponent },  // Ruta para adicionar registros  
+  { path: 'rank/edit_rank/:id_rango', component: RanksBodyComponent }, // Ruta para editar registros
 
   /*--- Rutas de Organizacion ---*/
   { path: 'organization', redirectTo: '/organization', pathMatch: 'full' },
@@ -185,33 +95,11 @@ const rutas: Routes = [
   { path: 'gmt/add_gmt', component: GmtBodyComponent },  // Ruta para adicionar registros  
   { path: 'gmt/edit_gmt/:id_gmt', component: GmtBodyComponent }, // Ruta para editar registros
 
-  /*----------------------------------- Aqui Creo las rutas Base de Tiempo  -------------------------------------*/
-  {
-    path: 'time',
-    redirectTo: '/time',
-    pathMatch: 'full'
-  },
-
-  /* Ruta que utiliza el cliente cuando ingresa a la vista principal de base de tiempo y esta redireccionada 
-    al componente logico del formulario que lista las bases de tiempo existentes*/
-  {
-    path: 'time',
-    component: TimesListComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando añade una nueva base de tiempo y esta redireccionada al componente logico 
-    del formulario para dicha accion */
-  {
-    path: 'time/add_time',
-    component: TimesBodyComponent
-  },
-
-  /* Ruta que utiliza el cliente cuando actualiza una base de tiempo y esta redireccionada al componente logico 
-  del formulario para dicha accion */
-  {
-    path: 'time/edit_time/:id_tiempo',
-    component: TimesBodyComponent
-  }
+  /*--- Rutas de base de tiempo ---*/
+  { path: 'time', redirectTo: '/time', pathMatch: 'full' },
+  { path: 'time', component: TimesListComponent }, // Ruta para listar todos los registros  
+  { path: 'time/add_time', component: TimesBodyComponent },  // Ruta para adicionar registros  
+  { path: 'time/edit_time/:id_tiempo', component: TimesBodyComponent }, // Ruta para editar registros
 
 ];
 

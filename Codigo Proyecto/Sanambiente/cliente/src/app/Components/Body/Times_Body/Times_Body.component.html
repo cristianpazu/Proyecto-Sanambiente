@@ -36,18 +36,15 @@
             </div>
         </div>
 
-        <!-- Campo para Escala de Tiempo -->
+        <!-- Campo para Escala de Tiempo Actual-->
         <div>
             <div class="form-group row">
-                <label class="col-2 col-form-label">Escala de Tiempo</label>
+                <label class="col-2 col-form-label">Escala Tiempo Actual</label>
                 <div class="col-6">
 
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
-                    <div class="form-group row" [hidden]="hide==false">
-                        <input class="form-control" type="text" id="textId_ciudad" id="tamaño-fuente-input"
-                            value={{arrayTimes.escala_tiempo}} disabled>
-                    </div>
 
+                   
                     <input formControlName="escala_tiempo" class="form-control" type="number" id="textEscala_tiempo"
                         id="tamaño-fuente-input" pattern="^[0-9]+" data-formrun-required
                         [(ngModel)]="arrayTimes.escala_tiempo" value={{arrayTimes.escala_tiempo}} min="1" max="1440">
@@ -58,7 +55,7 @@
                     </div>
 
                     <!-- Mensaje de restricción para el campo Escala de tiempo -->
-                <div *ngIf="formTime.controls['escala_tiempo'].errors?.max" class="form-control-feedback">
+                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.max" class="form-control-feedback">
                         <div class="alert alert-danger">
                             <strong>Alerta!</strong> Máximo 1440 Minutos.
                         </div>
@@ -112,8 +109,6 @@
 
                     </div>
                 </div>
-
-
                 <div id="caja-botones" class="form-group-row">
                     <label class="col-1 col-form-label">&nbsp;</label>
                     <div class="col-md-8">
@@ -123,9 +118,7 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </form>
 </div>

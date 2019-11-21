@@ -27,7 +27,10 @@ export class CitiesBodyComponent implements OnInit {
       'id_region': new FormControl('', [Validators.required]),
       'observacion_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
-    this.arrayCities = {};
+    this.arrayCities = {
+      nombre_ciudad:'',
+      observacion_ciudad:''
+    };
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Cities_Body */
@@ -54,7 +57,7 @@ export class CitiesBodyComponent implements OnInit {
   async viewCityById() {
     let id = this.activedRoute.snapshot.params.id_ciudad;
     if (id !== undefined) {
-      let region = await this.cityService.viewRegionById(id).subscribe(async (element: any) => {
+      let region = await this.cityService.viewCityById(id).subscribe(async (element: any) => {
         this.arrayCities = await element.message[0];
         this.edit = true;
         this.hide = true;

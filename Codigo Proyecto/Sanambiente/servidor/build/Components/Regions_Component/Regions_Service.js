@@ -45,7 +45,7 @@ class RegionService {
             }
         });
     }
-    // metodo para ver solo el nombre de las regiones en una lista desplegable
+    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de ciudad
     viewRegions(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

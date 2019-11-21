@@ -20,6 +20,7 @@ class StationsRoute {
         this.router.get('/viewStationById/:id_estacion', stationService.viewById);
         this.router.get('/viewStations', stationService.view);
         this.router.put('/updateStations/:id_estacion', stationService.update);
+        this.router.get('/viewStationsRank', stationService.viewStations);
     }
 }
 
