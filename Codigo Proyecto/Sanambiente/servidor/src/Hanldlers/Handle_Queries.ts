@@ -30,10 +30,10 @@ export const handlerQuery = {
     viewAlert: 'SELECT * FROM alertas where id_alerta=$1',
     updateAlert: 'UPDATE alertas set nombre_alerta=$1, observacion_alerta=$2, tipo_alerta=$3 where id_alerta=$4',
     // organizacion
-    createOrganizacion: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion) VALUES ($1,$2)',
+    createOrganizacion: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion) VALUES ($1,$2,$3,$4)',
     viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',
     viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',
-    updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2 where id_organizacion=$3',
+    updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2, email_organizacion=$3, telefono_organizacion=$4 where id_organizacion=$5',
     // base tiempo
     createTime: 'INSERT INTO tiempos (nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo) VALUES ($1,$2,$3,$4)',
     viewTimes: 'SELECT * FROM tiempos order by id_tiempo',
@@ -49,7 +49,7 @@ export const handlerQuery = {
     viewRegionsStation: 'SELECT id_region, nombre_region FROM regiones order by id_region',
     viewCitiesStation: 'SELECT id_ciudad, nombre_ciudad FROM ciudades order by id_ciudad',
     viewGmtStation: 'SELECT id_gmt, nombre_gmt FROM gmt order by id_gmt',
-
+    // GMT
     createGmt: 'INSERT INTO gmt (nombre_gmt, observacion_gmt) VALUES ($1,$2)',
     viewGmts: 'SELECT * FROM gmt order by id_gmt',
     viewGmt: 'SELECT * FROM gmt where id_gmt=$1',

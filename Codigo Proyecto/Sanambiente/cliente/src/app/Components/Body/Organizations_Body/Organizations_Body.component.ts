@@ -21,11 +21,15 @@ export class OrganizationsBodyComponent implements OnInit {
   constructor(private organizationService: OrganizationsService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formOrganization = new FormGroup({
       'nombre_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'email_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      'telefono_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9]\d{6,9}$/)]),
       'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayOrganizations = {
 
       nombre_organizacion: '',
+      email_organizacion: '',
+      telefono_organizacion: '',
       observacion_organizacion: ''
       
     };
@@ -66,7 +70,9 @@ export class OrganizationsBodyComponent implements OnInit {
     let id = this.activedRoute.snapshot.params.id_organizacion;
     this.formOrganization.patchValue({
       nombre_organizacion: this.arrayOrganizations.nombre_organizacion,
-      observacion_organizacion: this.arrayOrganizations.observacion_organizacion
+      observacion_organizacion: this.arrayOrganizations.observacion_organizacion,
+      email_organizacion: this.arrayOrganizations.email_organizacion,
+      telefono_organizacion: this.arrayOrganizations.telefono_organizacion
     })
     this.organizationService.updateOrganization(this.formOrganization.value, id)
     alert('Organización actualizada correctamente');

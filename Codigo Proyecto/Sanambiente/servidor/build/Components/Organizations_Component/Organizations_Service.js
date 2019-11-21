@@ -22,8 +22,8 @@ class OrganizationService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_organizacion, observacion_organizacion } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createOrganizacion'], [nombre_organizacion, observacion_organizacion]);
+                let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createOrganizacion'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Organizacion'));
             }
             catch (error) {
@@ -35,9 +35,9 @@ class OrganizationService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_organizacion } = request.params;
-                let { nombre_organizacion, observacion_organizacion } = request.body;
+                let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion } = request.body;
                 console.log(id_organizacion, '\n', request.body);
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateOrganizacion'], [nombre_organizacion, observacion_organizacion, id_organizacion]);
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateOrganizacion'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion, id_organizacion]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Organizacion'));
             }
             catch (error) {

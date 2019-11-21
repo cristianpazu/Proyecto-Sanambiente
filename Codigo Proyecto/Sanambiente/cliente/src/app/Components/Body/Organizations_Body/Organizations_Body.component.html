@@ -16,17 +16,78 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre Organización</label>
             <div class="col-6">
-                <input autofocus class="form-control" formControlName="nombre_organizacion" type="text"  id="textNombre"
-                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input"  pattern="[a-z ]+" maxlength="50">
+                <input autofocus class="form-control" formControlName="nombre_organizacion" type="text" id="textNombre"
+                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" pattern="[a-z ]+"
+                    maxlength="50">
 
-                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
+                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.maxlength" class="form-control-feedback">
+                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.maxlength"
+                    class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 carácteres.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Campo para el email -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Email Organización</label>
+            <div class="col-6">
+                <input autofocus class="form-control" formControlName="email_organizacion" type="text" id="textNombre"
+                    [(ngModel)]="arrayOrganizations.email_organizacion" id="tamaño-fuente-input" maxlength="50">
+
+                <div *ngIf="formOrganization.controls['email_organizacion'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+
+                <div *ngIf="formOrganization.controls['email_organizacion'].errors?.maxlength"
+                    class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Maximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo email  -->
+                <div *ngIf="formOrganization.controls['email_organizacion'].errors?.pattern"
+                    class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Formato</strong> ejemplo@ejemplo.co
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Campo para el telefono -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Teléfono Organización</label>
+            <div class="col-6">
+                <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
+                    id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
+                    maxlength="50">
+
+                <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
+                    Este campo es requerido
+                </div>
+
+                <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.maxlength"
+                    class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Maximo 50 carácteres.
+                    </div>
+                </div>
+                <!-- Mensaje de restricción campo de solo numeros  -->
+                <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.pattern"
+                    class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben enteros entre 7 y 10 digitos.
                     </div>
                 </div>
 
@@ -40,14 +101,15 @@
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_organizacion" rows="4"
                     [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
                </textarea>
-               <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
+                <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
 
-                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
+                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength" class="form-control-feedback">
+                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength"
+                    class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 carácteres.
                     </div>
@@ -55,7 +117,7 @@
 
             </div>
         </div>
-        
+
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">

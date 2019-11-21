@@ -15,6 +15,8 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombre organización</th>
                 <th scope="col">Observación</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefono de contacto</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -23,6 +25,8 @@
                 <td> {{ organization.id_organizacion }} </td>
                 <td> {{ organization.nombre_organizacion }} </td>
                 <td> {{ organization.observacion_organizacion }} </td>
+                <td> {{ organization.email_organizacion }} </td>
+                <td> {{ organization.telefono_organizacion }} </td>
                 <td>
                     <a [routerLink]="['/organization/edit_organization',organization.id_organizacion]" class="btn btn-outline-primary btn-lg">
                         Editar
