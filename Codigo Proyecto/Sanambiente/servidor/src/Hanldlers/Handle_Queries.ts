@@ -19,7 +19,7 @@ export const handlerQuery = {
     viewRank: 'SELECT id_rango, nombre_rango,valor_minimo,valor_maximo, estaciones.id_estacion, observacion_rango, estaciones.nombre_estacion FROM estaciones, rangos where estaciones.id_estacion=rangos.id_estacion and id_rango=$1',
     updateRank: 'UPDATE rangos set nombre_rango=$1, valor_minimo=$2, valor_maximo=$3, id_estacion=$4, observacion_region=$5 where id_rango=$6',
     viewStationsRank: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
-    // categoria
+    // categoria 
     createCategory: 'INSERT INTO categorias (nombre_categoria, observacion_categoria) VALUES ($1,$2)',
     viewCategories: 'SELECT * FROM categorias order by id_categoria',
     viewCategory: 'SELECT * FROM categorias where id_categoria=$1',

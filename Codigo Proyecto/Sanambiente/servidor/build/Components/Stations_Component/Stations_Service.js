@@ -31,6 +31,7 @@ class StationService {
             }
         });
     }
+    // metodo para actualizar una estacion
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -44,6 +45,7 @@ class StationService {
             }
         });
     }
+    // metodo para ver todas las estaciones
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -55,6 +57,7 @@ class StationService {
             }
         });
     }
+    // metodo para consultar si existe una organizacion para su posterior actualizacion
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -73,8 +76,8 @@ class StationService {
             }
         });
     }
-    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de rango
-    viewStations(request, response) {
+    // metodo para ver solo el nombre de las organizaciones en una lista desplegable. Lo utiliza la vista de rango
+    viewNameStationsRank(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewStationsRank']);

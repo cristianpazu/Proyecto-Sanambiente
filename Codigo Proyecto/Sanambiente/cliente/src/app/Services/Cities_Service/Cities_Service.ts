@@ -16,7 +16,6 @@ export class CitiesService {
 
   createCity (body: City) {
     return this.baseService.create(body, `${environment.hostCreateCity}`);
-    
   }
 
   viewRegion() {

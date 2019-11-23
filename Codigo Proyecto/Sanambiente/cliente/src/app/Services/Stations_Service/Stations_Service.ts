@@ -31,7 +31,7 @@ export class StationsService {
     return this.baseService.view(`${environment.viewTime}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewRegionS() {
+  viewRegionStation() {
     return this.baseService.view(`${environment.viewRegionS}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
   
@@ -42,12 +42,13 @@ export class StationsService {
 
 
 
-  viewCityS() {
+  viewCityStation() {
     return this.baseService.view(`${environment.viewCitiesS}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
 
 
+  
 
   viewStations() {
     return this.baseService.view(`${environment.viewStations}`).toPromise().then((data: any) => data.message).catch((error) => error);

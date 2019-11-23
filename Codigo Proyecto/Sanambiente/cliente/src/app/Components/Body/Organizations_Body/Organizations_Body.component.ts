@@ -1,10 +1,10 @@
 /* Clase que contiene los metodos y la logica de la vista html en la cual se crean y editan las organizaciones*/
 
 /* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { OrganizationsService } from '../../../Services/Organizations_Service/Organizations_Service';
+import { Component, OnInit, HostBinding } from '@angular/core';  // Angular lo importa por defecto
+import { FormGroup, FormControl, Validators } from '@angular/forms'; // Caracteristicas que permiten crear y manejar validaciones para formularios
+import { Router, ActivatedRoute } from '@angular/router'; // La propiedad activateRoute permite saber lo que se esta recibiendo como parametro
+import { OrganizationsService } from '../../../Services/Organizations_Service/Organizations_Service'; //Importo los servicios de la clase Organizations_Service
 
 @Component({
   selector: 'app-Organizations_Body',
@@ -12,11 +12,10 @@ import { OrganizationsService } from '../../../Services/Organizations_Service/Or
 })
 export class OrganizationsBodyComponent implements OnInit {
 
-  public formOrganization: FormGroup;
-  public edit: boolean = false;
-  public arrayOrganizations;
-  public lengthOrganizations: number;
-  public hide = false;
+  public formOrganization: FormGroup;// La variable formOrganization permite administrar las validaciones y restricciones del formulario
+  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva organizacion o se esta editando una organizacion
+  public arrayOrganizations;  // La variable arrayOrganizations almacena el listado de las organizaciones existentes. Utilizada cuando se edita una organizacion
+  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la organizacion, en la vista html
 
   constructor(private organizationService: OrganizationsService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formOrganization = new FormGroup({
@@ -26,12 +25,10 @@ export class OrganizationsBodyComponent implements OnInit {
       'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayOrganizations = {
-
       nombre_organizacion: '',
       email_organizacion: '',
       telefono_organizacion: '',
       observacion_organizacion: ''
-      
     };
 
   }

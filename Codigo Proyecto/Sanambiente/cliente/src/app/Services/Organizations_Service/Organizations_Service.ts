@@ -1,7 +1,9 @@
+/* Clase que contiene los servicios del lado del cliente para la tabla organizacion */
+
 import { Injectable } from '@angular/core';
-import { Organization  } from '../../Models/Organization_Model/Organization';
-import BaseService from '../Base_Service/Base_Service';
-import { environment } from 'src/environments/environment';
+import { Organization  } from '../../Models/Organization_Model/Organization'; // se importa el modelo organization para la organizacion
+import BaseService from '../Base_Service/Base_Service'; // se importan las propiedades de la clase Base_Service
+import { environment } from 'src/environments/environment';// Se importan las constantes de la clase environment
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,8 @@ import { environment } from 'src/environments/environment';
 export class OrganizationsService {
 
   constructor(private baseService: BaseService) {}
+
+  /* Se crean los metodos utilizados por la vista de organizacion */
 
   createOrganization (body: Organization) {
     return this.baseService.create(body, `${environment.hostCreateOrganization}`);

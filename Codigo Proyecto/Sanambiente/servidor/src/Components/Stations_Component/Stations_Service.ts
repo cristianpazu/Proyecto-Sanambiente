@@ -20,6 +20,7 @@ class StationService implements BaseService<any> {
         }
     }
 
+    // metodo para actualizar una estacion
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_estacion } = request.params;
@@ -32,6 +33,7 @@ class StationService implements BaseService<any> {
         }
     }
 
+    // metodo para ver todas las estaciones
     async view(request: Request, response: Response): Promise<any> {
         try {
             let stations = await ConnectionDataBase.query(handlerQuery['viewStations']);
@@ -41,6 +43,7 @@ class StationService implements BaseService<any> {
         }
     }
 
+    // metodo para consultar si existe una organizacion para su posterior actualizacion
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_estacion } = request.params;
@@ -56,8 +59,8 @@ class StationService implements BaseService<any> {
         }
     }
 
-    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de rango
-    async viewStations(request: Request, response: Response): Promise<any> {
+    // metodo para ver solo el nombre de las organizaciones en una lista desplegable. Lo utiliza la vista de rango
+    async viewNameStationsRank(request: Request, response: Response): Promise<any> {
         try {
             let stations = await ConnectionDataBase.query(handlerQuery['viewStationsRank']);
             return Promise.resolve(handleMessage(response, 200, stations.rows));

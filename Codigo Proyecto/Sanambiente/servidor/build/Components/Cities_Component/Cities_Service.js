@@ -45,7 +45,7 @@ class CityService {
         });
     }
     // metodo para ver solo el nombre de las ciudades en una lista desplegable la utiliza la tabla se estacion
-    viewNameC(request, response) {
+    viewNameCitiesStation(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewCitiesStation']);

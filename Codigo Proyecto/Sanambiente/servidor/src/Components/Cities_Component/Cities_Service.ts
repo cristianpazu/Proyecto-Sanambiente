@@ -33,7 +33,7 @@ class CityService implements BaseService<any> {
     }
 
     // metodo para ver solo el nombre de las ciudades en una lista desplegable la utiliza la tabla se estacion
-    async viewNameC(request: Request, response: Response): Promise<any> {
+    async viewNameCitiesStation(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewCitiesStation']);
             return Promise.resolve(handleMessage(response, 200, regions.rows));
