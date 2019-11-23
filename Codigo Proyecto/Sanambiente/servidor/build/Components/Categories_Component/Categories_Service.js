@@ -57,7 +57,7 @@ class CategoryService {
             }
         });
     }
-    // metodo para ver todas las categorias con todos sus campos
+    // metodo para ver todas las categorias con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Categoria
     view(_, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -69,6 +69,7 @@ class CategoryService {
             }
         });
     }
+    // metodo para ver la Categoria con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Categoria
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

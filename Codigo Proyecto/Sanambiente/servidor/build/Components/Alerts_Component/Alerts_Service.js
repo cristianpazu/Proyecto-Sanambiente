@@ -44,6 +44,7 @@ class AlertService {
             }
         });
     }
+    // metodo para ver todas las Alertas con todos sus campos los cuales se listan en la tabla de Alerta
     view(_, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -55,6 +56,7 @@ class AlertService {
             }
         });
     }
+    // metodo para ver la Alerta con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Alerta
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

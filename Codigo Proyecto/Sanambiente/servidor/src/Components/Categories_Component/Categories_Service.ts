@@ -43,7 +43,7 @@ class CategoryService implements BaseService<any> {
         }
     }
 
-    // metodo para ver todas las categorias con todos sus campos
+    // metodo para ver todas las categorias con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Categoria
     async view(_: Request, response: Response): Promise<any> {
         try {
             let categories = await ConnectionDataBase.query(handlerQuery['viewCategories']);
@@ -53,6 +53,7 @@ class CategoryService implements BaseService<any> {
         }
     }
 
+    // metodo para ver la Categoria con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Categoria
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_categoria } = request.params;

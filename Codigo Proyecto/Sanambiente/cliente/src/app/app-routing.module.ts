@@ -28,6 +28,7 @@ import { OrganizationsBodyComponent } from './Components/Body/Organizations_Body
 import { AlertsBodyComponent } from './Components/Body/Alerts_Body/Alerts_Body.component';
 import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para Base de Tiempo */
 import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.component';
 import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
 

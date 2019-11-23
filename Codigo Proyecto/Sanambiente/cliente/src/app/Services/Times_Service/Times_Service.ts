@@ -1,7 +1,7 @@
 /* Clase que contiene los servicios del lado del cliente para la tabla base de tiempo */
 
 import { Injectable } from '@angular/core';
-import { Time } from '../../Models/Times_Model/Time'; // Se importa el modelo City para base de tiempo
+import { Time } from '../../Models/Times_Model/Time'; // Se importa el modelo Time para base de tiempo
 import BaseService from '../Base_Service/Base_Service'; // Se importan las propiedades de la clase Base_Service
 import { environment } from 'src/environments/environment'; // Se importan las constantes de la clase environment
 
