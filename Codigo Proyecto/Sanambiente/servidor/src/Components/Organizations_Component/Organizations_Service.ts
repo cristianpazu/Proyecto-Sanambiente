@@ -12,7 +12,7 @@ class OrganizationService implements BaseService<any> {
 
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion} = request.body;
+            let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion } = request.body;
             await ConnectionDataBase.query(handlerQuery['createOrganizacion'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion]);
             return Promise.resolve(handleMessage(response, 200, 'Create Organizacion'));
         } catch (error) {
@@ -20,10 +20,11 @@ class OrganizationService implements BaseService<any> {
         }
     }
 
+    // metodo para actualizar la organizacion 
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_organizacion } = request.params;
-            let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion} = request.body;
+            let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion } = request.body;
             console.log(id_organizacion, '\n', request.body)
             await ConnectionDataBase.query(handlerQuery['updateOrganizacion'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion, id_organizacion]);
             return Promise.resolve(handleMessage(response, 200, 'Update Organizacion'))
@@ -33,6 +34,7 @@ class OrganizationService implements BaseService<any> {
         }
     }
 
+    // metodo para ver todas las organizaciones
     async view(request: Request, response: Response): Promise<any> {
         try {
             let organizations = await ConnectionDataBase.query(handlerQuery['viewOrganizations']);
@@ -42,6 +44,7 @@ class OrganizationService implements BaseService<any> {
         }
     }
 
+    // metodo para consultar si exite una organizacion 
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_organizacion } = request.params;

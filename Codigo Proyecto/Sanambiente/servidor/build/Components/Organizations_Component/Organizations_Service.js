@@ -31,6 +31,7 @@ class OrganizationService {
             }
         });
     }
+    // metodo para actualizar la organizacion 
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -45,6 +46,7 @@ class OrganizationService {
             }
         });
     }
+    // metodo para ver todas las organizaciones
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -56,6 +58,7 @@ class OrganizationService {
             }
         });
     }
+    // metodo para consultar si exite una organizacion 
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

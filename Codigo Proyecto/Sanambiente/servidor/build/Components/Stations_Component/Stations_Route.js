@@ -19,7 +19,7 @@ class StationsRoute {
         this.router.get('/viewStationById/:id_estacion', Stations_Service_1.default.viewById);
         this.router.get('/viewStations', Stations_Service_1.default.view);
         this.router.put('/updateStations/:id_estacion', Stations_Service_1.default.update);
-        this.router.get('/viewStationsRank', Stations_Service_1.default.viewStations);
+        this.router.get('/viewStationsRank', Stations_Service_1.default.viewNameStationsRank);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

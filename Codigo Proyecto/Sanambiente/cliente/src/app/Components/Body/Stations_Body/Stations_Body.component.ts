@@ -27,6 +27,7 @@ export class StationsBodyComponent implements OnInit {
 
   constructor(private stationService: StationsService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formStation = new FormGroup({
+      //validaciones de todos los campos del formulario 
       'nombre_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'serial_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'nombre_corto_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
@@ -77,7 +78,7 @@ export class StationsBodyComponent implements OnInit {
 
   /* Método con el cual se listan las regiones existentes */
   async viewRegionS() {
-    this.regionStation = (await this.stationService.viewRegionS());
+    this.regionStation = (await this.stationService.viewRegionStation());
   }
 
   /* Método con el cual se listan los gmt existentes */
@@ -87,9 +88,8 @@ export class StationsBodyComponent implements OnInit {
 
   /* Método con el cual se listan las ciudades existentes en la region seleccionada*/
   async viewCityS() {
-    this.cityStation = (await this.stationService.viewCityS());
+    this.cityStation = (await this.stationService.viewCityStation());
   }
-
 
   /* Método con el cual se identifica la estacion cuya información va a ser actualizada */
   async viewDataById() {
