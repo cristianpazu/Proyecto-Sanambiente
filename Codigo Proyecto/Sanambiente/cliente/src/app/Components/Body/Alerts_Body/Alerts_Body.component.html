@@ -23,7 +23,7 @@
                 <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['nombre_alerta'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
+                    <!-- Este campo es requerido -->
                 </div>
                 <!-- Mensaje de restricción para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['nombre_alerta'].errors?.maxlength" class="form-control-feedback">
@@ -47,7 +47,7 @@
                 <!-- Validacion para el campo Observación de la Alerta -->
                 <div *ngIf="formAlert.controls['observacion_alerta'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
+                    <!-- Este campo es requerido -->
                 </div>
 
                 <!-- Mensaje de restricción para el campo Observación de la Alerta -->
@@ -65,7 +65,8 @@
                 <label class="col-2 col-form-label">Tipo de Alerta:</label>
                 <div class="col-6">
                     <select formControlName="tipo_alerta" class="form-control" type="text" id="textTipo_alerta"
-                        id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.tipo_alerta" value={{arrayAlerts.tipo_alerta}}>
+                        id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.tipo_alerta"
+                        value={{arrayAlerts.tipo_alerta}}>
                         <option value="Fax">Fax</option>
                         <option value="Email">Email</option>
                         <option value="Mensaje de texto">Mensaje de texto</option>
@@ -73,22 +74,28 @@
                     <!-- Validacion para el campo tipo de Alerta  -->
                     <div *ngIf="formAlert.controls['tipo_alerta'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
+                        <!-- Este campo es requerido -->
+                    </div>
+                    <br>
+                    <div style="margin-top: 20px;">
+                        <em> * Todos los campos son obligatorios </em>
                     </div>
 
                 </div>
             </div>
-            
-        <!-- boton Guardar Alerta -->
-        <div id="caja-botones" class="form-group-row">
-            <label class="col-1 col-form-label">&nbsp;</label>
-            <div class="col-md-8">
-                <button type="button" class="btn btn-outline-primary btn-lg" [disabled]="!formAlert.valid"
-                    (click)=" edit ? updateAlert() : createAlert()">
-                    Guardar
-                </button>
+
+
+
+            <!-- boton Guardar Alerta -->
+            <div id="caja-botones" class="form-group-row">
+                <label class="col-1 col-form-label">&nbsp;</label>
+                <div class="col-md-8">
+                    <button type="button" class="btn btn-outline-primary btn-lg" [disabled]="!formAlert.valid"
+                        (click)=" edit ? updateAlert() : createAlert()">
+                        Guardar
+                    </button>
+                </div>
             </div>
-        </div>
         </div>
     </form>
 </div>
