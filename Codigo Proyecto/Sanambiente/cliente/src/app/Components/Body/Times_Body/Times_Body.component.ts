@@ -23,10 +23,10 @@ export class TimesBodyComponent implements OnInit {
 
   constructor(private timesService: TimesService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada timesService
     this.formTime = new FormGroup({
-      'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9) ]),
-      'escala_tiempo': new FormControl('', [Validators.required,  Validators.max(1440)]),
-      'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'alerta_tiempo': new FormControl(),
+      'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'escala_tiempo': new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(1), Validators.max(1440)]),
+      'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'alerta_tiempo': new FormControl('', [Validators.required]),
     });
     this.arrayTimes = {
       observacion_tiempo: ''//Se usa para definir el campo observacion_tiempo y poder mostrar el conteo de caracteres restantes

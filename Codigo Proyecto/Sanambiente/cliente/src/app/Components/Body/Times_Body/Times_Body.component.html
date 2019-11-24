@@ -20,19 +20,21 @@
 
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_tiempo" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
+                    [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" maxlength="50">
 
+                <!-- Validacion para el campo nombre de la Base de Tiempo -->    
                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formTime.controls['nombre_tiempo'].errors?.maxlength" class="form-control-feedback">
+                 <!-- Mensaje de restricción campo nombre de la Base de Tiempo -->
+                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.pattern ||
+                 formTime.controls['nombre_tiempo'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -43,10 +45,11 @@
                 <div class="col-6">
 
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
-                    <input formControlName="escala_tiempo" class="form-control" type="number" id="textEscala_tiempo"
-                        id="tamaño-fuente-input" pattern="^[0-9]+" data-formrun-required
-                        [(ngModel)]="arrayTimes.escala_tiempo" value={{arrayTimes.escala_tiempo}} min="1" max="1440">
+                    <input formControlName="escala_tiempo" class="form-control" type="text" id="textEscala_tiempo"
+                        id="tamaño-fuente-input" data-formrun-required
+                        [(ngModel)]="arrayTimes.escala_tiempo" value={{arrayTimes.escala_tiempo}}>
                     Digite escala de tiempo en minutos
+
                     <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
@@ -54,12 +57,13 @@
                     </div>
 
                     <!-- Mensaje de restricción para el campo Escala de tiempo -->
-                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.max" class="form-control-feedback">
+                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.min ||
+                    formTime.controls['escala_tiempo'].errors?.max || 
+                    formTime.controls['escala_tiempo'].errors?.pattern" class="form-control-feedback">
                         <div class="alert alert-danger">
-                            <strong>Alerta!</strong> Máximo 1440 Minutos.
+                            <strong>Alerta!</strong> Los valores deben estar entre 1 y 1440.
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -78,11 +82,13 @@
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
                     </div>
+
                     <!-- Mensaje de restricción para el campo observacion de la Base de Tiempo -->
-                    <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength"
+                    <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength ||
+                    formTime.controls['observacion_tiempo'].errors?.pattern"
                         class="form-control-feedback">
                         <div class="alert alert-danger">
-                            <strong>Alerta!</strong> Máximo 50 carácteres.
+                            <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
                         </div>
                     </div>
 
@@ -102,6 +108,7 @@
                             <option value="Mensaje de texto">Mensaje de texto</option>
                         </select>
 
+                        <!-- Validacion para el campo observacion de la Base de Tiempo -->
                         <div *ngIf="formTime.controls['alerta_tiempo'].errors?.required" class="form-control-feedback"
                             id="tamaño-fuente-alerta">
                             Este campo es requerido

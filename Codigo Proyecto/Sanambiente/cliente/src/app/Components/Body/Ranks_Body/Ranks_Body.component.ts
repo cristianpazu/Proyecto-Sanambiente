@@ -22,14 +22,13 @@ export class RanksBodyComponent implements OnInit {
 
   constructor(private ranksService: RanksService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formRank = new FormGroup({
-      'nombre_rango': new FormControl('', [Validators.required, Validators.maxLength(49.9)/*, Validators.pattern(/^[a-zA-Z]*$/)*/]),
+      'nombre_rango': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
       'valor_minimo': new FormControl('', [Validators.required, Validators.maxLength(19.9), Validators.pattern(/^[0-9]\d{0,20}$/)]),
       'valor_maximo': new FormControl('', [Validators.required, Validators.maxLength(19.9), Validators.pattern(/^[0-9]\d{0,20}$/)]),
       'id_estacion': new FormControl('', [Validators.required]),
-      'observacion_rango': new FormControl('', [Validators.required, Validators.maxLength(49.9)/*, Validators.pattern(/^[a-zA-Z]*$/)*/]),
+      'observacion_rango': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
     })
     this.arrayRanks = {
-      nombre_rango: '',
       observacion_rango: ''
     };
   }

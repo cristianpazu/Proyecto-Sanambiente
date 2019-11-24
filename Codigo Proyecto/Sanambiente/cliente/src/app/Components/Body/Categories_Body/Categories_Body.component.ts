@@ -23,8 +23,8 @@ export class CategoriesBodyComponent implements OnInit {
   
   constructor(private categoriesService: CategoriesService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionServicio
     this.formCategory = new FormGroup({
-      'nombre_categoria': new FormControl('', [Validators.required, Validators.maxLength(49.9) ]),
-      'observacion_categoria': new FormControl('', [Validators.required, Validators.maxLength(249.9)]),
+      'nombre_categoria': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'observacion_categoria': new FormControl('', [Validators.required, Validators.maxLength(249.9), Validators.pattern(/^[a-z ]*$/)]),
     }); 
     this.arrayCategories = {
       observacion_categoria: '' //Se usa para definir el campo observacion_categoria y poder mostrar el conteo de caracteres restantes

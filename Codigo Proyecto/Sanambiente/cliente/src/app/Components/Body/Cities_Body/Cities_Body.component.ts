@@ -23,13 +23,12 @@ export class CitiesBodyComponent implements OnInit {
 
   constructor(private cityService: CitiesService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formCity = new FormGroup({
-      'nombre_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'nombre_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
       'id_region': new FormControl('', [Validators.required]),
-      'observacion_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'observacion_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
     })
     this.arrayCities = {
-      nombre_ciudad:'',
-      observacion_ciudad:''
+         observacion_ciudad:''
     };
   }
 

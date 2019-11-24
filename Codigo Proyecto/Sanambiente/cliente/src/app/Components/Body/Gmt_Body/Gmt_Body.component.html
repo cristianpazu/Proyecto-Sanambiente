@@ -12,25 +12,30 @@
                     value={{arrayGmt.id_gmt}} disabled>
             </div>
         </div>
+        
         <!-- Campo para el nombre del gmt -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre GMT</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_gmt" type="text" id="textNombre"
-                    [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
+                    [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" maxlength="50">
+
                 <!-- Validacion para el campo nombre del gmt -->
                 <div *ngIf="formGmt.controls['nombre_gmt'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-                <!-- Mensaje de restricción para el campo nombre del gmt -->
-                <div *ngIf="formGmt.controls['nombre_gmt'].errors?.maxlength" class="form-control-feedback">
+
+                <!-- Mensaje de restricción campo nombre del gmt -->
+                <div *ngIf="formGmt.controls['nombre_gmt'].errors?.pattern ||
+                formGmt.controls['nombre_gmt'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Campo para observación del gmt  -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
@@ -39,19 +44,22 @@
                     [(ngModel)]="arrayGmt.observacion_gmt" id="tamaño-fuente-input" maxlength="50">
                </textarea>
                 <span>{{50-arrayGmt.observacion_gmt.length}} Caracteres restantes</span>
+
                 <!-- Validacion para el campo Observación del gmt -->
                 <div *ngIf="formGmt.controls['observacion_gmt'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
-                <!-- Mensaje de restricción para el campo Observación del gmt -->
-                <div *ngIf="formGmt.controls['observacion_gmt'].errors?.maxlength" class="form-control-feedback">
+
+                <!-- Mensaje de restricción campo de solo letras -->
+                <div *ngIf="formGmt.controls['observacion_gmt'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Boton de guardarl gmt -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

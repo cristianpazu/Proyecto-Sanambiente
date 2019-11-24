@@ -17,21 +17,21 @@
             <label class="col-2 col-form-label">Nombre Organización</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_organizacion" type="text" id="textNombre"
-                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" pattern="[a-z ]+"
-                    maxlength="50">
+                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" maxlength="50">
 
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.maxlength"
+                <!-- Mensaje de restricción campo nombre de la organizacion -->
+                <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.pattern ||
+                formOrganization.controls['nombre_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -47,19 +47,14 @@
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formOrganization.controls['email_organizacion'].errors?.maxlength"
+                <div *ngIf="formOrganization.controls['email_organizacion'].errors?.maxlength ||
+                formOrganization.controls['email_organizacion'].errors?.pattern"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 carácteres.
+                        <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
                     </div>
                 </div>
-                <!-- Mensaje de restricción campo de solo email  -->
-                <div *ngIf="formOrganization.controls['email_organizacion'].errors?.pattern"
-                    class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Formato</strong> ejemplo@ejemplo.co
-                    </div>
-                </div>
+                
 
             </div>
         </div>
@@ -70,19 +65,19 @@
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
                     id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
-                    maxlength="50">
+                    maxlength="9">
 
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.maxlength"
+                <!-- <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 carácteres.
                     </div>
-                </div>
+                </div> -->
                 <!-- Mensaje de restricción campo de solo numeros  -->
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.pattern"
                     class="form-control-feedback">
@@ -108,12 +103,20 @@
                     Este campo es requerido
                 </div>
 
-                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength"
+                <!-- Mensaje de restricción campo de solo letras -->
+                <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.pattern"
+                    class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
+                    </div>
+                </div>
+
+                <!-- <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 carácteres.
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

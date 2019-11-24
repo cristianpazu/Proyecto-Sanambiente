@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';// Caracteri
 import { Router, ActivatedRoute } from '@angular/router'; // la propiedad activateRoute permite saber lo que estoy recibiendo como parametro
 import { AlertsService } from '../../../Services/Alerts_Service/Alerts_Service';//Importo los servicios de la clase Alerts_Service
 
+
 @Component({
   selector: 'app-alerts_body',
   templateUrl: './alerts_body.component.html',
@@ -23,12 +24,12 @@ export class AlertsBodyComponent implements OnInit {
   constructor(private alertsService: AlertsService, private router: Router, private activedRoute: ActivatedRoute) {
 
     this.formAlert = new FormGroup({
-      'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(249.9)]),
+      'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
       'tipo_alerta': new FormControl('', [Validators.required]),
     });
     this.arrayAlerts = {
-       observacion_alerta: '',
+       observacion_alerta: '', //Se usa para definir el campo observacion_alerta y poder mostrar el conteo de caracteres restantes
 
     };
   }
