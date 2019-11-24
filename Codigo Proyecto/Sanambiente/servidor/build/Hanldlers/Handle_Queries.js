@@ -35,7 +35,7 @@ exports.handlerQuery = {
     viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',
     viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',
     updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2, email_organizacion=$3, telefono_organizacion=$4 where id_organizacion=$5',
-    // base tiempo
+    // base de tiempo
     createTime: 'INSERT INTO tiempos (nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta) VALUES ($1,$2,$3,$4)',
     viewTimes: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo,alertas.id_alerta, nombre_alerta FROM alertas, tiempos where alertas.id_alerta=tiempos.id_alerta  order by id_tiempo',
     viewTime: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo, alertas.id_alerta, alertas.nombre_alerta FROM alertas, tiempos where alertas.id_alerta=tiempos.id_alerta and id_tiempo=$1',
