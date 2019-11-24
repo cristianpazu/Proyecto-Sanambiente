@@ -34,7 +34,7 @@ class CategoryService implements BaseService<any> {
     }
     
     // metodo para ver solo el nombre de las categorias en una lista desplegable
-    async viewNameCate(request: Request, response: Response): Promise<any> {
+    async viewNameCategoriesStation(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewCategoriesStation']);
             return Promise.resolve(handleMessage(response, 200, regions.rows));
@@ -44,7 +44,7 @@ class CategoryService implements BaseService<any> {
     }
 
     // metodo para ver todas las categorias con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Categoria
-    async view(_: Request, response: Response): Promise<any> {
+    async view(request: Request, response: Response): Promise<any> {
         try {
             let categories = await ConnectionDataBase.query(handlerQuery['viewCategories']);
             return Promise.resolve(handleMessage(response, 200, categories.rows));

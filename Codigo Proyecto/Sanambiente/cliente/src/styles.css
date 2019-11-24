@@ -95,7 +95,14 @@ overflow: auto;
 
 /* Estilo usados para el tamaño de la fuente en los campos tipo input de los formularios */
 #tamaño-fuente-input{
-font-size: 11pt;
+  font-size: 11pt;
+}
+
+/* estilos para los label de los formularios */
+label {
+  text-align: right;
+  /* display: block; */
+  padding: 0.5em 1.5em 0.5em 0;
 }
 
 /* Estilo usados para el tamaño de la fuente de las alerta en los formularios */

@@ -49,12 +49,12 @@ export class StationsBodyComponent implements OnInit {
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
   ngOnInit(): void {
-    this.viewDataById(); // Toma el id de la estacion, cuando se vaya a editar alguna de ellas
-    this.viewRegionS(); // Carga las regiones existentes
-    this.viewCityS(); // Carga las ciudades existentes en la region seleccionada
-    this.viewCategory(); // Carga las categorias existentes
-    this.viewTime(); // Carga los tiempos existentes
-    this.viewGmt(); // Carga los gmt existentes
+    this.viewStationById(); // Toma el id de la estacion, cuando se vaya a editar alguna de ellas
+    this.viewRegionStation(); // Carga las regiones existentes
+    this.viewCityStation(); // Carga las ciudades existentes en la region seleccionada
+    this.viewCategoryStation(); // Carga las categorias existentes
+    this.viewTimeStation(); // Carga los tiempos existentes
+    this.viewGmtStation(); // Carga los gmt existentes
   }
 
   /* Método con el cual se crea una nueva estacion */
@@ -67,32 +67,32 @@ export class StationsBodyComponent implements OnInit {
   }
 
   /* Método con el cual se listan las categorias existentes */
-  async viewCategory() {
-    this.categoryStation = (await this.stationService.viewCategory());
+  async viewCategoryStation() {
+    this.categoryStation = (await this.stationService.viewCategoriesStation());
   }
 
   /* Método con el cual se listan los tiempos existentes */
-  async viewTime() {
-    this.timeStation = (await this.stationService.viewTime());
+  async viewTimeStation() {
+    this.timeStation = (await this.stationService.viewTimesStation());
   }
 
   /* Método con el cual se listan las regiones existentes */
-  async viewRegionS() {
-    this.regionStation = (await this.stationService.viewRegionStation());
+  async viewRegionStation() {
+    this.regionStation = (await this.stationService.viewRegionsStation());
   }
 
   /* Método con el cual se listan los gmt existentes */
-  async viewGmt() {
-    this.gmtStation = (await this.stationService.viewGmt());
+  async viewGmtStation() {
+    this.gmtStation = (await this.stationService.viewGmtStation());
   }
 
   /* Método con el cual se listan las ciudades existentes en la region seleccionada*/
-  async viewCityS() {
-    this.cityStation = (await this.stationService.viewCityStation());
+  async viewCityStation() {
+    this.cityStation = (await this.stationService.viewCitiesStation());
   }
 
   /* Método con el cual se identifica la estacion cuya información va a ser actualizada */
-  async viewDataById() {
+  async viewStationById() {
     let id = this.activedRoute.snapshot.params.id_estacion;
     if (id !== undefined) {
       let station = await this.stationService.viewStationById(id).subscribe(async (element: any) => {

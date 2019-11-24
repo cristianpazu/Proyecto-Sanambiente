@@ -12,8 +12,8 @@
  
      async create(request: Request, response: Response): Promise<any> {
          try {
-             let { nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo } = request.body;
-             await ConnectionDataBase.query(handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo]);
+             let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
+             await ConnectionDataBase.query(handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta]);
              return Promise.resolve(handleMessage(response, 200, 'Create Time'));
          } catch (error) {
              Promise.reject(handleMessage(response, 404, 'Error'));
@@ -23,8 +23,8 @@
      async update(request: Request, response: Response): Promise<any> {
          try {
              const { id_tiempo } = request.params;
-             let { nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo } = request.body;
-             await ConnectionDataBase.query(handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo, id_tiempo]);
+             let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
+             await ConnectionDataBase.query(handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta, id_tiempo]);
              return Promise.resolve(handleMessage(response, 200, 'Update Time'))
  
          } catch (error) {
@@ -32,8 +32,8 @@
          }
      }
 
-    // metodo para ver solo el nombre de los tiempos en una lista desplegable
-    async viewNameT(request: Request, response: Response): Promise<any> {
+    // metodo para ver solo el nombre de los tiempos en una lista desplegable. La utiliza la vista de estacion
+    async viewNameTimesStation(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewTimesStation']);
             return Promise.resolve(handleMessage(response, 200, regions.rows));
@@ -43,7 +43,7 @@
     }
 
     // metodo para ver todas los tiempos con todos sus campos 
-     async view(_: Request, response: Response): Promise<any> {
+     async view(request: Request, response: Response): Promise<any> {
          try {
              let times = await ConnectionDataBase.query(handlerQuery['viewTimes']);
              return Promise.resolve(handleMessage(response, 200, times.rows));

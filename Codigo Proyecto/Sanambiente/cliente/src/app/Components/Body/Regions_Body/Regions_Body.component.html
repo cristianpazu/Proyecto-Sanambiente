@@ -6,8 +6,8 @@
     <form [formGroup]="formRegion">
         <!-- Campo para ID de la región, que solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-6 col-form-label">ID region</label>
-            <div class="col-2">
+            <label class="col-2 col-form-label">ID region</label>
+            <div class="col-4">
                 <input class="form-control" type="number" id="textId_region" id="tamaño-fuente-input"
                     value={{arrayRegions.id_region}} disabled>
             </div>
@@ -16,14 +16,13 @@
         <!-- Campo para el nombre de la región -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre región</label>
-            <div class="col-6">
+            <div class="col-5">
                 <input autofocus class="form-control" formControlName="nombre_region" type="text" id="textNombre"
                     [(ngModel)]="arrayRegions.nombre_region" id="tamaño-fuente-input" maxlength="50">
 
                 <!-- Validacion para el campo nombre de la región -->
                 <div *ngIf="formRegion.controls['nombre_region'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                  <!-- Mensaje de restricción para el campo nombre de la región -->
@@ -39,7 +38,7 @@
         <!-- Campo para observación de la región  -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
-            <div class="col-6">
+            <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_region" rows="4"
                     [(ngModel)]="arrayRegions.observacion_region" id="tamaño-fuente-input" maxlength="50">
                </textarea>
@@ -48,7 +47,6 @@
                 <!-- Validacion para el campo Observación de la región -->
                 <div *ngIf="formRegion.controls['observacion_region'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                  <!-- Mensaje de restricción campo Observación de la región -->
@@ -65,6 +63,12 @@
                     </div>
                 </div> -->
             </div> 
+                </div>
+                <br>
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
+                </div>
+            </div>
         </div>
 
         <!-- Boton de guardar de región -->

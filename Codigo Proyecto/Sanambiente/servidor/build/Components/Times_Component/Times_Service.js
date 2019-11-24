@@ -22,8 +22,8 @@ class TimeService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo]);
+                let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Time'));
             }
             catch (error) {
@@ -35,8 +35,8 @@ class TimeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_tiempo } = request.params;
-                let { nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, alerta_tiempo, id_tiempo]);
+                let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta, id_tiempo]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Time'));
             }
             catch (error) {
@@ -44,8 +44,8 @@ class TimeService {
             }
         });
     }
-    // metodo para ver solo el nombre de los tiempos en una lista desplegable
-    viewNameT(request, response) {
+    // metodo para ver solo el nombre de los tiempos en una lista desplegable. La utiliza la vista de estacion
+    viewNameTimesStation(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewTimesStation']);
@@ -57,7 +57,7 @@ class TimeService {
         });
     }
     // metodo para ver todas los tiempos con todos sus campos 
-    view(_, response) {
+    view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let times = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewTimes']);

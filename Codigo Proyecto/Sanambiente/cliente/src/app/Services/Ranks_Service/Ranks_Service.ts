@@ -19,8 +19,8 @@ export class RanksService{
     
   }
 
-  viewStation() {
-    return this.baseService.view(`${environment.viewStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  viewStationsRank() {
+    return this.baseService.view(`${environment.viewStationsRank}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
   viewRanks() {

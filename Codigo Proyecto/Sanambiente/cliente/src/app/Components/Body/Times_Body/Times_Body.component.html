@@ -7,8 +7,8 @@
 
         <!-- Campo para ID solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-6 col-form-label">ID Base de Tiempo</label>
-            <div class="col-2">
+            <label class="col-2 col-form-label">ID Base de Tiempo</label>
+            <div class="col-4">
                 <input class="form-control" type="number" id="textId_tiempo" id="tamaño-fuente-input"
                     value={{arrayTimes.id_tiempo}} disabled>
             </div>
@@ -16,16 +16,14 @@
 
         <!-- Campo para el nombre -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre de Base de Tiempo</label>
-
-            <div class="col-6">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-5">
                 <input class="form-control" formControlName="nombre_tiempo" type="text" autofocus id="textNombre"
                     [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" maxlength="50">
 
                 <!-- Validacion para el campo nombre de la Base de Tiempo -->    
                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                  <!-- Mensaje de restricción campo nombre de la Base de Tiempo -->
@@ -38,12 +36,20 @@
             </div>
         </div>
 
+        <!-- Campo de tipo input, que muestra el nombre de la alerta, solo cuando se edita un tiempo -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Alerta base tiempo (Actual)</label>
+            <div class="col-5">
+                <input class="form-control" type="text" id="textNombre_alerta" id="tamaño-fuente-input"
+                    value={{arrayTimes.nombre_alerta}} disabled>
+            </div>
+        </div>
+
         <!-- Campo para Escala de Tiempo Actual-->
         <div>
             <div class="form-group row">
-                <label class="col-2 col-form-label">Escala Tiempo Actual</label>
-                <div class="col-6">
-
+                <label class="col-2 col-form-label">Escala de Tiempo</label>
+                <div class="col-5">
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
                     <input formControlName="escala_tiempo" class="form-control" type="text" id="textEscala_tiempo"
                         id="tamaño-fuente-input" data-formrun-required
@@ -53,9 +59,7 @@
                     <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
                     </div>
-
                     <!-- Mensaje de restricción para el campo Escala de tiempo -->
                     <div *ngIf="formTime.controls['escala_tiempo'].errors?.min ||
                     formTime.controls['escala_tiempo'].errors?.max || 
@@ -70,7 +74,7 @@
             <!-- Campo para observaciones  -->
             <div class="form-group row">
                 <label class="col-2 col-form-label">Observación</label>
-                <div class="col-6">
+                <div class="col-5">
                     <textarea data-ls-module="charCounter" ng-thim="false" class="form-control"
                         formControlName="observacion_tiempo" rows="4" [(ngModel)]="arrayTimes.observacion_tiempo"
                         id="tamaño-fuente-input" maxlength="50">
@@ -80,7 +84,6 @@
                     <!-- Validacion para el campo observacion de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['observacion_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
                     </div>
 
                     <!-- Mensaje de restricción para el campo observacion de la Base de Tiempo -->
@@ -98,22 +101,24 @@
             <!-- Campo para Alerta de Tiempo -->
             <div>
                 <div class="form-group row">
-                    <label class="col-2 col-form-label">Tipo de Alerta</label>
-                    <div class="col-6">
-                        <select formControlName="alerta_tiempo" class="form-control" type="text" id="textAlerta_tiempo"
-                            id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.alerta_tiempo"
-                            value={{arrayTimes.alerta_tiempo}}>
-                            <option value="Fax">Fax</option>
-                            <option value="Email">Email</option>
-                            <option value="Mensaje de texto">Mensaje de texto</option>
+                    <label class="col-2 col-form-label">Alerta base tiempo</label>
+                    <div class="col-5">
+                        <select formControlName="id_alerta" class="form-control" type="number" id="textId_alerta"
+                            id="tamaño-fuente-input" data-formrun-required>
+                            <option *ngFor="let alertaTiempo of alertTime" value="{{alertaTiempo.id_alerta}}"
+                                name="alerta-tiempo">
+                                {{alertaTiempo.nombre_alerta}}
+                            </option>
                         </select>
 
                         <!-- Validacion para el campo observacion de la Base de Tiempo -->
-                        <div *ngIf="formTime.controls['alerta_tiempo'].errors?.required" class="form-control-feedback"
+                        <div *ngIf="formTime.controls['id_alerta'].errors?.required" class="form-control-feedback"
                             id="tamaño-fuente-alerta">
-                            Este campo es requerido
                         </div>
-
+                        <br>
+                        <div style="margin-top: 20px;">
+                            <em> * Todos los campos son obligatorios </em>
+                        </div>
                     </div>
                 </div>
 

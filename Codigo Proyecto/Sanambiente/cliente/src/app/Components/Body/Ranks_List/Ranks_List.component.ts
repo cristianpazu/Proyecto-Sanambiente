@@ -26,6 +26,5 @@ export class RanksListComponent implements OnInit {
   /* Método con el cual se obtienen los rangos existentes */
   async getRanks() {
     this.arrayRanks = await this.rankService.viewRanks();
-    console.log(this.arrayRanks);
   }
 }

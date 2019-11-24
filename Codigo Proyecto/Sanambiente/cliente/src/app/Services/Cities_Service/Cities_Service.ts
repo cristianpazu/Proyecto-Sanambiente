@@ -18,8 +18,8 @@ export class CitiesService {
     return this.baseService.create(body, `${environment.hostCreateCity}`);
   }
 
-  viewRegion() {
-    return this.baseService.view(`${environment.viewRegion}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  viewRegionsCity() {
+    return this.baseService.view(`${environment.viewRegionsCity}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
   viewCities() {
