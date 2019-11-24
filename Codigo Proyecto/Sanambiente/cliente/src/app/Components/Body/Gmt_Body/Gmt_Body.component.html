@@ -21,7 +21,6 @@
                 <!-- Validacion para el campo nombre del gmt -->
                 <div *ngIf="formGmt.controls['nombre_gmt'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo nombre del gmt -->
                 <div *ngIf="formGmt.controls['nombre_gmt'].errors?.maxlength" class="form-control-feedback">
@@ -42,13 +41,16 @@
                 <!-- Validacion para el campo Observación del gmt -->
                 <div *ngIf="formGmt.controls['observacion_gmt'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo Observación del gmt -->
                 <div *ngIf="formGmt.controls['observacion_gmt'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Máximo 50 carácteres.
                     </div>
+                </div>
+                <br>
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
                 </div>
             </div>
         </div>

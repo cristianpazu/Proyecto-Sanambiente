@@ -21,7 +21,6 @@
                 <!-- Validacion para el campo nombre de la ciudad -->
                 <div *ngIf="formCity.controls['nombre_ciudad'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo nombre de la ciudad -->
                 <div *ngIf="formCity.controls['nombre_ciudad'].errors?.maxlength" class="form-control-feedback">
@@ -49,7 +48,6 @@
                 <!-- Validacion para el campo Observación de la ciudad -->
                 <div *ngIf="formCity.controls['observacion_ciudad'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo Observación de la ciudad -->
                 <div *ngIf="formCity.controls['observacion_ciudad'].errors?.maxlength" class="form-control-feedback">
@@ -74,7 +72,10 @@
                     <!-- Validacion para el campo region de la ciudad -->
                     <div *ngIf="formCity.controls['id_region'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
+                    </div>
+                    <br>
+                    <div style="margin-top: 20px;">
+                        <em> * Todos los campos son obligatorios </em>
                     </div>
                 </div>
             </div>

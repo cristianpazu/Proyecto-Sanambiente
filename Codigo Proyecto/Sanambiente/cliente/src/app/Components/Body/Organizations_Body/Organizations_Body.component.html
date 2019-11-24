@@ -19,19 +19,15 @@
                 <input autofocus class="form-control" formControlName="nombre_organizacion" type="text" id="textNombre"
                     [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" pattern="[a-z ]+"
                     maxlength="50">
-
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
-
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 carácteres.
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -41,12 +37,10 @@
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="email_organizacion" type="text" id="textNombre"
                     [(ngModel)]="arrayOrganizations.email_organizacion" id="tamaño-fuente-input" maxlength="50">
-
                 <div *ngIf="formOrganization.controls['email_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
-                    Este campo es requerido
-                </div>
 
+                </div>
                 <div *ngIf="formOrganization.controls['email_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
@@ -60,7 +54,6 @@
                         <strong>Formato</strong> ejemplo@ejemplo.co
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -71,12 +64,9 @@
                 <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
                     id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
                     maxlength="50">
-
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
-
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
@@ -102,19 +92,19 @@
                     [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
                </textarea>
                 <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
-
                 <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
-
                 <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> Maximo 50 carácteres.
                     </div>
                 </div>
-
+                <br>
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
+                </div>
             </div>
         </div>
 

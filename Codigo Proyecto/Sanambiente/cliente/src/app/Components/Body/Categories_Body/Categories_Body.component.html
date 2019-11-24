@@ -24,7 +24,6 @@
                 <!-- Validacion para el campo nombre de la Categiria -->    
                 <div *ngIf="formCategory.controls['nombre_categoria'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                 <!-- Mensaje de restricción para el campo nombre de la Categiria -->
@@ -49,7 +48,6 @@
                <!-- Validacion para el campo Observacion de la Categiria --> 
                 <div *ngIf="formCategory.controls['observacion_categoria'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                 <!-- Mensaje de restricción para el campo Observacion de la Categiria -->
@@ -58,7 +56,10 @@
                         <strong>Alerta!</strong> Maximo 250 caracteres.
                     </div>
                 </div>
-
+                <br>
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
+                </div>
             </div>
         </div>
 

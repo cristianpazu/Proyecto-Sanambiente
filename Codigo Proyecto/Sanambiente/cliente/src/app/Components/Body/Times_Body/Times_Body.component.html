@@ -16,7 +16,7 @@
 
         <!-- Campo para el nombre -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre de Base de Tiempo</label>
+            <label class="col-2 col-form-label">Nombre</label>
 
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_tiempo" type="text" autofocus id="textNombre"
@@ -24,7 +24,6 @@
 
                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.maxlength" class="form-control-feedback">
@@ -59,7 +58,6 @@
                     <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
                     </div>
 
                     <!-- Mensaje de restricción para el campo Escala de tiempo -->
@@ -85,7 +83,6 @@
                     <!-- Validacion para el campo observacion de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['observacion_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
                     </div>
                     <!-- Mensaje de restricción para el campo observacion de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength"
@@ -112,9 +109,11 @@
                         </select>
                         <div *ngIf="formTime.controls['id_alerta'].errors?.required" class="form-control-feedback"
                             id="tamaño-fuente-alerta">
-                            Este campo es requerido
                         </div>
-
+                        <br>
+                        <div style="margin-top: 20px;">
+                            <em> * Todos los campos son obligatorios </em>
+                        </div>
                     </div>
                 </div>
 

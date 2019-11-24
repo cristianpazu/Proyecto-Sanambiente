@@ -21,7 +21,6 @@
                 <!-- Validacion para el campo nombre del rango -->
                 <div *ngIf="formRank.controls['nombre_rango'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo nombre del rango-->
                 <div *ngIf="formRank.controls['nombre_rango'].errors?.maxlength" class="form-control-feedback">
@@ -55,7 +54,6 @@
                 <!-- Validacion para el campo valor minimo del rango -->
                 <div *ngIf="formRank.controls['valor_minimo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo valor minimo del rango-->
                 <div *ngIf="formRank.controls['valor_minimo'].errors?.maxlength" class="form-control-feedback">
@@ -80,7 +78,6 @@
                 <!-- Validacion para el campo valor maximo del rango -->
                 <div *ngIf="formRank.controls['valor_maximo'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo valor maximo del rango-->
                 <div *ngIf="formRank.controls['valor_maximo'].errors?.maxlength" class="form-control-feedback">
@@ -107,7 +104,6 @@
                 <!-- Validacion para el campo Observación del rango -->
                 <div *ngIf="formRank.controls['observacion_rango'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
                 <!-- Mensaje de restricción para el campo Observación del rango -->
                 <div *ngIf="formRank.controls['observacion_rango'].errors?.maxlength" class="form-control-feedback">
@@ -137,7 +133,10 @@
                     <!-- Validacion para el campo estacion del rango -->
                     <div *ngIf="formRank.controls['id_estacion'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        Este campo es requerido
+                    </div>
+                    <br>
+                    <div style="margin-top: 20px;">
+                        <em> * Todos los campos son obligatorios </em>
                     </div>
                 </div>
             </div>
