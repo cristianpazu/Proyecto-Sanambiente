@@ -6,8 +6,8 @@
     <form [formGroup]="formGmt">
         <!-- Campo para ID del gmt, que solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-6 col-form-label">ID GMT</label>
-            <div class="col-2">
+            <label class="col-2 col-form-label">ID GMT</label>
+            <div class="col-4">
                 <input class="form-control" type="number" id="textId_gmt" id="tamaño-fuente-input"
                     value={{arrayGmt.id_gmt}} disabled>
             </div>
@@ -15,7 +15,7 @@
         <!-- Campo para el nombre del gmt -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre GMT</label>
-            <div class="col-6">
+            <div class="col-5">
                 <input autofocus class="form-control" formControlName="nombre_gmt" type="text" id="textNombre"
                     [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" maxlength="50">
                 <!-- Validacion para el campo nombre del gmt -->
@@ -33,7 +33,7 @@
         <!-- Campo para observación del gmt  -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
-            <div class="col-6">
+            <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_gmt" rows="4"
                     [(ngModel)]="arrayGmt.observacion_gmt" id="tamaño-fuente-input" maxlength="50">
                </textarea>

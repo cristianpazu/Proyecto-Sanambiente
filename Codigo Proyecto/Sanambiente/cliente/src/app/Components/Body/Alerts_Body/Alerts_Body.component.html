@@ -6,64 +6,18 @@
 
         <!-- Campo para ID solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-6 col-form-label">ID Alerta</label>
-            <div class="col-2">
+            <label class="col-2 col-form-label">ID Alerta</label>
+            <div class="col-4">
                 <input class="form-control" type="number" id="textId_alerta" id="tamaño-fuente-input"
                     value={{arrayAlerts.id_alerta}} disabled>
             </div>
         </div>
 
-        <!-- Campo para el nombre -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre Alerta</label>
-
-            <div class="col-6">
-                <input class="form-control" formControlName="nombre_alerta" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
-                <!-- Validacion para el campo nombre de la Alerta -->
-                <div *ngIf="formAlert.controls['nombre_alerta'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    <!-- Este campo es requerido -->
-                </div>
-                <!-- Mensaje de restricción para el campo nombre de la Alerta -->
-                <div *ngIf="formAlert.controls['nombre_alerta'].errors?.maxlength" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Campo para observaciones  -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Observación</label>
-            <div class="col-6">
-                <textarea ng-thim="false" class="form-control" formControlName="observacion_alerta" rows="4"
-                    [(ngModel)]="arrayAlerts.observacion_alerta" id="tamaño-fuente-input" maxlength="50">
-                </textarea>
-                <span>{{50-arrayAlerts.observacion_alerta.length}} Caracteres restantes</span>
-
-                <!-- Validacion para el campo Observación de la Alerta -->
-                <div *ngIf="formAlert.controls['observacion_alerta'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    <!-- Este campo es requerido -->
-                </div>
-
-                <!-- Mensaje de restricción para el campo Observación de la Alerta -->
-                <div *ngIf="formAlert.controls['observacion_alerta'].errors?.maxlength" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <!-- Campo para Tipo de Alerta  -->
         <div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">Tipo de Alerta:</label>
-                <div class="col-6">
+                <div class="col-4">
                     <select formControlName="tipo_alerta" class="form-control" type="text" id="textTipo_alerta"
                         id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.tipo_alerta"
                         value={{arrayAlerts.tipo_alerta}}>
@@ -74,16 +28,60 @@
                     <!-- Validacion para el campo tipo de Alerta  -->
                     <div *ngIf="formAlert.controls['tipo_alerta'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
-                        <!-- Este campo es requerido -->
                     </div>
-                    <br>
-                    <div style="margin-top: 20px;">
-                        <em> * Todos los campos son obligatorios </em>
+                </div>
+            </div>
+
+            <!-- Campo para el nombre -->
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Nombre Alerta</label>
+                <div class="col-5">
+                    <input class="form-control" formControlName="nombre_alerta" type="text" autofocus id="textNombre"
+                        [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" pattern="[a-z ]+"
+                        maxlength="50">
+                    <!-- Validacion para el campo nombre de la Alerta -->
+                    <div *ngIf="formAlert.controls['nombre_alerta'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                    </div>
+                    <!-- Mensaje de restricción para el campo nombre de la Alerta -->
+                    <div *ngIf="formAlert.controls['nombre_alerta'].errors?.maxlength" class="form-control-feedback">
+                        <div class="alert alert-danger">
+                            <strong>Alerta!</strong> Máximo 50 carácteres.
+                        </div>
                     </div>
 
                 </div>
             </div>
 
+
+
+            <!-- Campo para observaciones  -->
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Observación</label>
+                <div class="col-5">
+                    <textarea ng-thim="false" class="form-control" formControlName="observacion_alerta" rows="4"
+                        [(ngModel)]="arrayAlerts.observacion_alerta" id="tamaño-fuente-input" maxlength="50">
+                </textarea>
+                    <span>{{50-arrayAlerts.observacion_alerta.length}} Caracteres restantes</span>
+
+                    <!-- Validacion para el campo Observación de la Alerta -->
+                    <div *ngIf="formAlert.controls['observacion_alerta'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                    </div>
+
+                    <!-- Mensaje de restricción para el campo Observación de la Alerta -->
+                    <div *ngIf="formAlert.controls['observacion_alerta'].errors?.maxlength"
+                        class="form-control-feedback">
+                        <div class="alert alert-danger">
+                            <strong>Alerta!</strong> Máximo 50 carácteres.
+                        </div>
+                    </div>
+                    <br>
+                    <div style="margin-top: 20px;">
+                        <em> * Todos los campos son obligatorios </em>
+                    </div>
+                </div>
+            </div>
 
 
             <!-- boton Guardar Alerta -->
