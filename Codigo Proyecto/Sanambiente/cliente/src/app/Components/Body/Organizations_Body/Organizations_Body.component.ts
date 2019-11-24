@@ -35,7 +35,7 @@ export class OrganizationsBodyComponent implements OnInit {
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Organizations_Body */
   ngOnInit(): void {
-    this.viewDataById() // Toma el id de la organizacion, cuando se vaya a editar alguna de ellas
+    this.viewOrganizationById() // Toma el id de la organizacion, cuando se vaya a editar alguna de ellas
   }
 
   @HostBinding('class') classes = 'row';  // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
@@ -51,7 +51,7 @@ export class OrganizationsBodyComponent implements OnInit {
   }
 
   /* Método con el cual se identifica la organizacion cuya información va a ser actualizada */
-  async viewDataById() {
+  async viewOrganizationById() {
     let id = this.activedRoute.snapshot.params.id_organizacion;
     if (id !== undefined) {
       let organization = await this.organizationService.viewOrganizationById(id).subscribe((element: any) => {

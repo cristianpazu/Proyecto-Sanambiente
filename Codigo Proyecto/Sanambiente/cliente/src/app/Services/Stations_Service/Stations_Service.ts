@@ -23,32 +23,25 @@ export class StationsService {
     return this.baseService.view(`${environment.viewStationById}/${id_estacion}`);
   }
 
-  viewCategory() {
-    return this.baseService.view(`${environment.viewCategory}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  viewCategoryStation() {
+    return this.baseService.view(`${environment.viewCategoryStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewTime() {
-    return this.baseService.view(`${environment.viewTime}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  viewTimeStation() {
+    return this.baseService.view(`${environment.viewTimeStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
   viewRegionStation() {
-    return this.baseService.view(`${environment.viewRegionS}`).toPromise().then((data: any) => data.message).catch((error) => error);
+    return this.baseService.view(`${environment.viewRegionStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
   
-  viewGmt() {
-    return this.baseService.view(`${environment.viewGmtS}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  viewGmtStation() {
+    return this.baseService.view(`${environment.viewGmtStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
-
-
 
   viewCityStation() {
-    return this.baseService.view(`${environment.viewCitiesS}`).toPromise().then((data: any) => data.message).catch((error) => error);
+    return this.baseService.view(`${environment.viewCityStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
-
-
-  
 
   viewStations() {
     return this.baseService.view(`${environment.viewStations}`).toPromise().then((data: any) => data.message).catch((error) => error);
