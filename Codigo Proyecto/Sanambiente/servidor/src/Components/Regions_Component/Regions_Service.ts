@@ -20,6 +20,7 @@ class RegionService implements BaseService<any> {
         }
     }
 
+    // Actualizar region
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_region } = request.params;
@@ -43,15 +44,15 @@ class RegionService implements BaseService<any> {
         }
     }
 
-        // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de estacion
-        async viewNameRegionsStation(request: Request, response: Response): Promise<any> {
-            try {
-                let regions = await ConnectionDataBase.query(handlerQuery['viewRegionsStation']);
-                return Promise.resolve(handleMessage(response, 200, regions.rows));
-            } catch (error) {
-                Promise.reject(handleMessage(response, 404, 'Error'));
-            }
+    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de estacion
+    async viewNameRegionsStation(request: Request, response: Response): Promise<any> {
+        try {
+            let regions = await ConnectionDataBase.query(handlerQuery['viewRegionsStation']);
+            return Promise.resolve(handleMessage(response, 200, regions.rows));
+        } catch (error) {
+            Promise.reject(handleMessage(response, 404, 'Error'));
         }
+    }
 
     // metodo para ver todas las regiones con todos sus campos 
     async view(request: Request, response: Response): Promise<any> {

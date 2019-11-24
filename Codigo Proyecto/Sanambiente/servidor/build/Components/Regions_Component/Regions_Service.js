@@ -31,6 +31,7 @@ class RegionService {
             }
         });
     }
+    // Actualizar region
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

@@ -17,7 +17,7 @@
             <label class="col-2 col-form-label">Nombre GMT</label>
             <div class="col-6">
                 <input autofocus class="form-control" formControlName="nombre_gmt" type="text" id="textNombre"
-                    [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" pattern="[a-z ]+" maxlength="50">
+                    [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" maxlength="50">
                 <!-- Validacion para el campo nombre del gmt -->
                 <div *ngIf="formGmt.controls['nombre_gmt'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
