@@ -32,6 +32,7 @@ import { CategoriesBodyComponent } from './Components/Body/Categories_Body/Categ
 import { CategoriesService } from './Services/Categories_Service/Categories_Service';
 import { CategoriesListComponent } from './Components/Body/Categories_List/Categories_List.component';
 
+/* Importo los componentes y servicios creados para Rangos */
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
 
@@ -41,7 +42,6 @@ import { AlertsListComponent } from './Components/Body/Alerts_List/Alerts_List.c
 import { AlertsService } from './Services/Alerts_Service/Alerts_Service';
 
 /* Importo los componentes y servicios creados para Bases de tiempos */
-
 import { TimesBodyComponent } from './Components/Body/Times_Body/Times_Body.component';
 import { TimesListComponent } from './Components/Body/Times_List/Times_List.component';
 import { TimesService } from './Services/Times_Service/Times_Service';

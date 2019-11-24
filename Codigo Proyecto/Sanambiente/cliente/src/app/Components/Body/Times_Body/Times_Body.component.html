@@ -43,12 +43,11 @@
                 <div class="col-6">
 
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
-
-                   
                     <input formControlName="escala_tiempo" class="form-control" type="number" id="textEscala_tiempo"
                         id="tamaño-fuente-input" pattern="^[0-9]+" data-formrun-required
                         [(ngModel)]="arrayTimes.escala_tiempo" value={{arrayTimes.escala_tiempo}} min="1" max="1440">
                     Digite escala de tiempo en minutos
+                    <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
@@ -74,11 +73,12 @@
                 </textarea>
                     <span>{{50-arrayTimes.observacion_tiempo.length}} Caracteres restantes</span>
 
+                    <!-- Validacion para el campo observacion de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['observacion_tiempo'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                         Este campo es requerido
                     </div>
-
+                    <!-- Mensaje de restricción para el campo observacion de la Base de Tiempo -->
                     <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength"
                         class="form-control-feedback">
                         <div class="alert alert-danger">
@@ -109,6 +109,8 @@
 
                     </div>
                 </div>
+
+                <!-- Boton de guardar de la Base de Tiempo -->
                 <div id="caja-botones" class="form-group-row">
                     <label class="col-1 col-form-label">&nbsp;</label>
                     <div class="col-md-8">

@@ -52,6 +52,7 @@
          }
      }
  
+     // metodo para ver la Base de Tiempo con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Base de Tiempo
      async viewById(request: Request, response: Response): Promise<any> {
          try {
              const { id_tiempo } = request.params;

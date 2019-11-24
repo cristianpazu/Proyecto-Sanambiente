@@ -68,6 +68,7 @@ class TimeService {
             }
         });
     }
+    // metodo para ver la Base de Tiempo con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Base de Tiempo
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

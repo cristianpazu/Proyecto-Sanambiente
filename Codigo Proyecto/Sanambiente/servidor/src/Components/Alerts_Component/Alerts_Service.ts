@@ -32,6 +32,7 @@
          }
      }
  
+     // metodo para ver todas las Alertas con todos sus campos los cuales se listan en la tabla de Alerta
      async view(_: Request, response: Response): Promise<any> {
          try {
              let alerts = await ConnectionDataBase.query(handlerQuery['viewAlerts']);
@@ -41,6 +42,7 @@
          }
      }
  
+     // metodo para ver la Alerta con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Alerta
      async viewById(request: Request, response: Response): Promise<any> {
          try {
              const { id_alerta } = request.params;
