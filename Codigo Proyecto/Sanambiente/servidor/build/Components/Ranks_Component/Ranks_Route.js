@@ -15,7 +15,6 @@ class RankRoute {
         this.router.get('/viewRankById/:id_rango', Ranks_Service_1.default.viewById);
         this.router.get('/viewRanks', Ranks_Service_1.default.view);
         this.router.put('/updateRanks/:id_rango', Ranks_Service_1.default.update);
-        this.router.get('/viewStations', Ranks_Service_1.default.view);
     }
 }
 const ranksRoutes = new RankRoute();

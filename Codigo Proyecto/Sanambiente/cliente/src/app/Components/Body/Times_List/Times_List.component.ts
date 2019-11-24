@@ -25,7 +25,6 @@ export class TimesListComponent implements OnInit {
 
   /* Método con el cual se obtienen las Bases de Tiempos existentes */
   async getTimes() {
-    this.arrayTimes = await this.timeService.viewTimes();
-    
+    this.arrayTimes = await this.timeService.viewTimes();    
   }
 }

@@ -35,7 +35,7 @@ export class CitiesBodyComponent implements OnInit {
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Cities_Body */
   ngOnInit(): void {
-    this.viewRegion(); // Carga las regiones existentes
+    this.viewRegionsCity(); // Carga las regiones existentes
     this.viewCityById(); // Toma el id de la cuidad, cuando se vaya a editar alguna de ellas
   }
 
@@ -49,15 +49,15 @@ export class CitiesBodyComponent implements OnInit {
   }
 
   /* Método con el cual se listan las regiones existentes */
-  async viewRegion() {
-    this.regionCity = (await this.cityService.viewRegion());
+  async viewRegionsCity() {
+    this.regionCity = (await this.cityService.viewRegionsCity());
   }
 
   /* Método con el cual se identifica la ciudad cuya información va a ser actualizada */
   async viewCityById() {
     let id = this.activedRoute.snapshot.params.id_ciudad;
     if (id !== undefined) {
-      let region = await this.cityService.viewCityById(id).subscribe(async (element: any) => {
+      let city = await this.cityService.viewCityById(id).subscribe(async (element: any) => {
         this.arrayCities = await element.message[0];
         this.edit = true;
         this.hide = true;

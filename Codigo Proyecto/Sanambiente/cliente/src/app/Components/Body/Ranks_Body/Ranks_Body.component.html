@@ -39,7 +39,7 @@
         </div>
         <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un rango -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">Estacion del rango</label>
+            <label class="col-2 col-form-label">Estacion del rango (Actual)</label>
             <div class="col-6">
                 <input class="form-control" type="text" id="textNombre_estacion" id="tamaño-fuente-input"
                     value={{arrayRanks.nombre_estacion}} disabled>
@@ -145,7 +145,8 @@
             <div id="caja-botones" class="form-group-row">
                 <label class="col-1 col-form-label">&nbsp;</label>
                 <div class="col-md-8">
-                    <button [disabled]="!formRank.valid" class="btn btn-outline-primary btn-lg" (click)="createRank()">
+                    <button type="button" [disabled]="!formRank.valid" class="btn btn-outline-primary btn-lg"
+                    (click)=" edit ? updateRank() : createRank()">
                         Guardar
                     </button>
                 </div>

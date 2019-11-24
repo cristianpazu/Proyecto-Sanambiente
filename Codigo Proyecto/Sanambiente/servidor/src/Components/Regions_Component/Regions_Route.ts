@@ -20,7 +20,8 @@ class RegionRoute {
        this.router.get('/viewRegionById/:id_region', RegionService.viewById);
        this.router.get('/viewRegions', RegionService.view);
        this.router.put('/updateRegions/:id_region', RegionService.update);
-       this.router.get('/viewRegionsCity', RegionService.viewNameRegionsCity)
+       this.router.get('/viewRegionsCity', RegionService.viewNameRegionsCity);
+       this.router.get('/viewRegionsStation', RegionService.viewNameRegionsStation)
     }
 }
 

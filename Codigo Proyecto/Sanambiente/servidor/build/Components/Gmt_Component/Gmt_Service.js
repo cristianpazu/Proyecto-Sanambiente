@@ -45,7 +45,7 @@ class GmtService {
         });
     }
     // metodo para ver solo el nombre de los gmt en una lista desplegable
-    viewNameGmt(request, response) {
+    viewNameGmtStation(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewGmtStation']);

@@ -16,6 +16,7 @@ export class TimesBodyComponent implements OnInit {
 
   public formTime: FormGroup; // La variable formTime permite administrar las validaciones y restricciones del formulario
   public arrayTimes; // La variable arrayTimes almacena el listado de las Bases de Tiempos existentes. Utilizada cuando se edita una Base de Tiempo
+  public alertTime: Array<any> = [];
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva Base de Tiempo o se esta editando una Base de Tiempo
   public hide=false; // Permite identificar cuando se debe o no, mostrar el campo del id de la ciudad, en la vista html
   
@@ -26,16 +27,18 @@ export class TimesBodyComponent implements OnInit {
       'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9) ]),
       'escala_tiempo': new FormControl('', [Validators.required,  Validators.max(1440)]),
       'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'alerta_tiempo': new FormControl(),
+      'id_alerta': new FormControl('', [Validators.required]),
     });
     this.arrayTimes = {
+      nombre_tiempo:'',
       observacion_tiempo: ''//Se usa para definir el campo observacion_tiempo y poder mostrar el conteo de caracteres restantes
     };
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Times_Body */
   ngOnInit(): void {
-    this.viewTimeById() // Toma el id de la Base de Tiempo, cuando se vaya a editar alguna de ellas
+    this.viewTimeById(); // Toma el id de la Base de Tiempo, cuando se vaya a editar alguna de ellas
+    this.viewAlertsTime(); // Carga las alertas existentes
   }
 
   /* Método con el cual se crea una nueva Base de Tiempo */
@@ -46,6 +49,10 @@ export class TimesBodyComponent implements OnInit {
       this.router.navigate(['/time']);
     }
   }
+
+  async viewAlertsTime() {
+    this.alertTime = (await this.timesService.viewAlertsTime());
+  }
   
   /* Método con el cual se identifica la Base de Tiempo cuya información va a ser actualizada */
   async viewTimeById() {
@@ -55,6 +62,7 @@ export class TimesBodyComponent implements OnInit {
         this.arrayTimes = element.message[0];
         this.edit = true;
         this.hide= true;
+        console.log(this.arrayTimes);
       });
     }
   }
@@ -65,8 +73,7 @@ export class TimesBodyComponent implements OnInit {
     this.formTime.patchValue({
       nombre_tiempo: this.arrayTimes.nombre_tiempo,
       escala_tiempo: this.arrayTimes.escala_tiempo,
-      observacion_tiempo: this.arrayTimes.observacion_tiempo,
-      alerta_tiempo: this.arrayTimes.alerta_tiempo,
+      observacion_tiempo: this.arrayTimes.observacion_tiempo
     })
     this.timesService.updateTime(this.formTime.value, id)
       alert('Base de Tiempo actualizada correctamente');

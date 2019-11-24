@@ -35,7 +35,7 @@ export class RanksBodyComponent implements OnInit {
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Ranks_Body */
   ngOnInit(): void {
-    this.viewStation(); // Carga las estaciones existentes
+    this.viewStationsRank(); // Carga las estaciones existentes
     this.viewRankById(); // Toma el id del rango, cuando se vaya a editar alguno de ellos.
   }
 
@@ -49,8 +49,9 @@ export class RanksBodyComponent implements OnInit {
   }
 
   /* Método con el cual se listan las estaciones existentes */
-  async viewStation() {
-    this.stationRank = (await this.ranksService.viewStation());
+  async viewStationsRank() {
+    this.stationRank = (await this.ranksService.viewStationsRank());
+    console.log(this.stationRank);
   }
 
     /* Método con el cual se identifica el rango cuya información va a ser actualizada */
@@ -59,7 +60,6 @@ export class RanksBodyComponent implements OnInit {
       if (id !== undefined) {
         let rango = await this.ranksService.viewRankById(id).subscribe(async (element: any) => {
           this.arrayRanks = await element.message[0];
-          console.log(this.arrayRanks);
           this.edit = true;
           this.hide = true;
         });
@@ -74,7 +74,6 @@ export class RanksBodyComponent implements OnInit {
         valor_minimo: this.arrayRanks.valor_minimo,
         valor_maximo: this.arrayRanks.valor_maximo,
         observacion_rango: this.arrayRanks.observacion_rango,
-        id_estacion: this.arrayRanks.id_estacion,
       })
       this.ranksService.updateRank(this.formRank.value, id)
       alert('Rango actualizado correctamente');

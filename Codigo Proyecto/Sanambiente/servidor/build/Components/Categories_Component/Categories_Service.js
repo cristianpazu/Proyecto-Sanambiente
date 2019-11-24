@@ -46,7 +46,7 @@ class CategoryService {
         });
     }
     // metodo para ver solo el nombre de las categorias en una lista desplegable
-    viewNameCate(request, response) {
+    viewNameCategoriesStation(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewCategoriesStation']);
@@ -58,7 +58,7 @@ class CategoryService {
         });
     }
     // metodo para ver todas las categorias con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Categoria
-    view(_, response) {
+    view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let categories = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewCategories']);

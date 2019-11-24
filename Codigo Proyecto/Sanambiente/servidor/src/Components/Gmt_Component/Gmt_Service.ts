@@ -32,7 +32,7 @@ class GmtService implements BaseService<any> {
     }
     
     // metodo para ver solo el nombre de los gmt en una lista desplegable
-    async viewNameGmt(request: Request, response: Response): Promise<any> {
+    async viewNameGmtStation(request: Request, response: Response): Promise<any> {
         try {
             let regions = await ConnectionDataBase.query(handlerQuery['viewGmtStation']);
             return Promise.resolve(handleMessage(response, 200, regions.rows));

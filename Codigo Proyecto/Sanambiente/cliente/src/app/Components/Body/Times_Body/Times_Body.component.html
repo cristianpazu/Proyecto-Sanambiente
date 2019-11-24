@@ -36,10 +36,19 @@
             </div>
         </div>
 
+        <!-- Campo de tipo input, que muestra el nombre de la alerta, solo cuando se edita un tiempo -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Alerta base tiempo (Actual)</label>
+            <div class="col-6">
+                <input class="form-control" type="text" id="textNombre_alerta" id="tamaño-fuente-input"
+                    value={{arrayTimes.nombre_alerta}} disabled>
+            </div>
+        </div>
+
         <!-- Campo para Escala de Tiempo Actual-->
         <div>
             <div class="form-group row">
-                <label class="col-2 col-form-label">Escala Tiempo Actual</label>
+                <label class="col-2 col-form-label">Escala de Tiempo</label>
                 <div class="col-6">
 
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
@@ -92,17 +101,16 @@
             <!-- Campo para Alerta de Tiempo -->
             <div>
                 <div class="form-group row">
-                    <label class="col-2 col-form-label">Tipo de Alerta</label>
+                    <label class="col-2 col-form-label">Alerta base tiempo</label>
                     <div class="col-6">
-                        <select formControlName="alerta_tiempo" class="form-control" type="text" id="textAlerta_tiempo"
-                            id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.alerta_tiempo"
-                            value={{arrayTimes.alerta_tiempo}}>
-                            <option value="Fax">Fax</option>
-                            <option value="Email">Email</option>
-                            <option value="Mensaje de texto">Mensaje de texto</option>
+                        <select formControlName="id_alerta" class="form-control" type="number" id="textId_alerta"
+                            id="tamaño-fuente-input" data-formrun-required>
+                            <option *ngFor="let alertaTiempo of alertTime" value="{{alertaTiempo.id_alerta}}"
+                                name="alerta-tiempo">
+                                {{alertaTiempo.nombre_alerta}}
+                            </option>
                         </select>
-
-                        <div *ngIf="formTime.controls['alerta_tiempo'].errors?.required" class="form-control-feedback"
+                        <div *ngIf="formTime.controls['id_alerta'].errors?.required" class="form-control-feedback"
                             id="tamaño-fuente-alerta">
                             Este campo es requerido
                         </div>

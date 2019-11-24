@@ -46,10 +46,22 @@ class RegionService {
         });
     }
     // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de ciudad
-    viewRegions(request, response) {
+    viewNameRegionsCity(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegionsCity']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
+    // metodo para ver solo el nombre de las regiones en una lista desplegable. Lo utiliza la vista de estacion
+    viewNameRegionsStation(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewRegionsStation']);
                 return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
             }
             catch (error) {

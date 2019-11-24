@@ -20,7 +20,7 @@ class GmtRoute {
        this.router.get('/viewGmtById/:id_gmt', GmtService.viewById);
        this.router.get('/viewGmt', GmtService.view);
        this.router.put('/updateGmt/:id_gmt', GmtService.update);
-       this.router.get('/viewGmt', GmtService.viewNameGmt);
+       this.router.get('/viewGmtStation', GmtService.viewNameGmtStation);
     }
 }
 

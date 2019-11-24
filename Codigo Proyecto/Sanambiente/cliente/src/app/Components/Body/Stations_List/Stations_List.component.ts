@@ -27,7 +27,6 @@ export class StationsListComponent implements OnInit {
   /* Método con el cual se obtienen las estaciones existentes */
   async getStations() {
     this.arrayStations = await this.stationService.viewStations();
-    console.log(this.arrayStations);
   }
 
 }

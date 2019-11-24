@@ -19,7 +19,7 @@ class TimesRoute {
         this.router.get('/viewTimeById/:id_tiempo', Times_Service_1.default.viewById);
         this.router.put('/updateTimes/:id_tiempo', Times_Service_1.default.update);
         this.router.get('/viewTimes', Times_Service_1.default.view);
-        this.router.get('/viewTimes', Times_Service_1.default.viewNameT);
+        this.router.get('/viewTimesStation', Times_Service_1.default.viewNameTimesStation);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
