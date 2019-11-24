@@ -68,17 +68,17 @@ export class StationsBodyComponent implements OnInit {
 
   /* Método con el cual se listan las categorias existentes */
   async viewCategoryStation() {
-    this.categoryStation = (await this.stationService.viewCategoryStation());
+    this.categoryStation = (await this.stationService.viewCategoriesStation());
   }
 
   /* Método con el cual se listan los tiempos existentes */
   async viewTimeStation() {
-    this.timeStation = (await this.stationService.viewTimeStation());
+    this.timeStation = (await this.stationService.viewTimesStation());
   }
 
   /* Método con el cual se listan las regiones existentes */
   async viewRegionStation() {
-    this.regionStation = (await this.stationService.viewRegionStation());
+    this.regionStation = (await this.stationService.viewRegionsStation());
   }
 
   /* Método con el cual se listan los gmt existentes */
@@ -88,7 +88,7 @@ export class StationsBodyComponent implements OnInit {
 
   /* Método con el cual se listan las ciudades existentes en la region seleccionada*/
   async viewCityStation() {
-    this.cityStation = (await this.stationService.viewCityStation());
+    this.cityStation = (await this.stationService.viewCitiesStation());
   }
 
   /* Método con el cual se identifica la estacion cuya información va a ser actualizada */

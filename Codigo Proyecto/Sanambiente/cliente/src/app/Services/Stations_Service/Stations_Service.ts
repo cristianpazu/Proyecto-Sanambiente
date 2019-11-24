@@ -23,15 +23,15 @@ export class StationsService {
     return this.baseService.view(`${environment.viewStationById}/${id_estacion}`);
   }
 
-  viewCategoryStation() {
+  viewCategoriesStation() {
     return this.baseService.view(`${environment.viewCategoryStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewTimeStation() {
+  viewTimesStation() {
     return this.baseService.view(`${environment.viewTimeStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewRegionStation() {
+  viewRegionsStation() {
     return this.baseService.view(`${environment.viewRegionStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
   
@@ -39,7 +39,7 @@ export class StationsService {
     return this.baseService.view(`${environment.viewGmtStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewCityStation() {
+  viewCitiesStation() {
     return this.baseService.view(`${environment.viewCityStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
