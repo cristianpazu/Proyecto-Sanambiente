@@ -56,7 +56,6 @@
                 <!-- Validacion para el campo Observación de la ciudad -->
                 <div *ngIf="formCity.controls['observacion_ciudad'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
-                    Este campo es requerido
                 </div>
 
                 <!-- Mensaje de restricción campo de solo letras -->
@@ -65,10 +64,6 @@
                         <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
                 </div>
-                <br>
-                    <div style="margin-top: 20px;">
-                        <em> * Todos los campos son obligatorios </em>
-                    </div>
             </div>
         </div>
 
@@ -92,6 +87,10 @@
 
                 </div>
             </div>
+            <br>
+                    <div style="margin-top: 20px;">
+                        <em> * Todos los campos son obligatorios </em>
+                    </div>
             
             <!-- Boton de guardar de ciudad -->
             <div id="caja-botones" class="form-group-row">
