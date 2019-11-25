@@ -14,7 +14,7 @@ export class MaintenancesService{
 
 /* Se crean los metodos utilizados por la vista de Mantenimiento */
 
-  createRank (body: Maintenance) {
+  createMaintenance(body: Maintenance) {
     return this.baseService.create(body, `${environment.hostCreateMaintenance}`);
     
   }

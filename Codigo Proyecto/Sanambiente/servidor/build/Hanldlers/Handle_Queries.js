@@ -61,5 +61,5 @@ exports.handlerQuery = {
     viewMaintenances: 'SELECT id_mantenimiento, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion order by id_mantenimiento',
     viewMaintenance: 'SELECT id_mantenimiento, nombre_funcionario, novedad_mantenimiento, estaciones.id_estacion, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion=mantenimientos.id_estacion and id_mantenimiento=$1',
     updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, nombre_funcionario=$2, novedad_mantenimiento=$3 where id_mantenimiento=$4',
-    viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
+    viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion'
 };

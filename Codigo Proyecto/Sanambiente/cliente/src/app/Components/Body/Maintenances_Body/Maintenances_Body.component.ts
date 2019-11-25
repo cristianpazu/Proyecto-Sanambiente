@@ -26,7 +26,7 @@ export class MaintenancesBodyComponent implements OnInit {
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
     })
     this.arrayMaintenance = {
-        novedad_mantenimiento: ''//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
+      novedad_mantenimiento: ''//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenances_Body */
@@ -38,7 +38,7 @@ export class MaintenancesBodyComponent implements OnInit {
   /* Método con el cual se crea un nuevo Mantenimiento */
   async createMaintenance() {
     if (this.formMaintenance.valid) {
-      await this.maintenancesService.createRank(this.formMaintenance.value);
+      await this.maintenancesService.createMaintenance(this.formMaintenance.value);
       alert('Mantenimiento creado correctamente');
       this.router.navigate(['/maintenance']);
     }
