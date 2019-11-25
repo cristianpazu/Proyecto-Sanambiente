@@ -40,6 +40,10 @@ import { StationsListComponent } from './Components/Body/Stations_List/Stations_
 import { GmtBodyComponent } from './Components/Body/Gmt_Body/Gmt_Body.component';
 import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para mantenimiento */
+import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
+import { MaintenancesListComponent } from './Components/Body/Maintenances_List/Maintenances_List.component';
+
 
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
@@ -101,6 +105,12 @@ const rutas: Routes = [
   { path: 'time', component: TimesListComponent }, // Ruta para listar todos los registros  
   { path: 'time/add_time', component: TimesBodyComponent },  // Ruta para adicionar registros  
   { path: 'time/edit_time/:id_tiempo', component: TimesBodyComponent }, // Ruta para editar registros
+
+  /*--- Rutas de mantenimiento ---*/
+  { path: 'maintenance', redirectTo: '/maintenance', pathMatch: 'full' },
+  { path: 'maintenance', component: MaintenancesListComponent }, // Ruta para listar todos los registros  
+  { path: 'maintenance/add_maintenance', component: MaintenancesBodyComponent },  // Ruta para adicionar registros  
+  { path: 'maintenance/edit_maintenance/:id_mantenimiento', component: MaintenancesBodyComponent }, // Ruta para editar registros
 
 ];
 

@@ -54,6 +54,12 @@ export const environment = {
   hostUpdateGmt: "http://localhost:3000/api/gmt/updateGmt",
   viewGmt: "http://localhost:3000/api/gmt/viewGmt",
   viewGmtById: "http://localhost:3000/api/gmt/viewGmtById",
+  // mantenimiento
+  hostCreateMaintenance: "http://localhost:3000/api/maintenance/createMaintenance",
+  hostUpdateMaintenance: "http://localhost:3000/api/maintenance/updateMaintenances",
+  viewMaintenances: "http://localhost:3000/api/maintenance/viewMaintenances",
+  viewMaintenanceById: "http://localhost:3000/api/maintenance/viewMaintenanceById",
+  viewStationsMaintenance: "http://localhost:3000/api/station/viewStationsMaintenance",
 
   production: false
 };

@@ -56,6 +56,11 @@ import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component'
 import { GmtBodyComponent } from './Components/Body/Gmt_Body/Gmt_Body.component';
 import { GmtService } from './Services/Gmt_Service/Gmt_Service';
 
+/* Importo los componentes y servicios creados para los mantenimientos */
+import { MaintenancesListComponent } from './Components/Body/Maintenances_List/Maintenances_List.component';
+import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
+import { MaintenancesService } from './Services/Maintenances_Service/Maintenances_Service';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -80,7 +85,10 @@ import { GmtService } from './Services/Gmt_Service/Gmt_Service';
     StationsBodyComponent,
     StationsListComponent,
     GmtListComponent,
-    GmtBodyComponent
+    GmtBodyComponent,
+    MaintenancesListComponent,
+    MaintenancesBodyComponent
+
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -100,7 +108,8 @@ import { GmtService } from './Services/Gmt_Service/Gmt_Service';
     AlertsService,
     TimesService,
     GmtService,
-    StationsService    
+    StationsService,
+    MaintenancesService    
   ],
   bootstrap: [AppComponent]
 })
