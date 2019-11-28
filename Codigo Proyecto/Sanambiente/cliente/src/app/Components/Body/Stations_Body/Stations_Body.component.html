@@ -317,55 +317,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Campo de tipo input, que muestra el nombre actual de la gmt, solo cuando se edita una estacion -->
-        <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">GMT actual</label>
-            <div class="col-6">
-                <input class="form-control" type="text" id="textID_estacion" id="tamaño-fuente-input"
-                    value={{arrayStations.nombre_gmt}} disabled>
-            </div>
-        </div>
-
-        <!-- Campo para base de tiempos con la cual se relaciona la estacion-->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">GMT estación</label>
-                <div class="col-6">
-                    <select formControlName="id_gmt" class="form-control" type="number" id="textId_estacion"
-                        id="tamaño-fuente-input" data-formrun-required>
-                        <option *ngFor="let gmtEstacion of gmtStation" value="{{gmtEstacion.id_gmt}}"
-                            name="gmt-estacion">
-                            {{gmtEstacion.nombre_gmt}}
-                        </option>
-                    </select>
-
-                    <!-- Validacion para el campo gmt de la estacion -->
-                    <div *ngIf="formStation.controls['id_gmt'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                        Este campo es requerido
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Campo para el protocolo de la estacion -->
-        <div class="form-group row">
-            <label class="col-2 col-form-label">protocolo</label>
-            <div class="col-6">
-                <select class="form-control" formControlName="protocolo_estacion" type="text" id="textNombre"
-                    [(ngModel)]="arrayStations.protocolo_estacion" id="tamaño-fuente-input">
-                    <option value="Fax">FTP</option>
-                    <option value="Email">Modbus</option>
-                </select>
-
-                <!-- Validacion para el campo protocolo de la estacion -->
-                <div *ngIf="formStation.controls['protocolo_estacion'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                    Este campo es requerido
-                </div>
-            </div>
-        </div>
+       
 
         <!-- Campo para observación de la estacion  -->
         <div class="form-group row">

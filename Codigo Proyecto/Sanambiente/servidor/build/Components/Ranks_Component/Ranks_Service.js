@@ -15,7 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const basedatos_1 = __importDefault(require("../../basedatos"));
 const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
+// Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class RankService {
+    //metodo para crear un Rango
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -28,6 +30,7 @@ class RankService {
             }
         });
     }
+    // metodo para actualizar el Rango 
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -41,6 +44,7 @@ class RankService {
             }
         });
     }
+    // metodo para ver todos los Rangos
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -52,6 +56,7 @@ class RankService {
             }
         });
     }
+    // metodo para consultar si exite un Rango 
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -70,5 +75,6 @@ class RankService {
         });
     }
 }
+// Se crea y exporta una constante que contiene los servicios de esta clase.
 const rankService = new RankService();
 exports.default = rankService;

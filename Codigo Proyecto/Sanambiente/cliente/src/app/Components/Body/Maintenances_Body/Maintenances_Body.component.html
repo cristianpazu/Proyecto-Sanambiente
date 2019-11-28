@@ -15,7 +15,7 @@
 
         <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un rango -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">Estacion del rango (Actual)</label>
+            <label class="col-2 col-form-label">Estacion (Actual)</label>
             <div class="col-5">
                 <input class="form-control" type="text" id="textNombre_estacion" id="tamaño-fuente-input"
                     value={{arrayMaintenance.nombre_estacion}} disabled>
@@ -29,7 +29,7 @@
                 <div class="col-5">
                     <select formControlName="id_estacion" class="form-control" type="number" id="textId_estacion"
                         id="tamaño-fuente-input">
-                        <option *ngFor="let estacionMantenimiento of stationsMaintenance"
+                        <option *ngFor="let estacionMantenimiento of stationMaintenance"
                             value="{{estacionMantenimiento.id_estacion}}">
                             {{estacionMantenimiento.nombre_estacion}}
                         </option>
@@ -46,7 +46,7 @@
 
         <!-- Campo para nombre del Funcionario -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre del Funcionario</label>
+            <label class="col-2 col-form-label">Nombre Funcionario</label>
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_funcionario" type="text" autofocus
                     id="textNombre_funcionario" [(ngModel)]="arrayMaintenance.nombre_funcionario"
@@ -70,7 +70,7 @@
 
         <!-- Campo para Novedad del mantenimiento -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Novedad del Mantenimineto</label>
+            <label class="col-2 col-form-label">Novedad Mantenimineto</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="novedad_mantenimiento" rows="4"
                     [(ngModel)]="arrayMaintenance.novedad_mantenimiento" id="tamaño-fuente-input" maxlength="50">

@@ -10,6 +10,7 @@ import handleMessage from '../../Hanldlers/Handle_Message';
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class RegionService implements BaseService<any> {
 
+    //metodo para crear una region
     async create(request: Request, response: Response): Promise<any> {
         try {
             let { nombre_region, observacion_region } = request.body;

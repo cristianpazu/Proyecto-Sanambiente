@@ -56,6 +56,7 @@ export class MaintenancesBodyComponent implements OnInit {
       if (id !== undefined) {
         let mantenimiento = await this.maintenancesService.viewMaintenanceById(id).subscribe(async (element: any) => {
           this.arrayMaintenance = await element.message[0];
+          console.log(this.arrayMaintenance);
           this.edit = true;
           this.hide = true;
         });

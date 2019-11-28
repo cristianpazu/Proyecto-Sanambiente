@@ -10,6 +10,7 @@
  // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
  class TimeService implements BaseService<any> {
  
+    //metodo para crear una base de tiempo
      async create(request: Request, response: Response): Promise<any> {
          try {
              let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
@@ -20,6 +21,7 @@
          }
      }
  
+     //metodo para actualizar una base de tiempo
      async update(request: Request, response: Response): Promise<any> {
          try {
              const { id_tiempo } = request.params;

@@ -35,6 +35,7 @@ import { CategoriesListComponent } from './Components/Body/Categories_List/Categ
 /* Importo los componentes y servicios creados para Rangos */
 import { RanksBodyComponent } from './Components/Body/Ranks_Body/Ranks_Body.component';
 import { RanksListComponent } from './Components//Body/Ranks_List/Ranks_List.component';
+import { RanksService } from './Services/Ranks_Service/Ranks_Service';
 
 /* Importo los componentes y servicios creados para Alertas */
 import { AlertsBodyComponent } from './Components/Body/Alerts_Body/Alerts_Body.component';
@@ -105,6 +106,7 @@ import { MaintenancesService } from './Services/Maintenances_Service/Maintenance
     CitiesService,
     OrganizationsService,
     CategoriesService,
+    RanksService,
     AlertsService,
     TimesService,
     GmtService,

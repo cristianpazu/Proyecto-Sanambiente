@@ -19,6 +19,7 @@ const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class StationService {
+    //metodo para crear una estacion
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -76,11 +77,23 @@ class StationService {
             }
         });
     }
-    // metodo para ver solo el nombre de las organizaciones en una lista desplegable. Lo utiliza la vista de rango
+    // metodo para ver solo el nombre de las Estaciones en una lista desplegable. Lo utiliza la vista de rango
     viewNameStationsRank(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewStationsRank']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, stations.rows));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
+    // metodo para ver solo el nombre de las Estaciones en una lista desplegable. Lo utiliza la vista de mantenimiento
+    viewNameStationsMaintenance(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewStationsMaintenance']);
                 return Promise.resolve(Handle_Message_1.default(response, 200, stations.rows));
             }
             catch (error) {

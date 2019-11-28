@@ -10,6 +10,7 @@ import handleMessage from '../../Hanldlers/Handle_Message';
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class CityService implements BaseService<any> {
 
+    //metodo para crear una ciudad
     async create(request: Request, response: Response): Promise<any> {
         try {
             let { nombre_ciudad, id_region, observacion_ciudad } = request.body;
@@ -20,6 +21,7 @@ class CityService implements BaseService<any> {
         }
     }
 
+    //metodo para actualizar una ciudad
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_ciudad } = request.params;

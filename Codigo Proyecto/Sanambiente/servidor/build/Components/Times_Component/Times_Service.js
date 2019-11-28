@@ -19,6 +19,7 @@ const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class TimeService {
+    //metodo para crear una base de tiempo
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -31,6 +32,7 @@ class TimeService {
             }
         });
     }
+    //metodo para actualizar una base de tiempo
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

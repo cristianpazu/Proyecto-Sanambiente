@@ -19,6 +19,7 @@ const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class CategoryService {
+    //metodo para crear categorias
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -31,6 +32,7 @@ class CategoryService {
             }
         });
     }
+    //metodo para actualizar categorias
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

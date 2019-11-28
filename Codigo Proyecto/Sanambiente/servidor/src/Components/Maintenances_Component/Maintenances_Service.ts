@@ -33,7 +33,7 @@ class MaintenanceService implements BaseService<any> {
         }
     }
 
-    
+    // metodo para ver todos los mantenimientos
     async view(request: Request, response: Response): Promise<any> {
         try {
             let stations = await ConnectionDataBase.query(handlerQuery['viewMaintenances']);
@@ -47,9 +47,10 @@ class MaintenanceService implements BaseService<any> {
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_mantenimiento } = request.params;
-            let maintenance = await ConnectionDataBase.query(handlerQuery.viewRank, [id_mantenimiento]);
+            let maintenance = await ConnectionDataBase.query(handlerQuery.viewMaintenance, [id_mantenimiento]);
+            console.log(maintenance.rows);
             if (maintenance.rows.length === 0) {
-                return Promise.resolve(handleMessage(response, 200, 'Rank doesn´t exist'));
+                return Promise.resolve(handleMessage(response, 200, 'Maintenance doesn´t exist'));
             } else {
                 return Promise.resolve(handleMessage(response, 200, maintenance.rows));
             }
@@ -59,5 +60,6 @@ class MaintenanceService implements BaseService<any> {
     }
 }
 
+// Se crea y exporta una constante que contiene los servicios de esta clase.
 const maintenanceService = new MaintenanceService();
 export default maintenanceService;

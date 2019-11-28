@@ -10,6 +10,7 @@ import handleMessage from '../../Hanldlers/Handle_Message';
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class AlertService implements BaseService<any> {
 
+    //metodo para crear una alerta
     async create(request: Request, response: Response): Promise<any> {
         try {
             let { nombre_alerta, observacion_alerta, tipo_alerta } = request.body;
@@ -20,6 +21,7 @@ class AlertService implements BaseService<any> {
         }
     }
 
+    //metodo para actualizar alerta
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_alerta } = request.params;

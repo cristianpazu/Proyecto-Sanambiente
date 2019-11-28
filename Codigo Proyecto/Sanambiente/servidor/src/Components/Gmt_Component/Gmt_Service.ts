@@ -10,6 +10,7 @@ import handleMessage from '../../Hanldlers/Handle_Message';
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class GmtService implements BaseService<any> {
 
+    //metodo para crear un gmt
     async create(request: Request, response: Response): Promise<any> {
         try {
             let { nombre_gmt, observacion_gmt } = request.body;
@@ -20,6 +21,7 @@ class GmtService implements BaseService<any> {
         }
     }
 
+    //metodo para actualizar un gmt
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_gmt } = request.params;

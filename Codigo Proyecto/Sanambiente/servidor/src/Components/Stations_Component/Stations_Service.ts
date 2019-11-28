@@ -10,6 +10,7 @@ import handleMessage from '../../Hanldlers/Handle_Message';
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class StationService implements BaseService<any> {
 
+    //metodo para crear una estacion
     async create(request: Request, response: Response): Promise<any> {
         try {
             let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt } = request.body;
@@ -59,7 +60,7 @@ class StationService implements BaseService<any> {
         }
     }
 
-    // metodo para ver solo el nombre de las organizaciones en una lista desplegable. Lo utiliza la vista de rango
+    // metodo para ver solo el nombre de las Estaciones en una lista desplegable. Lo utiliza la vista de rango
     async viewNameStationsRank(request: Request, response: Response): Promise<any> {
         try {
             let stations = await ConnectionDataBase.query(handlerQuery['viewStationsRank']);
@@ -68,6 +69,18 @@ class StationService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
+
+
+
+ // metodo para ver solo el nombre de las Estaciones en una lista desplegable. Lo utiliza la vista de mantenimiento
+ async viewNameStationsMaintenance(request: Request, response: Response): Promise<any> {
+    try {
+        let stations = await ConnectionDataBase.query(handlerQuery['viewStationsMaintenance']);
+        return Promise.resolve(handleMessage(response, 200, stations.rows));
+    } catch (error) {
+        Promise.reject(handleMessage(response, 404, 'Error'));
+    }
+}
 
 }
 

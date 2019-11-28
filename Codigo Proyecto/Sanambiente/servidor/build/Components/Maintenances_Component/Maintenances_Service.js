@@ -44,6 +44,7 @@ class MaintenanceService {
             }
         });
     }
+    // metodo para ver todos los mantenimientos
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -60,9 +61,10 @@ class MaintenanceService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_mantenimiento } = request.params;
-                let maintenance = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewRank, [id_mantenimiento]);
+                let maintenance = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewMaintenance, [id_mantenimiento]);
+                console.log(maintenance.rows);
                 if (maintenance.rows.length === 0) {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Rank doesn´t exist'));
+                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Maintenance doesn´t exist'));
                 }
                 else {
                     return Promise.resolve(Handle_Message_1.default(response, 200, maintenance.rows));
@@ -74,5 +76,6 @@ class MaintenanceService {
         });
     }
 }
+// Se crea y exporta una constante que contiene los servicios de esta clase.
 const maintenanceService = new MaintenanceService();
 exports.default = maintenanceService;

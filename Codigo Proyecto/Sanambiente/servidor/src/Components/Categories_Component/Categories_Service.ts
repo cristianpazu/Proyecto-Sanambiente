@@ -10,6 +10,7 @@ import handleMessage from '../../Hanldlers/Handle_Message';
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class CategoryService implements BaseService<any> {
 
+    //metodo para crear categorias
     async create(request: Request, response: Response): Promise<any> {
         try {
             let { nombre_categoria, observacion_categoria } = request.body;
@@ -20,6 +21,7 @@ class CategoryService implements BaseService<any> {
         }
     }
 
+    //metodo para actualizar categorias
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_categoria } = request.params;

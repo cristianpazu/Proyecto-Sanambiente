@@ -17,24 +17,24 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Estación</th>
-                <th scope="col">Nombre del Funcionario</th>
+                <th scope="col">Nombre Funcionario</th>
                 <th scope="col">Novedad</th>
-                <th></th>
+                <!-- <th></th> -->
             </tr>
         </thead>
         <tbody>
              <!-- Filas de la tabla-->
-            <tr *ngFor="let mantenimiento of arrayRanks | filter:searchText">
-                <td> {{mantenimiento.id_rango}} </td>
+            <tr *ngFor="let mantenimiento of arrayMaintenances | filter:searchText">
+                <td> {{mantenimiento.id_mantenimiento}} </td>
                 <td> {{mantenimiento.nombre_estacion}} </td>
                 <td> {{mantenimiento.nombre_funcionario}} </td>
                 <td> {{mantenimiento.novedad_mantenimiento}} </td>
-                <td>
-                    <!-- Boton para actualizar la informacion de una mantenimiento -->
-                    <a [routerLink]="['/maintenance/edit_maintenance',mantenimiento.id_rango]" class="btn btn-outline-primary btn-lg">
+                <!-- <td>
+                    Boton para actualizar la informacion de una mantenimiento -->
+                    <!-- <a [routerLink]="['/maintenance/edit_maintenance',mantenimiento.id_mantenimiento]" class="btn btn-outline-primary btn-lg">
                         Editar
                     </a>
-                </td>
+                </td> -->
             </tr>
         </tbody>
     </table>

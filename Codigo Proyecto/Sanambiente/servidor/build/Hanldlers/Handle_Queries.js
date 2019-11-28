@@ -56,10 +56,10 @@ exports.handlerQuery = {
     viewGmts: 'SELECT * FROM gmt order by id_gmt',
     viewGmt: 'SELECT * FROM gmt where id_gmt=$1',
     updateGmt: 'UPDATE gmt set nombre_gmt=$1, observacion_gmt=$2 where id_gmt=$3',
-    // rango
+    // mantenimiento
     createMaintenance: 'INSERT INTO mantenimientos (id_estacion, nombre_funcionario, novedad_mantenimiento) VALUES ($1,$2,$3)',
     viewMaintenances: 'SELECT id_mantenimiento, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion order by id_mantenimiento',
-    viewMaintenance: 'SELECT id_mantenimiento, nombre_funcionario, novedad_mantenimiento, estaciones.id_estacion, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion=mantenimientos.id_estacion and id_mantenimiento=$1',
+    viewMaintenance: 'SELECT id_mantenimiento, estaciones.id_estacion, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion=mantenimientos.id_estacion and id_mantenimiento=$1',
     updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, nombre_funcionario=$2, novedad_mantenimiento=$3 where id_mantenimiento=$4',
     viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion'
 };

@@ -15,11 +15,13 @@ export class AlertsService {
 
   /* Se crean los metodos utilizados por la vista de Alerta */
 
+    //metodo crear
     createAlert (body: Alert) {
       return this.baseService.create(body, `${environment.hostCreateAlert}`);
 
    }
 
+   //metodo ver todas las alertas
     viewAlerts() {
     return this.baseService.view(`${environment.viewAlerts}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
