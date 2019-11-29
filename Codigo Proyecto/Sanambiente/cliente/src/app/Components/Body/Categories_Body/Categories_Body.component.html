@@ -18,10 +18,10 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre Categoría</label>
             <div class="col-5">
-                <input autofocus class="form-control" formControlName="nombre_categoria" type="text"  id="textNombre"
+                <input autofocus class="form-control" formControlName="nombre_categoria" type="text" id="textNombre"
                     [(ngModel)]="arrayCategories.nombre_categoria" id="tamaño-fuente-input" maxlength="50">
 
-                <!-- Validacion para el campo nombre de la Categoria -->    
+                <!-- Validacion para el campo nombre de la Categoria -->
                 <div *ngIf="formCategory.controls['nombre_categoria'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                 </div>
@@ -43,15 +43,16 @@
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_categoria" rows="4"
                     [(ngModel)]="arrayCategories.observacion_categoria" id="tamaño-fuente-input" maxlength="50">
                </textarea>
-               <span>{{50-arrayCategories.observacion_categoria.length}} Caracteres restantes</span>
-                
-               <!-- Validacion para el campo Observacion de la Categoria --> 
-                <div *ngIf="formCategory.controls['observacion_categoria'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
+                <span>{{50-arrayCategories.observacion_categoria.length}} Caracteres restantes</span>
+
+                <!-- Validacion para el campo Observacion de la Categoria -->
+                <div *ngIf="formCategory.controls['observacion_categoria'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
 
                 <!-- Mensaje de restricción campo de solo letras -->
-                <div *ngIf="formCategory.controls['observacion_categoria'].errors?.pattern" class="form-control-feedback">
+                <div *ngIf="formCategory.controls['observacion_categoria'].errors?.pattern"
+                    class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
