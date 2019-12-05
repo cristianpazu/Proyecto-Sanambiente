@@ -18,7 +18,8 @@
             <label class="col-2 col-form-label">Nombre ciudad</label>
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_ciudad" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayCities.nombre_ciudad" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayCities.nombre_ciudad" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
 
                 <!-- Validacion para el campo nombre de la ciudad -->
                 <div *ngIf="formCity.controls['nombre_ciudad'].errors?.required" class="form-control-feedback"
@@ -26,10 +27,9 @@
                 </div>
 
                 <!-- Mensaje de restricción campo nombre de la ciudad -->
-                <div *ngIf="formCity.controls['nombre_ciudad'].errors?.pattern ||
-                formCity.controls['nombre_ciudad'].errors?.maxlength" class="form-control-feedback">
+                <div *ngIf="formCity.controls['nombre_ciudad'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -49,7 +49,8 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_ciudad" rows="4"
-                    [(ngModel)]="arrayCities.observacion_ciudad" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayCities.observacion_ciudad" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
                 </textarea>
                 <span>{{50-arrayCities.observacion_ciudad.length}} Caracteres restantes</span>
 
@@ -59,11 +60,11 @@
                 </div>
 
                 <!-- Mensaje de restricción campo de solo letras -->
-                <div *ngIf="formCity.controls['observacion_ciudad'].errors?.pattern" class="form-control-feedback">
+                <!-- <div *ngIf="formCity.controls['observacion_ciudad'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

@@ -24,8 +24,8 @@ export class AlertsBodyComponent implements OnInit {
   constructor(private alertsService: AlertsService, private router: Router, private activedRoute: ActivatedRoute) {
 
     this.formAlert = new FormGroup({
-      'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
-      'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'tipo_alerta': new FormControl('', [Validators.required]),
     });
     this.arrayAlerts = {

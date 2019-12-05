@@ -20,8 +20,8 @@ export class GmtBodyComponent implements OnInit {
 
   constructor(private gmtService: GmtService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada gmtServicio
     this.formGmt = new FormGroup({
-      'nombre_gmt': new FormControl('', [Validators.required,Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
-      'observacion_gmt': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'nombre_gmt': new FormControl('', [Validators.required,Validators.maxLength(49.9)]),
+      'observacion_gmt': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayGmt = {
        observacion_gmt: ''

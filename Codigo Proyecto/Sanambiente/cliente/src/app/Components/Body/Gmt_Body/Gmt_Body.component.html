@@ -18,7 +18,8 @@
             <label class="col-2 col-form-label">Nombre GMT</label>
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="nombre_gmt" type="text" id="textNombre"
-                    [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayGmt.nombre_gmt" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
 
                 <!-- Validacion para el campo nombre del gmt -->
                 <div *ngIf="formGmt.controls['nombre_gmt'].errors?.required" class="form-control-feedback"
@@ -26,10 +27,9 @@
                 </div>
 
                 <!-- Mensaje de restricción campo nombre del gmt -->
-                <div *ngIf="formGmt.controls['nombre_gmt'].errors?.pattern ||
-                formGmt.controls['nombre_gmt'].errors?.maxlength" class="form-control-feedback">
+                <div *ngIf="formGmt.controls['nombre_gmt'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -40,7 +40,8 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_gmt" rows="4"
-                    [(ngModel)]="arrayGmt.observacion_gmt" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayGmt.observacion_gmt" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
                </textarea>
                 <span>{{50-arrayGmt.observacion_gmt.length}} Caracteres restantes</span>
 
@@ -50,11 +51,11 @@
                 </div>
 
                 <!-- Mensaje de restricción campo de solo letras -->
-                <div *ngIf="formGmt.controls['observacion_gmt'].errors?.pattern" class="form-control-feedback">
+                <!-- <div *ngIf="formGmt.controls['observacion_gmt'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
-                </div>
+                </div> -->
                 <br>
                 <div style="margin-top: 20px;">
                     <em> * Todos los campos son obligatorios </em>

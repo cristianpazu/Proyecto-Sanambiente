@@ -28,19 +28,19 @@ export class StationsBodyComponent implements OnInit {
   constructor(private stationService: StationsService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formStation = new FormGroup({
       //validaciones de todos los campos del formulario 
-      'nombre_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'nombre_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'serial_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'nombre_corto_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'nombre_corto_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_categoria': new FormControl('', [Validators.required]),
       'id_tiempo': new FormControl('', [Validators.required]),
       'id_region': new FormControl('', [Validators.required]),
       'id_ciudad': new FormControl('', [Validators.required]),
       'id_gmt': new FormControl('', [Validators.required]),
-      'latitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]), // --> decimales y enteros ** ^\d+\.\d{0,2}$ --> solo decimales  
-      'longitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
-      'elevacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^\d+(\.\d{1,40})?$/)]),
+      'latitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9-]+\.?[0-9]{0,2}\d{0,40}$/)]), // --> decimales y enteros ** ^\d+\.\d{0,2}$ --> solo decimales  
+      'longitud_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9-]+\.?[0-9]{0,2}\d{0,40}$/)]),
+      'elevacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9-]+\.?[0-9]{0,2}\d{0,40}$/)]),
       'protocolo_estacion': new FormControl('', [Validators.required]),
-      'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayStations = {
       observacion_estacion: ''

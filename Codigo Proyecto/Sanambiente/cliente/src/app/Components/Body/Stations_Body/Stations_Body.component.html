@@ -19,7 +19,8 @@
             <label class="col-2 col-form-label">Nombre Estación</label>
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_estacion" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
                     
                 <!-- Este campo es requerido -->
                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.required" class="form-control-feedback"
@@ -27,10 +28,9 @@
                 </div>
 
                  <!-- Mensaje de restricción campo nombre estacion -->
-                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.pattern ||
-                 formStation.controls['nombre_estacion'].errors?.maxlength" class="form-control-feedback">
+                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -62,7 +62,8 @@
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_corto_estacion" type="text" autofocus
                     id="textNombreCorto" [(ngModel)]="arrayStations.nombre_corto_estacion" id="tamaño-fuente-input"
-                     maxlength="50">
+                     maxlength="50"
+                     onKeyUp="this.value = this.value.toLowerCase();">
 
                 <!-- Validacion para el campo nombre corto de la estacion -->
                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.required"
@@ -71,10 +72,9 @@
                 </div>
 
                  <!-- Mensaje de restricción campo de nombre corto de estacion -->
-                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.pattern ||
-                 formStation.controls['nombre_corto_estacion'].errors?.maxlength" class="form-control-feedback">
+                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -324,7 +324,8 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_estacion" rows="4"
-                    [(ngModel)]="arrayStations.observacion_estacion" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayStations.observacion_estacion" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
                 </textarea>
                 <span>{{50-arrayStations.observacion_estacion.length}} Caracteres restantes</span>
                 
@@ -335,10 +336,9 @@
                 </div>
 
                  <!-- Mensaje de restricción campo Observación de la estacion -->
-                 <div *ngIf="formStation.controls['observacion_estacion'].errors?.pattern ||
-                 formStation.controls['observacion_estacion'].errors?.maxlength" class="form-control-feedback">
+                 <div *ngIf="formStation.controls['observacion_estacion'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tenermáximo 50 carácteres.
                     </div>
                 </div>
                 <!-- <br> -->

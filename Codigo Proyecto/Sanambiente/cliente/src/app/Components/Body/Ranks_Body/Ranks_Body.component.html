@@ -18,7 +18,8 @@
             <label class="col-2 col-form-label">Nombre del Rango</label>
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_rango" type="text" autofocus id="textNombre_Rango"
-                [(ngModel)]="arrayRanks.nombre_rango" id="tamaño-fuente-input" maxlength="50">
+                [(ngModel)]="arrayRanks.nombre_rango" id="tamaño-fuente-input" maxlength="50"
+                onKeyUp="this.value = this.value.toLowerCase();">
 
                 <!-- Validacion para el campo nombre del rango -->
                 <div *ngIf="formRank.controls['nombre_rango'].errors?.required" class="form-control-feedback"
@@ -26,10 +27,9 @@
                 </div>
 
                 <!-- Mensaje de restricción para el campo nombre del rango-->
-                <div *ngIf="formRank.controls['nombre_rango'].errors?.maxlength ||
-                formRank.controls['nombre_rango'].errors?.pattern" class="form-control-feedback">
+                <div *ngIf="formRank.controls['nombre_rango'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Valor Mínimo</label>
             <div class="col-5">
-                <input class="form-control" formControlName="valor_minimo" type="text" autofocus id="textRango_Minimo"
+                    <input class="form-control" formControlName="valor_minimo" type="text" autofocus id="textRango_Minimo"
                     [(ngModel)]="arrayRanks.valor_minimo" id="tamaño-fuente-input" maxlength="20">
 
                 <!-- Validacion para el campo valor minimo del rango -->
@@ -93,7 +93,8 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_rango" rows="4"
-                    [(ngModel)]="arrayRanks.observacion_rango" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayRanks.observacion_rango" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
                     </textarea>
                 <span>{{50-arrayRanks.observacion_rango.length}} Caracteres restantes</span>
 
@@ -110,11 +111,11 @@
                 </div> -->
 
                 <!-- Mensaje de restricción campo de solo letras -->
-                <div *ngIf="formRank.controls['observacion_rango'].errors?.pattern" class="form-control-feedback">
+                <!-- <div *ngIf="formRank.controls['observacion_rango'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

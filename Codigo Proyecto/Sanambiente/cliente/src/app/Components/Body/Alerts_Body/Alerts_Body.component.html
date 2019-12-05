@@ -19,7 +19,8 @@
 
             <div class="col-6">
                 <input class="form-control" formControlName="nombre_alerta" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" maxlength="50">
+                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" maxlength="51" 
+                    onKeyUp="this.value = this.value.toLowerCase();">
 
                 <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['nombre_alerta'].errors?.required" class="form-control-feedback"
@@ -27,10 +28,9 @@
                 </div>
 
                 <!-- Mensaje de restricción para el campo nombre de la Alerta -->
-                <div *ngIf="formAlert.controls['nombre_alerta'].errors?.maxlength || 
-                formAlert.controls['nombre_alerta'].errors?.pattern" class="form-control-feedback">
+                <div *ngIf="formAlert.controls['nombre_alerta'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -41,7 +41,8 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-6">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_alerta" rows="4"
-                    [(ngModel)]="arrayAlerts.observacion_alerta" id="tamaño-fuente-input" maxLength="50">
+                    [(ngModel)]="arrayAlerts.observacion_alerta" id="tamaño-fuente-input" maxLength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
                 </textarea>
                 <span>{{50-arrayAlerts.observacion_alerta.length}} Caracteres restantes</span>
 
@@ -51,11 +52,11 @@
                 </div>
 
                 <!-- Mensaje de restricción campo de solo letras -->
-                <div *ngIf="formAlert.controls['observacion_alerta'].errors?.pattern" class="form-control-feedback">
+                <!-- <div *ngIf="formAlert.controls['observacion_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

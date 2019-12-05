@@ -18,8 +18,9 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-5">
-                <input class="form-control" formControlName="nombre_tiempo" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" maxlength="50">
+                <input class="form-control" formControlName="nombre_tiempo" type="text" autofocus id="textTiempo_Nombre"
+                    [(ngModel)]="arrayTimes.nombre_tiempo" id="tamaño-fuente-input" maxlength="50"
+                    onKeyUp="this.value = this.value.toLowerCase();">
 
                 <!-- Validacion para el campo nombre de la Base de Tiempo -->
                 <div *ngIf="formTime.controls['nombre_tiempo'].errors?.required" class="form-control-feedback"
@@ -27,10 +28,9 @@
                 </div>
 
                 <!-- Mensaje de restricción campo nombre de la Base de Tiempo -->
-                <div *ngIf="formTime.controls['nombre_tiempo'].errors?.pattern ||
-                 formTime.controls['nombre_tiempo'].errors?.maxlength" class="form-control-feedback">
+                <div *ngIf="formTime.controls['nombre_tiempo'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50 carácteres.
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>
@@ -51,9 +51,10 @@
                 <label class="col-2 col-form-label">Escala de Tiempo</label>
                 <div class="col-5">
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
-                    <input formControlName="escala_tiempo" class="form-control" type="text" id="textEscala_tiempo"
+                    <input formControlName="escala_tiempo" class="form-control" type="text" id="escala_tiempo"
                         id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.escala_tiempo"
-                        value={{arrayTimes.escala_tiempo}}>
+                        value={{arrayTimes.escala_tiempo}}> 
+                        <span>{{60 * arrayTimes.escala_tiempo}} Caracteres restantes</span>
                     Digite escala de tiempo en minutos
 
                     <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
@@ -78,7 +79,8 @@
                 <div class="col-5">
                     <textarea data-ls-module="charCounter" ng-thim="false" class="form-control"
                         formControlName="observacion_tiempo" rows="4" [(ngModel)]="arrayTimes.observacion_tiempo"
-                        id="tamaño-fuente-input" maxlength="50">
+                        id="tamaño-fuente-input" maxlength="50"
+                        onKeyUp="this.value = this.value.toLowerCase();">
                 </textarea>
                     <span>{{50-arrayTimes.observacion_tiempo.length}} Caracteres restantes</span>
 
@@ -88,11 +90,9 @@
                     </div>
 
                     <!-- Mensaje de restricción para el campo observacion de la Base de Tiempo -->
-                    <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength ||
-                    formTime.controls['observacion_tiempo'].errors?.pattern" class="form-control-feedback">
+                    <div *ngIf="formTime.controls['observacion_tiempo'].errors?.maxlength" class="form-control-feedback">
                         <div class="alert alert-danger">
-                            <strong>Alerta!</strong> El campo debe tener solo letras en minúscula y máximo 50
-                            carácteres.
+                            <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@
                 <div id="caja-botones" class="form-group-row">
                     <label class="col-1 col-form-label">&nbsp;</label>
                     <div class="col-md-8">
-                        <button type="button" [disabled]="!formTime.valid" class="btn btn-outline-primary btn-lg"
+                        <button type="button" class="btn btn-outline-primary btn-lg"
                             (click)=" edit ? updateTime() : createTime()">
                             Guardar
                         </button>

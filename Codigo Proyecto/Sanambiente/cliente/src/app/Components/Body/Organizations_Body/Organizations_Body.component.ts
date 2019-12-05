@@ -19,10 +19,10 @@ export class OrganizationsBodyComponent implements OnInit {
 
   constructor(private organizationService: OrganizationsService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formOrganization = new FormGroup({
-      'nombre_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'nombre_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'email_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
       'telefono_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9]\d{6,9}$/)]),
-      'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayOrganizations = {
         observacion_organizacion: ''

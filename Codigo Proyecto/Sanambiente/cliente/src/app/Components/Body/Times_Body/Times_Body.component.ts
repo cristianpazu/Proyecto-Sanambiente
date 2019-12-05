@@ -24,9 +24,9 @@ export class TimesBodyComponent implements OnInit {
 
   constructor(private timesService: TimesService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada timesService
     this.formTime = new FormGroup({
-      'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'escala_tiempo': new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(1), Validators.max(1440)]),
-      'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z ]*$/)]),
+      'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'id_alerta': new FormControl('', [Validators.required]),
     });
     this.arrayTimes = {
@@ -35,7 +35,7 @@ export class TimesBodyComponent implements OnInit {
     };
   }
 
-  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Times_Body */
+   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Times_Body */
   ngOnInit(): void {
     this.viewTimeById(); // Toma el id de la Base de Tiempo, cuando se vaya a editar alguna de ellas
     this.viewAlertsTime(); // Carga las alertas existentes
