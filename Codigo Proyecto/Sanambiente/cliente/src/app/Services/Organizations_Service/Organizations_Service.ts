@@ -14,18 +14,22 @@ export class OrganizationsService {
 
   /* Se crean los metodos utilizados por la vista de organizacion */
 
+  //crear organizacion 
   createOrganization (body: Organization) {
     return this.baseService.create(body, `${environment.hostCreateOrganization}`);
   }
 
+  // mostrar todas las organizaciones creadas
   viewOrganizations() {
     return this.baseService.view(`${environment.viewOrganizations}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
+  // actualizar las organizaciones
   updateOrganization(body: Organization, id_organizacion: number) {
     return this.baseService.update(body, `${environment.hostUpdateOrganization}/${id_organizacion}`);
   }
 
+  // consultar si existe una organizacion para su posterior actualizacion 
   viewOrganizationById(id_organizacion: number) {
     return this.baseService.view(`${environment.hostviewOrganizationById}/${id_organizacion}`);
   }
