@@ -19,8 +19,8 @@
 
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_alerta" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" maxlength="51" 
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayAlerts.nombre_alerta" id="tamaño-fuente-input" maxlength="51">
+                <!-- onKeyUp="this.value = this.value.toLowerCase();"-->
 
                 <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['nombre_alerta'].errors?.required" class="form-control-feedback"
@@ -41,8 +41,8 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_alerta" rows="4"
-                    [(ngModel)]="arrayAlerts.observacion_alerta" id="tamaño-fuente-input" maxLength="50"
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayAlerts.observacion_alerta" id="tamaño-fuente-input" maxLength="50">
+                    <!-- onKeyUp="this.value = this.value.toLowerCase();"-->
                 </textarea>
                 <span>{{50-arrayAlerts.observacion_alerta.length}} Caracteres restantes</span>
 
@@ -69,9 +69,8 @@
                     <select formControlName="tipo_alerta" class="form-control" type="text" id="textTipo_alerta"
                         id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.tipo_alerta"
                         value={{arrayAlerts.tipo_alerta}}>
-                        <option value="Fax">Fax</option>
-                        <option value="Email">Email</option>
-                        <option value="Mensaje de texto">Mensaje de texto</option>
+                        <option value="email">Email</option>
+                        <option value="mensaje de texto">Mensaje de texto</option>
                     </select>
 
                     <!-- Validacion para el campo tipo de Alerta  -->
