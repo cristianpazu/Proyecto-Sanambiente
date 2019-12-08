@@ -19,7 +19,6 @@
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="nombre_region" type="text" id="textNombre"
                     [(ngModel)]="arrayRegions.nombre_region" id="tamaño-fuente-input" maxlength="50">
-                <!--onKeyUp="this.value = this.value.toLowerCase();"  -->
                 <!-- Validacion para el campo nombre de la región -->
                 <div *ngIf="formRegion.controls['nombre_region'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
@@ -40,7 +39,6 @@
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_region" rows="4"
                     [(ngModel)]="arrayRegions.observacion_region" id="tamaño-fuente-input" maxlength="50">
-                    <!--  onKeyUp="this.value = this.value.toLowerCase();"  -->
                </textarea>
                 <span>{{50-arrayRegions.observacion_region.length}} Caracteres restantes</span>
 
@@ -48,28 +46,12 @@
                 <div *ngIf="formRegion.controls['observacion_region'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                 </div>
-
-                <!-- Mensaje de restricción campo Observación de la región -->
-                <!-- <div *ngIf="formRegion.controls['observacion_region'].errors?.pattern" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
-                    </div>
-                </div> -->
-
-                <!-- Mensaje de restricción para el campo Observación de la región
-                <div *ngIf="formRegion.controls['observacion_region'].errors?.maxlength" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Máximo 50 carácteres.
-                    </div>
-                </div> -->
             </div>
         </div>
         <br>
         <div style="margin-top: 20px;">
             <em> * Todos los campos son obligatorios </em>
         </div>
-
-
 
         <!-- Boton de guardar de región -->
         <div id="caja-botones" class="form-group-row">

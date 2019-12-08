@@ -17,8 +17,7 @@
             <label class="col-2 col-form-label">Nombre Organización</label>
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="nombre_organizacion" type="text" id="textNombre"
-                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" maxlength="50"
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" maxlength="50">
 
                 <!-- Validacion para el campo nombre de la Organizacion -->    
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required"
@@ -40,8 +39,7 @@
             <label class="col-2 col-form-label">Email Organización</label>
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="email_organizacion" type="text" id="textNombre"
-                    [(ngModel)]="arrayOrganizations.email_organizacion" id="tamaño-fuente-input" maxlength="50"
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayOrganizations.email_organizacion" id="tamaño-fuente-input" maxlength="50">
 
                 <!-- Mensaje de restricción campo de solo email  -->
                 <div *ngIf="formOrganization.controls['email_organizacion'].errors?.maxlength ||
@@ -51,10 +49,6 @@
                         <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
                     </div>
                 </div>
-                
-                
-                
-
             </div>
         </div>
 
@@ -69,14 +63,6 @@
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
-
-                <!-- <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.maxlength"
-                <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.maxlength"
-                    class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 carácteres.
-                    </div>
-                </div> -->
                 
                 <!-- Mensaje de restricción campo de solo numeros  -->
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.pattern"
@@ -94,29 +80,12 @@
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_organizacion" rows="4"
-                    [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50"
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
                </textarea>
                 <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
                 <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
-
-                <!-- Mensaje de restricción campo de solo letras -->
-                <!-- <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.pattern"
-                     class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
-                    </div>
-                </div> -->
-
-                <!-- <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.maxlength"
-                    class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Maximo 50 carácteres.
-                    </div>
-                </div> -->
-
                 <br>
                 <div style="margin-top: 20px;">
                     <em> * Todos los campos son obligatorios </em>

@@ -19,8 +19,7 @@
             <label class="col-2 col-form-label">Nombre Estación</label>
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_estacion" type="text" autofocus id="textNombre"
-                    [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input" maxlength="50"
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayStations.nombre_estacion" id="tamaño-fuente-input" maxlength="50">
                     
                 <!-- Este campo es requerido -->
                 <div *ngIf="formStation.controls['nombre_estacion'].errors?.required" class="form-control-feedback"
@@ -62,8 +61,7 @@
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_corto_estacion" type="text" autofocus
                     id="textNombreCorto" [(ngModel)]="arrayStations.nombre_corto_estacion" id="tamaño-fuente-input"
-                     maxlength="50"
-                     onKeyUp="this.value = this.value.toLowerCase();">
+                     maxlength="50">
 
                 <!-- Validacion para el campo nombre corto de la estacion -->
                 <div *ngIf="formStation.controls['nombre_corto_estacion'].errors?.required"
@@ -317,15 +315,13 @@
                 </div>
             </div>
         </div>
-       
 
         <!-- Campo para observación de la estacion  -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_estacion" rows="4"
-                    [(ngModel)]="arrayStations.observacion_estacion" id="tamaño-fuente-input" maxlength="50"
-                    onKeyUp="this.value = this.value.toLowerCase();">
+                    [(ngModel)]="arrayStations.observacion_estacion" id="tamaño-fuente-input" maxlength="50">
                 </textarea>
                 <span>{{50-arrayStations.observacion_estacion.length}} Caracteres restantes</span>
                 
