@@ -9,7 +9,7 @@
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span
                                     class="glyphicon glyphicon-th-list">
-                                </span> Tablas Párametros</a>
+                                </span> Tablas párametros</a>
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in">
@@ -78,7 +78,7 @@
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span
                                     class="glyphicon glyphicon-th">
-                                </span> Estaciones</a>
+                                </span> Gestionar estaciones</a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
@@ -87,11 +87,6 @@
                                 <tr>
                                     <td>
                                         <span class="glyphicon glyphicon-chevron-right"></span><a href=""> Listar estaciones </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a href=""> Mantenimientos </a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -108,7 +103,7 @@
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span
                                     class="glyphicon glyphicon-wrench">
-                                </span> Usuarios</a>
+                                </span> Gestionar mantenimientos</a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
@@ -116,8 +111,22 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-plus-sign"></span><a [routerLink]="['/maintenance/add_maintenance']"> Nuevo
-                                            mantenimiento</a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Mantenimientos</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Tipo de mantenimiento</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Periodicidad </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Partes</a>
                                     </td>
                                 </tr>
                             </table>
