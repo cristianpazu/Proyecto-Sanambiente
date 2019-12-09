@@ -66,6 +66,11 @@ import { MaintenancesService } from './Services/Maintenances_Service/Maintenance
 import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
 import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
 
+/* Importo los componentes y servicios creados para la conexion */
+import { ConnectStationsListComponent } from './Components/Body/Connect_Station_List/Connect_Stations_List.component';
+import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_Body/Connect_Station_Body.component';
+
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -94,8 +99,9 @@ import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type
     MaintenancesListComponent,
     MaintenancesBodyComponent,
     MaintenanceTypeListComponent,
-    MaintenanceTypeBodyComponent
-
+    MaintenanceTypeBodyComponent,
+    ConnectStationsListComponent,
+    ConnectStationBodyComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular

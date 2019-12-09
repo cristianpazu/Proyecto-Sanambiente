@@ -44,9 +44,10 @@ import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component'
 import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
 import { MaintenancesListComponent } from './Components/Body/Maintenances_List/Maintenances_List.component';
 
-/* Importo los componentes a los cuales se direccionaran las rutas creadas para tipos de mantenimientos */
-import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
-import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
+/* Importo los componentes a los cuales se direccionaran las rutas para conectar estacion */
+import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_Body/Connect_Station_Body.component';
+import { ConnectStationsListComponent } from './Components/Body/Connect_Station_List/Connect_Stations_List.component';
+
 
 
 /* ------ Rutas de las vistas ------- */
@@ -121,6 +122,11 @@ const rutas: Routes = [
   { path: 'maintenance_type', component: MaintenanceTypeListComponent }, // Ruta para listar todos los registros  
   { path: 'maintenance_type/add_maintenance_type', component: MaintenanceTypeBodyComponent },  // Ruta para adicionar registros  
   { path: 'maintenance_type/edit_maintenance_type/:id_tipo_mantenimiento', component: MaintenanceTypeBodyComponent }, // Ruta para editar registros
+
+  /*--- Rutas de conectar Estaciones ---*/
+  { path: 'connect', redirectTo: '/connect', pathMatch: 'full' },
+  { path: 'connect', component: ConnectStationsListComponent }, // Ruta para listar todos los registros  
+  { path: 'connect/station/:id_estacion', component: ConnectStationBodyComponent },  // Ruta para conectar una estacion 
 
 ];
 
