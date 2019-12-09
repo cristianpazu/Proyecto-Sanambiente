@@ -27,8 +27,8 @@ export class MaintenancesService{
     return this.baseService.view(`${environment.viewMaintenances}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewMaintenanceById(id_rango: number) {
-    return this.baseService.view(`${environment.viewMaintenanceById}/${id_rango}`);
+  viewMaintenanceById(id_mantenimiento: number) {
+    return this.baseService.view(`${environment.viewMaintenanceById}/${id_mantenimiento}`);
   }
 
   updateMaintenance(body: Maintenance, id_mantenimiento: number) {

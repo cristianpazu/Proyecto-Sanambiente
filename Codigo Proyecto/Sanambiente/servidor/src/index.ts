@@ -14,6 +14,7 @@ import timesRoutes from './Components/Times_Component/Times_Route';
 import stationsRoutes from './Components/Stations_Component/Stations_Route';
 import gmtRoutes from './Components/Gmt_Component/Gmt_Rute';
 import maintenancesRoutes from './Components/Maintenances_Component/Maintenances_Route';
+import maintenancesTypeRoutes from './Components/Maintenances_Type_Component/Maintenances_Type_Route';
 
 
 
@@ -49,6 +50,7 @@ class Servidor {
         this.app.use('/api/station', stationsRoutes);
         this.app.use('/api/gmt', gmtRoutes);
         this.app.use('/api/maintenance', maintenancesRoutes);
+        this.app.use('/api/maintenance_type', maintenancesTypeRoutes);
     }
 
     // Metodo que identifica el puerto usado para la conexion en el servidor

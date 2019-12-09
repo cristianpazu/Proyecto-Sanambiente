@@ -24,8 +24,8 @@ export class RegionsBodyComponent implements OnInit {
       'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayRegions = {
+      nombre_region:'',
       observacion_region: ''
-      
     };
   }
 

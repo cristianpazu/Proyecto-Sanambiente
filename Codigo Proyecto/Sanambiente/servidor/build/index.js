@@ -18,6 +18,7 @@ const Times_Route_1 = __importDefault(require("./Components/Times_Component/Time
 const Stations_Route_1 = __importDefault(require("./Components/Stations_Component/Stations_Route"));
 const Gmt_Rute_1 = __importDefault(require("./Components/Gmt_Component/Gmt_Rute"));
 const Maintenances_Route_1 = __importDefault(require("./Components/Maintenances_Component/Maintenances_Route"));
+const Maintenances_Type_Route_1 = __importDefault(require("./Components/Maintenances_Type_Component/Maintenances_Type_Route"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     // Constructor en el cual se instancian los metodos a ejecutar
@@ -46,6 +47,7 @@ class Servidor {
         this.app.use('/api/station', Stations_Route_1.default);
         this.app.use('/api/gmt', Gmt_Rute_1.default);
         this.app.use('/api/maintenance', Maintenances_Route_1.default);
+        this.app.use('/api/maintenance_type', Maintenances_Type_Route_1.default);
     }
     // Metodo que identifica el puerto usado para la conexion en el servidor
     iniciar() {

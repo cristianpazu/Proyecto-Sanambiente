@@ -62,6 +62,10 @@ import { MaintenancesListComponent } from './Components/Body/Maintenances_List/M
 import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
 import { MaintenancesService } from './Services/Maintenances_Service/Maintenances_Service';
 
+/* Importo los componentes y servicios creados para los tipos de mantenimientos */
+import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
+import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -88,7 +92,9 @@ import { MaintenancesService } from './Services/Maintenances_Service/Maintenance
     GmtListComponent,
     GmtBodyComponent,
     MaintenancesListComponent,
-    MaintenancesBodyComponent
+    MaintenancesBodyComponent,
+    MaintenanceTypeListComponent,
+    MaintenanceTypeBodyComponent
 
   ],
   imports: [

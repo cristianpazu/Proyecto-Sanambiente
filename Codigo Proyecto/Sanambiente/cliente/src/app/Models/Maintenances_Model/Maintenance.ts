@@ -1,4 +1,4 @@
-/* Clase que contiene y exporta la interfaz con el modelo (campos) necesario para rango */
+/* Clase que contiene y exporta la interfaz con el modelo (campos) necesario para mantenimiento*/
 
 export interface Maintenance {
     id_mantenimiento?: number;

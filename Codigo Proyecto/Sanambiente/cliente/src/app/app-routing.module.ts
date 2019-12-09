@@ -44,6 +44,10 @@ import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component'
 import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
 import { MaintenancesListComponent } from './Components/Body/Maintenances_List/Maintenances_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para tipos de mantenimientos */
+import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
+import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
+
 
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
@@ -111,6 +115,12 @@ const rutas: Routes = [
   { path: 'maintenance', component: MaintenancesListComponent }, // Ruta para listar todos los registros  
   { path: 'maintenance/add_maintenance', component: MaintenancesBodyComponent },  // Ruta para adicionar registros  
   { path: 'maintenance/edit_maintenance/:id_mantenimiento', component: MaintenancesBodyComponent }, // Ruta para editar registros
+ 
+  /*--- Rutas de tipos mantenimiento ---*/
+  { path: 'maintenance_type', redirectTo: '/maintenance_type', pathMatch: 'full' },
+  { path: 'maintenance_type', component: MaintenanceTypeListComponent }, // Ruta para listar todos los registros  
+  { path: 'maintenance_type/add_maintenance_type', component: MaintenanceTypeBodyComponent },  // Ruta para adicionar registros  
+  { path: 'maintenance_type/edit_maintenance_type/:id_tipo_mantenimiento', component: MaintenanceTypeBodyComponent }, // Ruta para editar registros
 
 ];
 

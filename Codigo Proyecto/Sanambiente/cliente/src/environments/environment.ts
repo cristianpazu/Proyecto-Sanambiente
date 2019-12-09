@@ -60,6 +60,11 @@ export const environment = {
   viewMaintenances: "http://localhost:3000/api/maintenance/viewMaintenances",
   viewMaintenanceById: "http://localhost:3000/api/maintenance/viewMaintenanceById",
   viewStationsMaintenance: "http://localhost:3000/api/station/viewStationsMaintenance",
-
+  // tipo mantenimiento
+  hostCreateMaintenanceType: "http://localhost:3000/api/maintenance_type/createMaintenanceType",
+  hostUpdateMaintenanceType: "http://localhost:3000/api/maintenance_type/updateMaintenancesType",
+  viewMaintenancesType: "http://localhost:3000/api/maintenance_type/viewMaintenancesType",
+  viewMaintenanceTypeById: "http://localhost:3000/api/maintenance_type/viewMaintenanceTypeById",
+  
   production: false
 };
