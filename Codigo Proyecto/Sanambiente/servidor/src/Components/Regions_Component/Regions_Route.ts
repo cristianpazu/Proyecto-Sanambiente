@@ -12,7 +12,7 @@ class RegionRoute {
         this.configuracion();
     }
 
-    /* Se establecen los metodos de la clase Region_Service, que seran utilizados cuando se llame a cada una de 
+    /* Se establecen los metodos de la clase Region_Route, que seran utilizados cuando se llame a cada una de 
     las rutas de regiones*/
 
     configuracion(): void {
@@ -26,5 +26,5 @@ class RegionRoute {
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const regionRoutes = new RegionRoute(); 
-export default regionRoutes.router; 
+const regionsRoutes = new RegionRoute(); 
+export default regionsRoutes.router; 

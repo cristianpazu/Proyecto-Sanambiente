@@ -25,5 +25,5 @@ class GmtRoute {
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const gmtRoute = new GmtRoute(); 
-export default gmtRoute.router;
+const gmtRoutes = new GmtRoute(); 
+export default gmtRoutes.router;

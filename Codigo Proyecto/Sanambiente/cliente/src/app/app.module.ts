@@ -65,10 +65,16 @@ import { MaintenancesService } from './Services/Maintenances_Service/Maintenance
 /* Importo los componentes y servicios creados para los tipos de mantenimientos */
 import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
 import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
+import { MaintenancesTypeService } from './Services/Maintenances_Type_Service/Maintenances_Type_Service';
 
 /* Importo los componentes y servicios creados para la conexion */
 import { ConnectStationsListComponent } from './Components/Body/Connect_Station_List/Connect_Stations_List.component';
 import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_Body/Connect_Station_Body.component';
+
+/* Importo los componentes y servicios creados para las periodicidades de los mantenimientos */
+import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List/Periodicities_List.component';
+import { PeriodicitiesBodyComponent } from './Components/Body/Periodicities_Body/Periodicities_Body.component';
+import { PeriodicitiesService } from './Services/Periodicities_Service/Periodicities_Service';
 
 
 @NgModule({
@@ -101,7 +107,9 @@ import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_B
     MaintenanceTypeListComponent,
     MaintenanceTypeBodyComponent,
     ConnectStationsListComponent,
-    ConnectStationBodyComponent
+    ConnectStationBodyComponent,
+    PeriodicitiesBodyComponent,
+    PeriodicitiesListComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -123,7 +131,10 @@ import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_B
     TimesService,
     GmtService,
     StationsService,
-    MaintenancesService    
+    MaintenancesService,
+    MaintenancesTypeService,
+    PeriodicitiesService
+        
   ],
   bootstrap: [AppComponent]
 })

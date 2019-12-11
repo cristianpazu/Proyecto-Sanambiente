@@ -14,11 +14,11 @@ import { RegionsService } from '../../../Services/Regions_Service/Regions_Servic
 export class RegionsBodyComponent implements OnInit {
 
   public formRegion: FormGroup; // La variable formRegion permite administrar las validaciones y restricciones del formulario
-  public arrayRegions; // La variable arrayRegions almacena el listado de las regiones existentes. Utilizada cuando se edita una region
+  public arrayRegions; // La variable arrayRegions almacena el listado de las regiones existentes.
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva region o se esta editando una region
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la region, en la vista html
 
-  constructor(private regionService: RegionsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionServicio
+  constructor(private regionService: RegionsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionService
     this.formRegion = new FormGroup({
       'nombre_region': new FormControl('', [Validators.required,Validators.maxLength(49.9)]),
       'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),

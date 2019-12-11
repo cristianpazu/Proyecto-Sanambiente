@@ -48,11 +48,13 @@ import { MaintenancesListComponent } from './Components/Body/Maintenances_List/M
 import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
 import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
 
-
 /* Importo los componentes a los cuales se direccionaran las rutas para conectar estacion */
 import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_Body/Connect_Station_Body.component';
 import { ConnectStationsListComponent } from './Components/Body/Connect_Station_List/Connect_Stations_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas para periodicidad*/
+import { PeriodicitiesBodyComponent } from './Components/Body/Periodicities_Body/Periodicities_Body.component';
+import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List/Periodicities_List.component';
 
 
 /* ------ Rutas de las vistas ------- */
@@ -132,6 +134,12 @@ const rutas: Routes = [
   { path: 'connect', redirectTo: '/connect', pathMatch: 'full' },
   { path: 'connect', component: ConnectStationsListComponent }, // Ruta para listar todos los registros  
   { path: 'connect/station/:id_estacion', component: ConnectStationBodyComponent },  // Ruta para conectar una estacion 
+
+  /*--- Rutas de periodicidad de mantenimiento ---*/
+  { path: 'periodicity', redirectTo: '/periodicity', pathMatch: 'full' },
+  { path: 'periodicity', component: PeriodicitiesListComponent }, // Ruta para listar todos los registros  
+  { path: 'periodicity/add_periodicity', component: PeriodicitiesBodyComponent },  // Ruta para adicionar registros  
+  { path: 'periodicity/edit_periodicity/:id_periodicidad', component: PeriodicitiesBodyComponent }, // Ruta para editar registros
 
 ];
 

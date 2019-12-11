@@ -24,5 +24,5 @@ class StationsRoute {
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const stationsRoute = new StationsRoute();
-exports.default = stationsRoute.router;
+const stationsRoutes = new StationsRoute();
+exports.default = stationsRoutes.router;

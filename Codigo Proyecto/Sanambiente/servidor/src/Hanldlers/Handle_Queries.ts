@@ -66,5 +66,10 @@ export const handlerQuery = {
     viewMaintenancesType:'SELECT * FROM tipos_mantenimiento order by id_tipo_mantenimiento',
     viewMaintenanceType:'SELECT * FROM tipos_mantenimiento where id_tipo_mantenimiento=$1',
     updateMaintenanceType:'UPDATE tipos_mantenimiento set nombre_tipo_mantenimiento=$1,observacion_tipo_mantenimiento=$2 where id_tipo_mantenimiento=$3',
+    // periodicidad
+    createPeriodicity:'INSERT INTO periodicidades (tipo_periodicidad, observacion_periodicidad) VALUES ($1,$2)',
+    viewPeriodicities:'SELECT * FROM periodicidades order by id_periodicidad',
+    viewPeriodicity:'SELECT * FROM periodicidades where id_periodicidad=$1',
+    updatePeriodicity:'UPDATE periodicidades set tipo_periodicidad=$1,observacion_periodicidad=$2 where id_periodicidad=$3',
 }
 

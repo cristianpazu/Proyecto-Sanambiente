@@ -27,7 +27,6 @@ export class MaintenanceTypeListComponent implements OnInit {
   /* Método con el cual se obtienen los tipos de mantenimiento existentes */
   async getMaintenanceTypes() {
     this.arrayMaintenanceTypes = await this.maintenanceTypeService.viewMaintenancesType();
-    console.log(this.arrayMaintenanceTypes);
   }
 
 }

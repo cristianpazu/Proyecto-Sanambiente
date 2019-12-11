@@ -65,6 +65,11 @@ export const environment = {
   hostUpdateMaintenanceType: "http://localhost:3000/api/maintenance_type/updateMaintenancesType",
   viewMaintenancesType: "http://localhost:3000/api/maintenance_type/viewMaintenancesType",
   viewMaintenanceTypeById: "http://localhost:3000/api/maintenance_type/viewMaintenanceTypeById",
+   // periodicidad
+   hostCreatePeriodicity: "http://localhost:3000/api/periodicity/createPeriodicity",
+   hostUpdatePeriodicity: "http://localhost:3000/api/periodicity/updatePeriodicity",
+   viewPeriodicities: "http://localhost:3000/api/periodicity/viewPeriodicities",
+   viewPeriodicityById: "http://localhost:3000/api/periodicity/viewPeriodicityById",
   
   production: false
 };

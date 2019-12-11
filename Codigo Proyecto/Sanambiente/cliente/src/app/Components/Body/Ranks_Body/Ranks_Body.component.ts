@@ -50,7 +50,6 @@ export class RanksBodyComponent implements OnInit {
   /* Método con el cual se listan las estaciones existentes */
   async viewStationsRank() {
     this.stationRank = (await this.ranksService.viewStationsRank());
-    console.log(this.stationRank);
   }
 
     /* Método con el cual se identifica el rango cuya información va a ser actualizada */
