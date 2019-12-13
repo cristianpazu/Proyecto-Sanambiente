@@ -56,6 +56,9 @@ import { ConnectStationsListComponent } from './Components/Body/Connect_Station_
 import { PeriodicitiesBodyComponent } from './Components/Body/Periodicities_Body/Periodicities_Body.component';
 import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List/Periodicities_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas para periodicidad*/
+import { PartsBodyComponent } from './Components/Body/Parts_Body/Parts_Body.component';
+import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.component';
 
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
@@ -140,6 +143,12 @@ const rutas: Routes = [
   { path: 'periodicity', component: PeriodicitiesListComponent }, // Ruta para listar todos los registros  
   { path: 'periodicity/add_periodicity', component: PeriodicitiesBodyComponent },  // Ruta para adicionar registros  
   { path: 'periodicity/edit_periodicity/:id_periodicidad', component: PeriodicitiesBodyComponent }, // Ruta para editar registros
+
+  /*--- Rutas de periodicidad de parte ---*/
+  { path: 'part', redirectTo: '/part', pathMatch: 'full' },
+  { path: 'part', component: PartsListComponent }, // Ruta para listar todos los registros  
+  { path: 'part/add_part', component: PartsBodyComponent },  // Ruta para adicionar registros  
+  { path: 'part/edit_part/:id_parte', component: PartsBodyComponent }, // Ruta para editar registros
 
 ];
 

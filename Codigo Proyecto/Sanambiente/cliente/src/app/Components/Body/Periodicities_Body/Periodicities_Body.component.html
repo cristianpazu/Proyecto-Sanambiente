@@ -41,7 +41,8 @@
                 <textarea ng-thim="false" class="form-control" formControlName="observacion_periodicidad" rows="4"
                     [(ngModel)]="arrayPeriodicities.observacion_periodicidad" id="tamaño-fuente-input" maxlength="50">
                </textarea>
-               <!-- <span>{{50-arrayPeriodicities.observacion_periodicidad.length}} Caracteres restantes</span>-->
+
+                <span>{{50-arrayPeriodicities.observacion_periodicidad.length}} Caracteres restantes</span>
 
                 <!-- Validacion para el campo Observación de la periodicidad -->
                 <div *ngIf="formPeriodicity.controls['observacion_periodicidad'].errors?.required"

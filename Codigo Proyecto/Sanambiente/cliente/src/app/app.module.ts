@@ -76,6 +76,11 @@ import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List
 import { PeriodicitiesBodyComponent } from './Components/Body/Periodicities_Body/Periodicities_Body.component';
 import { PeriodicitiesService } from './Services/Periodicities_Service/Periodicities_Service';
 
+/* Importo los componentes y servicios creados para las partes */
+import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.component';
+import { PartsBodyComponent } from './Components/Body/Parts_Body/Parts_Body.component';
+import { PartsService } from './Services/Parts_Service/Parts_Service';
+
 
 @NgModule({
   declarations: [
@@ -109,7 +114,9 @@ import { PeriodicitiesService } from './Services/Periodicities_Service/Periodici
     ConnectStationsListComponent,
     ConnectStationBodyComponent,
     PeriodicitiesBodyComponent,
-    PeriodicitiesListComponent
+    PeriodicitiesListComponent,
+    PartsListComponent,
+    PartsBodyComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -122,7 +129,7 @@ import { PeriodicitiesService } from './Services/Periodicities_Service/Periodici
   ],
   providers: [
     BaseService,
-    RegionsService, 
+    RegionsService,
     CitiesService,
     OrganizationsService,
     CategoriesService,
@@ -133,8 +140,9 @@ import { PeriodicitiesService } from './Services/Periodicities_Service/Periodici
     StationsService,
     MaintenancesService,
     MaintenancesTypeService,
-    PeriodicitiesService
-        
+    PeriodicitiesService,
+    PartsService
+
   ],
   bootstrap: [AppComponent]
 })

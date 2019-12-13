@@ -61,15 +61,22 @@ export const handlerQuery = {
     viewMaintenance: 'SELECT id_mantenimiento, estaciones.id_estacion, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion=mantenimientos.id_estacion and id_mantenimiento=$1',
     updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, nombre_funcionario=$2, novedad_mantenimiento=$3 where id_mantenimiento=$4',
     viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
+    viewPartsStations: 'SELECT id_parte, nombre_parte FROM partes order by id_parte',
+    viewTypesMaintenance: 'SELECT id_tipo_mantenimiento, nombre_tipo_mantenimiento FROM tipos_mantenimiento order by id_tipo_mantenimiento',
     // tipo mantenimiento
-    createMaintenanceType:'INSERT INTO tipos_mantenimiento (nombre_tipo_mantenimiento, observacion_tipo_mantenimiento) VALUES ($1,$2)',
-    viewMaintenancesType:'SELECT * FROM tipos_mantenimiento order by id_tipo_mantenimiento',
-    viewMaintenanceType:'SELECT * FROM tipos_mantenimiento where id_tipo_mantenimiento=$1',
-    updateMaintenanceType:'UPDATE tipos_mantenimiento set nombre_tipo_mantenimiento=$1,observacion_tipo_mantenimiento=$2 where id_tipo_mantenimiento=$3',
+    createMaintenanceType: 'INSERT INTO tipos_mantenimiento (nombre_tipo_mantenimiento, observacion_tipo_mantenimiento) VALUES ($1,$2)',
+    viewMaintenancesType: 'SELECT * FROM tipos_mantenimiento order by id_tipo_mantenimiento',
+    viewMaintenanceType: 'SELECT * FROM tipos_mantenimiento where id_tipo_mantenimiento=$1',
+    updateMaintenanceType: 'UPDATE tipos_mantenimiento set nombre_tipo_mantenimiento=$1,observacion_tipo_mantenimiento=$2 where id_tipo_mantenimiento=$3',
     // periodicidad
-    createPeriodicity:'INSERT INTO periodicidades (tipo_periodicidad, observacion_periodicidad) VALUES ($1,$2)',
-    viewPeriodicities:'SELECT * FROM periodicidades order by id_periodicidad',
-    viewPeriodicity:'SELECT * FROM periodicidades where id_periodicidad=$1',
-    updatePeriodicity:'UPDATE periodicidades set tipo_periodicidad=$1,observacion_periodicidad=$2 where id_periodicidad=$3',
+    createPeriodicity: 'INSERT INTO periodicidades (tipo_periodicidad, observacion_periodicidad) VALUES ($1,$2)',
+    viewPeriodicities: 'SELECT * FROM periodicidades order by id_periodicidad',
+    viewPeriodicity: 'SELECT * FROM periodicidades where id_periodicidad=$1',
+    updatePeriodicity: 'UPDATE periodicidades set tipo_periodicidad=$1,observacion_periodicidad=$2 where id_periodicidad=$3',
+    // partes
+    createPart: 'INSERT INTO partes (nombre_parte, codigo_catalogo, observacion_parte) VALUES ($1,$2,$3)',
+    viewParts: 'SELECT * FROM partes order by id_parte',
+    viewPart: 'SELECT * FROM partes where id_parte=$1',
+    updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_periodicidad=$4',
 }
 

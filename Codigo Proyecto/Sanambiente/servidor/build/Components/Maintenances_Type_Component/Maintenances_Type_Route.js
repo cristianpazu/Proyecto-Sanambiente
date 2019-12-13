@@ -19,6 +19,7 @@ class maintenancesTypeRoute {
         this.router.get('/viewMaintenanceTypeById/:id_tipo_mantenimiento', Maintenances_Type_Service_1.default.viewById);
         this.router.get('/viewMaintenancesType', Maintenances_Type_Service_1.default.view);
         this.router.put('/updateMaintenancesType/:id_tipo_mantenimiento', Maintenances_Type_Service_1.default.update);
+        this.router.get('/viewTypesMaintenance', Maintenances_Type_Service_1.default.viewNameTypesMaintenance);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

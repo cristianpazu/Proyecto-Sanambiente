@@ -70,17 +70,15 @@ class StationService implements BaseService<any> {
         }
     }
 
-
-
- // metodo para ver solo el nombre de las Estaciones en una lista desplegable. Lo utiliza la vista de mantenimiento
- async viewNameStationsMaintenance(request: Request, response: Response): Promise<any> {
-    try {
-        let stations = await ConnectionDataBase.query(handlerQuery['viewStationsMaintenance']);
-        return Promise.resolve(handleMessage(response, 200, stations.rows));
-    } catch (error) {
-        Promise.reject(handleMessage(response, 404, 'Error'));
+    // metodo para ver solo el nombre de las Estaciones en una lista desplegable. Lo utiliza la vista de mantenimiento
+    async viewNameStationsMaintenance(request: Request, response: Response): Promise<any> {
+        try {
+            let stations = await ConnectionDataBase.query(handlerQuery['viewStationsMaintenance']);
+            return Promise.resolve(handleMessage(response, 200, stations.rows));
+        } catch (error) {
+            Promise.reject(handleMessage(response, 404, 'Error'));
+        }
     }
-}
 
 }
 

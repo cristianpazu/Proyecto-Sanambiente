@@ -18,54 +18,53 @@ export class PeriodicitiesBodyComponent implements OnInit {
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva region o se esta editando una region
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la region, en la vista html
 
-
   constructor(private periodicityService: PeriodicitiesService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada periodicityService
     this.formPeriodicity = new FormGroup({
-      'tipo_periodicidad': new FormControl('', [Validators.required,Validators.maxLength(49.9)]),
+      'tipo_periodicidad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_periodicidad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayPeriodicities = {
-      tipo_periodicidad:'',
+      tipo_periodicidad: '',
       observacion_periodicidad: ''
     };
   }
- /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Periodicities_Body */
- ngOnInit(): void {
-  this.viewPeriodicityById() // Toma el id de la periodicidad, cuando se vaya a editar alguna de ellas
-}
+  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Periodicities_Body */
+  ngOnInit(): void {
+    this.viewPeriodicityById() // Toma el id de la periodicidad, cuando se vaya a editar alguna de ellas
+  }
 
-@HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
+  @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
-/* Método con el cual se crea una nueva periodicidad */
-async createPeriodicity() {
-  if (this.formPeriodicity.valid) {
-    await this.periodicityService.createPeriodicity(this.formPeriodicity.value);
-    alert('Periodicidad creada correctamente');
+  /* Método con el cual se crea una nueva periodicidad */
+  async createPeriodicity() {
+    if (this.formPeriodicity.valid) {
+      await this.periodicityService.createPeriodicity(this.formPeriodicity.value);
+      alert('Periodicidad creada correctamente');
+      this.router.navigate(['/periodicity']);
+    }
+  }
+
+  /* Método con el cual se identifica la periodicidad cuya información va a ser actualizada */
+  async viewPeriodicityById() {
+    let id = this.activedRoute.snapshot.params.id_periodicidad;
+    if (id !== undefined) {
+      let periodicity = await this.periodicityService.viewPeriodicityById(id).subscribe((element: any) => {
+        this.arrayPeriodicities = element.message[0];
+        this.edit = true;
+        this.hide = true;
+      });
+    }
+  }
+
+  /* Método con el cual se actualiza la información de la periodicidad seleccionada */
+  async updatePeriodicity() {
+    let id = this.activedRoute.snapshot.params.id_periodicidad;
+    this.formPeriodicity.patchValue({
+      tipo_periodicidad: this.arrayPeriodicities.tipo_periodicidad,
+      observacion_periodicidad: this.arrayPeriodicities.observacion_periodicidad
+    })
+    this.periodicityService.updatePeriodicity(this.formPeriodicity.value, id)
+    alert('Periodicidad actualizada correctamente');
     this.router.navigate(['/periodicity']);
   }
-}
-
-/* Método con el cual se identifica la periodicidad cuya información va a ser actualizada */
-async viewPeriodicityById() {
-  let id = this.activedRoute.snapshot.params.id_periodicidad;
-  if (id !== undefined) {
-    let periodicity = await this.periodicityService.viewPeriodicityById(id).subscribe((element: any) => {
-      this.arrayPeriodicities = element.message[0];
-      this.edit = true;
-      this.hide = true;
-    });
-  }
-}
-
-/* Método con el cual se actualiza la información de la periodicidad seleccionada */
-async updatePeriodicity() {
-  let id = this.activedRoute.snapshot.params.id_periodicidad;
-  this.formPeriodicity.patchValue({
-    tipo_periodicidad: this.arrayPeriodicities.tipo_periodicidad,
-    observacion_periodicidad: this.arrayPeriodicities.observacion_periodicidad
-  })
-  this.periodicityService.updatePeriodicity(this.formPeriodicity.value, id)
-  alert('Periodicidad actualizada correctamente');
-  this.router.navigate(['/periodicity']);
-}
 }

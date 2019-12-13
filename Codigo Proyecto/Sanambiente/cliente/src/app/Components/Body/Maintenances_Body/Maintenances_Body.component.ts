@@ -13,6 +13,8 @@ export class MaintenancesBodyComponent implements OnInit {
 
   public formMaintenance: FormGroup;
   public stationMaintenance: Array<any> = [];
+  public partStation: Array<any> = [];
+  public typeMaintenance: Array<any> = [];
   public arrayMaintenance: any;
   public edit = false;
   public hide = false;
@@ -22,6 +24,8 @@ export class MaintenancesBodyComponent implements OnInit {
   constructor(private maintenancesService: MaintenancesService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formMaintenance = new FormGroup({
       'id_estacion': new FormControl('', [Validators.required]),
+      'id_parte': new FormControl('', [Validators.required]),
+      'id_tipo_mantenimiento': new FormControl('', [Validators.required]),
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
@@ -33,6 +37,8 @@ export class MaintenancesBodyComponent implements OnInit {
   ngOnInit(): void {
     this.viewStationsMaintenance(); // Carga las estaciones existentes
     this.viewMaintenanceById(); // Toma el id del Mantenimiento, cuando se vaya a editar alguno de ellos.
+    this.viewPartsStations(); // Carga las partes de las estaciones existentes
+    this.viewTypesMaintenance(); // Carga los tipos de mantenimiento existentes
   }
 
   /* Método con el cual se crea un nuevo Mantenimiento */
@@ -47,31 +53,40 @@ export class MaintenancesBodyComponent implements OnInit {
   /* Método con el cual se listan las estaciones existentes */
   async viewStationsMaintenance() {
     this.stationMaintenance = (await this.maintenancesService.viewStationsMaintenance());
-    console.log(this.stationMaintenance);
   }
 
-    /* Método con el cual se identifica el mantenimiento cuya información va a ser actualizada */
-    async viewMaintenanceById(){
-      let id = this.activedRoute.snapshot.params.id_mantenimiento;
-      if (id !== undefined) {
-        let mantenimiento = await this.maintenancesService.viewMaintenanceById(id).subscribe(async (element: any) => {
-          this.arrayMaintenance = await element.message[0];
-          console.log(this.arrayMaintenance);
-          this.edit = true;
-          this.hide = true;
-        });
-      }
+  /* Método con el cual se listan las partes de las estaciones existentes */
+  async viewPartsStations() {
+    this.partStation = (await this.maintenancesService.viewPartsStations());
+  }
+
+    /* Método con el cual se listan los tipos de mantenimiento existentes */
+    async viewTypesMaintenance() {
+      this.typeMaintenance = (await this.maintenancesService.viewTypesMaintenance());
+      console.log(this.typeMaintenance);
     }
-  
-    /* Método con el cual se actualiza la información del rango seleccionado */
-    async updateMaintenance() {
-      let id = this.activedRoute.snapshot.params.id_mantenimiento;
-      this.formMaintenance.patchValue({
-        nombre_funcionario: this.arrayMaintenance.nombre_funcionario,
-        novedad_mantenimiento: this.arrayMaintenance.novedad_mantenimiento
-      })
-      this.maintenancesService.updateMaintenance(this.formMaintenance.value, id)
-      alert('Mantenimiento actualizado correctamente');
-      this.router.navigate(['/maintenance']);
+
+  /* Método con el cual se identifica el mantenimiento cuya información va a ser actualizada */
+  async viewMaintenanceById() {
+    let id = this.activedRoute.snapshot.params.id_mantenimiento;
+    if (id !== undefined) {
+      let mantenimiento = await this.maintenancesService.viewMaintenanceById(id).subscribe(async (element: any) => {
+        this.arrayMaintenance = await element.message[0];
+        this.edit = true;
+        this.hide = true;
+      });
     }
+  }
+
+  /* Método con el cual se actualiza la información del rango seleccionado */
+  async updateMaintenance() {
+    let id = this.activedRoute.snapshot.params.id_mantenimiento;
+    this.formMaintenance.patchValue({
+      nombre_funcionario: this.arrayMaintenance.nombre_funcionario,
+      novedad_mantenimiento: this.arrayMaintenance.novedad_mantenimiento
+    })
+    this.maintenancesService.updateMaintenance(this.formMaintenance.value, id)
+    alert('Mantenimiento actualizado correctamente');
+    this.router.navigate(['/maintenance']);
+  }
 }

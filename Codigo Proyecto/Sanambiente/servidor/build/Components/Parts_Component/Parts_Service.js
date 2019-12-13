@@ -1,4 +1,6 @@
 "use strict";
+/*Esta clase contiene la configuracion de los servicios del lado del servidor
+ utilizados para la tabla partes */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -16,58 +18,57 @@ const basedatos_1 = __importDefault(require("../../basedatos"));
 const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
-class MaintenanceTypeService {
-    //metodo para crear un tipo de mantenimiento
+class PartService {
+    //metodo para crear una nueva parte
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_tipo_mantenimiento, observacion_tipo_mantenimiento } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createMaintenanceType'], [nombre_tipo_mantenimiento, observacion_tipo_mantenimiento]);
-                return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Maintenance Type'));
+                let { nombre_parte, codigo_catalogo, observacion_parte } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createPart'], [nombre_parte, codigo_catalogo, observacion_parte]);
+                return Promise.resolve(Handle_Message_1.default(response, 200, 'Created Part'));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
             }
         });
     }
-    //metodo para actualizar el tipo de mantenimiento
+    // Actualizar parte
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id_tipo_mantenimiento } = request.params;
-                let { nombre_tipo_mantenimiento, observacion_tipo_mantenimiento } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateMaintenanceType'], [nombre_tipo_mantenimiento, observacion_tipo_mantenimiento, id_tipo_mantenimiento]);
-                return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Maintenance Type'));
+                const { id_parte } = request.params;
+                let { nombre_parte, codigo_catalogo, observacion_parte } = request.body;
+                console.log(id_parte, '\n', request.body);
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updatePart'], [nombre_parte, codigo_catalogo, observacion_parte, id_parte]);
+                return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Periodicity'));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
             }
         });
     }
-    // metodo para ver todos los tipos de mantenimientos
+    // metodo para ver todas las partes con todos sus campos 
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let maintenancesType = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewMaintenancesType']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, maintenancesType.rows));
+                let parts = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewParts']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, parts.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
             }
         });
     }
-    // metodo para ver el tipo de mantenimiento con todos sus campos los cuales se utilizaran cuando se vaya a modificar el tipo de mantenimiento
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id_tipo_mantenimiento } = request.params;
-                let maintenanceType = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewMaintenanceType, [id_tipo_mantenimiento]);
-                console.log(maintenanceType.rows);
-                if (maintenanceType.rows.length === 0) {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Maintenance type doesn´t exist'));
+                const { id_parte } = request.params;
+                let part = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewPart, [id_parte]);
+                if (part.rows.length === 0) {
+                    return Promise.resolve(Handle_Message_1.default(response, 200, 'Part doesn´t exist'));
                 }
                 else {
-                    return Promise.resolve(Handle_Message_1.default(response, 200, maintenanceType.rows));
+                    return Promise.resolve(Handle_Message_1.default(response, 200, part.rows));
                 }
             }
             catch (error) {
@@ -75,12 +76,12 @@ class MaintenanceTypeService {
             }
         });
     }
-    // metodo para ver solo el nombre de los tipos de mantenimiento en una lista desplegable. Lo utiliza la vista de mantenimiento
-    viewNameTypesMaintenance(request, response) {
+    // metodo para ver solo el nombre de las partes de las estaciones en una lista desplegable. Lo utiliza la vista de mantenimiento
+    viewNamePartsStations(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let typesMaintenance = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewTypesMaintenance']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, typesMaintenance.rows));
+                let parts = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewPartsStations']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, parts.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
@@ -89,5 +90,5 @@ class MaintenanceTypeService {
     }
 }
 // Se crea y exporta una constante que contiene los servicios de esta clase.
-const maintenanceTypeService = new MaintenanceTypeService();
-exports.default = maintenanceTypeService;
+const partService = new PartService();
+exports.default = partService;

@@ -12,7 +12,9 @@ import { environment } from 'src/environments/environment'; // Se importan las c
 export class PeriodicitiesService {
 
   constructor(private baseService: BaseService) { }
+
   /* Se crean los metodos utilizados por la vista de periodicidad */
+
   createPeriodicity(body: Periodicity) {
     return this.baseService.create(body, `${environment.hostCreatePeriodicity}`);
 

@@ -23,6 +23,14 @@ export class MaintenancesService{
     return this.baseService.view(`${environment.viewStationsMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
+  viewPartsStations() {
+    return this.baseService.view(`${environment.viewPartsStations}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
+  viewTypesMaintenance() {
+    return this.baseService.view(`${environment.viewTypesMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
   viewMaintenances() {
     return this.baseService.view(`${environment.viewMaintenances}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }

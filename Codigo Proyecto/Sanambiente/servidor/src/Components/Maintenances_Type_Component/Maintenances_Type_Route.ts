@@ -20,6 +20,8 @@
          this.router.get('/viewMaintenanceTypeById/:id_tipo_mantenimiento', MaintenanceTypeService.viewById);
          this.router.get('/viewMaintenancesType', MaintenanceTypeService.view);
          this.router.put('/updateMaintenancesType/:id_tipo_mantenimiento', MaintenanceTypeService.update);
+         this.router.get('/viewTypesMaintenance', MaintenanceTypeService.viewNameTypesMaintenance);
+         
      }
  }
  
