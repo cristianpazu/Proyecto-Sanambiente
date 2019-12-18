@@ -26,11 +26,18 @@ export class MaintenancesBodyComponent implements OnInit {
       'id_estacion': new FormControl('', [Validators.required]),
       'id_parte': new FormControl('', [Validators.required]),
       'id_tipo_mantenimiento': new FormControl('', [Validators.required]),
+      'fecha_inicial': new FormControl('', [Validators.required]),
+      'fecha_final': new FormControl('', [Validators.required]),
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'observacion_validacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayMaintenance = {
-      novedad_mantenimiento: ''//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
+      fecha_inicial:'',
+      fecha_final: '',
+      nombre_funcionario:'',
+      novedad_mantenimiento: '',//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
+      observacion_validacion: ''
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenances_Body */
@@ -45,6 +52,7 @@ export class MaintenancesBodyComponent implements OnInit {
   async createMaintenance() {
     if (this.formMaintenance.valid) {
       await this.maintenancesService.createMaintenance(this.formMaintenance.value);
+      console.log(this.formMaintenance.value);
       alert('Mantenimiento creado correctamente');
       this.router.navigate(['/maintenance']);
     }
@@ -60,11 +68,10 @@ export class MaintenancesBodyComponent implements OnInit {
     this.partStation = (await this.maintenancesService.viewPartsStations());
   }
 
-    /* Método con el cual se listan los tipos de mantenimiento existentes */
-    async viewTypesMaintenance() {
-      this.typeMaintenance = (await this.maintenancesService.viewTypesMaintenance());
-      console.log(this.typeMaintenance);
-    }
+  /* Método con el cual se listan los tipos de mantenimiento existentes */
+  async viewTypesMaintenance() {
+    this.typeMaintenance = (await this.maintenancesService.viewTypesMaintenance());
+  }
 
   /* Método con el cual se identifica el mantenimiento cuya información va a ser actualizada */
   async viewMaintenanceById() {
