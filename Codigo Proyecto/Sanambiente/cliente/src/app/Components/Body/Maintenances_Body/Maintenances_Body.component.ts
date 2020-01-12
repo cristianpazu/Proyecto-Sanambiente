@@ -33,9 +33,9 @@ export class MaintenancesBodyComponent implements OnInit {
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayMaintenance = {
-      fecha_inicial:'',
+      fecha_inicial: '',
       fecha_final: '',
-      nombre_funcionario:'',
+      nombre_funcionario: '',
       novedad_mantenimiento: '',//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
       observacion_validacion: ''
     };
@@ -85,12 +85,15 @@ export class MaintenancesBodyComponent implements OnInit {
     }
   }
 
-  /* Método con el cual se actualiza la información del rango seleccionado */
+  /* Método con el cual se actualiza la información del Mantenimiento seleccionado */
   async updateMaintenance() {
     let id = this.activedRoute.snapshot.params.id_mantenimiento;
     this.formMaintenance.patchValue({
+      fecha_inicial: this.arrayMaintenance.fecha_inicial,
+      fecha_final: this.arrayMaintenance.fecha_final,
       nombre_funcionario: this.arrayMaintenance.nombre_funcionario,
-      novedad_mantenimiento: this.arrayMaintenance.novedad_mantenimiento
+      observacion_validacion: this.arrayMaintenance.observacion_validacion,
+      novedad_mantenimiento: this.arrayMaintenance.novedad_mantenimiento,
     })
     this.maintenancesService.updateMaintenance(this.formMaintenance.value, id)
     alert('Mantenimiento actualizado correctamente');

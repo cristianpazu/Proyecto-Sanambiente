@@ -9,11 +9,11 @@
             <label class="col-2 col-form-label">ID Mantenimiento</label>
             <div class="col-4">
                 <input class="form-control" type="number" id="textId_Mantenimiento" id="tamaño-fuente-input"
-                    value={{arrayMaintenance.id_mantenimiento}} disabled>
+                    value={{arrayMaintenance.id_tipo_mantenimiento}} disabled>
             </div>
         </div>
 
-        <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un rango -->
+        <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un mantenimiento -->
         <div class="form-group row" [hidden]="hide==false">
             <label class="col-2 col-form-label">Estacion (Actual)</label>
             <div class="col-5">
@@ -44,6 +44,15 @@
             </div>
         </div>
 
+        <!-- Campo de tipo input, que muestra el nombre de las partes de la estacion, solo cuando se edita un mantenimiento -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Partes (Actual)</label>
+            <div class="col-5">
+                <input class="form-control" type="text" id="textNombre_parte" id="tamaño-fuente-input"
+                    value={{arrayMaintenance.nombre_parte}} disabled>
+            </div>
+        </div>
+
         <!-- Campo para las partes de la estacion -->
         <div>
             <div class="form-group row">
@@ -65,13 +74,21 @@
             </div>
         </div>
 
+        <!-- Campo de tipo input, que muestra el nombre del tipo de mantenimiento, solo cuando se edita un mantenimiento -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Tipo Mantenimiento (Actual)</label>
+            <div class="col-5">
+                <input class="form-control" type="text" id="textNombre_tipo_mantenimiento" id="tamaño-fuente-input"
+                    value={{arrayMaintenance.nombre_tipo_mantenimiento}} disabled>
+            </div>
+        </div>
         <!-- Campo para los tipos de mantenimiento -->
         <div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">Tipo mantenimiento</label>
                 <div class="col-5">
-                    <select formControlName="id_parte" class="form-control" type="number" id="textId_tipo_mantenimiento"
-                        id="tamaño-fuente-input">
+                    <select formControlName="id_tipo_mantenimiento" class="form-control" type="number"
+                        id="textId_tipo_mantenimiento" id="tamaño-fuente-input">
                         <option *ngFor="let tipoMantenimiento of typeMaintenance"
                             value="{{tipoMantenimiento.id_tipo_mantenimiento}}">
                             {{tipoMantenimiento.nombre_tipo_mantenimiento}}
@@ -108,7 +125,7 @@
                 </div>
             </div>
         </div>
-        <!-- Campo para la fecha inical del mantenimiento -->
+        <!--  Campo para la fecha inical del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Inicial</label>
             <div class="col-5">
@@ -161,12 +178,12 @@
                 <div *ngIf="formMaintenance.controls['novedad_mantenimiento'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
+                </div>
             </div>
         </div>
         <br>
-        <div style="margin-top: 20px;">
-            <em> * Todos los campos son obligatorios </em>
-        </div>
         <!-- Boton de guardar -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
