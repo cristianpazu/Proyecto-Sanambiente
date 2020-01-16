@@ -44,6 +44,9 @@ import { GmtListComponent } from './Components/Body/Gmt_List/Gmt_List.component'
 import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
 import { MaintenancesListComponent } from './Components/Body/Maintenances_List/Maintenances_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para Variable */
+import { VariablesBodyComponent } from './Components/Body/Variables_Body/Variables_Body.component';
+import { VariablesListComponent } from './Components/Body/Variables_List/Variables_List.component';
 
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
@@ -111,6 +114,13 @@ const rutas: Routes = [
   { path: 'maintenance', component: MaintenancesListComponent }, // Ruta para listar todos los registros  
   { path: 'maintenance/add_maintenance', component: MaintenancesBodyComponent },  // Ruta para adicionar registros  
   { path: 'maintenance/edit_maintenance/:id_mantenimiento', component: MaintenancesBodyComponent }, // Ruta para editar registros
+
+  /*--- Rutas de region ---*/
+  { path: 'variable', redirectTo: '/variable', pathMatch: 'full' },
+  { path: 'variable', component: VariablesListComponent }, // Ruta para listar todos los registros  
+  { path: 'variable/add_variable', component: VariablesBodyComponent },  // Ruta para adicionar registros  
+  { path: 'variable/edit_variable/:id_variable', component: VariablesBodyComponent }, // Ruta para editar registros 
+
 
 ];
 

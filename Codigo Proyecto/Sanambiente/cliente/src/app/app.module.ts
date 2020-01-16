@@ -62,6 +62,11 @@ import { MaintenancesListComponent } from './Components/Body/Maintenances_List/M
 import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
 import { MaintenancesService } from './Services/Maintenances_Service/Maintenances_Service';
 
+/* Importo los componentes y servicios creados para los mantenimientos */
+import { VariablesBodyComponent } from './Components/Body/Variables_Body/Variables_Body.component';
+import { VariablesListComponent } from './Components/Body/Variables_List/Variables_List.component';
+import { VariablesService } from './Services/Variables_Service/Variables_Service';
+
 @NgModule({
   declarations: [
     // Declaro los componentes o propiedades importadas desde cada clase
@@ -88,7 +93,9 @@ import { MaintenancesService } from './Services/Maintenances_Service/Maintenance
     GmtListComponent,
     GmtBodyComponent,
     MaintenancesListComponent,
-    MaintenancesBodyComponent
+    MaintenancesBodyComponent,
+    VariablesBodyComponent,
+    VariablesListComponent
 
   ],
   imports: [
@@ -111,7 +118,8 @@ import { MaintenancesService } from './Services/Maintenances_Service/Maintenance
     TimesService,
     GmtService,
     StationsService,
-    MaintenancesService    
+    MaintenancesService,
+    VariablesService,        
   ],
   bootstrap: [AppComponent]
 })
