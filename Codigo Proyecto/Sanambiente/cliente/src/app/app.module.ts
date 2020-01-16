@@ -62,10 +62,25 @@ import { MaintenancesListComponent } from './Components/Body/Maintenances_List/M
 import { MaintenancesBodyComponent } from './Components/Body/Maintenances_Body/Maintenances_Body.component';
 import { MaintenancesService } from './Services/Maintenances_Service/Maintenances_Service';
 
-/* Importo los componentes y servicios creados para los mantenimientos */
-import { VariablesBodyComponent } from './Components/Body/Variables_Body/Variables_Body.component';
-import { VariablesListComponent } from './Components/Body/Variables_List/Variables_List.component';
-import { VariablesService } from './Services/Variables_Service/Variables_Service';
+/* Importo los componentes y servicios creados para los tipos de mantenimientos */
+import { MaintenanceTypeListComponent } from './Components/Body/Maintenance_Type_List/maintenance_type_list.component';
+import { MaintenanceTypeBodyComponent } from './Components/Body/Maintenance_Type_Body/maintenance_type_body.component';
+import { MaintenancesTypeService } from './Services/Maintenances_Type_Service/Maintenances_Type_Service';
+
+/* Importo los componentes y servicios creados para la conexion */
+import { ConnectStationsListComponent } from './Components/Body/Connect_Station_List/Connect_Stations_List.component';
+import { ConnectStationBodyComponent } from './Components/Body/Connect_Station_Body/Connect_Station_Body.component';
+
+/* Importo los componentes y servicios creados para las periodicidades de los mantenimientos */
+import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List/Periodicities_List.component';
+import { PeriodicitiesBodyComponent } from './Components/Body/Periodicities_Body/Periodicities_Body.component';
+import { PeriodicitiesService } from './Services/Periodicities_Service/Periodicities_Service';
+
+/* Importo los componentes y servicios creados para las partes */
+import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.component';
+import { PartsBodyComponent } from './Components/Body/Parts_Body/Parts_Body.component';
+import { PartsService } from './Services/Parts_Service/Parts_Service';
+
 
 @NgModule({
   declarations: [
@@ -94,9 +109,14 @@ import { VariablesService } from './Services/Variables_Service/Variables_Service
     GmtBodyComponent,
     MaintenancesListComponent,
     MaintenancesBodyComponent,
-    VariablesBodyComponent,
-    VariablesListComponent
-
+    MaintenanceTypeListComponent,
+    MaintenanceTypeBodyComponent,
+    ConnectStationsListComponent,
+    ConnectStationBodyComponent,
+    PeriodicitiesBodyComponent,
+    PeriodicitiesListComponent,
+    PartsListComponent,
+    PartsBodyComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -109,7 +129,7 @@ import { VariablesService } from './Services/Variables_Service/Variables_Service
   ],
   providers: [
     BaseService,
-    RegionsService, 
+    RegionsService,
     CitiesService,
     OrganizationsService,
     CategoriesService,
@@ -119,7 +139,10 @@ import { VariablesService } from './Services/Variables_Service/Variables_Service
     GmtService,
     StationsService,
     MaintenancesService,
-    VariablesService,        
+    MaintenancesTypeService,
+    PeriodicitiesService,
+    PartsService
+
   ],
   bootstrap: [AppComponent]
 })

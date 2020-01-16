@@ -23,5 +23,5 @@ class AlertsRoute {
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const alertRoutes = new AlertsRoute();
-exports.default = alertRoutes.router;
+const alertsRoutes = new AlertsRoute();
+exports.default = alertsRoutes.router;

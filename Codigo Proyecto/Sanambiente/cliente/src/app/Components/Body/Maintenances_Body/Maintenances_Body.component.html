@@ -1,4 +1,4 @@
-<!-- Clase que contiene el HTML de la vista de Mantenimiento (Empleada para crear y actulizar un Mantenimiento) -->
+<!-- Clase que contiene el HTML de la vista de Mantenimiento (Empleada para crear y actualizar un Mantenimiento) -->
 
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
     <h1>Mantenimiento</h1>
@@ -9,11 +9,11 @@
             <label class="col-2 col-form-label">ID Mantenimiento</label>
             <div class="col-4">
                 <input class="form-control" type="number" id="textId_Mantenimiento" id="tamaño-fuente-input"
-                    value={{arrayMaintenance.id_mantenimiento}} disabled>
+                    value={{arrayMaintenance.id_tipo_mantenimiento}} disabled>
             </div>
         </div>
 
-        <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un rango -->
+        <!-- Campo de tipo input, que muestra el nombre de la estacion, solo cuando se edita un mantenimiento -->
         <div class="form-group row" [hidden]="hide==false">
             <label class="col-2 col-form-label">Estacion (Actual)</label>
             <div class="col-5">
@@ -44,6 +44,65 @@
             </div>
         </div>
 
+        <!-- Campo de tipo input, que muestra el nombre de las partes de la estacion, solo cuando se edita un mantenimiento -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Partes (Actual)</label>
+            <div class="col-5">
+                <input class="form-control" type="text" id="textNombre_parte" id="tamaño-fuente-input"
+                    value={{arrayMaintenance.nombre_parte}} disabled>
+            </div>
+        </div>
+
+        <!-- Campo para las partes de la estacion -->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Partes estación</label>
+                <div class="col-5">
+                    <select formControlName="id_parte" class="form-control" type="number" id="textId_parte"
+                        id="tamaño-fuente-input">
+                        <option *ngFor="let parteEstacion of partStation" value="{{parteEstacion.id_parte}}">
+                            {{parteEstacion.nombre_parte}}
+                        </option>
+                    </select>
+
+                    <!-- Validacion para el campo partes de la estacion -->
+                    <div *ngIf="formMaintenance.controls['id_parte'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo de tipo input, que muestra el nombre del tipo de mantenimiento, solo cuando se edita un mantenimiento -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Tipo Mantenimiento (Actual)</label>
+            <div class="col-5">
+                <input class="form-control" type="text" id="textNombre_tipo_mantenimiento" id="tamaño-fuente-input"
+                    value={{arrayMaintenance.nombre_tipo_mantenimiento}} disabled>
+            </div>
+        </div>
+        <!-- Campo para los tipos de mantenimiento -->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Tipo mantenimiento</label>
+                <div class="col-5">
+                    <select formControlName="id_tipo_mantenimiento" class="form-control" type="number"
+                        id="textId_tipo_mantenimiento" id="tamaño-fuente-input">
+                        <option *ngFor="let tipoMantenimiento of typeMaintenance"
+                            value="{{tipoMantenimiento.id_tipo_mantenimiento}}">
+                            {{tipoMantenimiento.nombre_tipo_mantenimiento}}
+                        </option>
+                    </select>
+                    <!-- Validacion para los tipos de mantenimiento -->
+                    <div *ngIf="formMaintenance.controls['id_tipo_mantenimiento'].errors?.required"
+                        class="form-control-feedback" id="tamaño-fuente-alerta">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <!-- Campo para nombre del Funcionario -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre Funcionario</label>
@@ -59,10 +118,49 @@
 
                 <!-- Mensaje de restricción para el campo nombre del rango-->
                 <div *ngIf="formMaintenance.controls['nombre_funcionario'].errors?.maxlength"
-                 class="form-control-feedback">
+                    class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe máximo 50 carácteres.
                     </div>
+                </div>
+            </div>
+        </div>
+        <!--  Campo para la fecha inical del mantenimiento -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Fecha Inicial</label>
+            <div class="col-5">
+                <input class="form-control" formControlName="fecha_inicial" type="date" id="textFecha_inicial"
+                    [(ngModel)]="arrayMaintenance.fecha_inicial" id="tamaño-fuente-input" maxlength="50">
+
+                <!-- Validacion para el campo fecha inical del mantenimiento -->
+                <div *ngIf="formMaintenance.controls['fecha_inicial'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                </div>
+            </div>
+        </div>
+        <!-- Campo para la fecha final del mantenimiento -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Fecha Final</label>
+            <div class="col-5">
+                <input class="form-control" formControlName="fecha_final" type="date" id="textFecha_final"
+                    [(ngModel)]="arrayMaintenance.fecha_final" id="tamaño-fuente-input" maxlength="50">
+                <!-- Validacion para el campo fecha final del mantenimiento -->
+                <div *ngIf="formMaintenance.controls['fecha_final'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                </div>
+            </div>
+        </div>
+        <!-- Campo para Observacion de validación -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Observación validación</label>
+            <div class="col-5">
+                <textarea ng-thim="false" class="form-control" formControlName="observacion_validacion" rows="4"
+                    [(ngModel)]="arrayMaintenance.observacion_validacion" id="tamaño-fuente-input" maxlength="50">
+        </textarea>
+                <span>{{50-arrayMaintenance.observacion_validacion.length}} Caracteres restantes</span>
+                <!-- Validacion para el campo Observacion de validación -->
+                <div *ngIf="formMaintenance.controls['observacion_validacion'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
             </div>
         </div>
@@ -80,13 +178,12 @@
                 <div *ngIf="formMaintenance.controls['novedad_mantenimiento'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
+                </div>
             </div>
         </div>
         <br>
-        <div style="margin-top: 20px;">
-            <em> * Todos los campos son obligatorios </em>
-        </div>
-
         <!-- Boton de guardar -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
@@ -97,6 +194,5 @@
                 </button>
             </div>
         </div>
-
     </form>
 </div>

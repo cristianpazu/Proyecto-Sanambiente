@@ -21,8 +21,8 @@ class MaintenanceService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { id_estacion, nombre_funcionario, novedad_mantenimiento } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createMaintenance'], [id_estacion, nombre_funcionario, novedad_mantenimiento]);
+                let { id_estacion, id_parte, id_tipo_mantenimiento, fecha_inicial, fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, fecha_inicial, fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Maintenance'));
             }
             catch (error) {
@@ -35,8 +35,8 @@ class MaintenanceService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_mantenimiento } = request.params;
-                let { id_estacion, nombre_funcionario, novedad_mantenimiento } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateMaintenance'], [id_estacion, nombre_funcionario, novedad_mantenimiento, id_mantenimiento]);
+                let { id_estacion, id_parte, id_tipo_mantenimiento, fecha_inicial, fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, fecha_inicial, fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento, id_mantenimiento]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Maintenance'));
             }
             catch (error) {

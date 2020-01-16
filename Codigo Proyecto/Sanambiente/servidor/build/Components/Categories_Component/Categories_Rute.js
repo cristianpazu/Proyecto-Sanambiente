@@ -23,5 +23,5 @@ class CategoriesRoute {
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const categoryRoute = new CategoriesRoute();
-exports.default = categoryRoute.router;
+const categoriesRoutes = new CategoriesRoute();
+exports.default = categoriesRoutes.router;

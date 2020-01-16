@@ -12,7 +12,7 @@ class RegionRoute {
         this.router = express_1.Router();
         this.configuracion();
     }
-    /* Se establecen los metodos de la clase Region_Service, que seran utilizados cuando se llame a cada una de
+    /* Se establecen los metodos de la clase Region_Route, que seran utilizados cuando se llame a cada una de
     las rutas de regiones*/
     configuracion() {
         this.router.post('/createRegion', Regions_Service_1.default.create);
@@ -24,5 +24,5 @@ class RegionRoute {
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const regionRoutes = new RegionRoute();
-exports.default = regionRoutes.router;
+const regionsRoutes = new RegionRoute();
+exports.default = regionsRoutes.router;

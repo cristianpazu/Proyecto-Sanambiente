@@ -23,12 +23,20 @@ export class MaintenancesService{
     return this.baseService.view(`${environment.viewStationsMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
+  viewPartsStations() {
+    return this.baseService.view(`${environment.viewPartsStations}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
+  viewTypesMaintenance() {
+    return this.baseService.view(`${environment.viewTypesMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
   viewMaintenances() {
     return this.baseService.view(`${environment.viewMaintenances}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  viewMaintenanceById(id_rango: number) {
-    return this.baseService.view(`${environment.viewMaintenanceById}/${id_rango}`);
+  viewMaintenanceById(id_mantenimiento: number) {
+    return this.baseService.view(`${environment.viewMaintenanceById}/${id_mantenimiento}`);
   }
 
   updateMaintenance(body: Maintenance, id_mantenimiento: number) {

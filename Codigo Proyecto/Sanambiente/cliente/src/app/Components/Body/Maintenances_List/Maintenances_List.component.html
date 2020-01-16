@@ -17,9 +17,14 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Estación</th>
+                <th scope="col">Partes</th>
+                <th scope="col">Tipo Mantenimiento</th>
                 <th scope="col">Nombre Funcionario</th>
+                <th scope="col">Fecha  Inicial</th>
+                <th scope="col">Fecha Final</th>
+                <th scope="col">Observacion Validación</th>
                 <th scope="col">Novedad</th>
-                <!-- <th></th> -->
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -27,14 +32,19 @@
             <tr *ngFor="let mantenimiento of arrayMaintenances | filter:searchText">
                 <td> {{mantenimiento.id_mantenimiento}} </td>
                 <td> {{mantenimiento.nombre_estacion}} </td>
+                <td> {{mantenimiento.nombre_parte}} </td>
+                <td> {{mantenimiento.nombre_tipo_mantenimiento}} </td>
                 <td> {{mantenimiento.nombre_funcionario}} </td>
+                <td> {{mantenimiento.fecha_inicial | date:"dd/MM/yyyy"}} </td>
+                <td> {{mantenimiento.fecha_final | date:"dd/MM/yyyy"}} </td>
+                <td> {{mantenimiento.observacion_validacion}} </td>
                 <td> {{mantenimiento.novedad_mantenimiento}} </td>
-                <!-- <td>
-                    Boton para actualizar la informacion de una mantenimiento -->
-                    <!-- <a [routerLink]="['/maintenance/edit_maintenance',mantenimiento.id_mantenimiento]" class="btn btn-outline-primary btn-lg">
+                <td>
+                    <!-- Boton para actualizar la informacion de una mantenimiento -->
+                    <a [routerLink]="['/maintenance/edit_maintenance',mantenimiento.id_mantenimiento]" class="btn btn-outline-primary btn-lg">
                         Editar
                     </a>
-                </td> -->
+                </td>
             </tr>
         </tbody>
     </table>

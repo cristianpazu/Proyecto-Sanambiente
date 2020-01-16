@@ -86,12 +86,14 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a href=""> Listar estaciones </a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a
+                                            [routerLink]="['connect']"> Listar estaciones </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a href=""> Plantillas </a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a href=""> Plantillas
+                                        </a>
                                     </td>
                                 </tr>
                             </table>
@@ -111,22 +113,26 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Mantenimientos</a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a
+                                            [routerLink]="['/maintenance']"> Mantenimientos</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Tipo de mantenimiento</a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a
+                                            [routerLink]="['/maintenance_type']"> Tipo de mantenimiento</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Periodicidad </a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a
+                                            [routerLink]="['/part']"> Partes</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-chevron-right"></span><a [routerLink]="['/maintenance/add_maintenance']"> Partes</a>
+                                        <span class="glyphicon glyphicon-chevron-right"></span><a
+                                            [routerLink]="['/periodicity']"> Periodicidad </a>
                                     </td>
                                 </tr>
                             </table>

@@ -23,5 +23,5 @@ class TimesRoute {
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const timeRoutes = new TimesRoute();
-exports.default = timeRoutes.router;
+const timesRoutes = new TimesRoute();
+exports.default = timesRoutes.router;

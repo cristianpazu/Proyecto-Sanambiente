@@ -24,5 +24,5 @@ class OrganizationRoute {
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const organizationRoutes = new OrganizationRoute(); 
-export default organizationRoutes.router; 
+const organizationsRoutes = new OrganizationRoute(); 
+export default organizationsRoutes.router; 

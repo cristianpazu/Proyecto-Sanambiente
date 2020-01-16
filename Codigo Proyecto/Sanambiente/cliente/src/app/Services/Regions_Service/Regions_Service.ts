@@ -1,7 +1,7 @@
 /* Clase que contiene los servicios del lado del cliente para la tabla region */
 
 import { Injectable } from '@angular/core';
-import { Region } from '../../Models/Regions_Model/Region'; // Se importa el modelo City para region
+import { Region } from '../../Models/Regions_Model/Region'; // Se importa el modelo Region para region
 import BaseService from '../Base_Service/Base_Service'; // Se importan las propiedades de la clase Base_Service
 import { environment } from 'src/environments/environment'; // Se importan las constantes de la clase environment
 

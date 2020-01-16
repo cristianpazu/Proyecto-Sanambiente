@@ -25,5 +25,5 @@
  }
  
  // Se crea y exporta una constante que contiene las rutas de esta clase.
- const timeRoutes = new TimesRoute(); 
- export default timeRoutes.router; 
+ const timesRoutes = new TimesRoute(); 
+ export default timesRoutes.router; 

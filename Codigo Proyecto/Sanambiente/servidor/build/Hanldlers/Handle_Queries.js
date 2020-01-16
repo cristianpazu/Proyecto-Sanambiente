@@ -57,9 +57,26 @@ exports.handlerQuery = {
     viewGmt: 'SELECT * FROM gmt where id_gmt=$1',
     updateGmt: 'UPDATE gmt set nombre_gmt=$1, observacion_gmt=$2 where id_gmt=$3',
     // mantenimiento
-    createMaintenance: 'INSERT INTO mantenimientos (id_estacion, nombre_funcionario, novedad_mantenimiento) VALUES ($1,$2,$3)',
-    viewMaintenances: 'SELECT id_mantenimiento, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion order by id_mantenimiento',
-    viewMaintenance: 'SELECT id_mantenimiento, estaciones.id_estacion, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion FROM estaciones, mantenimientos where estaciones.id_estacion=mantenimientos.id_estacion and id_mantenimiento=$1',
-    updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, nombre_funcionario=$2, novedad_mantenimiento=$3 where id_mantenimiento=$4',
-    viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion'
+    createMaintenance: 'INSERT INTO mantenimientos (id_estacion, id_parte, id_tipo_mantenimiento, fecha_inicial, fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+    viewMaintenances: 'SELECT id_mantenimiento, mantenimientos.id_estacion, mantenimientos.id_parte, mantenimientos.id_tipo_mantenimiento, fecha_inicial, mantenimientos.fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento, estaciones.nombre_estacion, partes.nombre_parte, tipos_mantenimiento.nombre_tipo_mantenimiento FROM estaciones, partes, tipos_mantenimiento, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion AND partes.id_parte = mantenimientos.id_parte AND tipos_mantenimiento.id_tipo_mantenimiento = mantenimientos.id_tipo_mantenimiento order by id_mantenimiento',
+    viewMaintenance: 'SELECT id_mantenimiento, mantenimientos.id_estacion, mantenimientos.id_parte, mantenimientos.id_tipo_mantenimiento, fecha_inicial, mantenimientos.fecha_final, nombre_funcionario, observacion_validacion, novedad_mantenimiento, estaciones.nombre_estacion, partes.nombre_parte, tipos_mantenimiento.nombre_tipo_mantenimiento FROM estaciones, partes, tipos_mantenimiento, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion AND partes.id_parte = mantenimientos.id_parte AND tipos_mantenimiento.id_tipo_mantenimiento = mantenimientos.id_tipo_mantenimiento and id_mantenimiento=$1',
+    updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, id_parte=$2, id_tipo_mantenimiento=$3, fecha_inicial=$4, fecha_final=$5, nombre_funcionario=$6, observacion_validacion=$7, novedad_mantenimiento=$8 where id_mantenimiento=$9',
+    viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
+    viewPartsStations: 'SELECT id_parte, nombre_parte FROM partes order by id_parte',
+    viewTypesMaintenance: 'SELECT id_tipo_mantenimiento, nombre_tipo_mantenimiento FROM tipos_mantenimiento order by id_tipo_mantenimiento',
+    // tipo mantenimiento
+    createMaintenanceType: 'INSERT INTO tipos_mantenimiento (nombre_tipo_mantenimiento, observacion_tipo_mantenimiento) VALUES ($1,$2)',
+    viewMaintenancesType: 'SELECT * FROM tipos_mantenimiento order by id_tipo_mantenimiento',
+    viewMaintenanceType: 'SELECT * FROM tipos_mantenimiento where id_tipo_mantenimiento=$1',
+    updateMaintenanceType: 'UPDATE tipos_mantenimiento set nombre_tipo_mantenimiento=$1,observacion_tipo_mantenimiento=$2 where id_tipo_mantenimiento=$3',
+    // periodicidad
+    createPeriodicity: 'INSERT INTO periodicidades (tipo_periodicidad, observacion_periodicidad) VALUES ($1,$2)',
+    viewPeriodicities: 'SELECT * FROM periodicidades order by id_periodicidad',
+    viewPeriodicity: 'SELECT * FROM periodicidades where id_periodicidad=$1',
+    updatePeriodicity: 'UPDATE periodicidades set tipo_periodicidad=$1,observacion_periodicidad=$2 where id_periodicidad=$3',
+    // partes
+    createPart: 'INSERT INTO partes (nombre_parte, codigo_catalogo, observacion_parte) VALUES ($1,$2,$3)',
+    viewParts: 'SELECT * FROM partes order by id_parte',
+    viewPart: 'SELECT * FROM partes where id_parte=$1',
+    updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_periodicidad=$4',
 };

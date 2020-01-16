@@ -1,28 +1,28 @@
 /* Esta clase contiene las constantes que albergan las rutas del lado del servidor, para cada metodo de las vistas*/
 
 export const environment = {
-  // ciudad
+  // Ciudad
   hostCreateCity: "http://localhost:3000/api/city/createCity",
   hostUpdateCity: "http://localhost:3000/api/city/updateCities",
   viewCities: "http://localhost:3000/api/city/viewCities",
   viewCityById: "http://localhost:3000/api/city/viewCityById",
   viewRegionsCity: "http://localhost:3000/api/region/viewRegionsCity",
-  // region
+  // Region
   hostCreateRegion: "http://localhost:3000/api/region/createRegion",
   hostUpdateRegion: "http://localhost:3000/api/region/updateRegions",
   viewRegions: "http://localhost:3000/api/region/viewRegions",
   hostviewRegionById: "http://localhost:3000/api/region/viewRegionById",
-  // organizacion
+  // Organizacion
   hostCreateOrganization: "http://localhost:3000/api/organization/createOrganization",
   hostUpdateOrganization: "http://localhost:3000/api/organization/updateOrganizations",
   viewOrganizations: "http://localhost:3000/api/organization/viewOrganizations",
   hostviewOrganizationById: "http://localhost:3000/api/organization/viewOrganizationById",
-  // categorias
+  // Categoria
   hostCreateCategory: "http://localhost:3000/api/category/createCategory",
   hostUpdateCategory: "http://localhost:3000/api/category/updateCategories",
   viewCategories: "http://localhost:3000/api/category/viewCategories",
   hostviewCategoryById: "http://localhost:3000/api/category/viewCategoryById",
-  // Alertas
+  // Alerta
   hostCreateAlert: "http://localhost:3000/api/alert/createAlert",
   hostUpdateAlert: "http://localhost:3000/api/alert/updateAlerts",
   viewAlerts: "http://localhost:3000/api/alert/viewAlerts",
@@ -33,7 +33,7 @@ export const environment = {
   viewTimes: "http://localhost:3000/api/time/viewTimes",
   hostviewTimeById: "http://localhost:3000/api/time/viewTimeById",
   viewAlertsTime: "http://localhost:3000/api/alert/viewAlertsTime",
-  // Estaciones
+  // Estacion
   hostCreateStation: "http://localhost:3000/api/station/createStation",
   hostUpdateStation: "http://localhost:3000/api/station/updateStations",
   viewStations: "http://localhost:3000/api/station/viewStations",
@@ -43,23 +43,40 @@ export const environment = {
   viewRegionStation: "http://localhost:3000/api/region/viewRegionsStation",
   viewCityStation: "http://localhost:3000/api/city/viewCitiesStation",
   viewGmtStation: "http://localhost:3000/api/gmt/viewGmtStation",
-  // rango
+  // Rango
   hostCreateRank: "http://localhost:3000/api/rank/createRank",
   hostUpdateRank: "http://localhost:3000/api/rank/updateRanks",
   viewRanks: "http://localhost:3000/api/rank/viewRanks",
   viewRankById: "http://localhost:3000/api/rank/viewRankById",
   viewStationsRank: "http://localhost:3000/api/station/viewStationsRank",
-  // gmt
+  // Gmt
   hostCreateGmt: "http://localhost:3000/api/gmt/createGmt",
   hostUpdateGmt: "http://localhost:3000/api/gmt/updateGmt",
   viewGmt: "http://localhost:3000/api/gmt/viewGmt",
   viewGmtById: "http://localhost:3000/api/gmt/viewGmtById",
-  // mantenimiento
+  // Mantenimiento
   hostCreateMaintenance: "http://localhost:3000/api/maintenance/createMaintenance",
   hostUpdateMaintenance: "http://localhost:3000/api/maintenance/updateMaintenances",
   viewMaintenances: "http://localhost:3000/api/maintenance/viewMaintenances",
   viewMaintenanceById: "http://localhost:3000/api/maintenance/viewMaintenanceById",
   viewStationsMaintenance: "http://localhost:3000/api/station/viewStationsMaintenance",
+  viewPartsStations: "http://localhost:3000/api/part/viewPartsStations",
+  viewTypesMaintenance: "http://localhost:3000/api/maintenance_type/viewTypesMaintenance",
+  // Tipo mantenimiento
+  hostCreateMaintenanceType: "http://localhost:3000/api/maintenance_type/createMaintenanceType",
+  hostUpdateMaintenanceType: "http://localhost:3000/api/maintenance_type/updateMaintenancesType",
+  viewMaintenancesType: "http://localhost:3000/api/maintenance_type/viewMaintenancesType",
+  viewMaintenanceTypeById: "http://localhost:3000/api/maintenance_type/viewMaintenanceTypeById",
+  // Periodicidad
+  hostCreatePeriodicity: "http://localhost:3000/api/periodicity/createPeriodicity",
+  hostUpdatePeriodicity: "http://localhost:3000/api/periodicity/updatePeriodicity",
+  viewPeriodicities: "http://localhost:3000/api/periodicity/viewPeriodicities",
+  viewPeriodicityById: "http://localhost:3000/api/periodicity/viewPeriodicityById",
+  // Parte
+  hostCreatePart: "http://localhost:3000/api/part/createPart",
+  hostUpdatePart: "http://localhost:3000/api/part/updatePart",
+  viewParts: "http://localhost:3000/api/part/viewParts",
+  viewPartById: "http://localhost:3000/api/part/viewPartById",
 
   production: false
 };

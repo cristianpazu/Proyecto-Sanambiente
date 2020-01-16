@@ -62,7 +62,6 @@ export class TimesBodyComponent implements OnInit {
         this.arrayTimes = element.message[0];
         this.edit = true;
         this.hide= true;
-        console.log(this.arrayTimes);
       });
     }
   }
