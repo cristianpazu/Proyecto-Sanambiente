@@ -17,8 +17,13 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Servidor SMTP</th>
+                <th scope="col">Puerto SMTP</th>
+                <th scope="col">Seguridad</th>
+                <th scope="col">Para</th>
+                <th scope="col">De</th>
                 <th scope="col">Observación</th>
-                <th scope="col">Tipo Alerta</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -27,8 +32,13 @@
             <tr *ngFor="let alert of arrayAlerts | filter:searchText">
                 <td> {{alert.id_alerta}} </td>
                 <td> {{alert.nombre_alerta}} </td>
+                <td> {{alert.email_alerta}} </td>
+                <td> {{alert.servidorsmtp_alerta}} </td>
+                <td> {{alert.puertosmtp_alerta}} </td>
+                <td> {{alert.seguridad_alerta}} </td>
+                <td> {{alert.emailpara_alerta}} </td>
+                <td> {{alert.emailde_alerta}} </td>
                 <td> {{alert.observacion_alerta}} </td>
-                <td> {{alert.tipo_alerta}} </td>
                 <td>
                     <!-- Boton para actualizar la informacion de una Alerta -->
                     <a [routerLink]="['/alert/edit_alert',alert.id_alerta]" class="btn btn-outline-primary btn-lg">

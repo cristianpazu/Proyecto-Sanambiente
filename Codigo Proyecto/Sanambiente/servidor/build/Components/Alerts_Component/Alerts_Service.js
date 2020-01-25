@@ -23,8 +23,8 @@ class AlertService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_alerta, observacion_alerta, tipo_alerta } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createAlert'], [nombre_alerta, observacion_alerta, tipo_alerta]);
+                let { nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createAlert'], [nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create alert'));
             }
             catch (error) {
@@ -37,8 +37,8 @@ class AlertService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_alerta } = request.params;
-                let { nombre_alerta, observacion_alerta, tipo_alerta } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateAlert'], [nombre_alerta, observacion_alerta, tipo_alerta, id_alerta]);
+                let { nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateAlert'], [nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta, id_alerta]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update alert'));
             }
             catch (error) {

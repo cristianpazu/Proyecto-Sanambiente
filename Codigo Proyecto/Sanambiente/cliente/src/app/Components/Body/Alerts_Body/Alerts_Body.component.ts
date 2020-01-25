@@ -25,12 +25,20 @@ export class AlertsBodyComponent implements OnInit {
 
     this.formAlert = new FormGroup({
       'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'tipo_alerta': new FormControl('', [Validators.required]),
+      'email_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
+      'contrasena_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'servidorsmtp_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'puertosmtp_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'seguridad_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'autenticacion_alerta': new FormControl(''['']),
+      'emailpara_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
+      'emailde_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
+      'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)])
+      
     });
     this.arrayAlerts = {
-       observacion_alerta: '', //Se usa para definir el campo observacion_alerta y poder mostrar el conteo de caracteres restantes
-
+      observacion_alerta: '', //Se usa para definir el campo observacion_alerta y poder mostrar el conteo de caracteres restantes
+     
     };
   }
 
@@ -64,9 +72,17 @@ export class AlertsBodyComponent implements OnInit {
   async updateAlert() {
     let id = this.activedRoute.snapshot.params.id_alerta;
     this.formAlert.patchValue({
-      nombre_alert: this.arrayAlerts.nombre_alerta,
-      observacion_alerta: this.arrayAlerts.observacion_alerta,
-      tipo_alerta: this.arrayAlerts.tipo_alerta
+      nombre_alerta: this.arrayAlerts.nombre_alerta,
+      email_alerta: this.arrayAlerts.email_alerta,
+      contrasena_alerta: this.arrayAlerts.contrasena_alerta,
+      servidorsmtp_alerta: this.arrayAlerts.servidorsmtp_alerta,
+      puertosmtp_alerta: this.arrayAlerts.puertosmtp_alerta,
+      seguridad_alerta: this.arrayAlerts.seguridad_alerta,
+      autenticacion_alerta: this.arrayAlerts.autenticacion_alerta,
+      emailpara_alerta: this.arrayAlerts.emailpara_alerta,
+      emailde_alerta: this.arrayAlerts.emailde_alerta,
+      observacion_alerta: this.arrayAlerts.observacion_alerta
+      
     })
     this.alertsService.updateAlert(this.formAlert.value, id)
     alert('Alerta actualizada correctamente');
