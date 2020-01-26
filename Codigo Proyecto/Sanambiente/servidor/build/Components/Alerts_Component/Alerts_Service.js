@@ -46,18 +46,6 @@ class AlertService {
             }
         });
     }
-    // metodo para ver solo el nombre de las alertas en una lista desplegable. Lo utiliza la vista de base de tiempo
-    viewNameAlertsTime(request, response) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                let regions = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewAlertsTime']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, regions.rows));
-            }
-            catch (error) {
-                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
-            }
-        });
-    }
     // metodo para ver todas las Alertas con todos sus campos los cuales se listan en la tabla de Alerta
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {

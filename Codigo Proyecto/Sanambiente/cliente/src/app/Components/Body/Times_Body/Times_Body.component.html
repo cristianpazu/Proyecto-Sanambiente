@@ -34,16 +34,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Campo de tipo input, que muestra el nombre de la alerta, solo cuando se edita un tiempo -->
-        <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">Alerta base tiempo (Actual)</label>
-            <div class="col-5">
-                <input class="form-control" type="text" id="textNombre_alerta" id="tamaño-fuente-input"
-                    value={{arrayTimes.nombre_alerta}} disabled>
-            </div>
-        </div>
-
+        
         <!-- Campo para Escala de Tiempo Actual-->
         <div>
             <div class="form-group row">
@@ -96,8 +87,8 @@
 
             </div>
         </div>
-
-        <!-- Campo para Alerta de Tiempo -->
+<!--
+         Campo para Alerta de Tiempo 
         <div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">Alerta base tiempo</label>
@@ -110,7 +101,7 @@
                         </option>
                     </select>
 
-                    <!-- Validacion para el campo observacion de la Base de Tiempo -->
+                     Validacion para el campo observacion de la Base de Tiempo 
                     <div *ngIf="formTime.controls['id_alerta'].errors?.required" class="form-control-feedback"
                         id="tamaño-fuente-alerta">
                     </div>
@@ -121,7 +112,7 @@
                 </div>
             </div>
         </div>
-
+    -->
         <!-- Boton de guardar de la Base de Tiempo -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

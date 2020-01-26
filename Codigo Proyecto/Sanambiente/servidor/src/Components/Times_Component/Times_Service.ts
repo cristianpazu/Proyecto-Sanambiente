@@ -13,8 +13,8 @@
     //metodo para crear una base de tiempo
      async create(request: Request, response: Response): Promise<any> {
          try {
-             let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
-             await ConnectionDataBase.query(handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta]);
+             let { nombre_tiempo, escala_tiempo, observacion_tiempo } = request.body;
+             await ConnectionDataBase.query(handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo]);
              return Promise.resolve(handleMessage(response, 200, 'Create Time'));
          } catch (error) {
              Promise.reject(handleMessage(response, 404, 'Error'));
@@ -25,8 +25,8 @@
      async update(request: Request, response: Response): Promise<any> {
          try {
              const { id_tiempo } = request.params;
-             let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
-             await ConnectionDataBase.query(handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta, id_tiempo]);
+             let { nombre_tiempo, escala_tiempo, observacion_tiempo } = request.body;
+             await ConnectionDataBase.query(handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_tiempo]);
              return Promise.resolve(handleMessage(response, 200, 'Update Time'))
  
          } catch (error) {

@@ -23,8 +23,8 @@ class TimeService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta]);
+                let { nombre_tiempo, escala_tiempo, observacion_tiempo } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Time'));
             }
             catch (error) {
@@ -37,8 +37,8 @@ class TimeService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_tiempo } = request.params;
-                let { nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta, id_tiempo]);
+                let { nombre_tiempo, escala_tiempo, observacion_tiempo } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateTime'], [nombre_tiempo, escala_tiempo, observacion_tiempo, id_tiempo]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Time'));
             }
             catch (error) {

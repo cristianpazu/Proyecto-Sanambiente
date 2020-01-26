@@ -20,7 +20,6 @@
         this.router.get('/viewAlertById/:id_alerta', alertService.viewById);
         this.router.put('/updateAlerts/:id_alerta', alertService.update);
         this.router.get('/viewAlerts', alertService.view);
-        this.router.get('/viewAlertsTime', alertService.viewNameAlertsTime)
      }
  }
  

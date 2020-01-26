@@ -20,7 +20,6 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Escala Tiempo</th>
                     <th scope="col">Observación</th>
-                    <th scope="col">Tipo Alerta</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -31,7 +30,6 @@
                     <td> {{tiempo.nombre_tiempo}} </td>
                     <td> {{tiempo.escala_tiempo}} </td>
                     <td> {{tiempo.observacion_tiempo}} </td>
-                    <td> {{tiempo.nombre_alerta}} </td>
                     <td>
                         <!-- Boton para actualizar la informacion de una Base de Tiempo -->
                         <a [routerLink]="['/time/edit_time',tiempo.id_tiempo]" class="btn btn-outline-primary btn-lg">

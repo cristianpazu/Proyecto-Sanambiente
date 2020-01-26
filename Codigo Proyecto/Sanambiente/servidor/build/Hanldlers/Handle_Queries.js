@@ -36,11 +36,10 @@ exports.handlerQuery = {
     viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',
     updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2, email_organizacion=$3, telefono_organizacion=$4 where id_organizacion=$5',
     // base de tiempo
-    createTime: 'INSERT INTO tiempos (nombre_tiempo, escala_tiempo, observacion_tiempo, id_alerta) VALUES ($1,$2,$3,$4)',
-    viewTimes: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo,alertas.id_alerta, nombre_alerta FROM alertas, tiempos where alertas.id_alerta=tiempos.id_alerta  order by id_tiempo',
-    viewTime: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo, alertas.id_alerta, alertas.nombre_alerta FROM alertas, tiempos where alertas.id_alerta=tiempos.id_alerta and id_tiempo=$1',
-    updateTime: 'UPDATE tiempos set nombre_tiempo=$1, escala_tiempo=$2, observacion_tiempo=$3, id_alerta=$4 where id_tiempo=$5',
-    viewAlertsTime: 'SELECT id_alerta, nombre_alerta FROM alertas order by id_alerta',
+    createTime: 'INSERT INTO tiempos (nombre_tiempo, escala_tiempo, observacion_tiempo) VALUES ($1,$2,$3)',
+    viewTimes: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo FROM tiempos order by id_tiempo',
+    viewTime: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo FROM tiempos where id_tiempo=$1',
+    updateTime: 'UPDATE tiempos set nombre_tiempo=$1, escala_tiempo=$2, observacion_tiempo=$3 where id_tiempo=$4',
     // estacion
     createStation: 'INSERT INTO estaciones (nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',
     viewStations: 'SELECT estaciones.id_estacion, nombre_estacion, serial_estacion, nombre_corto_estacion, categorias.id_categoria, categorias.nombre_categoria, tiempos.id_tiempo, tiempos.nombre_tiempo, observacion_estacion, regiones.id_region, regiones.nombre_region, ciudades.id_ciudad, ciudades.nombre_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, gmt.id_gmt, gmt.nombre_gmt FROM estaciones, regiones, ciudades, tiempos, categorias, gmt where regiones.id_region=ciudades.id_region and ciudades.id_ciudad=estaciones.id_ciudad and tiempos.id_tiempo=estaciones.id_tiempo and categorias.id_categoria=estaciones.id_categoria and gmt.id_gmt=estaciones.id_gmt order by id_estacion;',

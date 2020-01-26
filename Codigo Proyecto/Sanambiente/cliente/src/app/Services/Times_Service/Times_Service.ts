@@ -18,10 +18,6 @@ export class TimesService {
     
   }
 
-  viewAlertsTime() {
-    return this.baseService.view(`${environment.viewAlertsTime}`).toPromise().then((data: any) => data.message).catch((error) => error);
-  }
-
   viewTimes() {
     return this.baseService.view(`${environment.viewTimes}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }

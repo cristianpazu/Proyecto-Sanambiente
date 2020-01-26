@@ -5,5 +5,4 @@ export interface Time {
     nombre_tiempo?: string;
     escala_tiempo?: any;
     observacion_tiempo?: string;
-    id_alerta?: number;
 }

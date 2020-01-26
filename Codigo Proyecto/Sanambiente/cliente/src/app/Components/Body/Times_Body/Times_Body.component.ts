@@ -27,7 +27,6 @@ export class TimesBodyComponent implements OnInit {
       'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'escala_tiempo': new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(1), Validators.max(1440)]),
       'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'id_alerta': new FormControl('', [Validators.required]),
     });
     this.arrayTimes = {
       nombre_tiempo:'',
@@ -38,7 +37,6 @@ export class TimesBodyComponent implements OnInit {
    /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Times_Body */
   ngOnInit(): void {
     this.viewTimeById(); // Toma el id de la Base de Tiempo, cuando se vaya a editar alguna de ellas
-    this.viewAlertsTime(); // Carga las alertas existentes
   }
 
   /* Método con el cual se crea una nueva Base de Tiempo */
@@ -50,10 +48,6 @@ export class TimesBodyComponent implements OnInit {
     }
   }
 
-  async viewAlertsTime() {
-    this.alertTime = (await this.timesService.viewAlertsTime());
-  }
-  
   /* Método con el cual se identifica la Base de Tiempo cuya información va a ser actualizada */
   async viewTimeById() {
     let id = this.activedRoute.snapshot.params.id_tiempo;

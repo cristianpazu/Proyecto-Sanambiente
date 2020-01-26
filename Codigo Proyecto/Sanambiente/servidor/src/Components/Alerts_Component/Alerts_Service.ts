@@ -34,16 +34,6 @@ class AlertService implements BaseService<any> {
         }
     }
 
-    // metodo para ver solo el nombre de las alertas en una lista desplegable. Lo utiliza la vista de base de tiempo
-    async viewNameAlertsTime(request: Request, response: Response): Promise<any> {
-        try {
-            let regions = await ConnectionDataBase.query(handlerQuery['viewAlertsTime']);
-            return Promise.resolve(handleMessage(response, 200, regions.rows));
-        } catch (error) {
-            Promise.reject(handleMessage(response, 404, 'Error'));
-        }
-    }
-
     // metodo para ver todas las Alertas con todos sus campos los cuales se listan en la tabla de Alerta
     async view(request: Request, response: Response): Promise<any> {
         try {

@@ -19,7 +19,6 @@ class AlertsRoute {
         this.router.get('/viewAlertById/:id_alerta', Alerts_Service_1.default.viewById);
         this.router.put('/updateAlerts/:id_alerta', Alerts_Service_1.default.update);
         this.router.get('/viewAlerts', Alerts_Service_1.default.view);
-        this.router.get('/viewAlertsTime', Alerts_Service_1.default.viewNameAlertsTime);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.
