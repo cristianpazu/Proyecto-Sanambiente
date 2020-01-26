@@ -77,6 +77,11 @@ export const environment = {
   hostUpdatePart: "http://localhost:3000/api/part/updatePart",
   viewParts: "http://localhost:3000/api/part/viewParts",
   viewPartById: "http://localhost:3000/api/part/viewPartById",
+  // Variable
+  hostCreateVariable:"",
+  viewVariables:"",
+  hostUpdateVariable:"",
+  hostviewVariableById:"",
 
   production: false
 };

@@ -4,7 +4,6 @@ import { Variable } from '../../Models/Variables_Model/Variable'; // Se importa 
 import BaseService from '../Base_Service/Base_Service'; // Se importan las propiedades de la clase Base_Service
 import { environment } from 'src/environments/environment'; // Se importan las constantes de la clase environment
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -29,7 +28,5 @@ export class VariablesService {
   viewVariableById(id_variable: number) {
     return this.baseService.view(`${environment.hostviewVariableById}/${id_variable}`);
   }
-
 }
 
-}

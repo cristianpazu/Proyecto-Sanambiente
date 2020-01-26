@@ -38,7 +38,7 @@ class VariableService {
             try {
                 const { id_variable } = request.params;
                 let { nombre_variable, observacion_variable } = request.body;
-                console.log(id_variable, '\n', request.body);
+                //console.log(id_variable, '\n', request.body)
                 yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateVariable'], [nombre_variable, observacion_variable, id_variable]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Variable'));
             }

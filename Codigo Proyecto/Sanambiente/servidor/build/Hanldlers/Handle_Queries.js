@@ -79,4 +79,8 @@ exports.handlerQuery = {
     viewParts: 'SELECT * FROM partes order by id_parte',
     viewPart: 'SELECT * FROM partes where id_parte=$1',
     updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_periodicidad=$4',
+    // Variables
+    createVariable: '',
+    updateVariable: '',
+    viewVariables: '',
 };

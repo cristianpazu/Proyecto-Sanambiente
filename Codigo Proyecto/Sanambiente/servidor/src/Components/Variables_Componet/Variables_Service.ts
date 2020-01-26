@@ -14,7 +14,7 @@
      async create(request: Request, response: Response): Promise<any> {
          try {
              let { nombre_variable, observacion_variable } = request.body;
-             await ConnectionDataBase.query(handlerQuery['createVariable'], [nombre_variable, observacion_variable]);
+           await ConnectionDataBase.query(handlerQuery['createVariable'], [nombre_variable, observacion_variable]);
              return Promise.resolve(handleMessage(response, 200, 'Created Variable'));
          } catch (error) {
              Promise.reject(handleMessage(response, 404, 'Error'));
@@ -26,8 +26,8 @@
          try {
              const { id_variable } = request.params;
              let { nombre_variable, observacion_variable } = request.body;
-             console.log(id_variable, '\n', request.body)
-             await ConnectionDataBase.query(handlerQuery['updateVariable'], [nombre_variable, observacion_variable, id_variable]);
+             //console.log(id_variable, '\n', request.body)
+            await ConnectionDataBase.query(handlerQuery['updateVariable'], [nombre_variable, observacion_variable, id_variable]);
              return Promise.resolve(handleMessage(response, 200, 'Update Variable'))
  
          } catch (error) {
@@ -38,8 +38,8 @@
      // metodo para ver todas las regiones con todos sus campos 
      async view(request: Request, response: Response): Promise<any> {
          try {
-             let variables = await ConnectionDataBase.query(handlerQuery['viewVariables']);
-             return Promise.resolve(handleMessage(response, 200, variables.rows));
+            let variables = await ConnectionDataBase.query(handlerQuery['viewVariables']);
+            return Promise.resolve(handleMessage(response, 200, variables.rows));
          } catch (error) {
              Promise.reject(handleMessage(response, 404, 'Error'));
          }
@@ -63,3 +63,4 @@
  // Se crea y exporta una constante que contiene los servicios de esta clase.
  const variableService = new VariableService();
  export default variableService;
+ 
