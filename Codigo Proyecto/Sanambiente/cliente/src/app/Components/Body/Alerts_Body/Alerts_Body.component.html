@@ -44,8 +44,7 @@
 
                 <!-- Mensaje de restricción campo de solo email  -->
                 <div *ngIf="formAlert.controls['email_alerta'].errors?.maxlength ||
-                formAlert.controls['email_alerta'].errors?.pattern"
-                    class="form-control-feedback">
+                formAlert.controls['email_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
                     </div>
@@ -58,8 +57,9 @@
             <label class="col-2 col-form-label">Contraseña</label>
 
             <div class="col-5">
-                <input class="form-control" formControlName="contrasena_alerta" type="text" autofocus id="textContrasena"
-                    [(ngModel)]="arrayAlerts.contrasena_alerta" id="tamaño-fuente-input" maxlength="51">
+                <input class="form-control" formControlName="contrasena_alerta" type="text" autofocus
+                    id="textContrasena" [(ngModel)]="arrayAlerts.contrasena_alerta" id="tamaño-fuente-input"
+                    maxlength="51">
 
                 <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['contrasena_alerta'].errors?.required" class="form-control-feedback"
@@ -80,8 +80,9 @@
             <label class="col-2 col-form-label">Servidor SMTP</label>
 
             <div class="col-5">
-                <input class="form-control" formControlName="servidorsmtp_alerta" type="text" autofocus id="textServidorsmtp"
-                    [(ngModel)]="arrayAlerts.servidorsmtp_alerta" id="tamaño-fuente-input" maxlength="51">
+                <input class="form-control" formControlName="servidorsmtp_alerta" type="text" autofocus
+                    id="textServidorsmtp" [(ngModel)]="arrayAlerts.servidorsmtp_alerta" id="tamaño-fuente-input"
+                    maxlength="51">
 
                 <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formAlert.controls['servidorsmtp_alerta'].errors?.required" class="form-control-feedback"
@@ -140,16 +141,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Campo para el Autenticacion -->
-        <div class="form-group row">
-                         
-            <label class="checkbox col-2 col-form-label">Se requiere Autenticacion por SMTP</label>
-                <input type="checkbox" name="autenticacion_alerta" [ngModelOptions]="{standalone: true}" [(ngModel)]="arrayAlerts.autenticacion_alerta">
-            
-        </div>
-
-
         <!-- Campo para el email -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Email para</label>
@@ -159,8 +150,7 @@
 
                 <!-- Mensaje de restricción campo de solo email  -->
                 <div *ngIf="formAlert.controls['emailpara_alerta'].errors?.maxlength ||
-                formAlert.controls['emailpara_alerta'].errors?.pattern"
-                    class="form-control-feedback">
+                formAlert.controls['emailpara_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
                     </div>
@@ -177,8 +167,7 @@
 
                 <!-- Mensaje de restricción campo de solo email  -->
                 <div *ngIf="formAlert.controls['emailde_alerta'].errors?.maxlength ||
-                formAlert.controls['emailde_alerta'].errors?.pattern"
-                    class="form-control-feedback">
+                formAlert.controls['emailde_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
                     </div>
@@ -196,15 +185,23 @@
                 <span>{{50-arrayAlerts.observacion_alerta.length}} Caracteres restantes</span>
 
                 <!-- Validacion para el campo Observación de la Alerta -->
-                <div *ngIf="formAlert.controls['observacion_alerta'].errors?.required" 
-                class="form-control-feedback" id="tamaño-fuente-alerta">
+                <div *ngIf="formAlert.controls['observacion_alerta'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
+            </div>
+        </div>
+        <!-- Campo para el Autenticacion -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label"></label>
+            <div class="col-5">
+                <input type="checkbox" name="autenticacion_alerta" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="arrayAlerts.autenticacion_alerta">&nbsp;
+                <label>Se requiere Autenticacion por SMTP</label>
                 <div style="margin-top: 20px;">
                     <em> * Todos los campos son obligatorios </em>
                 </div>
             </div>
         </div>
-
         <!-- boton Guardar Alerta -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
