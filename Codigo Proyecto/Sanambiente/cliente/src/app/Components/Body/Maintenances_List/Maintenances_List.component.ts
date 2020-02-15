@@ -25,6 +25,5 @@ export class MaintenancesListComponent implements OnInit {
   /* Método con el cual se obtienen los Mantenimientos existentes */
   async getMaintenances() {
     this.arrayMaintenances = await this.maintenanceService.viewMaintenances();
-    console.log(this.arrayMaintenances);
   }
 }

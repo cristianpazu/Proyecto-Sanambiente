@@ -58,6 +58,15 @@ class PeriodicityService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
+        // metodo para ver solo los tipos de periodicidad en una lista desplegable. Lo utiliza la vista de mantenimiento
+        async viewTypesPeriodicitiesMaintenance(request: Request, response: Response): Promise<any> {
+            try {
+                let periodicities = await ConnectionDataBase.query(handlerQuery['viewPeriodicitiesMaintenance']);
+                return Promise.resolve(handleMessage(response, 200, periodicities.rows));
+            } catch (error) {
+                Promise.reject(handleMessage(response, 404, 'Error'));
+            }
+        }
 }
 
 // Se crea y exporta una constante que contiene los servicios de esta clase.

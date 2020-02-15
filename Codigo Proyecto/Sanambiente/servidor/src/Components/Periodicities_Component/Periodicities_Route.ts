@@ -20,6 +20,7 @@ class PeriodicityRoute {
         this.router.get('/viewPeriodicityById/:id_periodicidad', periodicityService.viewById);
         this.router.get('/viewPeriodicities', periodicityService.view);
         this.router.put('/updatePeriodicity/:id_periodicidad', periodicityService.update);
+        this.router.get('/viewPeriodicitiesMaintenance', periodicityService.viewTypesPeriodicitiesMaintenance);
     }
 }
 

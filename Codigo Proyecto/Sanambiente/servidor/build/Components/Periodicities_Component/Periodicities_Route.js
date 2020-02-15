@@ -19,6 +19,7 @@ class PeriodicityRoute {
         this.router.get('/viewPeriodicityById/:id_periodicidad', Periodicities_Service_1.default.viewById);
         this.router.get('/viewPeriodicities', Periodicities_Service_1.default.view);
         this.router.put('/updatePeriodicity/:id_periodicidad', Periodicities_Service_1.default.update);
+        this.router.get('/viewPeriodicitiesMaintenance', Periodicities_Service_1.default.viewTypesPeriodicitiesMaintenance);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

@@ -5,6 +5,7 @@ export interface Maintenance {
     id_estacion?:number;
     id_parte?:number;
     id_tipo_mantenimiento?: number;
+    id_periodicidad?: number;
     fecha_inicial?: Date;
     fecha_final?: Date;
     nombre_funcionario?: string;
