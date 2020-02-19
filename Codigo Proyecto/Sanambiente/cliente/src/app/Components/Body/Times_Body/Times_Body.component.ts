@@ -16,7 +16,6 @@ export class TimesBodyComponent implements OnInit {
 
   public formTime: FormGroup; // La variable formTime permite administrar las validaciones y restricciones del formulario
   public arrayTimes; // La variable arrayTimes almacena el listado de las Bases de Tiempos existentes. Utilizada cuando se edita una Base de Tiempo
-  public alertTime: Array<any> = [];
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva Base de Tiempo o se esta editando una Base de Tiempo
   public hide=false; // Permite identificar cuando se debe o no, mostrar el campo del id de la ciudad, en la vista html
   

@@ -61,6 +61,7 @@ export const environment = {
   viewStationsMaintenance: "http://localhost:3000/api/station/viewStationsMaintenance",
   viewPartsStations: "http://localhost:3000/api/part/viewPartsStations",
   viewTypesMaintenance: "http://localhost:3000/api/maintenance_type/viewTypesMaintenance",
+  viewPeriodicitiesMaintenance: "http://localhost:3000/api/periodicity/viewPeriodicitiesMaintenance",
   // Tipo mantenimiento
   hostCreateMaintenanceType: "http://localhost:3000/api/maintenance_type/createMaintenanceType",
   hostUpdateMaintenanceType: "http://localhost:3000/api/maintenance_type/updateMaintenancesType",

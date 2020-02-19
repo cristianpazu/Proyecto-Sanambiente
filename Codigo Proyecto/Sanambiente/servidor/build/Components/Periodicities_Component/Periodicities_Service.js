@@ -76,6 +76,18 @@ class PeriodicityService {
             }
         });
     }
+    // metodo para ver solo los tipos de periodicidad en una lista desplegable. Lo utiliza la vista de mantenimiento
+    viewTypesPeriodicitiesMaintenance(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let periodicities = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewPeriodicitiesMaintenance']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, periodicities.rows));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
 }
 // Se crea y exporta una constante que contiene los servicios de esta clase.
 const periodicityService = new PeriodicityService();

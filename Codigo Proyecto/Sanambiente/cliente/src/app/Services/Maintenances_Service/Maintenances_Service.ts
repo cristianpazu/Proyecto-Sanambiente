@@ -31,6 +31,10 @@ export class MaintenancesService{
     return this.baseService.view(`${environment.viewTypesMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
+  viewPeriodicitiesMaintenance() {
+    return this.baseService.view(`${environment.viewPeriodicitiesMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
+  }
+
   viewMaintenances() {
     return this.baseService.view(`${environment.viewMaintenances}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }

@@ -15,6 +15,7 @@ export class MaintenancesBodyComponent implements OnInit {
   public stationMaintenance: Array<any> = [];
   public partStation: Array<any> = [];
   public typeMaintenance: Array<any> = [];
+  public periodicityMaintenance: Array<any> = [];
   public arrayMaintenance: any;
   public edit = false;
   public hide = false;
@@ -26,6 +27,7 @@ export class MaintenancesBodyComponent implements OnInit {
       'id_estacion': new FormControl('', [Validators.required]),
       'id_parte': new FormControl('', [Validators.required]),
       'id_tipo_mantenimiento': new FormControl('', [Validators.required]),
+      'id_periodicidad': new FormControl('', [Validators.required]),
       'fecha_inicial': new FormControl('', [Validators.required]),
       'fecha_final': new FormControl('', [Validators.required]),
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
@@ -45,6 +47,7 @@ export class MaintenancesBodyComponent implements OnInit {
     this.viewMaintenanceById(); // Toma el id del Mantenimiento, cuando se vaya a editar alguno de ellos.
     this.viewPartsStations(); // Carga las partes de las estaciones existentes
     this.viewTypesMaintenance(); // Carga los tipos de mantenimiento existentes
+    this.viewPeriodicitiesMaintenance(); // Carga las periodicidades de  los mantenimiento
   }
 
   /* Método con el cual se crea un nuevo Mantenimiento */
@@ -70,6 +73,12 @@ export class MaintenancesBodyComponent implements OnInit {
   /* Método con el cual se listan los tipos de mantenimiento existentes */
   async viewTypesMaintenance() {
     this.typeMaintenance = (await this.maintenancesService.viewTypesMaintenance());
+  }
+
+   /* Método con el cual se listan los tipos de periodicidades de los mantenimiento */
+   async viewPeriodicitiesMaintenance() {
+    this.periodicityMaintenance = (await this.maintenancesService.viewPeriodicitiesMaintenance());
+    console.log(this.periodicityMaintenance);
   }
 
   /* Método con el cual se identifica el mantenimiento cuya información va a ser actualizada */

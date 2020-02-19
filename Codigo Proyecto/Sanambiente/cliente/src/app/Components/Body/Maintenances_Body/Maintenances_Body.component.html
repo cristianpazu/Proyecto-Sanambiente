@@ -9,7 +9,7 @@
             <label class="col-2 col-form-label">ID Mantenimiento</label>
             <div class="col-4">
                 <input class="form-control" type="number" id="textId_Mantenimiento" id="tamaño-fuente-input"
-                    value={{arrayMaintenance.id_tipo_mantenimiento}} disabled>
+                    value={{arrayMaintenance.id_mantenimiento}} disabled>
             </div>
         </div>
 
@@ -96,6 +96,36 @@
                     </select>
                     <!-- Validacion para los tipos de mantenimiento -->
                     <div *ngIf="formMaintenance.controls['id_tipo_mantenimiento'].errors?.required"
+                        class="form-control-feedback" id="tamaño-fuente-alerta">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo de tipo input, que muestra el tipo de periodicidad de los mantenimiento, solo cuando se edita un mantenimiento -->
+        <div class="form-group row" [hidden]="hide==false">
+            <label class="col-2 col-form-label">Periodicidad Mantenimiento (Actual)</label>
+            <div class="col-5">
+                <input class="form-control" type="text" id="textTipo_periodicidad" id="tamaño-fuente-input"
+                    value={{arrayMaintenance.tipo_periodicidad}} disabled>
+            </div>
+        </div>
+
+        <!-- Campo para la periodicidad de los mantenimiento -->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Periodicidad mantenimiento</label>
+                <div class="col-5">
+                    <select formControlName="id_periodicidad" class="form-control" type="number"
+                        id="textId_periodicidad" id="tamaño-fuente-input">
+                        <option *ngFor="let tipoPeriodicidad of periodicityMaintenance"
+                            value="{{tipoPeriodicidad.id_periodicidad}}">
+                            {{tipoPeriodicidad.tipo_periodicidad}}
+                        </option>
+                    </select>
+                    <!-- Validacion para la periodicidad -->
+                    <div *ngIf="formMaintenance.controls['id_periodicidad'].errors?.required"
                         class="form-control-feedback" id="tamaño-fuente-alerta">
                     </div>
 
