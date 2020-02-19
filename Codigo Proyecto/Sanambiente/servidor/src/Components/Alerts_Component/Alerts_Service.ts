@@ -13,8 +13,8 @@ class AlertService implements BaseService<any> {
     //metodo para crear una alerta
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta } = request.body;
-            await ConnectionDataBase.query(handlerQuery['createAlert'], [nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta]);
+            let { nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, asunto_alerta, emailde_alerta, observacion_alerta } = request.body;
+            await ConnectionDataBase.query(handlerQuery['createAlert'], [nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, asunto_alerta, emailde_alerta, observacion_alerta]);
             return Promise.resolve(handleMessage(response, 200, 'Create alert'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
@@ -25,8 +25,8 @@ class AlertService implements BaseService<any> {
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_alerta } = request.params;
-            let { nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta } = request.body;
-            await ConnectionDataBase.query(handlerQuery['updateAlert'], [nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta, id_alerta]);
+            let { nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, asunto_alerta, emailde_alerta, observacion_alerta } = request.body;
+            await ConnectionDataBase.query(handlerQuery['updateAlert'], [nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, asunto_alerta, emailde_alerta, observacion_alerta, id_alerta]);
             return Promise.resolve(handleMessage(response, 200, 'Update alert'))
 
         } catch (error) {

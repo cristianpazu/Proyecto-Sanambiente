@@ -57,7 +57,7 @@
             <label class="col-2 col-form-label">Contraseña</label>
 
             <div class="col-5">
-                <input class="form-control" formControlName="contrasena_alerta" type="text" autofocus
+                <input class="form-control" formControlName="contrasena_alerta" type="password" autofocus
                     id="textContrasena" [(ngModel)]="arrayAlerts.contrasena_alerta" id="tamaño-fuente-input"
                     maxlength="51">
 
@@ -106,17 +106,12 @@
                 <input class="form-control" formControlName="puertosmtp_alerta" type="text" autofocus id="textNombre"
                     [(ngModel)]="arrayAlerts.puertosmtp_alerta" id="tamaño-fuente-input" maxlength="51">
 
-                <!-- Validacion para el campo nombre de la Alerta -->
-                <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
-                </div>
-
-                <!-- Mensaje de restricción para el campo nombre de la Alerta -->
-                <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.maxlength" class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
+                    <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.maxlength ||
+                    formAlert.controls['puertosmtp_alerta'].errors?.pattern" class="form-control-feedback">
+                        <div class="alert alert-danger">
+                            <strong>Alerta!</strong> Los valores deben ser numeros enteros.
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
 
@@ -153,6 +148,28 @@
                 formAlert.controls['emailpara_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campo para el asunto -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Asunto</label>
+
+            <div class="col-5">
+                <input class="form-control" formControlName="asunto_alerta" type="text" autofocus id="textAsunto"
+                    [(ngModel)]="arrayAlerts.asunto_alerta" id="tamaño-fuente-input" maxlength="51">
+
+                <!-- Validacion para el campo nombre de la Alerta -->
+                <div *ngIf="formAlert.controls['asunto_alerta'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                </div>
+
+                <!-- Mensaje de restricción para el campo nombre de la Alerta -->
+                <div *ngIf="formAlert.controls['asunto_alerta'].errors?.maxlength" class="form-control-feedback">
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
                 </div>
             </div>

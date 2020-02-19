@@ -25,10 +25,10 @@ export const handlerQuery = {
     viewCategory: 'SELECT * FROM categorias where id_categoria=$1',
     updateCategory: 'UPDATE categorias set nombre_categoria=$1, observacion_categoria=$2 where id_categoria=$3',
     // alerta
-    createAlert: 'INSERT INTO alertas (nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, emailde_alerta, observacion_alerta) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',
+    createAlert: 'INSERT INTO alertas (nombre_alerta, email_alerta, contrasena_alerta, servidorsmtp_alerta, puertosmtp_alerta, seguridad_alerta, autenticacion_alerta, emailpara_alerta, asunto_alerta, emailde_alerta, observacion_alerta) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)',
     viewAlerts: 'SELECT * FROM alertas order by id_alerta',
     viewAlert: 'SELECT * FROM alertas where id_alerta=$1',
-    updateAlert: 'UPDATE alertas set nombre_alerta=$1, email_alerta=$2, contrasena_alerta=$3, servidorsmtp_alerta=$4, puertosmtp_alerta=$5, seguridad_alerta=$6, autenticacion_alerta=$7, emailpara_alerta=$8, emailde_alerta=$9, observacion_alerta=$10 where id_alerta=$11',
+    updateAlert: 'UPDATE alertas set nombre_alerta=$1, email_alerta=$2, contrasena_alerta=$3, servidorsmtp_alerta=$4, puertosmtp_alerta=$5, seguridad_alerta=$6, autenticacion_alerta=$7, emailpara_alerta=$8, asunto_alerta,=$9  emailde_alerta=$10, observacion_alerta=$11 where id_alerta=$12',
     // organizacion
     createOrganizacion: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion) VALUES ($1,$2,$3,$4)',
     viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',

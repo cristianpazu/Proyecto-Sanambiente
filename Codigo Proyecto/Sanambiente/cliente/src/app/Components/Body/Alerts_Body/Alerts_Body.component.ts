@@ -14,7 +14,7 @@ import { AlertsService } from '../../../Services/Alerts_Service/Alerts_Service';
 })
 export class AlertsBodyComponent implements OnInit {
 
-  public formAlert: FormGroup; // La variable formAlert permite administrar las validaciones y restricciones del formulario
+   public formAlert: FormGroup; // La variable formAlert permite administrar las validaciones y restricciones del formulario
   public arrayAlerts; // La variable arrayAlerts almacena el listado de las Alertas existentes. Utilizada cuando se edita una Alerta
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva Alerta o se esta editando una Alerta
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la Alerta, en la vista html
@@ -25,18 +25,21 @@ export class AlertsBodyComponent implements OnInit {
 
     this.formAlert = new FormGroup({
       'nombre_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'email_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
+      'email_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
       'contrasena_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'servidorsmtp_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'puertosmtp_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'puertosmtp_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[0-9-]\d{0,50}$/)]),
       'seguridad_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'autenticacion_alerta': new FormControl(''['']),
-      'emailpara_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
-      'emailde_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/)]),
+      'emailpara_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
+      'asunto_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'emailde_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
       'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)])
       
     });
-    this.arrayAlerts = {
+
+
+      this.arrayAlerts = {
       observacion_alerta: '', //Se usa para definir el campo observacion_alerta y poder mostrar el conteo de caracteres restantes
      
     };
@@ -80,6 +83,7 @@ export class AlertsBodyComponent implements OnInit {
       seguridad_alerta: this.arrayAlerts.seguridad_alerta,
       autenticacion_alerta: this.arrayAlerts.autenticacion_alerta,
       emailpara_alerta: this.arrayAlerts.emailpara_alerta,
+      asunto_alerta: this.arrayAlerts.asunto_alerta,
       emailde_alerta: this.arrayAlerts.emailde_alerta,
       observacion_alerta: this.arrayAlerts.observacion_alerta
       
