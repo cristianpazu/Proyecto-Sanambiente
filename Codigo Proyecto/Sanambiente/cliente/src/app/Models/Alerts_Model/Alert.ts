@@ -10,6 +10,7 @@ export interface Alert {
     seguridad_alerta?: string;
     autenticacion_alerta?: boolean;
     emailpara_alerta?: string;
+    asunto_alerta?: string;
     emailde_alerta?: string;
     observacion_alerta?: string;
 
