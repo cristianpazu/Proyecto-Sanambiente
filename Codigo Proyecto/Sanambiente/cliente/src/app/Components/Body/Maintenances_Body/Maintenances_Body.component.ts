@@ -29,15 +29,14 @@ export class MaintenancesBodyComponent implements OnInit {
       'fecha_inicial': new FormControl('', [Validators.required]),
       'fecha_final': new FormControl('', [Validators.required]),
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'observacion_validacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'observacion_validacion': new FormControl(''['']),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayMaintenance = {
       fecha_inicial: '',
       fecha_final: '',
       nombre_funcionario: '',
-      novedad_mantenimiento: '',//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
-      observacion_validacion: ''
+      novedad_mantenimiento: ''
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenances_Body */

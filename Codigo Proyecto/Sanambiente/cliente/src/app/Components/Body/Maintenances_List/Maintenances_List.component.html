@@ -22,7 +22,6 @@
                 <th scope="col">Nombre Funcionario</th>
                 <th scope="col">Fecha  Inicial</th>
                 <th scope="col">Fecha Final</th>
-                <th scope="col">Observacion Validación</th>
                 <th scope="col">Novedad</th>
                 <th></th>
             </tr>
@@ -36,8 +35,7 @@
                 <td> {{mantenimiento.nombre_tipo_mantenimiento}} </td>
                 <td> {{mantenimiento.nombre_funcionario}} </td>
                 <td> {{mantenimiento.fecha_inicial | date:"dd/MM/yyyy"}} </td>
-                <td> {{mantenimiento.fecha_final | date:"dd/MM/yyyy"}} </td>
-                <td> {{mantenimiento.observacion_validacion}} </td>
+                <td> {{mantenimiento.fecha_final | date:"dd/MM/yyyy"}} </td>               
                 <td> {{mantenimiento.novedad_mantenimiento}} </td>
                 <td>
                     <!-- Boton para actualizar la informacion de una mantenimiento -->
