@@ -14,14 +14,14 @@ import { VariablesService } from '../../../Services/Variables_Service/Variables_
 })
 export class VariablesBodyComponent implements OnInit {
 
-  public formVariables: FormGroup; // La variable formRegion permite administrar las validaciones y restricciones del formulario
+  public formVariable: FormGroup; // La variable formVarible permite administrar las validaciones y restricciones del formulario
   public arrayVariables; // La variable arrayVariables almacena el listado de las variables existentes. Utilizada cuando se edita una variable
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva variable o se esta editando una variable
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la variable, en la vista html
 
 
   constructor(private variableService: VariablesService, private router: Router, private activedRoute: ActivatedRoute) { 
-   this.formVariables = new FormGroup({
+   this.formVariable = new FormGroup({
     'nombre_variable': new FormControl('', [Validators.required,Validators.maxLength(49.9)]),
     'observacion_variable': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
   });
@@ -38,20 +38,20 @@ export class VariablesBodyComponent implements OnInit {
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
-  /* Método con el cual se crea una nueva región */
+  /* Método con el cual se crea una nueva variable */
   async createVariable() {
-    if (this.formVariables.valid) {
-      await this.variableService.createVariable(this.formVariables.value);
+    if (this.formVariable.valid) {
+      await this.variableService.createVariable(this.formVariable.value);
       alert('Variable creada correctamente');
       this.router.navigate(['/variable']);
     }
   }
 
-  /* Método con el cual se identifica la region cuya información va a ser actualizada */
+  /* Método con el cual se identifica la variable cuya información va a ser actualizada */
   async viewVariableById() {
     let id = this.activedRoute.snapshot.params.id_variable;
     if (id !== undefined) {
-      let region = await this.variableService.viewVariableById(id).subscribe((element: any) => {
+      let variable = await this.variableService.viewVariableById(id).subscribe((element: any) => {
         this.arrayVariables = element.message[0];
         this.edit = true;
         this.hide = true;
@@ -59,14 +59,14 @@ export class VariablesBodyComponent implements OnInit {
     }
   }
 
-  /* Método con el cual se actualiza la información de la región seleccionada */
+  /* Método con el cual se actualiza la información de la variable seleccionada */
   async updateVariable() {
-    let id = this.activedRoute.snapshot.params.id_region;
-    this.formVariables.patchValue({
+    let id = this.activedRoute.snapshot.params.id_variable;
+    this.formVariable.patchValue({
       nombre_variable: this.arrayVariables.nombre_variable,
       observacion_variable: this.arrayVariables.observacion_variable
     })
-    this.variableService.updateVariable(this.formVariables.value, id)
+    this.variableService.updateVariable(this.formVariable.value, id)
     alert('Variable actualizada correctamente');
     this.router.navigate(['/variable']);
   }

@@ -60,6 +60,10 @@ import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List
 import { PartsBodyComponent } from './Components/Body/Parts_Body/Parts_Body.component';
 import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.component';
 
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para region */
+import { VariablesBodyComponent } from './Components/body/Variables_Body/Variables_Body.component';
+import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
+
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
 
@@ -149,6 +153,12 @@ const rutas: Routes = [
   { path: 'part', component: PartsListComponent }, // Ruta para listar todos los registros  
   { path: 'part/add_part', component: PartsBodyComponent },  // Ruta para adicionar registros  
   { path: 'part/edit_part/:id_parte', component: PartsBodyComponent }, // Ruta para editar registros
+
+    /*--- Rutas de variables ---*/
+    { path: 'variable', redirectTo: '/variable', pathMatch: 'full' },
+    { path: 'variable', component: VariablesListComponent }, // Ruta para listar todos los registros  
+    { path: 'variable/add_variable', component: VariablesBodyComponent },  // Ruta para adicionar registros  
+    { path: 'variable/edit_variable/:id_variable', component: VariablesBodyComponent }, // Ruta para editar registros 
 
 ];
 

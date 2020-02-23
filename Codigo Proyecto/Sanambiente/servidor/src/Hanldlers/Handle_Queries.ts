@@ -79,8 +79,10 @@ export const handlerQuery = {
     viewPart: 'SELECT * FROM partes where id_parte=$1',
     updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_periodicidad=$4',
     // Variables
-    createVariable:'',
-    updateVariable:'',
-    viewVariables:'',
+    createVariable:'INSERT INTO variables (nombre_variable, observacion_variable) VALUES ($1,$2)',
+    updateVariable:'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
+    viewVariables: 'SELECT * FROM variables order by id_variable',
+    viewVariable: 'SELECT * FROM variables where id_variable=$1',
+
 }
 

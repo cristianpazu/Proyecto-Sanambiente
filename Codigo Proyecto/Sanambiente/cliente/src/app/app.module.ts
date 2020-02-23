@@ -81,6 +81,11 @@ import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.comp
 import { PartsBodyComponent } from './Components/Body/Parts_Body/Parts_Body.component';
 import { PartsService } from './Services/Parts_Service/Parts_Service';
 
+/* Importo los componentes y servicios creados para variables */
+import { VariablesBodyComponent } from './Components/body/Variables_Body/Variables_Body.component';
+import { VariablesService } from './Services/Variables_Service/Variables_Service';
+import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
+
 
 @NgModule({
   declarations: [
@@ -116,7 +121,9 @@ import { PartsService } from './Services/Parts_Service/Parts_Service';
     PeriodicitiesBodyComponent,
     PeriodicitiesListComponent,
     PartsListComponent,
-    PartsBodyComponent
+    PartsBodyComponent,
+    VariablesListComponent,
+    VariablesBodyComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -141,7 +148,8 @@ import { PartsService } from './Services/Parts_Service/Parts_Service';
     MaintenancesService,
     MaintenancesTypeService,
     PeriodicitiesService,
-    PartsService
+    PartsService,
+    VariablesService
 
   ],
   bootstrap: [AppComponent]

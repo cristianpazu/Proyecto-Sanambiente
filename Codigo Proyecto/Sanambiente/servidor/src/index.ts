@@ -17,6 +17,7 @@ import maintenancesRoutes from './Components/Maintenances_Component/Maintenances
 import maintenancesTypeRoutes from './Components/Maintenances_Type_Component/Maintenances_Type_Route';
 import periodicitiesRoutes from './Components/Periodicities_Component/Periodicities_Route';
 import partsRoutes from './Components/Parts_Component/Parts_Route';
+import VariablesRoute from './Components/Variables_Componet/Variables_Route';
 
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
@@ -53,6 +54,7 @@ class Servidor {
         this.app.use('/api/maintenance_type', maintenancesTypeRoutes);
         this.app.use('/api/periodicity', periodicitiesRoutes);
         this.app.use('/api/part', partsRoutes);
+        this.app.use('/api/variable', VariablesRoute);
     }
 
     // Metodo que identifica el puerto usado para la conexion en el servidor

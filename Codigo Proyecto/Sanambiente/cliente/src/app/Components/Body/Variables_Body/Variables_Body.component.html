@@ -1,31 +1,31 @@
-<!-- Clase que contiene el HTML de la vista de region (Empleada para crear y actulizar una region) -->
+<!-- Clase que contiene el HTML de la vista de variable (Empleada para crear y actulizar una variable) -->
 
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
-    <h1>Región</h1>
+    <h1>Variable</h1>
     <hr>
-    <form [formGroup]="formRegion">
-        <!-- Campo para ID de la región, que solo se muestra cuando se edita -->
+    <form [formGroup]="formVariable">
+        <!-- Campo para ID de la variable, que solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
-            <label class="col-2 col-form-label">ID region</label>
+            <label class="col-2 col-form-label">ID variable</label>
             <div class="col-4">
-                <input class="form-control" type="number" id="textId_region" id="tamaño-fuente-input"
-                    value={{arrayRegions.id_region}} disabled>
+                <input class="form-control" type="number" id="textId_variable" id="tamaño-fuente-input"
+                    value={{arrayVariables.id_variable}} disabled>
             </div>
         </div>
 
-        <!-- Campo para el nombre de la región -->
+        <!-- Campo para el nombre de la variable -->
         <div class="form-group row">
-            <label class="col-2 col-form-label">Nombre región</label>
+            <label class="col-2 col-form-label">Nombre variable</label>
             <div class="col-5">
-                <input autofocus class="form-control" formControlName="nombre_region" type="text" id="textNombre"
-                    [(ngModel)]="arrayRegions.nombre_region" id="tamaño-fuente-input" maxlength="50">
-                <!-- Validacion para el campo nombre de la región -->
-                <div *ngIf="formRegion.controls['nombre_region'].errors?.required" class="form-control-feedback"
+                <input autofocus class="form-control" formControlName="nombre_variable" type="text" id="textNombre"
+                    [(ngModel)]="arrayVariables.nombre_variable" id="tamaño-fuente-input" maxlength="50">
+                <!-- Validacion para el campo nombre de la variable -->
+                <div *ngIf="formVariable.controls['nombre_variable'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                 </div>
 
-                <!-- Mensaje de restricción para el campo nombre de la región -->
-                <div *ngIf="formRegion.controls['nombre_region'].errors?.maxlength" class="form-control-feedback">
+                <!-- Mensaje de restricción para el campo nombre de la variable -->
+                <div *ngIf="formVariable.controls['nombre_variable'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                     </div>
@@ -33,32 +33,34 @@
             </div>
         </div>
 
-        <!-- Campo para observación de la región  -->
+        <!-- Campo para observación de la variable  -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Observación</label>
             <div class="col-5">
-                <textarea ng-thim="false" class="form-control" formControlName="observacion_region" rows="4"
-                    [(ngModel)]="arrayRegions.observacion_region" id="tamaño-fuente-input" maxlength="50">
+                <textarea ng-thim="false" class="form-control" formControlName="observacion_variable" rows="4"
+                    [(ngModel)]="arrayVariables.observacion_variable" id="tamaño-fuente-input" maxlength="50">
                </textarea>
-                <span>{{50-arrayRegions.observacion_region.length}} Caracteres restantes</span>
+                <span>{{50-arrayVariables.observacion_variable.length}} Caracteres restantes</span>
 
-                <!-- Validacion para el campo Observación de la región -->
-                <div *ngIf="formRegion.controls['observacion_region'].errors?.required" class="form-control-feedback"
-                    id="tamaño-fuente-alerta">
+                <!-- Validacion para el campo Observación de la variable -->
+                <div *ngIf="formVariable.controls['observacion_variable'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <em> * Todos los campos son obligatorios </em>
                 </div>
             </div>
+
         </div>
         <br>
-        <div style="margin-top: 20px;">
-            <em> * Todos los campos son obligatorios </em>
-        </div>
 
-        <!-- Boton de guardar de región -->
+        <!-- Boton de guardar de variable -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">
-                <button type="button" class="btn btn-outline-primary btn-lg" [disabled]="!formRegion.valid"
-                    (click)=" edit ? updateRegion() : createRegion()">
+                <button type="button" class="btn btn-outline-primary btn-lg" [disabled]="!formVariable.valid"
+                    (click)=" edit ? updateVariable() : createVariable()">
                     Guardar
                 </button>
             </div>
