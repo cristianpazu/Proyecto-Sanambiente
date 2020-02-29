@@ -85,6 +85,7 @@ import { PartsService } from './Services/Parts_Service/Parts_Service';
 import { VariablesBodyComponent } from './Components/body/Variables_Body/Variables_Body.component';
 import { VariablesService } from './Services/Variables_Service/Variables_Service';
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
+import { TemplateComponent } from './Components/Body/template/template.component';
 
 
 @NgModule({
@@ -123,7 +124,8 @@ import { VariablesListComponent } from './Components/body/Variables_List/Variabl
     PartsListComponent,
     PartsBodyComponent,
     VariablesListComponent,
-    VariablesBodyComponent
+    VariablesBodyComponent,
+    TemplateComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular

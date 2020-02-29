@@ -63,6 +63,7 @@ import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.comp
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para region */
 import { VariablesBodyComponent } from './Components/body/Variables_Body/Variables_Body.component';
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
+import { TemplateComponent } from './Components/Body/template/template.component';
 
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
@@ -70,6 +71,9 @@ const rutas: Routes = [
   /*--- Ruta de vista principal ---*/
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent }, // Ruta para la pagina vista principal
+
+  { path: 'plantilla', component: TemplateComponent }, // Ruta para la pagina vista principal
+
 
   /*--- Rutas de region ---*/
   { path: 'region', redirectTo: '/region', pathMatch: 'full' },
@@ -160,6 +164,10 @@ const rutas: Routes = [
     { path: 'variable/add_variable', component: VariablesBodyComponent },  // Ruta para adicionar registros  
     { path: 'variable/edit_variable/:id_variable', component: VariablesBodyComponent }, // Ruta para editar registros 
 
+    /***
+     * Ruta de plantilla
+     */
+    
 ];
 
 @NgModule({

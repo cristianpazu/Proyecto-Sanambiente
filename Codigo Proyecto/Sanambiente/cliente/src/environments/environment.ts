@@ -82,6 +82,7 @@ export const environment = {
   viewVariables: "http://localhost:3000/api/variable/viewVariables",
   hostUpdateVariable:"http://localhost:3000/api/variable/updateVariables",
   hostviewVariableById: "http://localhost:3000/api/variable/viewVariableById",
-
+  // Template
+  hostTemplateCreate: "http://localhost:3000/api/template/createTemplate",
   production: false
 };

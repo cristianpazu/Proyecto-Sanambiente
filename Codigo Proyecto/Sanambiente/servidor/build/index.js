@@ -22,6 +22,7 @@ const Maintenances_Type_Route_1 = __importDefault(require("./Components/Maintena
 const Periodicities_Route_1 = __importDefault(require("./Components/Periodicities_Component/Periodicities_Route"));
 const Parts_Route_1 = __importDefault(require("./Components/Parts_Component/Parts_Route"));
 const Variables_Route_1 = __importDefault(require("./Components/Variables_Componet/Variables_Route"));
+const Template_Route_1 = __importDefault(require("./Components/Template_Component/Template_Route"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     // Constructor en el cual se instancian los metodos a ejecutar
@@ -54,6 +55,7 @@ class Servidor {
         this.app.use('/api/periodicity', Periodicities_Route_1.default);
         this.app.use('/api/part', Parts_Route_1.default);
         this.app.use('/api/variable', Variables_Route_1.default);
+        this.app.use('/api/template', Template_Route_1.default);
     }
     // Metodo que identifica el puerto usado para la conexion en el servidor
     iniciar() {

@@ -14,7 +14,6 @@ export class VariablesService {
   /* Se crean los metodos utilizados por la vista de Variable */
   createVariable (body: Variable) {
     return this.baseService.create(body, `${environment.hostCreateVariable}`);
-    
   }
 
   viewVariables() {
@@ -28,5 +27,10 @@ export class VariablesService {
   viewVariableById(id_variable: number) {
     return this.baseService.view(`${environment.hostviewVariableById}/${id_variable}`);
   }
+
+  createTemplate(body: any) {
+    return this.baseService.create(body, `${environment.hostTemplateCreate}`)
+  }
+
 }
 
