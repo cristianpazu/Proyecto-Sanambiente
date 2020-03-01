@@ -85,7 +85,11 @@ import { PartsService } from './Services/Parts_Service/Parts_Service';
 import { VariablesBodyComponent } from './Components/body/Variables_Body/Variables_Body.component';
 import { VariablesService } from './Services/Variables_Service/Variables_Service';
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
+
 import { TemplateComponent } from './Components/Body/template/template.component';
+
+import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';
+import { FtpServiceService } from './Services/ftp_service/ftp-service.service';
 
 
 @NgModule({
@@ -125,7 +129,8 @@ import { TemplateComponent } from './Components/Body/template/template.component
     PartsBodyComponent,
     VariablesListComponent,
     VariablesBodyComponent,
-    TemplateComponent
+    TemplateComponent,
+    ConnectFTPStationComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular
@@ -151,8 +156,8 @@ import { TemplateComponent } from './Components/Body/template/template.component
     MaintenancesTypeService,
     PeriodicitiesService,
     PartsService,
-    VariablesService
-
+    VariablesService,
+    FtpServiceService
   ],
   bootstrap: [AppComponent]
 })

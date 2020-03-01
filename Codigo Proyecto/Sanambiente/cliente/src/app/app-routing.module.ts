@@ -60,10 +60,16 @@ import { PeriodicitiesListComponent } from './Components/Body/Periodicities_List
 import { PartsBodyComponent } from './Components/Body/Parts_Body/Parts_Body.component';
 import { PartsListComponent } from './Components/Body/Parts_List/Parts_List.component';
 
-/* Importo los componentes a los cuales se direccionaran las rutas creadas para region */
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para variables */
 import { VariablesBodyComponent } from './Components/body/Variables_Body/Variables_Body.component';
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
+
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para plantillas */
 import { TemplateComponent } from './Components/Body/template/template.component';
+
+/* Importo los componentes a los cuales se direccionaran las rutas creadas para conectar con ftp */
+import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';
+
 
 /* ------ Rutas de las vistas ------- */
 const rutas: Routes = [
@@ -72,8 +78,8 @@ const rutas: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent }, // Ruta para la pagina vista principal
 
+  /*--- Ruta de plantillas ---*/
   { path: 'plantilla', component: TemplateComponent }, // Ruta para la pagina vista principal
-
 
   /*--- Rutas de region ---*/
   { path: 'region', redirectTo: '/region', pathMatch: 'full' },
@@ -164,10 +170,13 @@ const rutas: Routes = [
     { path: 'variable/add_variable', component: VariablesBodyComponent },  // Ruta para adicionar registros  
     { path: 'variable/edit_variable/:id_variable', component: VariablesBodyComponent }, // Ruta para editar registros 
 
+    /*--- Rutas de conectar ftp con estacion ---*/
+    { path: 'ftp', redirectTo: '/ftp', pathMatch: 'full' },
+    { path: 'ftp/add_ftp', component: ConnectFTPStationComponent },  // Ruta para adicionar una conexion ftp    
+
     /***
      * Ruta de plantilla
      */
-    
 ];
 
 @NgModule({
