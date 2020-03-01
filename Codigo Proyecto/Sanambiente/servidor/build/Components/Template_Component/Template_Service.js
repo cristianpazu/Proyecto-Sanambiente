@@ -15,6 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const basedatos_1 = __importDefault(require("../../basedatos"));
+const Handle_Queries_1 = require("../../Hanldlers/Handle_Queries");
 const Handle_Message_1 = __importDefault(require("../../Hanldlers/Handle_Message"));
 // Se "llenan" los metodos abstractos creados en la clase BaseService.ts
 class TemplateService {
@@ -38,6 +39,17 @@ class TemplateService {
                     });
                 }
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Time'));
+            }
+            catch (error) {
+                Promise.reject(Handle_Message_1.default(response, 404, 'Error'));
+            }
+        });
+    }
+    viewTemplateByIdStation(request, response) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let templates = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewTemplatesStation']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, templates.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));

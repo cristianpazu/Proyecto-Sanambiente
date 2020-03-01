@@ -17,6 +17,7 @@
  
      configuracion(): void {
         this.router.post('/createTemplate', templateService.create);
+        this.router.get('/viewTemplatesById', templateService.viewTemplateByIdStation);
      }
  }
  

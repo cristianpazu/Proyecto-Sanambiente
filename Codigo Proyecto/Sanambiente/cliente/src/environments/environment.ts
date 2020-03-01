@@ -38,6 +38,7 @@ export const environment = {
   viewStations: "http://localhost:3000/api/station/viewStations",
   viewStationById: "http://localhost:3000/api/station/viewStationById",
   viewCategoryStation: "http://localhost:3000/api/category/viewCategoriesStation",
+  viewTemplateStation: "http://localhost:3000/api/template/viewTemplatesById",
   viewTimeStation: "http://localhost:3000/api/time/viewTimesStation",
   viewRegionStation: "http://localhost:3000/api/region/viewRegionsStation",
   viewCityStation: "http://localhost:3000/api/city/viewCitiesStation",

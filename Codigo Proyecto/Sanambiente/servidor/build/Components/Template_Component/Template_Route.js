@@ -16,6 +16,7 @@ class TemplateRoute {
     cuando se llame a cada una de  las rutas de Base de tiempo*/
     configuracion() {
         this.router.post('/createTemplate', Template_Service_1.default.create);
+        this.router.get('/viewTemplatesById', Template_Service_1.default.viewTemplateByIdStation);
     }
 }
 // Se crea y exporta una constante que contiene las rutas de esta clase.

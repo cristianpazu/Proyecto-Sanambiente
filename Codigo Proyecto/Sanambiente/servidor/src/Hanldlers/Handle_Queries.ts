@@ -83,6 +83,7 @@ export const handlerQuery = {
     updateVariable:'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
     viewVariables: 'SELECT * FROM variables order by id_variable',
     viewVariable: 'SELECT * FROM variables where id_variable=$1',
-
+    // Plantillas
+    viewTemplatesStation: 'SELECT nombre_plantilla, id_plantilla from plantillas',
 }
 

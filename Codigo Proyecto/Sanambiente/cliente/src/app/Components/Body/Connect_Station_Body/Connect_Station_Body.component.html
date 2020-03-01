@@ -37,7 +37,8 @@
             <label class="col-2 col-form-label">Nombre corto</label>
             <div class="col-5">
                 <input class="form-control" formControlName="nombre_corto_estacion" type="text" autofocus
-                    id="textNombreCorto" [(ngModel)]="arrayStations.nombre_corto_estacion" id="tamaño-fuente-input" disabled>
+                    id="textNombreCorto" [(ngModel)]="arrayStations.nombre_corto_estacion" id="tamaño-fuente-input"
+                    disabled>
             </div>
         </div>
 
@@ -132,6 +133,28 @@
 
             </div>
         </div>
+        
+        <!-- Campo para las plantillas con la cual se relaciona la estacion-->
+        <div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Plantilla</label>
+                <div class="col-4">
+                    <select formControlName="id_plantilla" class="form-control" type="number" id="textId_plantilla"
+                        id="tamaño-fuente-input" data-formrun-required>
+                        <option *ngFor="let plantillaEstacion of arrayTemplates"
+                            value="{{plantillaEstacion.id_plantilla}}" name="plantilla-estacion">
+                            {{plantillaEstacion.id_plantilla}}- {{plantillaEstacion.nombre_plantilla}}
+                        </option>
+                    </select>
+                    
+                    <!-- Validacion para el campo plantilla de la estacion -->
+                    <div *ngIf="formStation.controls['id_plantilla'].errors?.required" class="form-control-feedback"
+                        id="tamaño-fuente-alerta">
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <!-- Boton de guardar de estacion -->
         <div id="caja-botones" class="form-group-row">
@@ -140,6 +163,5 @@
                 <button [routerLink]="['/ftp/add_ftp']" class="btn btn-outline-primary btn-lg">Concetar</button>
             </div>
         </div>
-
     </form>
 </div>

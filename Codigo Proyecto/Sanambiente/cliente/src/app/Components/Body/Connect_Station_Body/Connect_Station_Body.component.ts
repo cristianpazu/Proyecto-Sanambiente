@@ -16,6 +16,7 @@ export class ConnectStationBodyComponent implements OnInit {
 
   public formStation: FormGroup; // La variable formStation permite administrar formularios
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
+  public arrayTemplates: Array<any> = [];; // La variable templateStation almacena el listado de las plantillas existentes. Utilizada cuando se va a conectar con una estacion.
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
@@ -34,6 +35,7 @@ export class ConnectStationBodyComponent implements OnInit {
       'elevacion_estacion': new FormControl('', []),
       'protocolo_estacion': new FormControl('', []),
       'observacion_estacion': new FormControl('', []),
+      'id_plantilla': new FormControl('', []),
     })
     this.arrayStations = {
       observacion_estacion: ''
@@ -43,6 +45,7 @@ export class ConnectStationBodyComponent implements OnInit {
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
   ngOnInit(): void {
     this.viewStationById(); // Toma el id de la estacion, para conectarse con esa estacion
+    this.viewTemplatesStation(); // Toma el id de la estacion, para listar las plantillas que se relaciones con dicha estacion
   }
 
   /* Método con el cual se crea una nueva estacion */
@@ -56,9 +59,12 @@ export class ConnectStationBodyComponent implements OnInit {
     if (id !== undefined) {
       let station = await this.stationService.viewStationById(id).subscribe(async (element: any) => {
         this.arrayStations = await element.message[0];
-        console.log(this.arrayStations);
       });
     }
   }
 
+  /* Método con el cual se obtienen las plantillas existentes */
+  async viewTemplatesStation() {
+    this.arrayTemplates = (await this.stationService.viewTemplatesStation());
+  }
 }
