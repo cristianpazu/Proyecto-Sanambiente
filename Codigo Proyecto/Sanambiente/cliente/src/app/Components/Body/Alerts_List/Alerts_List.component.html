@@ -17,6 +17,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Asunto</th>
                 <th scope="col">Email</th>
                 <th scope="col">Servidor SMTP</th>
                 <th scope="col">Puerto SMTP</th>
@@ -32,6 +33,7 @@
             <tr *ngFor="let alert of arrayAlerts | filter:searchText">
                 <td> {{alert.id_alerta}} </td>
                 <td> {{alert.nombre_alerta}} </td>
+                <td> {{alert.asunto_alerta}} </td>
                 <td> {{alert.email_alerta}} </td>
                 <td> {{alert.servidorsmtp_alerta}} </td>
                 <td> {{alert.puertosmtp_alerta}} </td>

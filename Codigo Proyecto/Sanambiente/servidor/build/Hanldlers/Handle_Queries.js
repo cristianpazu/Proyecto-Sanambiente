@@ -78,7 +78,7 @@ exports.handlerQuery = {
     createPart: 'INSERT INTO partes (nombre_parte, codigo_catalogo, observacion_parte) VALUES ($1,$2,$3)',
     viewParts: 'SELECT * FROM partes order by id_parte',
     viewPart: 'SELECT * FROM partes where id_parte=$1',
-    updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_periodicidad=$4',
+    updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_parte=$4',
     // Variables
     createVariable: 'INSERT INTO variables (nombre_variable, observacion_variable) VALUES ($1,$2)',
     updateVariable: 'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
