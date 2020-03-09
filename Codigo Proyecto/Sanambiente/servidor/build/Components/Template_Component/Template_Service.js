@@ -34,6 +34,7 @@ class TemplateService {
             try {
                 let data = request.body;
                 for (let index = 0; index < data.length; index++) {
+                    console.log(data[index]);
                     basedatos_1.default.query('INSERT INTO plantillas (id_plantilla, id_estacion, nombre_plantilla, id_variable, posicion_variable) VALUES($1, $2, $3, $4, $5)', data[index], (error, data) => {
                         (error) ? console.log(error) : console.log('Success');
                     });

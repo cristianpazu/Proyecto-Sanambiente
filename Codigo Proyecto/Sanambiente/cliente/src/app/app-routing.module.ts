@@ -172,7 +172,7 @@ const rutas: Routes = [
 
     /*--- Rutas de conectar ftp con estacion ---*/
     { path: 'ftp', redirectTo: '/ftp', pathMatch: 'full' },
-    { path: 'ftp/add_ftp', component: ConnectFTPStationComponent },  // Ruta para adicionar una conexion ftp    
+    { path: 'ftp/add_ftp/:id_estacion/:id_plantilla', component: ConnectFTPStationComponent },  // Ruta para adicionar una conexion ftp    
 
     /***
      * Ruta de plantilla

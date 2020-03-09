@@ -85,5 +85,6 @@ export const handlerQuery = {
     viewVariable: 'SELECT * FROM variables where id_variable=$1',
     // Plantillas
     viewTemplatesStation: 'SELECT nombre_plantilla, id_plantilla from plantillas',
+    viewConection: 'SELECT * from datos_crudos'
 }
 

@@ -8,8 +8,8 @@
         <!-- Campo para la plantilla -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Id plantilla</label>
-            <div class="col-5">
-                <input class="form-control" formControlName="id_plantilla" type="number">
+            <div class="col-5"> 
+                <input class="form-control" disabled  formControlName="id_plantilla" type="number">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
             <div class="col-4">
                 <div class="buttons">
                     <button (click)="addField()">Agregar</button>
-                    <button>Menos</button>
+                    <button (click)="deleteField()">Menos</button>
                 </div>
                 <ng-container >
                     <select formControlName="id_variable" class="form-control" type="number" id="textId_region"

@@ -19,7 +19,7 @@ import periodicitiesRoutes from './Components/Periodicities_Component/Periodicit
 import partsRoutes from './Components/Parts_Component/Parts_Route';
 import VariablesRoute from './Components/Variables_Componet/Variables_Route';
 import TemplateRoute from './Components/Template_Component/Template_Route';
-
+import connectionFTPRouter from './Components/Conection_FTP/conection_FTP_ROUTES';
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     public app: Application;
@@ -57,6 +57,7 @@ class Servidor {
         this.app.use('/api/part', partsRoutes);
         this.app.use('/api/variable', VariablesRoute);
         this.app.use('/api/template', TemplateRoute);
+        this.app.use('/api/ftp', connectionFTPRouter)
     }
 
     // Metodo que identifica el puerto usado para la conexion en el servidor

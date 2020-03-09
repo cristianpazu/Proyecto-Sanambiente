@@ -23,6 +23,7 @@ const Periodicities_Route_1 = __importDefault(require("./Components/Periodicitie
 const Parts_Route_1 = __importDefault(require("./Components/Parts_Component/Parts_Route"));
 const Variables_Route_1 = __importDefault(require("./Components/Variables_Componet/Variables_Route"));
 const Template_Route_1 = __importDefault(require("./Components/Template_Component/Template_Route"));
+const conection_FTP_ROUTES_1 = __importDefault(require("./Components/Conection_FTP/conection_FTP_ROUTES"));
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     // Constructor en el cual se instancian los metodos a ejecutar
@@ -56,6 +57,7 @@ class Servidor {
         this.app.use('/api/part', Parts_Route_1.default);
         this.app.use('/api/variable', Variables_Route_1.default);
         this.app.use('/api/template', Template_Route_1.default);
+        this.app.use('/api/ftp', conection_FTP_ROUTES_1.default);
     }
     // Metodo que identifica el puerto usado para la conexion en el servidor
     iniciar() {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MaintenancesService } from 'src/app/Services/Maintenances_Service/Maintenances_Service';
 import { VariablesService } from 'src/app/Services/Variables_Service/Variables_Service';
+import { StationsService } from 'src/app/Services/Stations_Service/Stations_Service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-template',
@@ -16,7 +18,7 @@ export class TemplateComponent implements OnInit {
   public arrayAddVariable: Array<any> = [];
   public arrayForm: Array<any> = [];
 
-  constructor(private maintenancesService: MaintenancesService, private variableService: VariablesService) {
+  constructor(private maintenancesService: MaintenancesService, private variableService: VariablesService, private stationService: StationsService, private router: Router) {
     this.formTemplate = new FormGroup({
       id_plantilla: new FormControl(),
       id_estacion: new FormControl(),
@@ -26,11 +28,13 @@ export class TemplateComponent implements OnInit {
     })
    }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.viewStation();
     this.viewVariables();
+    const count = await this.getCountTemplate()
+    this.formTemplate.get('id_plantilla').setValue(count);
   }
-
+  
   async viewStation() {
     this.stationArray = (await this.maintenancesService.viewStationsMaintenance());
   }
@@ -40,7 +44,11 @@ export class TemplateComponent implements OnInit {
   }
 
   addField() {
-      this.arrayAddVariable.push( this.formTemplate.value);
+      this.arrayAddVariable.push(this.formTemplate.value);
+  }
+
+  deleteField() {
+    this.arrayAddVariable.pop();
   }
 
   saveInformation() {
@@ -52,7 +60,7 @@ export class TemplateComponent implements OnInit {
       this.arrayForm.push(this.formTemplate.value);    
       this.variableService.createTemplate(this.getValuesFormGroup(this.arrayForm));
       this.arrayForm = [];
-      
+      this.router.navigate(['/station']); 
   }
 
   getValuesFormGroup(arrayValues:  Array<any>) {
@@ -61,6 +69,16 @@ export class TemplateComponent implements OnInit {
      arrayInformation.push(Object.values(elements));
    })
    return arrayInformation;
+  }
+
+  async getCountTemplate() {
+      const templates: any = await this.stationService.viewTemplatesStation();
+      const lengthTemplate: number = templates.length;
+      if(lengthTemplate === 0 ) {
+        return 1;
+      }else {
+        return templates[lengthTemplate-1].id_plantilla+1;
+      }
   }
 
 }
