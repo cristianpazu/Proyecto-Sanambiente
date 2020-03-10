@@ -31,10 +31,10 @@ exports.handlerQuery = {
     viewAlert: 'SELECT * FROM alertas where id_alerta=$1',
     updateAlert: 'UPDATE alertas set nombre_alerta=$1, email_alerta=$2, contrasena_alerta=$3, servidorsmtp_alerta=$4, puertosmtp_alerta=$5, seguridad_alerta=$6, autenticacion_alerta=$7, emailpara_alerta=$8, asunto_alerta=$9,  emailde_alerta=$10, observacion_alerta=$11 where id_alerta=$12',
     // organizacion
-    createOrganizacion: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion) VALUES ($1,$2,$3,$4)',
+    createOrganization: 'INSERT INTO organizaciones (nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion) VALUES ($1,$2,$3,$4)',
     viewOrganizations: 'SELECT * FROM organizaciones order by id_organizacion',
     viewOrganization: 'SELECT * FROM organizaciones where id_organizacion=$1',
-    updateOrganizacion: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2, email_organizacion=$3, telefono_organizacion=$4 where id_organizacion=$5',
+    updateOrganization: 'UPDATE organizaciones set nombre_organizacion=$1,observacion_organizacion=$2, email_organizacion=$3, telefono_organizacion=$4 where id_organizacion=$5',
     // base de tiempo
     createTime: 'INSERT INTO tiempos (nombre_tiempo, escala_tiempo, observacion_tiempo) VALUES ($1,$2,$3)',
     viewTimes: 'SELECT id_tiempo, nombre_tiempo, escala_tiempo, observacion_tiempo FROM tiempos order by id_tiempo',
@@ -86,5 +86,6 @@ exports.handlerQuery = {
     viewVariable: 'SELECT * FROM variables where id_variable=$1',
     // Plantillas
     viewTemplatesStation: 'SELECT nombre_plantilla, id_plantilla from plantillas',
+    // Conexion FTP
     viewConection: 'SELECT * from datos_crudos'
 };

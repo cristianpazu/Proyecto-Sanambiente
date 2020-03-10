@@ -88,5 +88,6 @@ export const environment = {
   //FTP
   hostFTPCreate: "http://localhost:3000/api/ftp/createFTP",
   hostFTPviewDATA: "http://localhost:3000/api/ftp/viewFTP",
+  
   production: false
 };

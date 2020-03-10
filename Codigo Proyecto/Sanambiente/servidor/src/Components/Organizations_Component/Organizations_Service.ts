@@ -13,8 +13,8 @@ class OrganizationService implements BaseService<any> {
     //metodo para crear una organizacion
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion } = request.body;
-            await ConnectionDataBase.query(handlerQuery['createOrganizacion'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion]);
+            let {nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion} = request.body;
+            await ConnectionDataBase.query(handlerQuery['createOrganization'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion]);
             return Promise.resolve(handleMessage(response, 200, 'Create Organizacion'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
@@ -27,7 +27,7 @@ class OrganizationService implements BaseService<any> {
             const { id_organizacion } = request.params;
             let { nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion } = request.body;
             console.log(id_organizacion, '\n', request.body)
-            await ConnectionDataBase.query(handlerQuery['updateOrganizacion'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion, id_organizacion]);
+            await ConnectionDataBase.query(handlerQuery['updateOrganization'], [nombre_organizacion, observacion_organizacion, email_organizacion, telefono_organizacion, id_organizacion]);
             return Promise.resolve(handleMessage(response, 200, 'Update Organizacion'))
 
         } catch (error) {
