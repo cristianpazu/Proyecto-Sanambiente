@@ -6,7 +6,7 @@
         <!-- Campo para ID solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
             <label class="col-2 col-form-label">ID Organización</label>
-            <div class="col-4">
+            <div class="col-2">
                 <input class="form-control" type="number" id="textId_organizacion" id="tamaño-fuente-input"
                     value={{arrayOrganizations.id_organizacion}} disabled>
             </div>
@@ -55,10 +55,10 @@
         <!-- Campo para el telefono -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Teléfono Organización</label>
-            <div class="col-5">
+            <div class="col-2">
                 <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
                     id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
-                    maxlength="9">
+                    maxlength="10">
                   
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
