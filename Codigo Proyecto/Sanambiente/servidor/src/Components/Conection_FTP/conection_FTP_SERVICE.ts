@@ -19,8 +19,8 @@ class ConnectionFTPService {
                 if (err) throw err;
                 else {
                     stream.once('close', function () { c.end(); });
-                    stream.pipe(createWriteStream('C:/Users/jhanluy/Downloads/data.cvc'));
-                    readFile('C:/Users/jhanluy/Downloads/data.cvc', "utf8", (err, data) => {
+                    stream.pipe(createWriteStream('C:/Users/admin/Downloads/data.cvc'));
+                    readFile('C:/Users/admin/Downloads/data.cvc', "utf8", (err, data) => {
                         if (err) throw err;
                         let values = csvJSON(data)[0];
                         let valuesArray: Array<any> = [];
@@ -31,13 +31,20 @@ class ConnectionFTPService {
                                 valuesArray.push( [id_plantilla, id_estacion, id_conexion, (count++) ,values[i], values[1]]);
                             }
                         }
-                        for (let i = 1; i < valuesArray.length; i++) {
-                            ConnectionDataBase.query('INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)',
-                            valuesArray[i], (err: any, data: any) => {
-                                   if (err) throw err;
-                                   return console.log("success");
-                               });
-                       }
+                        ConnectionDataBase.query(`SELECT * FROM plantillas WHERE id_plantilla=`+id_plantilla, (err: any, data: any) => {
+                            if (err) throw err;
+                                if(valuesArray.length-1 === data.rows.length) {   
+                                    for (let i = 1; i < valuesArray.length; i++) {
+                                        ConnectionDataBase.query(handlerQuery['insertDataFTP'],
+                                        valuesArray[i], (err: any, data: any) => {
+                                        if (err) throw err;
+                                        });
+                                    }
+                                    return handleMessage(response, 200, 'Datos Guardados con exito');
+                                } else {
+                                    return handleMessage(response, 200, 'La cantidad de variables no corresponde a la plantilla')
+                                }
+                            });
                     })
                 }
             });
@@ -52,6 +59,7 @@ class ConnectionFTPService {
              Promise.reject(handleMessage(response, 404, 'Error'));
          }
     }
+
 }
 
 const connectionFTPService = new ConnectionFTPService();

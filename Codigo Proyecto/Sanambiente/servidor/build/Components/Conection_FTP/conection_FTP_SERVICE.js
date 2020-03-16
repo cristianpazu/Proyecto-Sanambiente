@@ -32,8 +32,8 @@ class ConnectionFTPService {
                     throw err;
                 else {
                     stream.once('close', function () { c.end(); });
-                    stream.pipe(fs_1.createWriteStream('C:/Users/jhanluy/Downloads/data.cvc'));
-                    fs_1.readFile('C:/Users/jhanluy/Downloads/data.cvc', "utf8", (err, data) => {
+                    stream.pipe(fs_1.createWriteStream('C:/Users/admin/Downloads/data.cvc'));
+                    fs_1.readFile('C:/Users/admin/Downloads/data.cvc', "utf8", (err, data) => {
                         if (err)
                             throw err;
                         let values = Handle_FTP_1.csvJSON(data)[0];
@@ -45,13 +45,22 @@ class ConnectionFTPService {
                                 valuesArray.push([id_plantilla, id_estacion, id_conexion, (count++), values[i], values[1]]);
                             }
                         }
-                        for (let i = 1; i < valuesArray.length; i++) {
-                            basedatos_1.default.query('INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)', valuesArray[i], (err, data) => {
-                                if (err)
-                                    throw err;
-                                return console.log("success");
-                            });
-                        }
+                        basedatos_1.default.query(`SELECT * FROM plantillas WHERE id_plantilla=` + id_plantilla, (err, data) => {
+                            if (err)
+                                throw err;
+                            if (valuesArray.length - 1 === data.rows.length) {
+                                for (let i = 1; i < valuesArray.length; i++) {
+                                    basedatos_1.default.query(Handle_Queries_1.handlerQuery['insertDataFTP'], valuesArray[i], (err, data) => {
+                                        if (err)
+                                            throw err;
+                                    });
+                                }
+                                return Handle_Message_1.default(response, 200, 'Datos Guardados con exito');
+                            }
+                            else {
+                                return Handle_Message_1.default(response, 200, 'La cantidad de variables no corresponde a la plantilla');
+                            }
+                        });
                     });
                 }
             });

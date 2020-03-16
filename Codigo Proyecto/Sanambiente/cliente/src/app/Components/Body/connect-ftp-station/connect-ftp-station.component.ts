@@ -43,8 +43,13 @@ export class ConnectFTPStationComponent implements OnInit {
   /* Método con el cual conecta */
   async connectFtp() {
     if(this.formFtp.valid) {
-      this.connectionFTPService.createConnectionFTP(this.formFtp.value);
-      return this.router.navigate(['/connect'])
+      const info =  (await this.connectionFTPService.createConnectionFTP(this.formFtp.value));
+      if (info === 'La cantidad de variables no corresponde a la plantilla') {
+        alert('La cantidad de variables no corresponde a la plantilla');
+      } else {
+        alert(info);
+        return this.router.navigate(['/connect'])
+      }
     }
   }
 

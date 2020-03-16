@@ -1,8 +1,8 @@
 <!-- Clase que contiene el HTML de la vista de ConcecionFTP -->
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
-    <h1>Conectar protocolo FTP</h1>
+    <h1>Conectar protocolo Modbus</h1>
     <hr>
-    <form [formGroup]="formFtp">
+    <form [formGroup]="formModbus">
 
         <!-- Campo para la estacion que realizara la conexion -->
         <div class="form-group row">
@@ -33,7 +33,7 @@
             <label class="col-2 col-form-label">Puerto</label>
 
             <div class="col-2">
-                <input class="form-control" formControlName="puerto_ftp" type="text" autofocus id="textNombre"
+                <input class="form-control" formControlName="puerto_Modbus" type="text" autofocus id="textNombre"
                     id="tamaño-fuente-input" maxlength="51">
 
                 <div *ngIf="formFtp.controls['puerto_ftp'].errors?.maxlength ||
@@ -50,7 +50,7 @@
             <label class="col-2 col-form-label">Usuario</label>
 
             <div class="col-3">
-                <input class="form-control" formControlName="usuario_ftp" type="text" autofocus id="textNombre"
+                <input class="form-control" formControlName="usuario_Modbus" type="text" autofocus id="textNombre"
                     id="tamaño-fuente-input" maxlength="51">
 
                 <!-- Validacion para el campo usuario -->
@@ -72,7 +72,7 @@
             <label class="col-2 col-form-label">Contraseña</label>
 
             <div class="col-3">
-                <input class="form-control" formControlName="contrasena_ftp" type="password" autofocus
+                <input class="form-control" formControlName="contrasena_Modbus" type="password" autofocus
                     id="textContrasena" id="tamaño-fuente-input" maxlength="51">
 
                 <!-- Validacion de obligatoriedad -->
@@ -94,7 +94,7 @@
             <label class="col-2 col-form-label">Ip</label>
 
             <div class="col-3">
-                <input class="form-control" formControlName="ip_ftp" type="text" autofocus id="textNombre"
+                <input class="form-control" formControlName="ip_Modbus" type="text" autofocus id="textNombre"
                     id="tamaño-fuente-input" maxlength="51">
 
                 <!-- Validacion para el campo ip -->
@@ -115,27 +115,10 @@
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">
-                <button type="button"  (click)="connectFtp()" class="btn btn-outline-primary btn-lg" [disabled]="!formFtp.valid">
+                <button type="button"  (click)="connectModbus()" class="btn btn-outline-primary btn-lg" [disabled]="!formFtp.valid">
                     Conectar y guardar
                 </button>
             </div>
         </div>
     </form>
-
-    <!--
-    <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
-        <h1>Log</h1>
-        <div>
-            aqui va el log si conceto correctamente y si conecta se habilita el boton de guardar 
-        </div>
-        <div id="caja-botones" class="form-group-row">
-            <label class="col-1 col-form-label">&nbsp;</label>
-            <div class="col-md-8">
-                <button type="button" class="btn btn-outline-primary btn-lg">
-                    Guardar
-                </button>
-            </div>
-        </div>
-    </div>
-    -->
 </div>

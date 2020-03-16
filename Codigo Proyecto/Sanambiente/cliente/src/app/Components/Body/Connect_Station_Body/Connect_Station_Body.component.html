@@ -156,10 +156,15 @@
 
         <!-- Boton de guardar de estacion -->
         <div id="caja-botones" class="form-group-row">
-            <label class="col-1 col-form-label">&nbsp;</label>
-            <div class="col-md-8">
-                <button (click)="example()" [routerLink]="['/ftp/add_ftp', arrayStations.id_estacion, formStation.get('id_plantilla').value]" class="btn btn-outline-primary btn-lg">Siguiente</button>
+            <label class="col-8 col-form-label">&nbsp;</label>
+            <div class="col-md-12">
+                <ng-container *ngIf="showButton === 'modbus'">
+                    <button (click)="example()" [routerLink]="['/modbus/add_modbus', arrayStations.id_estacion, formStation.get('id_plantilla').value]" class="btn btn-outline-primary btn-lg">Conectar Modbus</button>
+                </ng-container>
+                <ng-container *ngIf="showButton === 'ftp'">
+                    <button (click)="example()" [routerLink]="['/ftp/add_ftp', arrayStations.id_estacion, formStation.get('id_plantilla').value]" class="btn btn-outline-primary btn-lg">Conectar FTP</button>
+                </ng-container>
             </div>
         </div>
-    </form>
+</form>
 </div>

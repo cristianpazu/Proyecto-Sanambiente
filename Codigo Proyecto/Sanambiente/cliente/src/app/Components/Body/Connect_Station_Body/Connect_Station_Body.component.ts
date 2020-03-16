@@ -18,6 +18,7 @@ export class ConnectStationBodyComponent implements OnInit {
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
   public arrayTemplates: Array<any> = [];; // La variable templateStation almacena el listado de las plantillas existentes. Utilizada cuando se va a conectar con una estacion.
   public id_conexion: number = 0;
+  public showButton: number;
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
@@ -61,6 +62,7 @@ export class ConnectStationBodyComponent implements OnInit {
     if (id !== undefined) {
       let station = await this.stationService.viewStationById(id).subscribe(async (element: any) => {
         this.arrayStations = await element.message[0];
+        this.showButton = this.arrayStations.protocolo_estacion;
       });
     }
   }

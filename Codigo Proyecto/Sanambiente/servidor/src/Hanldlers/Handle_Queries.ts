@@ -84,8 +84,10 @@ export const handlerQuery = {
     viewVariables: 'SELECT * FROM variables order by id_variable',
     viewVariable: 'SELECT * FROM variables where id_variable=$1',
     // Plantillas
-    viewTemplatesStation: 'SELECT nombre_plantilla, id_plantilla from plantillas',
+    viewTemplatesStation: 'SELECT DISTINCT nombre_plantilla, id_plantilla from plantillas',
     // Conexion FTP
-    viewConection: 'SELECT * from datos_crudos'
+    viewConection: 'SELECT * from datos_crudos',
+    // FTP
+    insertDataFTP: 'INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)'   
 }
 

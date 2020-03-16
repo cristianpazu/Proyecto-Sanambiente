@@ -90,6 +90,7 @@ import { TemplateComponent } from './Components/Body/template/template.component
 
 import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';
 import { FtpServiceService } from './Services/ftp_service/ftp-service.service';
+import { ConnectModbusStationComponent } from './Components/Body/connect-modbus-station/connect-modbus-station.component';
 
 
 @NgModule({
@@ -130,7 +131,8 @@ import { FtpServiceService } from './Services/ftp_service/ftp-service.service';
     VariablesListComponent,
     VariablesBodyComponent,
     TemplateComponent,
-    ConnectFTPStationComponent
+    ConnectFTPStationComponent,
+    ConnectModbusStationComponent
   ],
   imports: [
     // Importo los componentes que importados desde los modulos de angular

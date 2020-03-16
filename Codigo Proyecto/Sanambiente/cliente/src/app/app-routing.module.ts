@@ -69,6 +69,7 @@ import { TemplateComponent } from './Components/Body/template/template.component
 
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para conectar con ftp */
 import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';
+import { ConnectModbusStationComponent } from './Components/Body/connect-modbus-station/connect-modbus-station.component';
 
 
 /* ------ Rutas de las vistas ------- */
@@ -174,6 +175,10 @@ const rutas: Routes = [
     { path: 'ftp', redirectTo: '/ftp', pathMatch: 'full' },
     { path: 'ftp/add_ftp/:id_estacion/:id_plantilla', component: ConnectFTPStationComponent },  // Ruta para adicionar una conexion ftp    
 
+    /**  */
+    /*--- Rutas de conectar ftp con estacion ---*/
+    { path: 'modbus', redirectTo: '/modbus', pathMatch: 'full' },
+    { path: 'modbus/add_modbus/:id_estacion/:id_plantilla', component: ConnectModbusStationComponent },  // Ruta para adicionar una conexion ftp   
     /***
      * Ruta de plantilla
      */
