@@ -116,3 +116,8 @@ label {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+#contenido { 
+  width: 800px; margin: 0 auto; 
+}
+
