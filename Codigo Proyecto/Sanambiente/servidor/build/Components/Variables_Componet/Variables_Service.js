@@ -38,7 +38,6 @@ class VariableService {
             try {
                 const { id_variable } = request.params;
                 let { nombre_variable, observacion_variable } = request.body;
-                //console.log(id_variable, '\n', request.body)
                 yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['updateVariable'], [nombre_variable, observacion_variable, id_variable]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Update Variable'));
             }
@@ -63,7 +62,7 @@ class VariableService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id_variable } = request.params;
-                let variable = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewRegion, [id_variable]);
+                let variable = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery.viewVariable, [id_variable]);
                 if (variable.rows.length === 0) {
                     return Promise.resolve(Handle_Message_1.default(response, 200, 'Variable doesn´t exist'));
                 }

@@ -158,9 +158,9 @@
         <!--  Campo para la fecha inical del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Inicial</label>
-            <div class="col-5">
+            <div class="col-6">
                 <input class="form-control" formControlName="fecha_inicial" type="datetime-local" id="textFecha_inicial"
-                    [(ngModel)]="arrayMaintenance.fecha_inicial" id="tamaño-fuente-input" maxlength="50" placeholder="YYYY-MM-DD HH:MM.SS">
+                    [(ngModel)]="arrayMaintenance.fecha_inicial" id="tamaño-fuente-input" maxlength="100" placeholder="YYYY-MM-DD HH:MM">
 
                 <!-- Validacion para el campo fecha inical del mantenimiento -->
                 <div *ngIf="formMaintenance.controls['fecha_inicial'].errors?.required" class="form-control-feedback"
@@ -171,9 +171,9 @@
         <!-- Campo para la fecha final del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Final</label>
-            <div class="col-5">
+            <div class="col-6">
                 <input class="form-control" formControlName="fecha_final" type="datetime-local" id="textFecha_final"
-                    [(ngModel)]="arrayMaintenance.fecha_final" id="tamaño-fuente-input" maxlength="50" placeholder="YYYY-MM-DD HH:MM.SS">
+                    [(ngModel)]="arrayMaintenance.fecha_final" id="tamaño-fuente-input" maxlength="100" placeholder="YYYY-MM-DD HH:MM">
                 <!-- Validacion para el campo fecha final del mantenimiento -->
                 <div *ngIf="formMaintenance.controls['fecha_final'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
