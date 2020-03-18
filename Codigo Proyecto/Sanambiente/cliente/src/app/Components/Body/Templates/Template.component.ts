@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MaintenancesService } from 'src/app/Services/Maintenances_Service/Maintenances_Service';
 import { VariablesService } from 'src/app/Services/Variables_Service/Variables_Service';
+import { TemplateService} from 'src/app/Services/Templates_Service/Templates_service';
 import { StationsService } from 'src/app/Services/Stations_Service/Stations_Service';
 import { Router } from '@angular/router';
 
@@ -18,7 +19,7 @@ export class TemplateComponent implements OnInit {
   public arrayAddVariable: Array<any> = [];
   public arrayForm: Array<any> = [];
 
-  constructor(private maintenancesService: MaintenancesService, private variableService: VariablesService, private stationService: StationsService, private router: Router) {
+  constructor(private maintenancesService: MaintenancesService, private variableService: VariablesService, private stationService: StationsService, private templateService: TemplateService, private router: Router) {
     this.formTemplate = new FormGroup({
       id_plantilla: new FormControl(),
       id_estacion: new FormControl(),
@@ -58,8 +59,9 @@ export class TemplateComponent implements OnInit {
       }
       this.formTemplate.value.posicion = this.arrayForm.length +1;
       this.arrayForm.push(this.formTemplate.value);    
-      this.variableService.createTemplate(this.getValuesFormGroup(this.arrayForm));
+      this.templateService.createTemplate(this.getValuesFormGroup(this.arrayForm));
       this.arrayForm = [];
+      alert('Plantilla creada correctamente');
       this.router.navigate(['/connect']); 
   }
 

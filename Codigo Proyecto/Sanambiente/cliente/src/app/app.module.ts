@@ -86,7 +86,8 @@ import { VariablesBodyComponent } from './Components/body/Variables_Body/Variabl
 import { VariablesService } from './Services/Variables_Service/Variables_Service';
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
 
-import { TemplateComponent } from './Components/Body/template/template.component';
+import { TemplateComponent } from './Components/Body/Templates/Template.component';
+import {TemplateService} from './Services/Templates_Service/Templates_service';
 
 import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';
 import { FtpServiceService } from './Services/ftp_service/ftp-service.service';
@@ -159,7 +160,8 @@ import { ConnectModbusStationComponent } from './Components/Body/connect-modbus-
     PeriodicitiesService,
     PartsService,
     VariablesService,
-    FtpServiceService
+    FtpServiceService,
+    TemplateService
   ],
   bootstrap: [AppComponent]
 })

@@ -65,7 +65,7 @@ import { VariablesBodyComponent } from './Components/body/Variables_Body/Variabl
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
 
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para plantillas */
-import { TemplateComponent } from './Components/Body/template/template.component';
+import { TemplateComponent } from './Components/Body/Templates/Template.component';
 
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para conectar con ftp */
 import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';
@@ -80,7 +80,7 @@ const rutas: Routes = [
   { path: 'home', component: HomeComponent }, // Ruta para la pagina vista principal
 
   /*--- Ruta de plantillas ---*/
-  { path: 'plantilla', component: TemplateComponent }, // Ruta para la pagina vista principal
+  { path: 'template', component: TemplateComponent }, // Ruta para la pagina vista principal
 
   /*--- Rutas de region ---*/
   { path: 'region', redirectTo: '/region', pathMatch: 'full' },

@@ -28,9 +28,9 @@ export class VariablesService {
     return this.baseService.view(`${environment.hostviewVariableById}/${id_variable}`);
   }
 
-  createTemplate(body: any) {
-    return this.baseService.create(body, `${environment.hostTemplateCreate}`)
-  }
+  // createTemplate(body: any) {
+  //   return this.baseService.create(body, `${environment.hostTemplateCreate}`)
+  // }
 
 }
 
