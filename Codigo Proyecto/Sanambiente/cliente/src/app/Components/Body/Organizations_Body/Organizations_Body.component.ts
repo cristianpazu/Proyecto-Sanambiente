@@ -21,7 +21,7 @@ export class OrganizationsBodyComponent implements OnInit {
     this.formOrganization = new FormGroup({
       'nombre_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'email_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
-      'telefono_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9]\d{6,10}$/)]),
+      'telefono_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9#()+* ]+\.?[0-9]{0,2}\d{0,20}$/)]),
       'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayOrganizations = {

@@ -55,10 +55,10 @@
         <!-- Campo para el telefono -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Teléfono Organización</label>
-            <div class="col-2">
+            <div class="col-3">
                 <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
                     id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
-                    maxlength="10">
+                    maxlength="19">
                   
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
@@ -68,7 +68,7 @@
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.pattern"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> Los valores deben ser numeros enteros y contener entre 7 y 10 dígitos.
+                        <strong>Alerta!</strong> Campo de numeros enteros y contener entre 7 y 10 dígitos.
                     </div>
                 </div>
 

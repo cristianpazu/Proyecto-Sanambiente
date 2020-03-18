@@ -60,7 +60,7 @@ export class TemplateComponent implements OnInit {
       this.arrayForm.push(this.formTemplate.value);    
       this.variableService.createTemplate(this.getValuesFormGroup(this.arrayForm));
       this.arrayForm = [];
-      this.router.navigate(['/station']); 
+      this.router.navigate(['/connect']); 
   }
 
   getValuesFormGroup(arrayValues:  Array<any>) {

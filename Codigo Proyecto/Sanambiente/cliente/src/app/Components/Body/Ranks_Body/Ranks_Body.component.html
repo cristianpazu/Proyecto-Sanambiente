@@ -16,7 +16,7 @@
         <!-- Campo para rango minimo -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Valor Mínimo</label>
-            <div class="col-2">
+            <div class="col-3">
                 <input class="form-control" formControlName="valor_minimo" type="text" autofocus id="textRango_Minimo"
                     [(ngModel)]="arrayRanks.valor_minimo" id="tamaño-fuente-input" maxlength="20">
 
@@ -29,7 +29,7 @@
                 <div *ngIf="formRank.controls['valor_minimo'].errors?.maxlength ||
                 formRank.controls['valor_minimo'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El valor debe ser un número entero con máximo 20 carácteres.
+                        <strong>Alerta!</strong> Campo númerico, maximo 20 digitos.
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
         <!-- Campo para rango maximo -->
         <div class="form-group row">
             <label class="col-2 col-form-label"> Valor Máximo</label>
-            <div class="col-2">
+            <div class="col-3">
                 <input class="form-control" formControlName="valor_maximo" type="text" autofocus id="textRango_Maximo"
                     [(ngModel)]="arrayRanks.valor_maximo" id="tamaño-fuente-input" maxlength="20">
 
@@ -51,7 +51,7 @@
                 <div *ngIf="formRank.controls['valor_maximo'].errors?.maxlength ||
                 formRank.controls['valor_maximo'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El valor debe ser un número entero con máximo 20 carácteres.
+                        <strong>Alerta!</strong> Campo númerico, maximo 20 digitos.
                     </div>
                 </div>
             </div>
