@@ -26,7 +26,6 @@
          try {
              const { id_variable } = request.params;
              let { nombre_variable, observacion_variable } = request.body;
-             //console.log(id_variable, '\n', request.body)
             await ConnectionDataBase.query(handlerQuery['updateVariable'], [nombre_variable, observacion_variable, id_variable]);
              return Promise.resolve(handleMessage(response, 200, 'Update Variable'))
  
@@ -48,7 +47,7 @@
      async viewById(request: Request, response: Response): Promise<any> {
          try {
              const { id_variable } = request.params;
-             let variable = await ConnectionDataBase.query(handlerQuery.viewRegion, [id_variable]);
+             let variable = await ConnectionDataBase.query(handlerQuery.viewVariable, [id_variable]);
              if (variable.rows.length === 0) {
                  return Promise.resolve(handleMessage(response, 200, 'Variable doesn´t exist'));
              } else {

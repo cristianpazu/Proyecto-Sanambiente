@@ -31,7 +31,6 @@ export class MaintenancesBodyComponent implements OnInit {
       'fecha_inicial': new FormControl('', [Validators.required]),
       'fecha_final': new FormControl('', [Validators.required]),
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'observacion_validacion': new FormControl(''['']),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayMaintenance = {
@@ -78,7 +77,6 @@ export class MaintenancesBodyComponent implements OnInit {
    /* Método con el cual se listan los tipos de periodicidades de los mantenimiento */
    async viewPeriodicitiesMaintenance() {
     this.periodicityMaintenance = (await this.maintenancesService.viewPeriodicitiesMaintenance());
-    console.log(this.periodicityMaintenance);
   }
 
   /* Método con el cual se identifica el mantenimiento cuya información va a ser actualizada */

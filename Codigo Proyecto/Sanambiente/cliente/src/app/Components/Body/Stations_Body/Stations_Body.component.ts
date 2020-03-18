@@ -97,6 +97,7 @@ export class StationsBodyComponent implements OnInit {
     if (id !== undefined) {
       let station = await this.stationService.viewStationById(id).subscribe(async (element: any) => {
         this.arrayStations = await element.message[0];
+        console.log(this.arrayStations);
         this.edit = true;
         this.hide = true;
       });

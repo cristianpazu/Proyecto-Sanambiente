@@ -13,8 +13,8 @@ class StationService implements BaseService<any> {
     //metodo para crear una estacion
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt } = request.body;
-            await ConnectionDataBase.query(handlerQuery['createStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt]);
+            let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt, id_region } = request.body;
+            await ConnectionDataBase.query(handlerQuery['createStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt, id_region]);
             return Promise.resolve(handleMessage(response, 200, 'Create station'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error al enviar la info'));
@@ -25,8 +25,8 @@ class StationService implements BaseService<any> {
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_estacion } = request.params;
-            let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt } = request.body;
-            await ConnectionDataBase.query(handlerQuery['updateStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt, id_estacion]);
+            let { nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt, id_region } = request.body;
+            await ConnectionDataBase.query(handlerQuery['updateStation'], [nombre_estacion, serial_estacion, nombre_corto_estacion, id_categoria, id_tiempo, observacion_estacion, id_ciudad, latitud_estacion, longitud_estacion, elevacion_estacion, protocolo_estacion, id_gmt, id_region, id_estacion]);
             return Promise.resolve(handleMessage(response, 200, 'Update station'))
 
         } catch (error) {
