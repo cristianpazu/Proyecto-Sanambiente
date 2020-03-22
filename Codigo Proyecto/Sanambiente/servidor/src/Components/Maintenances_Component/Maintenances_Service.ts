@@ -12,8 +12,8 @@ class MaintenanceService implements BaseService<any> {
     //metodo para crear un mantenimiento
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento } = request.body;
-            await ConnectionDataBase.query(handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento]);
+            let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento } = request.body;
+            await ConnectionDataBase.query(handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento]);
             return Promise.resolve(handleMessage(response, 200, 'Create Maintenance'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
@@ -36,8 +36,8 @@ class MaintenanceService implements BaseService<any> {
     // metodo para ver todos los mantenimientos
     async view(request: Request, response: Response): Promise<any> {
         try {
-            let stations = await ConnectionDataBase.query(handlerQuery['viewMaintenances']);
-            return Promise.resolve(handleMessage(response, 200, stations.rows));
+            let maintenances = await ConnectionDataBase.query(handlerQuery['viewMaintenances']);
+            return Promise.resolve(handleMessage(response, 200, maintenances.rows));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
@@ -58,6 +58,7 @@ class MaintenanceService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
+
 }
 
 // Se crea y exporta una constante que contiene los servicios de esta clase.

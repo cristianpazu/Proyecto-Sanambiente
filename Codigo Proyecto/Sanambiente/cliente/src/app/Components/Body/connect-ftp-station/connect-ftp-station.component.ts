@@ -16,7 +16,7 @@ import { RanksService } from 'src/app/Services/Ranks_Service/Ranks_Service';
 export class ConnectFTPStationComponent implements OnInit {
 
   public formFtp: FormGroup; // La variable formAlert permite administrar las validaciones y restricciones del formulario
-  public stationRank: Array<any>;
+  //public stationRank: Array<any>;
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
  
@@ -30,7 +30,6 @@ export class ConnectFTPStationComponent implements OnInit {
       'contrasena_ftp': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'ip_ftp': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
-    this.stationRank = new Array<any>();
   }
 
   async ngOnInit() {
@@ -57,7 +56,6 @@ export class ConnectFTPStationComponent implements OnInit {
     let params = this.activedRoute.snapshot.params;
     this.formFtp.get('id_estacion').setValue(params.id_estacion);
     this.formFtp.get('id_plantilla').setValue(params.id_plantilla);
-    this.stationRank = await this.ranksService.viewStationsRank();
   }
 
   async getCountDATA() {

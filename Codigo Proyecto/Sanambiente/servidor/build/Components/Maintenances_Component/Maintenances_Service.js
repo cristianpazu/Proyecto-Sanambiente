@@ -21,8 +21,8 @@ class MaintenanceService {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento } = request.body;
-                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento]);
+                let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento } = request.body;
+                yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento]);
                 return Promise.resolve(Handle_Message_1.default(response, 200, 'Create Maintenance'));
             }
             catch (error) {
@@ -48,8 +48,8 @@ class MaintenanceService {
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewMaintenances']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, stations.rows));
+                let maintenances = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewMaintenances']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, maintenances.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));

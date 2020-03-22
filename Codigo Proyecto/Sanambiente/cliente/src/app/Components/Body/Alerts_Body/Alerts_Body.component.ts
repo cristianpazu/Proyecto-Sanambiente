@@ -20,7 +20,7 @@ export class AlertsBodyComponent implements OnInit {
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la Alerta, en la vista html
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
- 
+
   constructor(private alertsService: AlertsService, private router: Router, private activedRoute: ActivatedRoute) {
 
     this.formAlert = new FormGroup({
@@ -30,7 +30,7 @@ export class AlertsBodyComponent implements OnInit {
       'servidorsmtp_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'puertosmtp_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[0-9-]\d{0,50}$/)]),
       'seguridad_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'autenticacion_alerta': new FormControl(''['']),
+      'autenticacion_alerta': new FormControl(''['false']),
       'emailpara_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
       'asunto_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'emailde_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
@@ -38,9 +38,10 @@ export class AlertsBodyComponent implements OnInit {
     });
 
 
-      this.arrayAlerts = {
+    this.arrayAlerts = {
+      autenticacion_alerta: '',
       observacion_alerta: '', //Se usa para definir el campo observacion_alerta y poder mostrar el conteo de caracteres restantes
-     
+
     };
   }
 
@@ -85,7 +86,7 @@ export class AlertsBodyComponent implements OnInit {
       asunto_alerta: this.arrayAlerts.asunto_alerta,
       emailde_alerta: this.arrayAlerts.emailde_alerta,
       observacion_alerta: this.arrayAlerts.observacion_alerta
-      
+
     })
     this.alertsService.updateAlert(this.formAlert.value, id)
     alert('Alerta actualizada correctamente');

@@ -24,7 +24,7 @@ export class TimesBodyComponent implements OnInit {
   constructor(private timesService: TimesService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada timesService
     this.formTime = new FormGroup({
       'nombre_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'escala_tiempo': new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/), Validators.min(1), Validators.max(1440)]),
+      'escala_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[0-9]*$/), Validators.min(1), Validators.max(1440)]),
       'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayTimes = {

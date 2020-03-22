@@ -31,12 +31,14 @@ export class MaintenancesBodyComponent implements OnInit {
       'fecha_inicial': new FormControl('', [Validators.required]),
       'fecha_final': new FormControl('', [Validators.required]),
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'validacion_mantenimiento': new FormControl(''['']),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayMaintenance = {
       fecha_inicial: '',
       fecha_final: '',
       nombre_funcionario: '',
+      validacion_mantenimiento:'',
       novedad_mantenimiento: ''
     };
   }
@@ -99,6 +101,7 @@ export class MaintenancesBodyComponent implements OnInit {
       fecha_final: this.arrayMaintenance.fecha_final,
       nombre_funcionario: this.arrayMaintenance.nombre_funcionario,
       observacion_validacion: this.arrayMaintenance.observacion_validacion,
+      validacion_mantenimiento: this.arrayMaintenance.validacion_mantenimiento,
       novedad_mantenimiento: this.arrayMaintenance.novedad_mantenimiento,
     })
     this.maintenancesService.updateMaintenance(this.formMaintenance.value, id)

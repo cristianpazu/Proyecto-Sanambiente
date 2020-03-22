@@ -26,6 +26,5 @@ export class AlertsListComponent implements OnInit {
 /* Método con el cual se obtienen las Alertas existentes */
   async getAlerts() {
     this.arrayAlerts = await this.alertsService.viewAlerts();
-    console.log(this.arrayAlerts);
   }
 }
