@@ -11,4 +11,5 @@ export interface Maintenance {
     nombre_funcionario?: string;
     validacion_mantenimiento?: boolean;
     novedad_mantenimiento?: string;
+    fecha_creacion?:Date;
 }

@@ -43,7 +43,7 @@
                     <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
                     <input formControlName="escala_tiempo" class="form-control" type="text" id="escala_tiempo"
                         id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.escala_tiempo"
-                        value={{arrayTimes.escala_tiempo}}>
+                        value={{arrayTimes.escala_tiempo}} maxlength="4">
 
                     Digite escala de tiempo en minutos
 
@@ -57,12 +57,6 @@
                     formTime.controls['escala_tiempo'].errors?.pattern" class="form-control-feedback">
                         <div class="alert alert-danger">
                             <strong>Alerta!</strong> Los valores deben estar entre 1 y 1440.
-                        </div>
-                    </div>
-                    <!-- Mensaje de restricción campo escala de la Base de Tiempo -->
-                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.maxlength" class="form-control-feedback">
-                        <div class="alert alert-danger">
-                            <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
                         </div>
                     </div>
                 </div>

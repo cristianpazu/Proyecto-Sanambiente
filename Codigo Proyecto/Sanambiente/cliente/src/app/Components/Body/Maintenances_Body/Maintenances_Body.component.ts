@@ -19,7 +19,6 @@ export class MaintenancesBodyComponent implements OnInit {
   public arrayMaintenance: any;
   public edit = false;
   public hide = false;
-
   @HostBinding('class') classes = 'row';
 
   constructor(private maintenancesService: MaintenancesService, private router: Router, private activedRoute: ActivatedRoute) {
@@ -33,13 +32,14 @@ export class MaintenancesBodyComponent implements OnInit {
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'validacion_mantenimiento': new FormControl(''['']),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'fecha_creacion':new FormControl(''['']),
     })
     this.arrayMaintenance = {
       fecha_inicial: '',
       fecha_final: '',
       nombre_funcionario: '',
       validacion_mantenimiento:'',
-      novedad_mantenimiento: ''
+      novedad_mantenimiento: '',
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenances_Body */
@@ -55,7 +55,6 @@ export class MaintenancesBodyComponent implements OnInit {
   async createMaintenance() {
     if (this.formMaintenance.valid) {
       await this.maintenancesService.createMaintenance(this.formMaintenance.value);
-      console.log(this.formMaintenance.value);
       alert('Mantenimiento creado correctamente');
       this.router.navigate(['/maintenance']);
     }
