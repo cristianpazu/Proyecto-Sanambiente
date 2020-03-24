@@ -79,16 +79,16 @@ export const handlerQuery = {
     viewPart: 'SELECT * FROM partes where id_parte=$1',
     updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_parte=$4',
     // Variables
-    createVariable:'INSERT INTO variables (nombre_variable, observacion_variable) VALUES ($1,$2)',
-    updateVariable:'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
+    createVariable: 'INSERT INTO variables (nombre_variable, observacion_variable) VALUES ($1,$2)',
+    updateVariable: 'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
     viewVariables: 'SELECT * FROM variables order by id_variable',
     viewVariable: 'SELECT * FROM variables where id_variable=$1',
     // Plantillas
     viewTemplatesStation: 'SELECT DISTINCT nombre_plantilla, id_plantilla from plantillas',
-    createTemplate:'INSERT INTO plantillas (id_plantilla, id_estacion, nombre_plantilla, id_variable, posicion_variable) VALUES($1, $2, $3, $4, $5)',
+    createTemplate: 'INSERT INTO plantillas (id_plantilla, id_estacion, nombre_plantilla, id_variable, posicion_variable) VALUES($1, $2, $3, $4, $5)',
     // Conexion FTP
     viewConection: 'SELECT * from datos_crudos',
     // FTP
-    insertDataFTP: 'INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)'   
+    insertDataFTP: 'INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)'
 }
 

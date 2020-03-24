@@ -36,8 +36,8 @@ class MaintenanceService implements BaseService<any> {
     // metodo para ver todos los mantenimientos
     async view(request: Request, response: Response): Promise<any> {
         try {
-            let stations = await ConnectionDataBase.query(handlerQuery['viewMaintenances']);
-            return Promise.resolve(handleMessage(response, 200, stations.rows));
+            let maintenances = await ConnectionDataBase.query(handlerQuery['viewMaintenances']);
+            return Promise.resolve(handleMessage(response, 200, maintenances.rows));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
@@ -58,6 +58,7 @@ class MaintenanceService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
+
 }
 
 // Se crea y exporta una constante que contiene los servicios de esta clase.

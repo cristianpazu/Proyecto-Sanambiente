@@ -32,8 +32,9 @@ export class MaintenancesBodyComponent implements OnInit {
       'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'fecha_inicial': new FormControl('', [Validators.required]),
       'fecha_final': new FormControl('', [Validators.required]),
-      'validacion_mantenimiento': new FormControl('',[]),
+      'validacion_mantenimiento': new FormControl('', []),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'fecha_creacion': new FormControl(''['']),
     })
     this.arrayMaintenance = {
       novedad_mantenimiento: ''//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
@@ -52,7 +53,6 @@ export class MaintenancesBodyComponent implements OnInit {
   async createMaintenance() {
     if (this.formMaintenance.valid) {
       await this.maintenancesService.createMaintenance(this.formMaintenance.value);
-      console.log(this.formMaintenance.value);
       alert('Mantenimiento creado correctamente');
       this.router.navigate(['/maintenance']);
     }
@@ -73,8 +73,8 @@ export class MaintenancesBodyComponent implements OnInit {
     this.typeMaintenance = (await this.maintenancesService.viewTypesMaintenance());
   }
 
-   /* Método con el cual se listan los tipos de periodicidades de los mantenimientso */
-   async viewPeriodicitiesMaintenance() {
+  /* Método con el cual se listan los tipos de periodicidades de los mantenimientso */
+  async viewPeriodicitiesMaintenance() {
     this.periodicityMaintenance = (await this.maintenancesService.viewPeriodicitiesMaintenance());
   }
 

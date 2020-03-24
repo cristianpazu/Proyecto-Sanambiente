@@ -9,7 +9,7 @@
             <label class="col-2 col-form-label">ID Alerta</label>
             <div class="col-2">
                 <input class="form-control" type="number" id="textId_alerta" id="tamaño-fuente-input"
-                    value={{arrayAlerts.id_alerta}} disabled>                  
+                    value={{arrayAlerts.id_alerta}} disabled>
             </div>
         </div>
 
@@ -106,13 +106,13 @@
                 <input class="form-control" formControlName="puertosmtp_alerta" type="text" autofocus id="textNombre"
                     [(ngModel)]="arrayAlerts.puertosmtp_alerta" id="tamaño-fuente-input" maxlength="51">
 
-                      <!-- Mensaje de restricción para el campo puerto smtp -->
-                    <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.maxlength ||
+                <!-- Mensaje de restricción para el campo puerto smtp -->
+                <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.maxlength ||
                     formAlert.controls['puertosmtp_alerta'].errors?.pattern" class="form-control-feedback">
-                        <div class="alert alert-danger">
-                            <strong>Alerta!</strong> Los valores deben ser numeros enteros.
-                        </div>
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben ser numeros enteros.
                     </div>
+                </div>
             </div>
         </div>
 
@@ -208,23 +208,22 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Campo para el Autenticacion -->
+        <!-- Campo para el Autenticacion "-->
         <div class="form-group row">
             <label class="col-2 col-form-label"></label>
             <div class="col-5">
-                
-                <input class="form-control" formControlName="autenticacion_alerta" type="checkbox" name="autenticacion_alerta"
-                [(ngModel)]="arrayAlerts.autenticacion_alerta" (ngModelOptions)="{standalone: true}"
-                    >&nbsp;
-                
+
+                <input class="form-control" formControlName="autenticacion_alerta" type="checkbox"
+                    name="autenticacion_alerta" [(ngModel)]="arrayAlerts.autenticacion_alerta"
+                    (ngModelOptions)="{standalone: true}">&nbsp;
+
                 <label>Se requiere Autenticacion por SMTP</label>
                 <div style="margin-top: 20px;">
                     <em> * Todos los campos son obligatorios </em>
                 </div>
             </div>
         </div>
-        
+
         <!-- boton Guardar Alerta -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

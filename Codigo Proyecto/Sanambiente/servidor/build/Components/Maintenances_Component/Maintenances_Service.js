@@ -48,8 +48,8 @@ class MaintenanceService {
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let stations = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewMaintenances']);
-                return Promise.resolve(Handle_Message_1.default(response, 200, stations.rows));
+                let maintenances = yield basedatos_1.default.query(Handle_Queries_1.handlerQuery['viewMaintenances']);
+                return Promise.resolve(Handle_Message_1.default(response, 200, maintenances.rows));
             }
             catch (error) {
                 Promise.reject(Handle_Message_1.default(response, 404, 'Error'));

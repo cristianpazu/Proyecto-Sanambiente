@@ -1,0 +1,224 @@
+################################ FUNCION CONVERTIR DE MAYUSCULAS A MISNUSCULAS ANTES DE UN INSERT O UPDATE #################
+
+1) --------- Se crea la funcion de conversion para la tabla alertas -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_alerta() RETURNS trigger AS $lowercase_alerta$
+    BEGIN        
+        NEW.nombre_alerta = LOWER(NEW.nombre_alerta);
+        NEW.email_alerta = LOWER(NEW.email_alerta);
+        NEW.servidorsmtp_alerta = LOWER(NEW.servidorsmtp_alerta);
+        NEW.emailpara_alerta = LOWER(NEW.emailpara_alerta);
+        NEW.emailde_alerta = LOWER(NEW.emailde_alerta);
+	NEW.observacion_alerta = LOWER(NEW.observacion_alerta);
+	NEW.asunto_alerta = LOWER(NEW.asunto_alerta);
+        RETURN NEW;
+    END;
+$lowercase_alerta$ LANGUAGE plpgsql;
+
+2) --------- Se crea la funcion de conversion para la tabla categorias -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_categoria() RETURNS trigger AS $lowercase_categoria$
+    BEGIN        
+        NEW.nombre_categoria = LOWER(NEW.nombre_categoria);
+	NEW.observacion_categoria = LOWER(NEW.observacion_categoria);
+        RETURN NEW;
+    END;
+$lowercase_categoria$ LANGUAGE plpgsql;
+
+3) --------- Se crea la funcion de conversion para la tabla ciudades -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_ciudad() RETURNS trigger AS $lowercase_ciudad$
+    BEGIN        
+        NEW.nombre_ciudad = LOWER(NEW.nombre_ciudad);
+	NEW.observacion_ciudad = LOWER(NEW.observacion_ciudad);
+        RETURN NEW;
+    END;
+$lowercase_ciudad$ LANGUAGE plpgsql;
+
+4) --------- Se crea la funcion de conversion para la tabla estaciones -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_estacion() RETURNS trigger AS $lowercase_estacion$
+    BEGIN        
+        NEW.nombre_estacion = LOWER(NEW.nombre_estacion);
+	NEW.serial_estacion = LOWER(NEW.serial_estacion);
+	NEW.nombre_corto_estacion = LOWER(NEW.nombre_corto_estacion);
+	NEW.observacion_estacion = LOWER(NEW.observacion_estacion);
+        RETURN NEW;
+    END;
+$lowercase_estacion$ LANGUAGE plpgsql;
+
+5) --------- Se crea la funcion de conversion para la tabla gmt -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_gmt() RETURNS trigger AS $lowercase_gmt$
+    BEGIN        
+        NEW.nombre_gmt = LOWER(NEW.nombre_gmt);
+	NEW.observacion_gmt = LOWER(NEW.observacion_gmt);
+        RETURN NEW;
+    END;
+$lowercase_gmt$ LANGUAGE plpgsql;
+
+6) --------- Se crea la funcion de conversion para la tabla mantenimientos -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_mantenimiento() RETURNS trigger AS $lowercase_mantenimiento$
+    BEGIN        
+        NEW.nombre_funcionario = LOWER(NEW.nombre_funcionario);
+	NEW.novedad_mantenimiento = LOWER(NEW.novedad_mantenimiento);
+        RETURN NEW;
+    END;
+$lowercase_mantenimiento$ LANGUAGE plpgsql;
+
+7) --------- Se crea la funcion de conversion para la tabla organizaciones -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_organizacion() RETURNS trigger AS $lowercase_organizacion$
+    BEGIN        
+        NEW.nombre_organizacion = LOWER(NEW.nombre_organizacion);
+	NEW.telefono_organizacion = LOWER(NEW.telefono_organizacion);
+	NEW.email_organizacion = LOWER(NEW.email_organizacion);
+	NEW.observacion_organizacion = LOWER(NEW.observacion_organizacion);
+        RETURN NEW;
+    END;
+$lowercase_organizacion$ LANGUAGE plpgsql;
+
+8) --------- Se crea la funcion de conversion para la tabla partes -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_parte() RETURNS trigger AS $lowercase_parte$
+    BEGIN        
+        NEW.nombre_parte = LOWER(NEW.nombre_parte);
+	NEW.codigo_catalogo = LOWER(NEW.codigo_catalogo);
+	NEW.observacion_parte = LOWER(NEW.observacion_parte);
+        RETURN NEW;
+    END;
+$lowercase_parte$ LANGUAGE plpgsql;
+
+9) --------- Se crea la funcion de conversion para la tabla periodicidades -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_periodicidad() RETURNS trigger AS $lowercase_periodicidad$
+    BEGIN        
+        NEW.tipo_periodicidad = LOWER(NEW.tipo_periodicidad);
+	NEW.observacion_periodicidad = LOWER(NEW.observacion_periodicidad);
+        RETURN NEW;
+    END;
+$lowercase_periodicidad$ LANGUAGE plpgsql;
+
+10) --------- Se crea la funcion de conversion para la tabla rangos -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_rango() RETURNS trigger AS $lowercase_rango$
+    BEGIN        
+        NEW.nombre_rango = LOWER(NEW.nombre_rango);
+	NEW.observacion_rango = LOWER(NEW.observacion_rango);
+        RETURN NEW;
+    END;
+$lowercase_rango$ LANGUAGE plpgsql;
+
+11) --------- Se crea la funcion de conversion para la tabla regiones -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_region() RETURNS trigger AS $lowercase_region$
+    BEGIN        
+        NEW.nombre_region = LOWER(NEW.nombre_region);
+	NEW.observacion_region = LOWER(NEW.observacion_region);
+        RETURN NEW;
+    END;
+$lowercase_region$ LANGUAGE plpgsql;
+
+12) --------- Se crea la funcion de conversion para la tabla tiempos -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_tiempo() RETURNS trigger AS $lowercase_tiempo$
+    BEGIN        
+        NEW.nombre_tiempo = LOWER(NEW.nombre_tiempo);
+	NEW.observacion_tiempo = LOWER(NEW.observacion_tiempo);
+        RETURN NEW;
+    END;
+$lowercase_tiempo$ LANGUAGE plpgsql;
+
+13) --------- Se crea la funcion de conversion para la tabla tipos mantenimiento -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_tipos_mantenimiento() RETURNS trigger AS $lowercase_tipos_mantenimiento$
+    BEGIN        
+        NEW.nombre_tipo_mantenimiento = LOWER(NEW.nombre_tipo_mantenimiento);
+	NEW.observacion_tipo_mantenimiento= LOWER(NEW.observacion_tipo_mantenimiento);
+        RETURN NEW;
+    END;
+$lowercase_tipos_mantenimiento$ LANGUAGE plpgsql;
+
+14) --------- Se crea la funcion de conversion para la tabla variables -------------------
+
+CREATE OR REPLACE FUNCTION lowercase_variable() RETURNS trigger AS $lowercase_variable$
+    BEGIN        
+        NEW.nombre_variable = LOWER(NEW.nombre_variable);
+	NEW.observacion_variable= LOWER(NEW.observacion_variable);
+        RETURN NEW;
+    END;
+$lowercase_variable$ LANGUAGE plpgsql;
+
+################################ DISPARADOR CONVERTIR DE MAYUSCULAS A MISNUSCULAS ANTES DE UN INSERT O UPDATE #################
+
+1) --------- Se crean los disparadores de conversion para la tabla alertas-------------------
+
+CREATE TRIGGER lowercase_alerta_trigger BEFORE INSERT OR UPDATE ON alertas
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_alerta();
+
+2) --------- Se crean los disparadores de conversion para la tabla categorias-------------------
+
+CREATE TRIGGER lowercase_categoria_trigger BEFORE INSERT OR UPDATE ON categorias
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_categoria();
+
+3) --------- Se crean los disparadores de conversion para la tabla ciudades-------------------
+
+CREATE TRIGGER lowercase_ciudad_trigger BEFORE INSERT OR UPDATE ON ciudades
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_ciudad();
+
+4) --------- Se crean los disparadores de conversion para la tabla estaciones-------------------
+
+CREATE TRIGGER lowercase_estacion_trigger BEFORE INSERT OR UPDATE ON estaciones
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_estacion();
+
+5) --------- Se crean los disparadores de conversion para la tabla gmt-------------------
+
+CREATE TRIGGER lowercase_gmt_trigger BEFORE INSERT OR UPDATE ON gmt
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_gmt();
+
+6) --------- Se crean los disparadores de conversion para la tabla mantenimientos-------------------
+
+CREATE TRIGGER lowercase_mantenimiento_trigger BEFORE INSERT OR UPDATE ON mantenimientos
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_mantenimiento();
+
+7) --------- Se crean los disparadores de conversion para la tabla organizaciones-------------------
+
+CREATE TRIGGER lowercase_organizacion_trigger BEFORE INSERT OR UPDATE ON organizaciones
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_organizacion();
+
+8) --------- Se crean los disparadores de conversion para la tabla partes-------------------
+
+CREATE TRIGGER lowercase_parte_trigger BEFORE INSERT OR UPDATE ON partes
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_parte();
+
+9) --------- Se crean los disparadores de conversion para la tabla periodicidades-------------------
+
+CREATE TRIGGER lowercase_periodicidad_trigger BEFORE INSERT OR UPDATE ON periodicidades
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_periodicidad();
+
+10) --------- Se crean los disparadores de conversion para la tabla rangos-------------------
+
+CREATE TRIGGER lowercase_rango_trigger BEFORE INSERT OR UPDATE ON rangos
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_rango();
+
+11) --------- Se crean los disparadores de conversion para la tabla regiones-------------------
+
+CREATE TRIGGER lowercase_region_trigger BEFORE INSERT OR UPDATE ON regiones
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_region();
+
+12) --------- Se crean los disparadores de conversion para la tabla tiempos-------------------
+
+CREATE TRIGGER lowercase_tiempo_trigger BEFORE INSERT OR UPDATE ON tiempos
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_tiempo();
+
+13) --------- Se crean los disparadores de conversion para la tabla tipos mantenimiento-------------------
+
+CREATE TRIGGER lowercase_tipos_mantenimiento_trigger BEFORE INSERT OR UPDATE ON tipos_mantenimiento
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_tipos_mantenimiento();
+
+14) --------- Se crean los disparadores de conversion para la tabla variables -------------------
+
+CREATE TRIGGER lowercase_variable_trigger BEFORE INSERT OR UPDATE ON variables
+    FOR EACH ROW EXECUTE PROCEDURE lowercase_variable();
+

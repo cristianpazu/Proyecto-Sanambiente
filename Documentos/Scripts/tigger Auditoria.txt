@@ -1,0 +1,90 @@
+#################### AUDITORIA PARA LOS UPDATE DE LAS TABLAS PARAMETROS ####################
+
+-------------------- Se crea la secuencia para el autoincremento del id de auditoria ------------------
+
+CREATE SEQUENCE auditoria_id_auditoria_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+------------------------------- Se crea la tabla auditoria ---------------------------------------
+CREATE TABLE auditoria
+(
+    id_auditoria integer NOT NULL DEFAULT nextval('"auditoria_id_auditoria_seq"'::regclass),
+    nombre_tabla character varying(50) COLLATE pg_catalog."default",
+    operacion character varying(50) COLLATE pg_catalog."default",
+    valor_anterior text COLLATE pg_catalog."default",
+    valor_nuevo text COLLATE pg_catalog."default",
+    fecha_cambio timestamp without time zone,
+    usuario character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT auditoria_pkey PRIMARY KEY (id_auditoria)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.auditoria
+    OWNER to postgres;
+
+------------------------ Se crea la funcion para la auditoria -------------------------------
+
+CREATE OR REPLACE FUNCTION fn_Auditoria() RETURNS trigger AS
+$$
+BEGIN
+  IF (TG_OP = 'UPDATE') THEN
+    INSERT INTO auditoria ("nombre_tabla", "operacion", "valor_anterior", "valor_nuevo", "fecha_cambio", "usuario")
+           VALUES (TG_TABLE_NAME, 'Update', OLD, NEW, now(), USER);
+    RETURN NEW;
+  END IF;
+  RETURN NULL;
+END;
+$$
+LANGUAGE 'plpgsql' VOLATILE COST 100;
+ALTER FUNCTION fn_Auditoria() OWNER TO postgres;
+
+------------------ Se crean los tiggers de la funcion de auditoria para cada tabla parametro ---------------------
+
+CREATE TRIGGER tg_auditoria_alertas AFTER UPDATE
+ON alertas FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_categorias AFTER UPDATE
+ON categorias FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_ciudades AFTER UPDATE
+ON ciudades FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_estaciones AFTER UPDATE
+ON estaciones FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_gmt AFTER UPDATE
+ON gmt FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_mantenimientos AFTER UPDATE
+ON mantenimientos FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_organizaciones AFTER UPDATE
+ON organizaciones FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_partes AFTER UPDATE
+ON partes FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_periodicidades AFTER UPDATE
+ON periodicidades FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_rangos AFTER UPDATE
+ON rangos FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_regiones AFTER UPDATE
+ON regiones FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_tiempos AFTER UPDATE
+ON tiempos FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_tipos_mantenimiento AFTER UPDATE
+ON tipos_mantenimiento FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();
+
+CREATE TRIGGER tg_auditoria_variables AFTER UPDATE
+ON variables FOR EACH ROW EXECUTE PROCEDURE fn_Auditoria();

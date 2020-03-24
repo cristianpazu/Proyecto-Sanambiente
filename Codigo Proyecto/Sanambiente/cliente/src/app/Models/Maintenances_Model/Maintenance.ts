@@ -11,4 +11,5 @@ export interface Maintenance {
     fecha_final?: Date;
     validacion_mantenimiento?:boolean;
     novedad_mantenimiento?: string;
+    fecha_creacion?:Date;
 }
