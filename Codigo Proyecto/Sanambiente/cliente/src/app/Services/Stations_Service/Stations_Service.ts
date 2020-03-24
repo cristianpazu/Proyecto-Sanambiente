@@ -60,8 +60,8 @@ export class StationsService {
     return this.baseService.update(body, `${environment.hostUpdateStation}/${id_estacion}`);
   }
 
-   // mostrar todas las plantillas relacionadas con la estacion
-   viewTemplatesStation() {
+  // mostrar todas las plantillas relacionadas con la estacion
+  viewTemplatesStation() {
     return this.baseService.view(`${environment.viewTemplateStation}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 

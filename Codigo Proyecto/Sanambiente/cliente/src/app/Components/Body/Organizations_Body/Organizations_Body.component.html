@@ -21,7 +21,7 @@
                 <input autofocus class="form-control" formControlName="nombre_organizacion" type="text" id="textNombre"
                     [(ngModel)]="arrayOrganizations.nombre_organizacion" id="tamaño-fuente-input" maxlength="50">
 
-                <!-- Validacion para el campo nombre de la Organizacion -->    
+                <!-- Validacion para el campo nombre de la Organizacion -->
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
@@ -45,8 +45,7 @@
 
                 <!-- Mensaje de restricción campo de solo email  -->
                 <div *ngIf="formOrganization.controls['email_organizacion'].errors?.maxlength ||
-                formOrganization.controls['email_organizacion'].errors?.pattern"
-                    class="form-control-feedback">
+                formOrganization.controls['email_organizacion'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Formato</strong> ejemplo@ejemplo.co, máximo 50 carácteres.
                     </div>
@@ -61,11 +60,11 @@
                 <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
                     id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
                     maxlength="19">
-                <!-- Validacion para el campo nombre de la Alerta -->  
+                <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
-                
+
                 <!-- Mensaje de restricción campo de solo numeros  -->
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.pattern"
                     class="form-control-feedback">
@@ -85,7 +84,7 @@
                     [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
                </textarea>
                 <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
-                 <!-- Validacion para el campo nombre de la Alerta -->
+                <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>

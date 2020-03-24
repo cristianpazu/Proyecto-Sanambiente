@@ -18,7 +18,7 @@ export class MaintenanceTypeListComponent implements OnInit {
   constructor(private maintenanceTypeService: MaintenancesTypeService) {
     this.arrayMaintenanceTypes = [];
   }
-  
+
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenance_Type_List */
   ngOnInit() {
     this.getMaintenanceTypes();

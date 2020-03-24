@@ -36,10 +36,8 @@ export class AlertsBodyComponent implements OnInit {
       'emailde_alerta': new FormControl('', [Validators.required, Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
       'observacion_alerta': new FormControl('', [Validators.required, Validators.maxLength(49.9)])
     });
-
-
+    
     this.arrayAlerts = {
-      autenticacion_alerta: '',
       observacion_alerta: '', //Se usa para definir el campo observacion_alerta y poder mostrar el conteo de caracteres restantes
 
     };

@@ -81,13 +81,13 @@ export const environment = {
   // Variable
   hostCreateVariable: "http://localhost:3000/api/variable/createVariable",
   viewVariables: "http://localhost:3000/api/variable/viewVariables",
-  hostUpdateVariable:"http://localhost:3000/api/variable/updateVariables",
+  hostUpdateVariable: "http://localhost:3000/api/variable/updateVariables",
   hostviewVariableById: "http://localhost:3000/api/variable/viewVariableById",
   // Template
   hostTemplateCreate: "http://localhost:3000/api/template/createTemplate",
   //FTP
   hostFTPCreate: "http://localhost:3000/api/ftp/createFTP",
   hostFTPviewDATA: "http://localhost:3000/api/ftp/viewFTP",
-  
+
   production: false
 };

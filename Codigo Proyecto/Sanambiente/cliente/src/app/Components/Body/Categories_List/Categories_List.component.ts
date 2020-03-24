@@ -12,20 +12,20 @@ import { CategoriesService } from '../../../Services/Categories_Service/Categori
 })
 export class CategoriesListComponent implements OnInit {
 
-  @HostBinding('class') classes='row';// Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
+  @HostBinding('class') classes = 'row';// Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
   public arrayCategories: Array<any>;// La variable arrayCategories almacena el listado de las Categoria existentes
   searchText; // Variable que alimenta el campo de busqueda de la vista html
 
   constructor(private categoriesService: CategoriesService) { }
 
-  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Categories_List */ 
+  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Categories_List */
   ngOnInit() {
     this.getCategories();
   }
 
   /* Método con el cual se obtienen las Categorias existentes */
-  async getCategories(){
+  async getCategories() {
     this.arrayCategories = await this.categoriesService.viewCategories();
   }
 }

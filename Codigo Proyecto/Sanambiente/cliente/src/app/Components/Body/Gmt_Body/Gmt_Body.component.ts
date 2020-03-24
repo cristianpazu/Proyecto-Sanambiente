@@ -24,7 +24,7 @@ export class GmtBodyComponent implements OnInit {
       'observacion_gmt': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayGmt = {
-      observacion_gmt: ''
+      observacion_gmt: ''//Se usa para definir el campo observacion_gmt y poder mostrar el conteo de caracteres restantes
     };
   }
 

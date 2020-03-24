@@ -10,7 +10,7 @@ export default class BaseService {
     // Se implementa los servicios http y se instancia el tipo de elemeto que utilizara cada uno de ellos
 
     async create(body, route: string) {
-        return this.httpClient.post(`${route}`, body).toPromise().then((responseServer: any) => responseServer.message );
+        return this.httpClient.post(`${route}`, body).toPromise().then((responseServer: any) => responseServer.message);
     }
 
     view(route: string) {

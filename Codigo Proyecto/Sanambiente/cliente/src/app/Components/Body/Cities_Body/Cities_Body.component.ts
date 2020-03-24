@@ -28,7 +28,7 @@ export class CitiesBodyComponent implements OnInit {
       'observacion_ciudad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayCities = {
-         observacion_ciudad:''//Se usa para definir el campo observacion_ciudad y poder mostrar el conteo de caracteres restantes
+      observacion_ciudad: ''//Se usa para definir el campo observacion_ciudad y poder mostrar el conteo de caracteres restantes
     };
   }
 

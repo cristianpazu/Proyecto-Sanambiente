@@ -9,13 +9,13 @@ export class ConnectFtpStationService {
 
   constructor(private baseService: BaseService) { }
 
-// metodo para crear
+  // metodo para crear
   createConnectionFTP(body) {
     return this.baseService.create(body, `${environment.hostFTPCreate}`)
   }
-// metodo para listar todas las conexiones 
+  // metodo para listar todas las conexiones 
   viewDataFTP() {
-    return this.baseService.view(`${environment.hostFTPviewDATA}`).toPromise().then((data: any)=>data.message).catch((error)=>console.log(error));
+    return this.baseService.view(`${environment.hostFTPviewDATA}`).toPromise().then((data: any) => data.message).catch((error) => console.log(error));
   }
 
 }

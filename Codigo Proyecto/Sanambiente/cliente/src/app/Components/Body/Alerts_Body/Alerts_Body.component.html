@@ -117,26 +117,25 @@
         </div>
 
         <!-- Campo para Seguridad -->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Seguridad</label>
-                <div class="col-2">
-                    <select formControlName="seguridad_alerta" class="form-control" type="text" id="seguridad_alerta"
-                        id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.seguridad_alerta"
-                        value={{arrayAlerts.seguridad_alerta}}>
-                        <option value="SSL">SSL</option>
-                        <option value="TLS">TLS</option>
-                        <option value="SSL/TLS">SSL/TLS</option>
-                    </select>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Seguridad</label>
+            <div class="col-2">
+                <select formControlName="seguridad_alerta" class="form-control" type="text" id="seguridad_alerta"
+                    id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.seguridad_alerta"
+                    value={{arrayAlerts.seguridad_alerta}}>
+                    <option value="SSL">SSL</option>
+                    <option value="TLS">TLS</option>
+                    <option value="SSL/TLS">SSL/TLS</option>
+                </select>
 
-                    <!-- Validacion para el campo tipo de Alerta  -->
-                    <div *ngIf="formAlert.controls['seguridad_alerta'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
-                    <br>
+                <!-- Validacion para el campo tipo de Alerta  -->
+                <div *ngIf="formAlert.controls['seguridad_alerta'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
+                <br>
             </div>
         </div>
+
         <!-- Campo para el email para -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Email para</label>
@@ -208,6 +207,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Campo para el Autenticacion "-->
         <div class="form-group row">
             <label class="col-2 col-form-label"></label>

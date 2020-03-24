@@ -54,29 +54,29 @@ export class RanksBodyComponent implements OnInit {
     this.stationRank = (await this.ranksService.viewStationsRank());
   }
 
-    /* Método con el cual se identifica el rango cuya información va a ser actualizada */
-    async viewRankById() {
-      let id = this.activedRoute.snapshot.params.id_rango;
-      if (id !== undefined) {
-        let rango = await this.ranksService.viewRankById(id).subscribe(async (element: any) => {
-          this.arrayRanks = await element.message[0];
-          this.edit = true;
-          this.hide = true;
-        });
-      }
+  /* Método con el cual se identifica el rango cuya información va a ser actualizada */
+  async viewRankById() {
+    let id = this.activedRoute.snapshot.params.id_rango;
+    if (id !== undefined) {
+      let rango = await this.ranksService.viewRankById(id).subscribe(async (element: any) => {
+        this.arrayRanks = await element.message[0];
+        this.edit = true;
+        this.hide = true;
+      });
     }
-  
-    /* Método con el cual se actualiza la información del rango seleccionado */
-    async updateRank() {
-      let id = this.activedRoute.snapshot.params.id_rango;
-      this.formRank.patchValue({
-        nombre_rango: this.arrayRanks.nombre_rango,
-        valor_minimo: this.arrayRanks.valor_minimo,
-        valor_maximo: this.arrayRanks.valor_maximo,
-        observacion_rango: this.arrayRanks.observacion_rango,
-      })
-      this.ranksService.updateRank(this.formRank.value, id)
-      alert('Rango actualizado correctamente');
-      this.router.navigate(['/rank']);
-    }
+  }
+
+  /* Método con el cual se actualiza la información del rango seleccionado */
+  async updateRank() {
+    let id = this.activedRoute.snapshot.params.id_rango;
+    this.formRank.patchValue({
+      nombre_rango: this.arrayRanks.nombre_rango,
+      valor_minimo: this.arrayRanks.valor_minimo,
+      valor_maximo: this.arrayRanks.valor_maximo,
+      observacion_rango: this.arrayRanks.observacion_rango,
+    })
+    this.ranksService.updateRank(this.formRank.value, id)
+    alert('Rango actualizado correctamente');
+    this.router.navigate(['/rank']);
+  }
 }

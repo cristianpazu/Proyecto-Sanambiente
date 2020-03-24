@@ -88,7 +88,7 @@ import { VariablesListComponent } from './Components/body/Variables_List/Variabl
 
 /* Importo los componentes y servicios creados para las plantillas */
 import { TemplateComponent } from './Components/Body/Templates_Body/Template_Body.component';
-import {TemplateService} from './Services/Templates_Service/Templates_service';
+import { TemplateService } from './Services/Templates_Service/Templates_service';
 
 /* Importo los componentes y servicios creados para conectar por FTP */
 import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';

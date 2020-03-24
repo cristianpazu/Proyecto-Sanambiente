@@ -20,7 +20,7 @@ export class RegionsBodyComponent implements OnInit {
 
   constructor(private regionService: RegionsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionService
     this.formRegion = new FormGroup({
-      'nombre_region': new FormControl('', [Validators.required,Validators.maxLength(49.9)]),
+      'nombre_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayRegions = {

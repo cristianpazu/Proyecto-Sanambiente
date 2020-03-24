@@ -8,23 +8,26 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Id Estacion</label>
             <div class="col-2">
-                <input class="form-control" formControlName="id_estacion" type="number" id="textId_alerta" id="tamaño-fuente-input" disabled>
+                <input class="form-control" formControlName="id_estacion" type="number" id="textId_alerta"
+                    id="tamaño-fuente-input" disabled>
             </div>
         </div>
 
-         <!-- Campo para la conexion que realizara la conexion -->
-         <div class="form-group row">
+        <!-- Campo para la conexion que realizara la conexion -->
+        <div class="form-group row">
             <label class="col-2 col-form-label">Id Conexion</label>
             <div class="col-2">
-                <input class="form-control" formControlName="id_conexion" type="number" id="textId_alerta" id="tamaño-fuente-input" disabled>
+                <input class="form-control" formControlName="id_conexion" type="number" id="textId_alerta"
+                    id="tamaño-fuente-input" disabled>
             </div>
         </div>
-       
+
         <!-- Campo el nombre de la plantilla con la cual se va a almacenar los datos -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Id Plantilla</label>
             <div class="col-2">
-                <input class="form-control" formControlName="id_plantilla" type="number" id="textId_alerta" id="tamaño-fuente-input" disabled>
+                <input class="form-control" formControlName="id_plantilla" type="number" id="textId_alerta"
+                    id="tamaño-fuente-input" disabled>
             </div>
         </div>
 
@@ -114,7 +117,8 @@
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">
-                <button type="button"  (click)="connectModbus()" class="btn btn-outline-primary btn-lg" [disabled]="!formFtp.valid">
+                <button type="button" (click)="connectModbus()" class="btn btn-outline-primary btn-lg"
+                    [disabled]="!formFtp.valid">
                     Conectar y guardar
                 </button>
             </div>

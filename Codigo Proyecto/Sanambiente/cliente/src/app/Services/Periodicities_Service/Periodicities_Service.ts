@@ -15,20 +15,19 @@ export class PeriodicitiesService {
 
   /* Se crean los metodos utilizados por la vista de periodicidad */
 
-// metodo para crear
+  // metodo para crear
   createPeriodicity(body: Periodicity) {
     return this.baseService.create(body, `${environment.hostCreatePeriodicity}`);
-
   }
-// metodo para listar todas las periodicidades
+  // metodo para listar todas las periodicidades
   viewPeriodicities() {
     return this.baseService.view(`${environment.viewPeriodicities}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-// metodo para actualizar 
+  // metodo para actualizar 
   updatePeriodicity(body: Periodicity, id_periodicidad: number) {
     return this.baseService.update(body, `${environment.hostUpdatePeriodicity}/${id_periodicidad}`);
   }
-// metodo para seleccionar una periodicidad por id
+  // metodo para seleccionar una periodicidad por id
   viewPeriodicityById(id_periodicidad: number) {
     return this.baseService.view(`${environment.viewPeriodicityById}/${id_periodicidad}`);
   }

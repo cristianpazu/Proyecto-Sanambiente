@@ -19,7 +19,7 @@ export class ConnectFTPStationComponent implements OnInit {
   //public stationRank: Array<any>;
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
- 
+
   constructor(private router: Router, private activedRoute: ActivatedRoute, private connectionFTPService: ConnectFtpStationService, private ranksService: RanksService) {
     this.formFtp = new FormGroup({
       'id_conexion': new FormControl(),
@@ -42,8 +42,8 @@ export class ConnectFTPStationComponent implements OnInit {
 
   /* Método con el cual se conecta la estacion*/
   async connectFtp() {
-    if(this.formFtp.valid) {
-      const info =  (await this.connectionFTPService.createConnectionFTP(this.formFtp.value));
+    if (this.formFtp.valid) {
+      const info = (await this.connectionFTPService.createConnectionFTP(this.formFtp.value));
       if (info === 'La cantidad de variables no corresponde a la plantilla') {
         alert('La cantidad de variables no corresponde a la plantilla');
       } else {
@@ -62,11 +62,11 @@ export class ConnectFTPStationComponent implements OnInit {
   async getCountDATA() {
     const data: any = await this.connectionFTPService.viewDataFTP();
     const lengthData: number = data.length;
-    if(lengthData === 0 ) {
+    if (lengthData === 0) {
       return 1;
-    }else {
-      return data[lengthData-1].id_conexion+1;
+    } else {
+      return data[lengthData - 1].id_conexion + 1;
     }
-}
+  }
 
 }

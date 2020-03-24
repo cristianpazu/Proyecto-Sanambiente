@@ -2,7 +2,8 @@
 
 <div class="container animated fadeIn fast" id="div-tabla" id="fuente-general">
     <!-- Boton para agregar un nuevo mantenimiento-->
-    <button [routerLink]="['/maintenance/add_maintenance']" class="btn btn-outline-primary btn-lg">Nuevo Mantenimiento</button>
+    <button [routerLink]="['/maintenance/add_maintenance']" class="btn btn-outline-primary btn-lg">Nuevo
+        Mantenimiento</button>
     <br><br><br>
     <h3>Lista de Mantenimientos</h3>
     <!-- Campo de busqueda -->
@@ -21,14 +22,14 @@
                 <th scope="col">Tipo Mantenimiento</th>
                 <th scope="col">Periodicidad Mantenimiento</th>
                 <th scope="col">Nombre Funcionario</th>
-                <th scope="col">Fecha  Inicial</th>
+                <th scope="col">Fecha Inicial</th>
                 <th scope="col">Fecha Final</th>
                 <th scope="col">Novedad</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-             <!-- Filas de la tabla-->
+            <!-- Filas de la tabla-->
             <tr *ngFor="let mantenimiento of arrayMaintenances | filter:searchText">
                 <td> {{mantenimiento.id_mantenimiento}} </td>
                 <td> {{mantenimiento.nombre_estacion}} </td>
@@ -37,11 +38,12 @@
                 <td> {{mantenimiento.tipo_periodicidad}} </td>
                 <td> {{mantenimiento.nombre_funcionario}} </td>
                 <td> {{mantenimiento.fecha_inicial | date:"dd/MM/yyyy"}} </td>
-                <td> {{mantenimiento.fecha_final | date:"dd/MM/yyyy"}} </td>               
+                <td> {{mantenimiento.fecha_final | date:"dd/MM/yyyy"}} </td>
                 <td> {{mantenimiento.novedad_mantenimiento}} </td>
                 <td>
                     <!-- Boton para actualizar la informacion de una mantenimiento -->
-                    <a [routerLink]="['/maintenance/edit_maintenance',mantenimiento.id_mantenimiento]" class="btn btn-outline-primary btn-lg">
+                    <a [routerLink]="['/maintenance/edit_maintenance',mantenimiento.id_mantenimiento]"
+                        class="btn btn-outline-primary btn-lg">
                         Editar
                     </a>
                 </td>

@@ -39,7 +39,7 @@ export class ConnectStationBodyComponent implements OnInit {
       'observacion_estacion': new FormControl('', []),
       'id_plantilla': new FormControl('', []),
     })
-    
+
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
@@ -68,9 +68,5 @@ export class ConnectStationBodyComponent implements OnInit {
   /* Método con el cual se obtienen las plantillas existentes */
   async viewTemplatesStation() {
     this.arrayTemplates = (await this.stationService.viewTemplatesStation());
-  }
-
-  example() {
-    console.log(this.formStation.value);
   }
 }

@@ -14,20 +14,19 @@ export class PartsService {
 
   /* Se crean los metodos utilizados por la vista de parte */
 
-// metodo para crear una parte
+  // metodo para crear una parte
   createPart(body: Part) {
     return this.baseService.create(body, `${environment.hostCreatePart}`);
-
   }
-// metodo para listar todas las partes
+  // metodo para listar todas las partes
   viewParts() {
     return this.baseService.view(`${environment.viewParts}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-// metodo para actualizar una parte
+  // metodo para actualizar una parte
   updatePart(body: Part, id_parte: number) {
     return this.baseService.update(body, `${environment.hostUpdatePart}/${id_parte}`);
   }
-// metodo para seleccionar una parte por id
+  // metodo para seleccionar una parte por id
   viewPartById(id_parte: number) {
     return this.baseService.view(`${environment.viewPartById}/${id_parte}`);
   }

@@ -25,7 +25,7 @@ export class OrganizationsBodyComponent implements OnInit {
       'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayOrganizations = {
-        observacion_organizacion: ''//Se usa para definir el campo observacion_organizacion y poder mostrar el conteo de caracteres restantes
+      observacion_organizacion: ''//Se usa para definir el campo observacion_organizacion y poder mostrar el conteo de caracteres restantes
     };
 
   }

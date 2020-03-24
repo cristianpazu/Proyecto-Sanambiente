@@ -18,7 +18,7 @@ export class ConnectModbusStationComponent implements OnInit {
   public stationRank: Array<any>;
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
- 
+
   constructor(private router: Router, private activedRoute: ActivatedRoute, private connectionFTPService: ConnectFtpStationService, private ranksService: RanksService) {
     this.formModbus = new FormGroup({
       'id_conexion': new FormControl(),
@@ -41,7 +41,7 @@ export class ConnectModbusStationComponent implements OnInit {
 
   /* Método con el cual conecta */
   async connectModbus() {
-    if(this.formModbus.valid) {
+    if (this.formModbus.valid) {
       this.connectionFTPService.createConnectionFTP(this.formModbus.value);
       return this.router.navigate(['/connect'])
     }
@@ -57,10 +57,10 @@ export class ConnectModbusStationComponent implements OnInit {
   async getCountDATA() {
     const data: any = await this.connectionFTPService.viewDataFTP();
     const lengthData: number = data.length;
-    if(lengthData === 0 ) {
+    if (lengthData === 0) {
       return 1;
-    }else {
-      return data[lengthData-1].id_conexion+1;
+    } else {
+      return data[lengthData - 1].id_conexion + 1;
     }
   }
 }
