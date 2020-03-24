@@ -14,23 +14,24 @@ export class RanksService{
 
 /* Se crean los metodos utilizados por la vista de rango */
 
+// metodo para crear
   createRank (body: Rank) {
     return this.baseService.create(body, `${environment.hostCreateRank}`);
     
   }
-
+// metodo para listar las estaciones
   viewStationsRank() {
     return this.baseService.view(`${environment.viewStationsRank}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para listar todos los rangos
   viewRanks() {
     return this.baseService.view(`${environment.viewRanks}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para seleccionar un rango por id
   viewRankById(id_rango: number) {
     return this.baseService.view(`${environment.viewRankById}/${id_rango}`);
   }
-
+// metodo para actualizar
   updateRank(body: Rank, id_rango: number) {
     return this.baseService.update(body, `${environment.hostUpdateRank}/${id_rango}`);
   }

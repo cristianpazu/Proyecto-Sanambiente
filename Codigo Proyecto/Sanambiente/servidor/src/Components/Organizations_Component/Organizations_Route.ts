@@ -5,7 +5,7 @@ import { Router } from 'express';
 import organizationService from './Organizations_Service';
 
 class OrganizationRoute {
-    
+
     public router: Router = Router();
 
     constructor() {
@@ -16,13 +16,13 @@ class OrganizationRoute {
     cuando se llame a cada una de  las rutas de organizacion*/
 
     configuracion(): void {
-       this.router.post('/createOrganization', organizationService.create);
-       this.router.get('/viewOrganizationById/:id_organizacion', organizationService.viewById);
-       this.router.put('/updateOrganizations/:id_organizacion', organizationService.update);
-       this.router.get('/viewOrganizations', organizationService.view)
+        this.router.post('/createOrganization', organizationService.create);
+        this.router.get('/viewOrganizationById/:id_organizacion', organizationService.viewById);
+        this.router.put('/updateOrganizations/:id_organizacion', organizationService.update);
+        this.router.get('/viewOrganizations', organizationService.view)
     }
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const organizationsRoutes = new OrganizationRoute(); 
+const organizationsRoutes = new OrganizationRoute();
 export default organizationsRoutes.router; 

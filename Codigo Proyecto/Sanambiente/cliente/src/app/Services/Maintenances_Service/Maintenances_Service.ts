@@ -14,35 +14,37 @@ export class MaintenancesService{
 
 /* Se crean los metodos utilizados por la vista de Mantenimiento */
 
+//metodo para crear 
   createMaintenance(body: Maintenance) {
     return this.baseService.create(body, `${environment.hostCreateMaintenance}`);
     
   }
 
+// metodo para listar las estaciones
   viewStationsMaintenance() {
     return this.baseService.view(`${environment.viewStationsMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para listar las partes de la estacion
   viewPartsStations() {
     return this.baseService.view(`${environment.viewPartsStations}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para listar los tipos de mantenimientos
   viewTypesMaintenance() {
     return this.baseService.view(`${environment.viewTypesMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para listar la periodicidad
   viewPeriodicitiesMaintenance() {
     return this.baseService.view(`${environment.viewPeriodicitiesMaintenance}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para listar todos los mantenimientos
   viewMaintenances() {
     return this.baseService.view(`${environment.viewMaintenances}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para seleccionar por id
   viewMaintenanceById(id_mantenimiento: number) {
     return this.baseService.view(`${environment.viewMaintenanceById}/${id_mantenimiento}`);
   }
-
+// metodo para actualizar un mantenimiento
   updateMaintenance(body: Maintenance, id_mantenimiento: number) {
     return this.baseService.update(body, `${environment.hostUpdateMaintenance}/${id_mantenimiento}`);
   }

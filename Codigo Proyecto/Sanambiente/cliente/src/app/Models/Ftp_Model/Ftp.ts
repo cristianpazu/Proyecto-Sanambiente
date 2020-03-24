@@ -1,4 +1,4 @@
-/* Clase que contiene y exporta la interfaz con el modelo (campos) necesario para Alerta */
+/* Clase que contiene y exporta la interfaz con el modelo (campos) necesario para ConexionFTP */
 
 export interface Ftp {
     id_ftp?: number;

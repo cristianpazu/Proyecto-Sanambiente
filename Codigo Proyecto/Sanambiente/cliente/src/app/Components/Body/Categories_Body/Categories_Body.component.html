@@ -1,4 +1,4 @@
-<!-- Clase que contiene el HTML de la vista de ciudad (Empleada para crear y actulizar una ciudad) -->
+<!-- Clase que contiene el HTML de la vista de Categoria (Empleada para crear y actulizar una Categoria) -->
 
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
     <h1>Categoría</h1>
@@ -47,14 +47,6 @@
                 <!-- Validacion para el campo Observacion de la Categoria -->
                 <div *ngIf="formCategory.controls['observacion_categoria'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
-                </div>
-
-                <!-- Mensaje de restricción campo de solo letras -->
-                <div *ngIf="formCategory.controls['observacion_categoria'].errors?.pattern"
-                    class="form-control-feedback">
-                    <div class="alert alert-danger">
-                        <strong>Alerta!</strong> El campo debe tener solo letras en minúscula.
-                    </div>
                 </div>
                 <br>
                 <div style="margin-top: 20px;">

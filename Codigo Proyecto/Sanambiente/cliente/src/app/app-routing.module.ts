@@ -65,7 +65,7 @@ import { VariablesBodyComponent } from './Components/body/Variables_Body/Variabl
 import { VariablesListComponent } from './Components/body/Variables_List/Variables_List.component';
 
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para plantillas */
-import { TemplateComponent } from './Components/Body/Templates/Template.component';
+import { TemplateComponent } from './Components/Body/Templates_Body/Template_Body.component';
 
 /* Importo los componentes a los cuales se direccionaran las rutas creadas para conectar con ftp */
 import { ConnectFTPStationComponent } from './Components/Body/connect-ftp-station/connect-ftp-station.component';

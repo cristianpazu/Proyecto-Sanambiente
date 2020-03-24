@@ -24,8 +24,7 @@ export class RegionsBodyComponent implements OnInit {
       'observacion_region': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayRegions = {
-      nombre_region:'',
-      observacion_region: ''
+      observacion_region: ''//Se usa para definir el campo observacion_region y poder mostrar el conteo de caracteres restantes
     };
   }
 

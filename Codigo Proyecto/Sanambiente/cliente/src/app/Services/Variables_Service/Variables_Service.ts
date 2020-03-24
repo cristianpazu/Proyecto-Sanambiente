@@ -12,18 +12,20 @@ export class VariablesService {
   constructor(private baseService: BaseService) {}
 
   /* Se crean los metodos utilizados por la vista de Variable */
+
+// metodo para crear
   createVariable (body: Variable) {
     return this.baseService.create(body, `${environment.hostCreateVariable}`);
   }
-
+// metodo para listar todas la variables
   viewVariables() {
     return this.baseService.view(`${environment.viewVariables}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para actualizar
   updateVariable(body: Variable, id_variable: number) {
     return this.baseService.update(body, `${environment.hostUpdateVariable}/${id_variable}`);
   }
-
+// metodo para seleccionar una variable por id
   viewVariableById(id_variable: number) {
     return this.baseService.view(`${environment.hostviewVariableById}/${id_variable}`);
   }

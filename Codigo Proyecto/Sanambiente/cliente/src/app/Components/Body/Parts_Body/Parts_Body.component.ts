@@ -15,8 +15,8 @@ export class PartsBodyComponent implements OnInit {
 
   public formPart: FormGroup; // La variable formPart permite administrar las validaciones y restricciones del formulario
   public arrayParts; // La variable arrayParts almacena el listado de las partes existentes.
-  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva region o se esta editando una region
-  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la region, en la vista html
+  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva parte o se esta editando una parte
+  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la parte, en la vista html
 
   constructor(private partService: PartsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada partService
     this.formPart = new FormGroup({
@@ -25,9 +25,7 @@ export class PartsBodyComponent implements OnInit {
       'observacion_parte': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayParts = {
-      nombre_parte: '',
-      codigo_catalogo: '',
-      observacion_parte: ''
+      observacion_parte: ''//Se usa para definir el campo observacion_parte y poder mostrar el conteo de caracteres restantes
     };
   }
 

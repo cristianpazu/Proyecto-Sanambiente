@@ -25,7 +25,7 @@ export class StationsBodyComponent implements OnInit {
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
-  constructor(private stationService: StationsService, private router: Router, private activedRoute: ActivatedRoute) {
+  constructor(private stationService: StationsService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada stationService
     this.formStation = new FormGroup({
       //validaciones de todos los campos del formulario 
       'nombre_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
@@ -43,7 +43,7 @@ export class StationsBodyComponent implements OnInit {
       'observacion_estacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     })
     this.arrayStations = {
-      observacion_estacion: ''
+      observacion_estacion: ''//Se usa para definir el campo observacion_estacion y poder mostrar el conteo de caracteres restantes
     };
   }
 
@@ -97,7 +97,6 @@ export class StationsBodyComponent implements OnInit {
     if (id !== undefined) {
       let station = await this.stationService.viewStationById(id).subscribe(async (element: any) => {
         this.arrayStations = await element.message[0];
-        console.log(this.arrayStations);
         this.edit = true;
         this.hide = true;
       });

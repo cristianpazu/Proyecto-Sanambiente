@@ -1,3 +1,5 @@
+<!-- Clase que contiene el HTML de la vista de Organizaciones (Empleada para crear y actulizar una Organizacion) -->
+
 <div class="container animated fadeIn fast" id="main-container" id="fuente-general">
     <h1>Organización</h1>
     <hr>
@@ -24,7 +26,7 @@
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
 
-                <!-- Mensaje de restricción campo nombre de la organizacion -->
+                <!-- Mensaje de restricción campo nombre de la Organizacion -->
                 <div *ngIf="formOrganization.controls['nombre_organizacion'].errors?.maxlength"
                     class="form-control-feedback">
                     <div class="alert alert-danger">
@@ -59,7 +61,7 @@
                 <input autofocus class="form-control" formControlName="telefono_organizacion" type="text"
                     id="textNombre" [(ngModel)]="arrayOrganizations.telefono_organizacion" id="tamaño-fuente-input"
                     maxlength="19">
-                  
+                <!-- Validacion para el campo nombre de la Alerta -->  
                 <div *ngIf="formOrganization.controls['telefono_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
@@ -83,6 +85,7 @@
                     [(ngModel)]="arrayOrganizations.observacion_organizacion" id="tamaño-fuente-input" maxlength="50">
                </textarea>
                 <span>{{50-arrayOrganizations.observacion_organizacion.length}} Caracteres restantes</span>
+                 <!-- Validacion para el campo nombre de la Alerta -->
                 <div *ngIf="formOrganization.controls['observacion_organizacion'].errors?.required"
                     class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
@@ -93,6 +96,7 @@
             </div>
         </div>
 
+        <!-- boton Guardar Organizacion -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>
             <div class="col-md-8">

@@ -1,4 +1,4 @@
-/* Clase que contiene los metodos y la logica de la vista html en la cual se listan las ciudades*/
+/* Clase que contiene los metodos y la logica de la vista html en la cual se listan las Alertas*/
 
 /* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
 import { Component, OnInit, HostBinding } from '@angular/core';// Angular lo importa por defecto
@@ -25,7 +25,6 @@ export class AlertsListComponent implements OnInit {
 
 /* Método con el cual se obtienen las Alertas existentes */
   async getAlerts() {
-    this.arrayAlerts = await this.alertsService.viewAlerts();
-    console.log(this.arrayAlerts);
+    this.arrayAlerts = await this.alertsService.viewAlerts();    
   }
 }

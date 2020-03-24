@@ -1,8 +1,11 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ConnectFtpStationService } from 'src/app/Services/connect-ftp-station/connect-ftp-station.service';
-import { RanksService } from 'src/app/Services/Ranks_Service/Ranks_Service';
+/* Clase que contiene los metodos y la logica de la vista html en la cual se crean conexiones Modbus*/
+
+/* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
+import { Component, OnInit, HostBinding } from '@angular/core';// Angular lo importa por defecto
+import { FormGroup, FormControl, Validators } from '@angular/forms';// Caracteristicas que permiten crear y manejar validaciones para formularios
+import { Router, ActivatedRoute } from '@angular/router';// la propiedad activateRoute permite saber lo que estoy recibiendo como parametro
+import { ConnectFtpStationService } from 'src/app/Services/connect-ftp-station/connect-ftp-station.service';//Importo los servicios de la clase connect-ftp-station
+import { RanksService } from 'src/app/Services/Ranks_Service/Ranks_Service';//Importo los servicios de la clase Ranks_Service
 
 @Component({
   selector: 'app-connect-modbus-station',

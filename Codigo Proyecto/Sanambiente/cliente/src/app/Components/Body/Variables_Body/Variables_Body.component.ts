@@ -26,8 +26,7 @@ export class VariablesBodyComponent implements OnInit {
     'observacion_variable': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
   });
   this.arrayVariables = {
-    observacion_variable: ''
-    
+    observacion_variable: ''//Se usa para definir el campo observacion_variable y poder mostrar el conteo de caracteres restantes 
   };
 }
 

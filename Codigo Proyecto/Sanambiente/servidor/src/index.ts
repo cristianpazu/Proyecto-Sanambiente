@@ -19,7 +19,7 @@ import periodicitiesRoutes from './Components/Periodicities_Component/Periodicit
 import partsRoutes from './Components/Parts_Component/Parts_Route';
 import VariablesRoute from './Components/Variables_Componet/Variables_Route';
 import TemplateRoute from './Components/Template_Component/Template_Route';
-import connectionFTPRouter from './Components/Conection_FTP/conection_FTP_ROUTES';
+import connectionFTPRouter from './Components/Conection_FTP_Component/conection_FTP_ROUTES';
 // Clase Servidor cuyos metodos se utilizaran más a adelante
 class Servidor {
     public app: Application;

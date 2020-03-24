@@ -17,9 +17,9 @@ export class TimesBodyComponent implements OnInit {
   public formTime: FormGroup; // La variable formTime permite administrar las validaciones y restricciones del formulario
   public arrayTimes; // La variable arrayTimes almacena el listado de las Bases de Tiempos existentes. Utilizada cuando se edita una Base de Tiempo
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva Base de Tiempo o se esta editando una Base de Tiempo
-  public hide=false; // Permite identificar cuando se debe o no, mostrar el campo del id de la ciudad, en la vista html
+  public hide=false; // Permite identificar cuando se debe o no, mostrar el campo del id de la Base de Tiempo, en la vista html
   
-  @HostBinding('class') classes = 'row';
+  @HostBinding('class') classes = 'row';// Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
   constructor(private timesService: TimesService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada timesService
     this.formTime = new FormGroup({
@@ -28,7 +28,6 @@ export class TimesBodyComponent implements OnInit {
       'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayTimes = {
-      nombre_tiempo:'',
       observacion_tiempo: ''//Se usa para definir el campo observacion_tiempo y poder mostrar el conteo de caracteres restantes
     };
   }

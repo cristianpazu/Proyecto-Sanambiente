@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateComponent } from './Template.component';
+import { TemplateComponent } from './Template_Body.component';
 
 describe('TemplateComponent', () => {
   let component: TemplateComponent;

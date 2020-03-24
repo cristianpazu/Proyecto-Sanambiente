@@ -155,6 +155,7 @@
                 </div>
             </div>
         </div>
+
         <!--  Campo para la fecha inical del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Inicial</label>
@@ -168,6 +169,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Campo para la fecha final del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Final</label>
@@ -181,12 +183,13 @@
             </div>
         </div>
 
-        <!-- Campo para Observacion de validación -->
+        <!-- Campo para validación correcta-->
         <div class="form-group row">
             <label class="col-2 col-form-label"></label>
             <div class="col-5">
-                <input type="checkbox" name="observacion_validacion" [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="arrayMaintenance.observacion_validacion">&nbsp;
+                <input class="form-control" formControlName="validacion_mantenimiento" type="checkbox" name="validacion_mantenimiento"
+                [(ngModel)]="arrayMaintenance.validacion_mantenimiento" (ngModelOptions)="{standalone: true}"
+                    >&nbsp;
                 <label>Validacion correcta</label>
             </div>
         </div>
@@ -210,6 +213,7 @@
             </div>
         </div>
         <br>
+        
         <!-- Boton de guardar -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

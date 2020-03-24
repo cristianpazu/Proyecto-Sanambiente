@@ -6,7 +6,7 @@ import CategoryService from './Categories_Service'; // Se importa la constante C
 
 
 class CategoriesRoute {
-    
+
     public router: Router = Router();
 
     constructor() {
@@ -16,14 +16,14 @@ class CategoriesRoute {
     las rutas de Categorias*/
 
     configuracion(): void {
-       this.router.post('/createCategory', CategoryService.create);
-       this.router.get('/viewCategoryById/:id_categoria', CategoryService.viewById);
-       this.router.get('/viewCategories', CategoryService.view);
-       this.router.put('/updateCategories/:id_categoria', CategoryService.update);
-       this.router.get('/viewCategoriesStation', CategoryService.viewNameCategoriesStation);
+        this.router.post('/createCategory', CategoryService.create);
+        this.router.get('/viewCategoryById/:id_categoria', CategoryService.viewById);
+        this.router.get('/viewCategories', CategoryService.view);
+        this.router.put('/updateCategories/:id_categoria', CategoryService.update);
+        this.router.get('/viewCategoriesStation', CategoryService.viewNameCategoriesStation);
     }
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const categoriesRoutes = new CategoriesRoute(); 
+const categoriesRoutes = new CategoriesRoute();
 export default categoriesRoutes.router;

@@ -10,6 +10,7 @@ export class TemplateService {
 
   constructor(private baseService: BaseService) { }
 
+  // metodo para crear 
   createTemplate(body: any) {
     return this.baseService.create(body, `${environment.hostTemplateCreate}`)
   }

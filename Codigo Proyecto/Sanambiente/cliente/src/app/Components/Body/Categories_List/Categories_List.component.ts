@@ -2,7 +2,7 @@
 
 /* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
 import { Component, OnInit, HostBinding } from '@angular/core';// Angular lo importa por defecto
-import { CategoriesService } from '../../../Services/Categories_Service/Categories_Service';// Importo los servicios de la clase Cities_Service
+import { CategoriesService } from '../../../Services/Categories_Service/Categories_Service';// Importo los servicios de la clase CategoriesService
 
 
 @Component({

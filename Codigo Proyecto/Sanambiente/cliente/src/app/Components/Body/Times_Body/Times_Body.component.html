@@ -34,30 +34,28 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Campo para Escala de Tiempo Actual-->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Escala de Tiempo</label>
-                <div class="col-5">
-                    <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
-                    <input formControlName="escala_tiempo" class="form-control" type="text" id="escala_tiempo"
-                        id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.escala_tiempo"
-                        value={{arrayTimes.escala_tiempo}}>
-                   
-                    Digite escala de tiempo en minutos
 
-                    <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
-                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
-                    <!-- Mensaje de restricción para el campo Escala de tiempo -->
-                    <div *ngIf="formTime.controls['escala_tiempo'].errors?.min ||
+        <!-- Campo para Escala de Tiempo Actual-->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Escala de Tiempo</label>
+            <div class="col-5">
+                <!-- Campo de tipo input, que muestra la escalade tiempo, solo cuando se edita una base de tiempo -->
+                <input formControlName="escala_tiempo" class="form-control" type="text" id="escala_tiempo"
+                    id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayTimes.escala_tiempo"
+                    value={{arrayTimes.escala_tiempo}}>
+
+                Digite escala de tiempo en minutos
+
+                <!-- Validacion para el campo Escala de Tiempo de la Base de Tiempo -->
+                <div *ngIf="formTime.controls['escala_tiempo'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
+                </div>
+                <!-- Mensaje de restricción para el campo Escala de tiempo -->
+                <div *ngIf="formTime.controls['escala_tiempo'].errors?.min ||
                     formTime.controls['escala_tiempo'].errors?.max || 
                     formTime.controls['escala_tiempo'].errors?.pattern" class="form-control-feedback">
-                        <div class="alert alert-danger">
-                            <strong>Alerta!</strong> Los valores deben estar entre 1 y 1440.
-                        </div>
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben estar entre 1 y 1440.
                     </div>
                 </div>
             </div>
@@ -87,32 +85,7 @@
 
             </div>
         </div>
-<!--
-         Campo para Alerta de Tiempo 
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Alerta base tiempo</label>
-                <div class="col-4">
-                    <select formControlName="id_alerta" class="form-control" type="number" id="textId_alerta"
-                        id="tamaño-fuente-input" data-formrun-required>
-                        <option *ngFor="let alertaTiempo of alertTime" value="{{alertaTiempo.id_alerta}}"
-                            name="alerta-tiempo">
-                            {{alertaTiempo.nombre_alerta}}
-                        </option>
-                    </select>
-
-                     Validacion para el campo observacion de la Base de Tiempo 
-                    <div *ngIf="formTime.controls['id_alerta'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
-                    <br>
-                    <div style="margin-top: 20px;">
-                        <em> * Todos los campos son obligatorios </em>
-                    </div>
-                </div>
-            </div>
-        </div>
-    -->
+     
         <!-- Boton de guardar de la Base de Tiempo -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

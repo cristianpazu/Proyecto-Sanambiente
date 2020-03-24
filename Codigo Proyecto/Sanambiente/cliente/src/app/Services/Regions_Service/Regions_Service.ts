@@ -13,19 +13,21 @@ export class RegionsService {
   constructor(private baseService: BaseService) {}
 
   /* Se crean los metodos utilizados por la vista de region */
+
+// metodo para crear
   createRegion (body: Region) {
     return this.baseService.create(body, `${environment.hostCreateRegion}`);
     
   }
-
+// metdo para listar todas las regiones
   viewRegions() {
     return this.baseService.view(`${environment.viewRegions}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
-
+// metodo para actualizar
   updateRegion(body: Region, id_region: number) {
     return this.baseService.update(body, `${environment.hostUpdateRegion}/${id_region}`);
   }
-
+// metodo para seleccionar una region por id
   viewRegionById(id_region: number) {
     return this.baseService.view(`${environment.hostviewRegionById}/${id_region}`);
   }

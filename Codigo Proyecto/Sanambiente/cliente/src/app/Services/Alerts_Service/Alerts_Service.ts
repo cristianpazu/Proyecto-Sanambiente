@@ -26,11 +26,12 @@ export class AlertsService {
     return this.baseService.view(`${environment.viewAlerts}`).toPromise().then((data: any) => data.message).catch((error) => error);
   }
 
-  
+  //metodo de seleccionar por id
   viewAlertById(id_alerta: number) {
     return this.baseService.view(`${environment.hostviewAlertById}/${id_alerta}`);
   }
   
+  //metodo actualizar
   updateAlert(body: Alert, id_alerta: number) {
   return this.baseService.update(body, `${environment.hostUpdateAlert}/${id_alerta}`);
   }

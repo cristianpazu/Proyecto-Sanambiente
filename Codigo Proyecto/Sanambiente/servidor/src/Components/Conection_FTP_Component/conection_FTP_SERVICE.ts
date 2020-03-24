@@ -1,3 +1,6 @@
+/*Esta clase contiene la configuracion de los servicios del lado del servidor
+ utilizados para la tabla Conectar por FTP */
+
 const Client = require('ftp');
 import { readFile, createWriteStream } from 'fs';
 import { Request, Response } from 'express';
@@ -8,6 +11,7 @@ import { handlerQuery } from '../../Hanldlers/Handle_Queries';
 
 class ConnectionFTPService {
 
+    //metodo para crear
     createFTP(request: Request, response: Response): void {
         const {ip_ftp, puerto_ftp, usuario_ftp, contrasena_ftp, id_plantilla, id_estacion, id_conexion} = request.body;
         let buildDataResult: any = { id_plantilla, id_estacion, id_conexion }
@@ -51,6 +55,7 @@ class ConnectionFTPService {
         });
     }
 
+    // metodo para ver todas las coneciones ftp con todos sus campos
     async viewFTPDATA(request: Request, response: Response) {
         try {
             let templates = await ConnectionDataBase.query(handlerQuery['viewConection']);
@@ -61,6 +66,6 @@ class ConnectionFTPService {
     }
 
 }
-
+// Se crea y exporta una constante que contiene los servicios de esta clase.
 const connectionFTPService = new ConnectionFTPService();
 export default connectionFTPService;

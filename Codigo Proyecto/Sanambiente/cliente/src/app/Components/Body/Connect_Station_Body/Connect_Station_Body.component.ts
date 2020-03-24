@@ -16,13 +16,13 @@ export class ConnectStationBodyComponent implements OnInit {
 
   public formStation: FormGroup; // La variable formStation permite administrar formularios
   public arrayStations: any; // La variable arrayStations almacena el listado de las estaciones existentes. Utilizada cuando se edita una estacion
-  public arrayTemplates: Array<any> = [];; // La variable templateStation almacena el listado de las plantillas existentes. Utilizada cuando se va a conectar con una estacion.
+  public arrayTemplates: Array<any> = []; // La variable templateStation almacena el listado de las plantillas existentes. Utilizada cuando se va a conectar con una estacion.
   public id_conexion: number = 0;
   public showButton: number;
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
-  constructor(private stationService: StationsService, private router: Router, private activedRoute: ActivatedRoute) {
+  constructor(private stationService: StationsService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada stationService
     this.formStation = new FormGroup({
       'nombre_estacion': new FormControl('', []),
       'serial_estacion': new FormControl('', []),
@@ -39,9 +39,7 @@ export class ConnectStationBodyComponent implements OnInit {
       'observacion_estacion': new FormControl('', []),
       'id_plantilla': new FormControl('', []),
     })
-    this.arrayStations = {
-      observacion_estacion: ''
-    };
+    
   }
 
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Stations_Body */
