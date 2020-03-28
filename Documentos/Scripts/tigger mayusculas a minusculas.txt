@@ -72,7 +72,6 @@ $lowercase_mantenimiento$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION lowercase_organizacion() RETURNS trigger AS $lowercase_organizacion$
     BEGIN        
         NEW.nombre_organizacion = LOWER(NEW.nombre_organizacion);
-	NEW.telefono_organizacion = LOWER(NEW.telefono_organizacion);
 	NEW.email_organizacion = LOWER(NEW.email_organizacion);
 	NEW.observacion_organizacion = LOWER(NEW.observacion_organizacion);
         RETURN NEW;
