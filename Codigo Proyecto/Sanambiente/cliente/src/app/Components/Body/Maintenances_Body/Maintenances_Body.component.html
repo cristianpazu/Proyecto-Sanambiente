@@ -23,24 +23,22 @@
         </div>
 
         <!-- Campo para estacion -->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Estación</label>
-                <div class="col-5">
-                    <select formControlName="id_estacion" class="form-control" type="number" id="textId_estacion"
-                        id="tamaño-fuente-input">
-                        <option *ngFor="let estacionMantenimiento of stationMaintenance"
-                            value="{{estacionMantenimiento.id_estacion}}">
-                            {{estacionMantenimiento.nombre_estacion}}
-                        </option>
-                    </select>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Estación</label>
+            <div class="col-5">
+                <select formControlName="id_estacion" class="form-control" type="number" id="textId_estacion"
+                    id="tamaño-fuente-input">
+                    <option *ngFor="let estacionMantenimiento of stationMaintenance"
+                        value="{{estacionMantenimiento.id_estacion}}">
+                        {{estacionMantenimiento.nombre_estacion}}
+                    </option>
+                </select>
 
-                    <!-- Validacion para el campo estacion del mantenimiento -->
-                    <div *ngIf="formMaintenance.controls['id_estacion'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
-
+                <!-- Validacion para el campo estacion del mantenimiento -->
+                <div *ngIf="formMaintenance.controls['id_estacion'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
+
             </div>
         </div>
 
@@ -54,23 +52,21 @@
         </div>
 
         <!-- Campo para las partes de la estacion -->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Partes estación</label>
-                <div class="col-5">
-                    <select formControlName="id_parte" class="form-control" type="number" id="textId_parte"
-                        id="tamaño-fuente-input">
-                        <option *ngFor="let parteEstacion of partStation" value="{{parteEstacion.id_parte}}">
-                            {{parteEstacion.nombre_parte}}
-                        </option>
-                    </select>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Partes estación</label>
+            <div class="col-5">
+                <select formControlName="id_parte" class="form-control" type="number" id="textId_parte"
+                    id="tamaño-fuente-input">
+                    <option *ngFor="let parteEstacion of partStation" value="{{parteEstacion.id_parte}}">
+                        {{parteEstacion.nombre_parte}}
+                    </option>
+                </select>
 
-                    <!-- Validacion para el campo partes de la estacion -->
-                    <div *ngIf="formMaintenance.controls['id_parte'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
-
+                <!-- Validacion para el campo partes de la estacion -->
+                <div *ngIf="formMaintenance.controls['id_parte'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
+
             </div>
         </div>
 
@@ -82,24 +78,23 @@
                     value={{arrayMaintenance.nombre_tipo_mantenimiento}} disabled>
             </div>
         </div>
-        <!-- Campo para los tipos de mantenimiento -->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Tipo mantenimiento</label>
-                <div class="col-5">
-                    <select formControlName="id_tipo_mantenimiento" class="form-control" type="number"
-                        id="textId_tipo_mantenimiento" id="tamaño-fuente-input">
-                        <option *ngFor="let tipoMantenimiento of typeMaintenance"
-                            value="{{tipoMantenimiento.id_tipo_mantenimiento}}">
-                            {{tipoMantenimiento.nombre_tipo_mantenimiento}}
-                        </option>
-                    </select>
-                    <!-- Validacion para los tipos de mantenimiento -->
-                    <div *ngIf="formMaintenance.controls['id_tipo_mantenimiento'].errors?.required"
-                        class="form-control-feedback" id="tamaño-fuente-alerta">
-                    </div>
 
+        <!-- Campo para los tipos de mantenimiento -->
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Tipo mantenimiento</label>
+            <div class="col-5">
+                <select formControlName="id_tipo_mantenimiento" class="form-control" type="number"
+                    id="textId_tipo_mantenimiento" id="tamaño-fuente-input">
+                    <option *ngFor="let tipoMantenimiento of typeMaintenance"
+                        value="{{tipoMantenimiento.id_tipo_mantenimiento}}">
+                        {{tipoMantenimiento.nombre_tipo_mantenimiento}}
+                    </option>
+                </select>
+                <!-- Validacion para los tipos de mantenimiento -->
+                <div *ngIf="formMaintenance.controls['id_tipo_mantenimiento'].errors?.required"
+                    class="form-control-feedback" id="tamaño-fuente-alerta">
                 </div>
+
             </div>
         </div>
 
@@ -113,23 +108,21 @@
         </div>
 
         <!-- Campo para la periodicidad de los mantenimiento -->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Periodicidad mantenimiento</label>
-                <div class="col-5">
-                    <select formControlName="id_periodicidad" class="form-control" type="number"
-                        id="textId_periodicidad" id="tamaño-fuente-input">
-                        <option *ngFor="let tipoPeriodicidad of periodicityMaintenance"
-                            value="{{tipoPeriodicidad.id_periodicidad}}">
-                            {{tipoPeriodicidad.tipo_periodicidad}}
-                        </option>
-                    </select>
-                    <!-- Validacion para la periodicidad -->
-                    <div *ngIf="formMaintenance.controls['id_periodicidad'].errors?.required"
-                        class="form-control-feedback" id="tamaño-fuente-alerta">
-                    </div>
-
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Periodicidad mantenimiento</label>
+            <div class="col-5">
+                <select formControlName="id_periodicidad" class="form-control" type="number" id="textId_periodicidad"
+                    id="tamaño-fuente-input">
+                    <option *ngFor="let tipoPeriodicidad of periodicityMaintenance"
+                        value="{{tipoPeriodicidad.id_periodicidad}}">
+                        {{tipoPeriodicidad.tipo_periodicidad}}
+                    </option>
+                </select>
+                <!-- Validacion para la periodicidad -->
+                <div *ngIf="formMaintenance.controls['id_periodicidad'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
+
             </div>
         </div>
 
@@ -155,6 +148,7 @@
                 </div>
             </div>
         </div>
+
         <!--  Campo para la fecha inical del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Inicial</label>
@@ -169,6 +163,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Campo para la fecha final del mantenimiento -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Fecha Final</label>
@@ -183,12 +178,13 @@
             </div>
         </div>
 
-        <!-- Campo para Observacion de validación -->
+        <!-- Campo para validación correcta-->
         <div class="form-group row">
             <label class="col-2 col-form-label"></label>
             <div class="col-5">
-                <input type="checkbox" name="validacion_mantenimiento" [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="arrayMaintenance.validacion_mantenimiento">&nbsp;
+                <input class="form-control" formControlName="validacion_mantenimiento" type="checkbox"
+                    name="validacion_mantenimiento" [(ngModel)]="arrayMaintenance.validacion_mantenimiento"
+                    (ngModelOptions)="{standalone: true}">&nbsp;
                 <label>Validacion correcta</label>
             </div>
         </div>
@@ -212,6 +208,7 @@
             </div>
         </div>
         <br>
+
         <!-- Boton de guardar -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

@@ -34,7 +34,7 @@ class CategoryService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
-    
+
     // metodo para ver solo el nombre de las categorias en una lista desplegable
     async viewNameCategoriesStation(request: Request, response: Response): Promise<any> {
         try {

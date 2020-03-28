@@ -21,7 +21,7 @@ export class RanksListComponent implements OnInit {
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Ranks_List */
   ngOnInit() {
     this.getRanks();
-    
+
   }
   /* Método con el cual se obtienen los rangos existentes */
   async getRanks() {

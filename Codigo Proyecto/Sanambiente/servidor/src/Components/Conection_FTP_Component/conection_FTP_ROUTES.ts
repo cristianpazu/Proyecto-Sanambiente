@@ -1,5 +1,5 @@
 /*Esta clase contiene la configuracion de las rutas del lado del servidor
- utilizadas para la tabla ciudad */
+ utilizadas para la tabla Conectar por FTP */
 
  import { Router } from 'express';
 import connectionFTPService from './conection_FTP_SERVICE';
@@ -12,8 +12,8 @@ import connectionFTPService from './conection_FTP_SERVICE';
      constructor() {
          this.configuracion();
      }
-     /* Se establecen los metodos de la clase City_Service, que seran utilizados cuando se llame a cada una de 
-     las rutas de ciudades*/
+     /* Se establecen los metodos de la clase connectionFTPService, que seran utilizados cuando se llame a cada una de 
+     las rutas de conectar por ftp*/
  
      configuracion(): void {
          this.router.post('/createFTP', connectionFTPService.createFTP); 

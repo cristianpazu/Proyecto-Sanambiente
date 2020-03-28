@@ -45,6 +45,7 @@ class PartService implements BaseService<any> {
         }
     }
 
+    // metodo para ver la parte con todos sus campos los cuales se utilizaran cuando se vaya a modificar la parte
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_parte } = request.params;

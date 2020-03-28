@@ -28,7 +28,7 @@ class TemplateService {
     viewById(request, response) {
         throw new Error("Method not implemented.");
     }
-    //metodo para crear una base de tiempo
+    //metodo para crear 
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -46,6 +46,7 @@ class TemplateService {
             }
         });
     }
+    // metodo para listar las estaciones
     viewTemplateByIdStation(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

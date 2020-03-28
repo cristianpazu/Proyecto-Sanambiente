@@ -15,8 +15,8 @@ export class PeriodicitiesBodyComponent implements OnInit {
 
   public formPeriodicity: FormGroup; // La variable formPeriodicity permite administrar las validaciones y restricciones del formulario
   public arrayPeriodicities; // La variable arrayPeriodicities almacena el listado de las periodicidades existentes.
-  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva region o se esta editando una region
-  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la region, en la vista html
+  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva periodicidad o se esta editando una periodicidad
+  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la periodicidad, en la vista html
 
   constructor(private periodicityService: PeriodicitiesService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada periodicityService
     this.formPeriodicity = new FormGroup({
@@ -24,8 +24,7 @@ export class PeriodicitiesBodyComponent implements OnInit {
       'observacion_periodicidad': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayPeriodicities = {
-      tipo_periodicidad: '',
-      observacion_periodicidad: ''
+      observacion_periodicidad: ''//Se usa para definir el campo observacion_periodicidad y poder mostrar el conteo de caracteres restantes
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Periodicities_Body */

@@ -6,10 +6,10 @@ export interface Maintenance {
     id_parte?:number;
     id_tipo_mantenimiento?: number;
     id_periodicidad?: number;
+    nombre_funcionario?: string;
     fecha_inicial?: Date;
     fecha_final?: Date;
-    nombre_funcionario?: string;
-    validacion_mantenimiento?: boolean;
+    validacion_mantenimiento?:boolean;
     novedad_mantenimiento?: string;
     fecha_creacion?:Date;
 }

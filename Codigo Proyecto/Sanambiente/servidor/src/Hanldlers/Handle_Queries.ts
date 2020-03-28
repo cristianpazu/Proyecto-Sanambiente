@@ -55,10 +55,10 @@ export const handlerQuery = {
     viewGmt: 'SELECT * FROM gmt where id_gmt=$1',
     updateGmt: 'UPDATE gmt set nombre_gmt=$1, observacion_gmt=$2 where id_gmt=$3',
     // mantenimiento
-    createMaintenance: 'INSERT INTO mantenimientos (id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento, fecha_creacion) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',
-    viewMaintenances: 'SELECT id_mantenimiento, mantenimientos.id_estacion, mantenimientos.id_parte, mantenimientos.id_tipo_mantenimiento, periodicidades.id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion, partes.nombre_parte, tipos_mantenimiento.nombre_tipo_mantenimiento, periodicidades.tipo_periodicidad FROM estaciones, partes, tipos_mantenimiento, periodicidades, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion AND periodicidades.id_periodicidad=mantenimientos.id_periodicidad AND partes.id_parte = mantenimientos.id_parte AND tipos_mantenimiento.id_tipo_mantenimiento = mantenimientos.id_tipo_mantenimiento order by id_mantenimiento',
-    viewMaintenance: 'SELECT id_mantenimiento, mantenimientos.id_estacion, mantenimientos.id_parte, mantenimientos.id_tipo_mantenimiento, mantenimientos.id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento, estaciones.nombre_estacion, partes.nombre_parte, tipos_mantenimiento.nombre_tipo_mantenimiento, periodicidades.tipo_periodicidad FROM estaciones, partes, tipos_mantenimiento, periodicidades, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion AND partes.id_parte = mantenimientos.id_parte AND tipos_mantenimiento.id_tipo_mantenimiento = mantenimientos.id_tipo_mantenimiento AND periodicidades.id_periodicidad=mantenimientos.id_periodicidad and id_mantenimiento=$1',
-    updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, id_parte=$2, id_tipo_mantenimiento=$3, id_periodicidad=$4, fecha_inicial=$5, fecha_final=$6, nombre_funcionario=$7, novedad_mantenimiento=$8 where id_mantenimiento=$9',
+    createMaintenance: 'INSERT INTO mantenimientos (id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)',
+    viewMaintenances: 'SELECT id_mantenimiento, mantenimientos.id_estacion, mantenimientos.id_parte, mantenimientos.id_tipo_mantenimiento, periodicidades.id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento, estaciones.nombre_estacion, partes.nombre_parte, tipos_mantenimiento.nombre_tipo_mantenimiento, periodicidades.tipo_periodicidad FROM estaciones, partes, tipos_mantenimiento, periodicidades, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion AND periodicidades.id_periodicidad=mantenimientos.id_periodicidad AND partes.id_parte = mantenimientos.id_parte AND tipos_mantenimiento.id_tipo_mantenimiento = mantenimientos.id_tipo_mantenimiento order by id_mantenimiento',
+    viewMaintenance: 'SELECT id_mantenimiento, mantenimientos.id_estacion, mantenimientos.id_parte, mantenimientos.id_tipo_mantenimiento, mantenimientos.id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento, estaciones.nombre_estacion, partes.nombre_parte, tipos_mantenimiento.nombre_tipo_mantenimiento, periodicidades.tipo_periodicidad FROM estaciones, partes, tipos_mantenimiento, periodicidades, mantenimientos where estaciones.id_estacion = mantenimientos.id_estacion AND partes.id_parte = mantenimientos.id_parte AND tipos_mantenimiento.id_tipo_mantenimiento = mantenimientos.id_tipo_mantenimiento AND periodicidades.id_periodicidad=mantenimientos.id_periodicidad and id_mantenimiento=$1',
+    updateMaintenance: 'UPDATE mantenimientos set id_estacion=$1, id_parte=$2, id_tipo_mantenimiento=$3, id_periodicidad=$4, nombre_funcionario=$5, fecha_inicial=$6, fecha_final=$7, validacion_mantenimiento$8, novedad_mantenimiento=$7 where id_mantenimiento=$10',
     viewStationsMaintenance: 'SELECT id_estacion, nombre_estacion FROM estaciones order by id_estacion',
     viewPartsStations: 'SELECT id_parte, nombre_parte FROM partes order by id_parte',
     viewTypesMaintenance: 'SELECT id_tipo_mantenimiento, nombre_tipo_mantenimiento FROM tipos_mantenimiento order by id_tipo_mantenimiento',
@@ -79,16 +79,16 @@ export const handlerQuery = {
     viewPart: 'SELECT * FROM partes where id_parte=$1',
     updatePart: 'UPDATE partes set nombre_parte=$1,codigo_catalogo=$2,observacion_parte=$3 where id_parte=$4',
     // Variables
-    createVariable:'INSERT INTO variables (nombre_variable, observacion_variable) VALUES ($1,$2)',
-    updateVariable:'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
+    createVariable: 'INSERT INTO variables (nombre_variable, observacion_variable) VALUES ($1,$2)',
+    updateVariable: 'UPDATE variables set nombre_variable=$1,observacion_variable=$2 where id_variable=$3',
     viewVariables: 'SELECT * FROM variables order by id_variable',
     viewVariable: 'SELECT * FROM variables where id_variable=$1',
     // Plantillas
     viewTemplatesStation: 'SELECT DISTINCT nombre_plantilla, id_plantilla from plantillas',
-    createTemplate:'INSERT INTO plantillas (id_plantilla, id_estacion, nombre_plantilla, id_variable, posicion_variable) VALUES($1, $2, $3, $4, $5)',
+    createTemplate: 'INSERT INTO plantillas (id_plantilla, id_estacion, nombre_plantilla, id_variable, posicion_variable) VALUES($1, $2, $3, $4, $5)',
     // Conexion FTP
     viewConection: 'SELECT * from datos_crudos',
     // FTP
-    insertDataFTP: 'INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)'   
+    insertDataFTP: 'INSERT INTO datos_crudos(id_plantilla, id_estacion, id_conexion, posicion_variable, valor_variable, fecha_data_crudo) VALUES($1,$2,$3,$4,$5,$6)'
 }
 

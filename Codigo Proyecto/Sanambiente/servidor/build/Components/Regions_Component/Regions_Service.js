@@ -83,6 +83,7 @@ class RegionService {
             }
         });
     }
+    // metodo para ver la Region con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Region
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

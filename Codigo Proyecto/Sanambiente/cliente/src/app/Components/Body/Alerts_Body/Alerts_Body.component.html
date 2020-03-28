@@ -4,7 +4,7 @@
     <hr>
     <form [formGroup]="formAlert">
 
-        <!-- Campo para ID solo se muestra cuando se edita -->
+        <!-- Campo para ID Alerta solo se muestra cuando se edita -->
         <div class="form-group row" [hidden]="hide==false">
             <label class="col-2 col-form-label">ID Alerta</label>
             <div class="col-2">
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <!-- Campo para el nombre -->
+        <!-- Campo para el nombre Alerta-->
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre Alerta</label>
 
@@ -35,14 +35,14 @@
             </div>
         </div>
 
-        <!-- Campo para el email -->
+        <!-- Campo para el email de la alerta-->
         <div class="form-group row">
             <label class="col-2 col-form-label">Email</label>
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="email_alerta" type="text" id="textEmail"
                     [(ngModel)]="arrayAlerts.email_alerta" id="tamaño-fuente-input" maxlength="50">
 
-                <!-- Mensaje de restricción campo de solo email  -->
+                <!-- Mensaje de restricción campo de solo email -->
                 <div *ngIf="formAlert.controls['email_alerta'].errors?.maxlength ||
                 formAlert.controls['email_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
@@ -84,12 +84,12 @@
                     id="textServidorsmtp" [(ngModel)]="arrayAlerts.servidorsmtp_alerta" id="tamaño-fuente-input"
                     maxlength="51">
 
-                <!-- Validacion para el campo nombre de la Alerta -->
+                <!-- Validacion para el campo servidor smtp -->
                 <div *ngIf="formAlert.controls['servidorsmtp_alerta'].errors?.required" class="form-control-feedback"
                     id="tamaño-fuente-alerta">
                 </div>
 
-                <!-- Mensaje de restricción para el campo nombre de la Alerta -->
+                <!-- Mensaje de restricción para el campo servidor smtp -->
                 <div *ngIf="formAlert.controls['servidorsmtp_alerta'].errors?.maxlength" class="form-control-feedback">
                     <div class="alert alert-danger">
                         <strong>Alerta!</strong> El campo debe tener máximo 50 carácteres.
@@ -106,44 +106,44 @@
                 <input class="form-control" formControlName="puertosmtp_alerta" type="text" autofocus id="textNombre"
                     [(ngModel)]="arrayAlerts.puertosmtp_alerta" id="tamaño-fuente-input" maxlength="51">
 
-                    <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.maxlength ||
+                <!-- Mensaje de restricción para el campo puerto smtp -->
+                <div *ngIf="formAlert.controls['puertosmtp_alerta'].errors?.maxlength ||
                     formAlert.controls['puertosmtp_alerta'].errors?.pattern" class="form-control-feedback">
-                        <div class="alert alert-danger">
-                            <strong>Alerta!</strong> Los valores deben ser numeros enteros.
-                        </div>
+                    <div class="alert alert-danger">
+                        <strong>Alerta!</strong> Los valores deben ser numeros enteros.
                     </div>
+                </div>
             </div>
         </div>
 
         <!-- Campo para Seguridad -->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Seguridad</label>
-                <div class="col-2">
-                    <select formControlName="seguridad_alerta" class="form-control" type="text" id="seguridad_alerta"
-                        id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.seguridad_alerta"
-                        value={{arrayAlerts.seguridad_alerta}}>
-                        <option value="SSL">SSL</option>
-                        <option value="TLS">TLS</option>
-                        <option value="SSL/TLS">SSL/TLS</option>
-                    </select>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Seguridad</label>
+            <div class="col-2">
+                <select formControlName="seguridad_alerta" class="form-control" type="text" id="seguridad_alerta"
+                    id="tamaño-fuente-input" data-formrun-required [(ngModel)]="arrayAlerts.seguridad_alerta"
+                    value={{arrayAlerts.seguridad_alerta}}>
+                    <option value="SSL">SSL</option>
+                    <option value="TLS">TLS</option>
+                    <option value="SSL/TLS">SSL/TLS</option>
+                </select>
 
-                    <!-- Validacion para el campo tipo de Alerta  -->
-                    <div *ngIf="formAlert.controls['seguridad_alerta'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
-                    <br>
+                <!-- Validacion para el campo tipo de Alerta  -->
+                <div *ngIf="formAlert.controls['seguridad_alerta'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
+                <br>
             </div>
         </div>
-        <!-- Campo para el email -->
+
+        <!-- Campo para el email para -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Email para</label>
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="emailpara_alerta" type="text" id="textEmailpara"
                     [(ngModel)]="arrayAlerts.emailpara_alerta" id="tamaño-fuente-input" maxlength="50">
 
-                <!-- Mensaje de restricción campo de solo email  -->
+                <!-- Mensaje de restricción campo de solo email para -->
                 <div *ngIf="formAlert.controls['emailpara_alerta'].errors?.maxlength ||
                 formAlert.controls['emailpara_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
@@ -175,14 +175,14 @@
             </div>
         </div>
 
-        <!-- Campo para el email -->
+        <!-- Campo para el email de -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Email de</label>
             <div class="col-5">
                 <input autofocus class="form-control" formControlName="emailde_alerta" type="text" id="textEmailde"
                     [(ngModel)]="arrayAlerts.emailde_alerta" id="tamaño-fuente-input" maxlength="50">
 
-                <!-- Mensaje de restricción campo de solo email  -->
+                <!-- Mensaje de restricción campo de solo email de -->
                 <div *ngIf="formAlert.controls['emailde_alerta'].errors?.maxlength ||
                 formAlert.controls['emailde_alerta'].errors?.pattern" class="form-control-feedback">
                     <div class="alert alert-danger">
@@ -207,18 +207,23 @@
                 </div>
             </div>
         </div>
+        
         <!-- Campo para el Autenticacion "-->
         <div class="form-group row">
             <label class="col-2 col-form-label"></label>
             <div class="col-5">
-                <input type="checkbox" name="autenticacion_alerta" [ngModelOptions]="{standalone: true}"
-                    [(ngModel)]="arrayAlerts.autenticacion_alerta">&nbsp;
+
+                <input class="form-control" formControlName="autenticacion_alerta" type="checkbox"
+                    name="autenticacion_alerta" [(ngModel)]="arrayAlerts.autenticacion_alerta"
+                    (ngModelOptions)="{standalone: true}">&nbsp;
+
                 <label>Se requiere Autenticacion por SMTP</label>
                 <div style="margin-top: 20px;">
                     <em> * Todos los campos son obligatorios </em>
                 </div>
             </div>
         </div>
+
         <!-- boton Guardar Alerta -->
         <div id="caja-botones" class="form-group-row">
             <label class="col-1 col-form-label">&nbsp;</label>

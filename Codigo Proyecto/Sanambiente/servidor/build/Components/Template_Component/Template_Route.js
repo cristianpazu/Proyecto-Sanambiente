@@ -1,6 +1,6 @@
 "use strict";
 /*Esta clase contiene la configuracion de las rutas del lado del servidor
- utilizadas para la tabla de Base de tiempo*/
+ utilizadas para la tabla Plantilla*/
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -12,8 +12,8 @@ class TemplateRoute {
         this.router = express_1.Router();
         this.configuracion();
     }
-    /* Se establecen los metodos de la clase TimesRoute, que seran utilizados
-    cuando se llame a cada una de  las rutas de Base de tiempo*/
+    /* Se establecen los metodos de la clase TemplateRoute, que seran utilizados
+    cuando se llame a cada una de  las rutas de Plantilla*/
     configuracion() {
         this.router.post('/createTemplate', Template_Service_1.default.create);
         this.router.get('/viewTemplatesById', Template_Service_1.default.viewTemplateByIdStation);

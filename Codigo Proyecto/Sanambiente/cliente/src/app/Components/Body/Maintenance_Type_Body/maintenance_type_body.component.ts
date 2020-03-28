@@ -24,8 +24,7 @@ export class MaintenanceTypeBodyComponent implements OnInit {
       'observacion_tipo_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayMaintenanceType = {
-      nombre_tipo_mantenimiento: '',
-      observacion_tipo_mantenimiento: ''
+      observacion_tipo_mantenimiento: ''//Se usa para definir el campo observacion_tipo_mantenimiento y poder mostrar el conteo de caracteres restantes
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenance_Type_Body */

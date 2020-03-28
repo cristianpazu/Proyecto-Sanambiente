@@ -23,26 +23,25 @@
         </div>
 
         <!-- Campo para region con la cual se relaciona la ciudad-->
-        <div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Región</label>
-                <div class="col-2">
-                    <select formControlName="id_region" class="form-control" type="number" id="textId_region"
-                        id="tamaño-fuente-input" data-formrun-required>
-                        <option *ngFor="let regionCiudad of regionCity" value="{{regionCiudad.id_region}}"
-                            name="region-ciudad">
-                            {{regionCiudad.nombre_region}}
-                        </option>
-                    </select>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Región</label>
+            <div class="col-2">
+                <select formControlName="id_region" class="form-control" type="number" id="textId_region"
+                    id="tamaño-fuente-input" data-formrun-required>
+                    <option *ngFor="let regionCiudad of regionCity" value="{{regionCiudad.id_region}}"
+                        name="region-ciudad">
+                        {{regionCiudad.nombre_region}}
+                    </option>
+                </select>
 
-                    <!-- Validacion para el campo region de la ciudad -->
-                    <div *ngIf="formCity.controls['id_region'].errors?.required" class="form-control-feedback"
-                        id="tamaño-fuente-alerta">
-                    </div>
+                <!-- Validacion para el campo region de la ciudad -->
+                <div *ngIf="formCity.controls['id_region'].errors?.required" class="form-control-feedback"
+                    id="tamaño-fuente-alerta">
                 </div>
             </div>
         </div>
-        
+
+
         <!-- Campo para el nombre de la ciudad -->
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre ciudad</label>

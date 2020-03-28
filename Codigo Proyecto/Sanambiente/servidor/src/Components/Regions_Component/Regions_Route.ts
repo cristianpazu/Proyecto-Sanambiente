@@ -5,7 +5,7 @@ import { Router } from 'express';
 import RegionService from './Regions_Service'; // Se importa la constante RegionService de la clase Region_Service
 
 class RegionRoute {
-    
+
     public router: Router = Router();
 
     constructor() {
@@ -16,15 +16,15 @@ class RegionRoute {
     las rutas de regiones*/
 
     configuracion(): void {
-       this.router.post('/createRegion', RegionService.create);
-       this.router.get('/viewRegionById/:id_region', RegionService.viewById);
-       this.router.get('/viewRegions', RegionService.view);
-       this.router.put('/updateRegions/:id_region', RegionService.update);
-       this.router.get('/viewRegionsCity', RegionService.viewNameRegionsCity);
-       this.router.get('/viewRegionsStation', RegionService.viewNameRegionsStation)
+        this.router.post('/createRegion', RegionService.create);
+        this.router.get('/viewRegionById/:id_region', RegionService.viewById);
+        this.router.get('/viewRegions', RegionService.view);
+        this.router.put('/updateRegions/:id_region', RegionService.update);
+        this.router.get('/viewRegionsCity', RegionService.viewNameRegionsCity);
+        this.router.get('/viewRegionsStation', RegionService.viewNameRegionsStation)
     }
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const regionsRoutes = new RegionRoute(); 
+const regionsRoutes = new RegionRoute();
 export default regionsRoutes.router; 

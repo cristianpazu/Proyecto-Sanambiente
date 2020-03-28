@@ -46,7 +46,7 @@ class VariableService {
             }
         });
     }
-    // metodo para ver todas las regiones con todos sus campos 
+    // metodo para ver todas las Variable con todos sus campos 
     view(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -58,6 +58,7 @@ class VariableService {
             }
         });
     }
+    // metodo para ver la Variable con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Variable
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

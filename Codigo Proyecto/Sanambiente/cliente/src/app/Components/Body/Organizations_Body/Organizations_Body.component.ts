@@ -13,11 +13,11 @@ import { OrganizationsService } from '../../../Services/Organizations_Service/Or
 export class OrganizationsBodyComponent implements OnInit {
 
   public formOrganization: FormGroup;// La variable formOrganization permite administrar las validaciones y restricciones del formulario
-  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva organizacion o se esta editando una organizacion
   public arrayOrganizations;  // La variable arrayOrganizations almacena el listado de las organizaciones existentes. Utilizada cuando se edita una organizacion
+  public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva organizacion o se esta editando una organizacion
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la organizacion, en la vista html
 
-  constructor(private organizationService: OrganizationsService, private router: Router, private activedRoute: ActivatedRoute) {
+  constructor(private organizationService: OrganizationsService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada organizationService
     this.formOrganization = new FormGroup({
       'nombre_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'email_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9), Validators.pattern(/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+\.[a-z0-9-]/)]),
@@ -25,7 +25,7 @@ export class OrganizationsBodyComponent implements OnInit {
       'observacion_organizacion': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayOrganizations = {
-        observacion_organizacion: ''
+      observacion_organizacion: ''//Se usa para definir el campo observacion_organizacion y poder mostrar el conteo de caracteres restantes
     };
 
   }

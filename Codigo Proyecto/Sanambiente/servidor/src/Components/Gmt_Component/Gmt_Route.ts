@@ -6,7 +6,7 @@ import GmtService from './Gmt_Service'; // Se importa la constante Gmt_Service d
 
 
 class GmtRoute {
-    
+
     public router: Router = Router();
 
     constructor() {
@@ -16,14 +16,14 @@ class GmtRoute {
     las rutas de gmt*/
 
     configuracion(): void {
-       this.router.post('/createGmt', GmtService.create);
-       this.router.get('/viewGmtById/:id_gmt', GmtService.viewById);
-       this.router.get('/viewGmt', GmtService.view);
-       this.router.put('/updateGmt/:id_gmt', GmtService.update);
-       this.router.get('/viewGmtStation', GmtService.viewNameGmtStation);
+        this.router.post('/createGmt', GmtService.create);
+        this.router.get('/viewGmtById/:id_gmt', GmtService.viewById);
+        this.router.get('/viewGmt', GmtService.view);
+        this.router.put('/updateGmt/:id_gmt', GmtService.update);
+        this.router.get('/viewGmtStation', GmtService.viewNameGmtStation);
     }
 }
 
 // Se crea y exporta una constante que contiene las rutas de esta clase.
-const gmtRoutes = new GmtRoute(); 
+const gmtRoutes = new GmtRoute();
 export default gmtRoutes.router;

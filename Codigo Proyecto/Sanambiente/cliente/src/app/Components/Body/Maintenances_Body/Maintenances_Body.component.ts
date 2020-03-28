@@ -1,9 +1,10 @@
 /* Clase que contiene los metodos y la logica de la vista html en la cual se crean y editan los mantenimientos*/
 
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+/* Se importan los componentes y caracteristicas necesarias para el funcionamiento de esta clase */
+import { Component, OnInit, HostBinding } from '@angular/core';// Angular lo importa por defecto
+import { FormGroup, FormControl, Validators } from '@angular/forms';// Caracteristicas que permiten crear y manejar validaciones para formularios
 import { Router, ActivatedRoute } from '@angular/router'; // la propiedad activateRoute permite saber lo que estoy recibiendo como parametro
-import { MaintenancesService } from '../../../Services/Maintenances_Service/Maintenances_Service';
+import { MaintenancesService } from '../../../Services/Maintenances_Service/Maintenances_Service';//Importo los servicios de la clase Maintenances_Service
 
 @Component({
   selector: 'app-Maintenances_Body',
@@ -11,15 +12,16 @@ import { MaintenancesService } from '../../../Services/Maintenances_Service/Main
 })
 export class MaintenancesBodyComponent implements OnInit {
 
-  public formMaintenance: FormGroup;
-  public stationMaintenance: Array<any> = [];
-  public partStation: Array<any> = [];
-  public typeMaintenance: Array<any> = [];
-  public periodicityMaintenance: Array<any> = [];
-  public arrayMaintenance: any;
-  public edit = false;
-  public hide = false;
-  @HostBinding('class') classes = 'row';
+  public formMaintenance: FormGroup;// La variable formMaintenance permite administrar las validaciones y restricciones del formulario
+  public stationMaintenance: Array<any> = [];// La variable stationMaintenance almacena el listado de las estaciones existentes
+  public partStation: Array<any> = [];// La variable partStation almacena el listado de las pastes de las estaciones existentes
+  public typeMaintenance: Array<any> = [];// La variable typeMaintenance almacena el listado de los tipos de mantenimientos existentes
+  public periodicityMaintenance: Array<any> = [];// La variable periodicityMaintenance almacena el listado tipos de periodicidades de los mantenimientos existentes
+  public arrayMaintenance: any; // La variable arrayMaintenance almacena el listado de los Mantenimientos existentes. Utilizada cuando se edita un Mantenimiento
+  public edit = false;// Le permite identificar al boton guardar cuando se esta Guardando un nuevo Mantenimiento o se esta editando un Mantenimiento
+  public hide = false;// Permite identificar cuando se debe o no, mostrar el campo del id de la Mantenimiento, en la vista html
+
+  @HostBinding('class') classes = 'row';// Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
   constructor(private maintenancesService: MaintenancesService, private router: Router, private activedRoute: ActivatedRoute) {
     this.formMaintenance = new FormGroup({
@@ -27,19 +29,15 @@ export class MaintenancesBodyComponent implements OnInit {
       'id_parte': new FormControl('', [Validators.required]),
       'id_tipo_mantenimiento': new FormControl('', [Validators.required]),
       'id_periodicidad': new FormControl('', [Validators.required]),
+      'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'fecha_inicial': new FormControl('', [Validators.required]),
       'fecha_final': new FormControl('', [Validators.required]),
-      'nombre_funcionario': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'validacion_mantenimiento': new FormControl(''['']),
+      'validacion_mantenimiento': new FormControl('', []),
       'novedad_mantenimiento': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-      'fecha_creacion':new FormControl(''['']),
+      'fecha_creacion': new FormControl(''['']),
     })
     this.arrayMaintenance = {
-      fecha_inicial: '',
-      fecha_final: '',
-      nombre_funcionario: '',
-      validacion_mantenimiento:'',
-      novedad_mantenimiento: '',
+      novedad_mantenimiento: ''//Se usa para definir el campo novedad_mantenimiento y poder mostrar el conteo de caracteres restantes
     };
   }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenances_Body */
@@ -70,13 +68,13 @@ export class MaintenancesBodyComponent implements OnInit {
     this.partStation = (await this.maintenancesService.viewPartsStations());
   }
 
-  /* Método con el cual se listan los tipos de mantenimiento existentes */
+  /* Método con el cual se listan los tipos de mantenimientos existentes */
   async viewTypesMaintenance() {
     this.typeMaintenance = (await this.maintenancesService.viewTypesMaintenance());
   }
 
-   /* Método con el cual se listan los tipos de periodicidades de los mantenimiento */
-   async viewPeriodicitiesMaintenance() {
+  /* Método con el cual se listan los tipos de periodicidades de los mantenimientso */
+  async viewPeriodicitiesMaintenance() {
     this.periodicityMaintenance = (await this.maintenancesService.viewPeriodicitiesMaintenance());
   }
 
@@ -96,10 +94,9 @@ export class MaintenancesBodyComponent implements OnInit {
   async updateMaintenance() {
     let id = this.activedRoute.snapshot.params.id_mantenimiento;
     this.formMaintenance.patchValue({
+      nombre_funcionario: this.arrayMaintenance.nombre_funcionario,
       fecha_inicial: this.arrayMaintenance.fecha_inicial,
       fecha_final: this.arrayMaintenance.fecha_final,
-      nombre_funcionario: this.arrayMaintenance.nombre_funcionario,
-      observacion_validacion: this.arrayMaintenance.observacion_validacion,
       validacion_mantenimiento: this.arrayMaintenance.validacion_mantenimiento,
       novedad_mantenimiento: this.arrayMaintenance.novedad_mantenimiento,
     })

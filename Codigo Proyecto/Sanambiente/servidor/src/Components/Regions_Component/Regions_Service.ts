@@ -65,6 +65,7 @@ class RegionService implements BaseService<any> {
         }
     }
 
+    // metodo para ver la Region con todos sus campos los cuales se utilizaran cuando se vaya a modificar la Region
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_region } = request.params;

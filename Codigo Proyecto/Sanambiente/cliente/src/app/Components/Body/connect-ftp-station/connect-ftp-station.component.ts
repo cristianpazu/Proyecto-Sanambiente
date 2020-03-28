@@ -4,8 +4,8 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';// Angular lo importa por defecto
 import { FormGroup, FormControl, Validators } from '@angular/forms';// Caracteristicas que permiten crear y manejar validaciones para formularios
 import { Router, ActivatedRoute } from '@angular/router'; // la propiedad activateRoute permite saber lo que estoy recibiendo como parametro
-import { ConnectFtpStationService } from 'src/app/Services/connect-ftp-station/connect-ftp-station.service';
-import { RanksService } from 'src/app/Services/Ranks_Service/Ranks_Service';
+import { ConnectFtpStationService } from 'src/app/Services/connect-ftp-station/connect-ftp-station.service';//Importo los servicios de la clase connect-ftp-station
+import { RanksService } from 'src/app/Services/Ranks_Service/Ranks_Service';//Importo los servicios de la clase Ranks_Service
 
 
 @Component({
@@ -19,7 +19,7 @@ export class ConnectFTPStationComponent implements OnInit {
   //public stationRank: Array<any>;
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
- 
+
   constructor(private router: Router, private activedRoute: ActivatedRoute, private connectionFTPService: ConnectFtpStationService, private ranksService: RanksService) {
     this.formFtp = new FormGroup({
       'id_conexion': new FormControl(),
@@ -32,6 +32,7 @@ export class ConnectFTPStationComponent implements OnInit {
     });
   }
 
+  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista ConnectFTPStation */
   async ngOnInit() {
     this.viewStations();
     const count = await this.getCountDATA();
@@ -39,10 +40,10 @@ export class ConnectFTPStationComponent implements OnInit {
 
   }
 
-  /* Método con el cual conecta */
+  /* Método con el cual se conecta la estacion*/
   async connectFtp() {
-    if(this.formFtp.valid) {
-      const info =  (await this.connectionFTPService.createConnectionFTP(this.formFtp.value));
+    if (this.formFtp.valid) {
+      const info = (await this.connectionFTPService.createConnectionFTP(this.formFtp.value));
       if (info === 'La cantidad de variables no corresponde a la plantilla') {
         alert('La cantidad de variables no corresponde a la plantilla');
       } else {
@@ -60,13 +61,12 @@ export class ConnectFTPStationComponent implements OnInit {
 
   async getCountDATA() {
     const data: any = await this.connectionFTPService.viewDataFTP();
-    console.log(data)
     const lengthData: number = data.length;
-    if(lengthData === 0 ) {
+    if (lengthData === 0) {
       return 1;
-    }else {
-      return data[lengthData-1].id_conexion+1;
+    } else {
+      return data[lengthData - 1].id_conexion + 1;
     }
-}
+  }
 
 }

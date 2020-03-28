@@ -17,19 +17,19 @@ export class CategoriesBodyComponent implements OnInit {
   public formCategory: FormGroup; // La variable formCategory permite administrar las validaciones y restricciones del formulario
   public arrayCategories; // La variable arrayCategories almacena el listado de las ciudades existentes. Utilizada cuando se edita una ciudad
   public edit: boolean = false;// Le permite identificar al boton guardar cuando se esta Guardando una nueva Categoria o se esta editando una Categoria
-  public hide=false;// Permite identificar cuando se debe o no, mostrar el campo del id de la Categoria, en la vista html
+  public hide = false;// Permite identificar cuando se debe o no, mostrar el campo del id de la Categoria, en la vista html
 
   @HostBinding('class') classes = 'row'; // Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
-  
+
   constructor(private categoriesService: CategoriesService, private router: Router, private activedRoute: ActivatedRoute) { // instancio el servicio dentro de una variable llamada regionServicio
     this.formCategory = new FormGroup({
       'nombre_categoria': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
       'observacion_categoria': new FormControl('', [Validators.required, Validators.maxLength(249.9)]),
-    }); 
+    });
     this.arrayCategories = {
       observacion_categoria: '' //Se usa para definir el campo observacion_categoria y poder mostrar el conteo de caracteres restantes
     };
-}
+  }
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Categories_Body */
   ngOnInit(): void {
     this.viewCategoryById() // Toma el id de la Categoria, cuando se vaya a editar alguna de ellas
@@ -43,15 +43,15 @@ export class CategoriesBodyComponent implements OnInit {
       this.router.navigate(['/category']);
     }
   }
-  
+
   /* Método con el cual se identifica la Categoria cuya información va a ser actualizada */
   async viewCategoryById() {
     let id = this.activedRoute.snapshot.params.id_categoria;
-    if(id !== undefined) {
+    if (id !== undefined) {
       let category = await this.categoriesService.viewCategoryById(id).subscribe((element: any) => {
         this.arrayCategories = element.message[0];
         this.edit = true;
-        this.hide= true;
+        this.hide = true;
       });
     }
   }
@@ -64,10 +64,10 @@ export class CategoriesBodyComponent implements OnInit {
       observacion_categoria: this.arrayCategories.observacion_categoria
     })
     this.categoriesService.updateCategory(this.formCategory.value, id)
-      alert('Categoría actualizada correctamente');
-      this.router.navigate(['/category']);
+    alert('Categoría actualizada correctamente');
+    this.router.navigate(['/category']);
   }
-  
- 
+
+
 
 }

@@ -12,8 +12,8 @@ class MaintenanceService implements BaseService<any> {
     //metodo para crear un mantenimiento
     async create(request: Request, response: Response): Promise<any> {
         try {
-            let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento, fecha_creacion } = request.body;
-            await ConnectionDataBase.query(handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, validacion_mantenimiento, novedad_mantenimiento, fecha_creacion]);
+            let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento } = request.body;
+            await ConnectionDataBase.query(handlerQuery['createMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento]);
             return Promise.resolve(handleMessage(response, 200, 'Create Maintenance'));
         } catch (error) {
             Promise.reject(handleMessage(response, 404, 'Error'));
@@ -24,8 +24,8 @@ class MaintenanceService implements BaseService<any> {
     async update(request: Request, response: Response): Promise<any> {
         try {
             const { id_mantenimiento } = request.params;
-            let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento, fecha_creacion } = request.body;
-            await ConnectionDataBase.query(handlerQuery['updateMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, fecha_inicial, fecha_final, nombre_funcionario, novedad_mantenimiento, id_mantenimiento, fecha_creacion]);
+            let { id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento } = request.body;
+            await ConnectionDataBase.query(handlerQuery['updateMaintenance'], [id_estacion, id_parte, id_tipo_mantenimiento, id_periodicidad, nombre_funcionario, fecha_inicial, fecha_final, validacion_mantenimiento, novedad_mantenimiento, id_mantenimiento]);
             return Promise.resolve(handleMessage(response, 200, 'Update Maintenance'))
 
         } catch (error) {

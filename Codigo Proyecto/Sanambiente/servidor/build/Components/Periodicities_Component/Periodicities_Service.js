@@ -59,6 +59,7 @@ class PeriodicityService {
             }
         });
     }
+    // metodo para ver la periodicidad con todos sus campos los cuales se utilizaran cuando se vaya a modificar la periodicidad
     viewById(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

@@ -32,7 +32,7 @@ class GmtService implements BaseService<any> {
             Promise.reject(handleMessage(response, 404, 'Error'));
         }
     }
-    
+
     // metodo para ver solo el nombre de los gmt en una lista desplegable
     async viewNameGmtStation(request: Request, response: Response): Promise<any> {
         try {
@@ -53,6 +53,7 @@ class GmtService implements BaseService<any> {
         }
     }
 
+    // metodo para ver la Gmt con todos sus campos los cuales se utilizaran cuando se vaya a modificar gmt
     async viewById(request: Request, response: Response): Promise<any> {
         try {
             const { id_gmt } = request.params;

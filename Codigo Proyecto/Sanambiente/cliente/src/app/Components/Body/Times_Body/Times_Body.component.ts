@@ -17,9 +17,9 @@ export class TimesBodyComponent implements OnInit {
   public formTime: FormGroup; // La variable formTime permite administrar las validaciones y restricciones del formulario
   public arrayTimes; // La variable arrayTimes almacena el listado de las Bases de Tiempos existentes. Utilizada cuando se edita una Base de Tiempo
   public edit: boolean = false; // Le permite identificar al boton guardar cuando se esta Guardando una nueva Base de Tiempo o se esta editando una Base de Tiempo
-  public hide=false; // Permite identificar cuando se debe o no, mostrar el campo del id de la ciudad, en la vista html
-  
-  @HostBinding('class') classes = 'row';
+  public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la Base de Tiempo, en la vista html
+
+  @HostBinding('class') classes = 'row';// Genera que las columnas de ordenamiento del contenido en la vista html esten alineadas.
 
   constructor(private timesService: TimesService, private router: Router, private activedRoute: ActivatedRoute) {// instancio el servicio dentro de una variable llamada timesService
     this.formTime = new FormGroup({
@@ -28,12 +28,11 @@ export class TimesBodyComponent implements OnInit {
       'observacion_tiempo': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
     });
     this.arrayTimes = {
-      nombre_tiempo:'',
       observacion_tiempo: ''//Se usa para definir el campo observacion_tiempo y poder mostrar el conteo de caracteres restantes
     };
   }
 
-   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Times_Body */
+  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Times_Body */
   ngOnInit(): void {
     this.viewTimeById(); // Toma el id de la Base de Tiempo, cuando se vaya a editar alguna de ellas
   }
@@ -50,11 +49,11 @@ export class TimesBodyComponent implements OnInit {
   /* Método con el cual se identifica la Base de Tiempo cuya información va a ser actualizada */
   async viewTimeById() {
     let id = this.activedRoute.snapshot.params.id_tiempo;
-    if(id !== undefined) {
+    if (id !== undefined) {
       let time = await this.timesService.viewTimeById(id).subscribe((element: any) => {
         this.arrayTimes = element.message[0];
         this.edit = true;
-        this.hide= true;
+        this.hide = true;
       });
     }
   }
@@ -68,8 +67,8 @@ export class TimesBodyComponent implements OnInit {
       observacion_tiempo: this.arrayTimes.observacion_tiempo
     })
     this.timesService.updateTime(this.formTime.value, id)
-      alert('Base de Tiempo actualizada correctamente');
-      this.router.navigate(['/time']);
+    alert('Base de Tiempo actualizada correctamente');
+    this.router.navigate(['/time']);
   }
 }
 

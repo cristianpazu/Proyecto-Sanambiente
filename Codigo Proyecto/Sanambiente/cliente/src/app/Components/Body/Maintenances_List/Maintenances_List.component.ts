@@ -6,7 +6,7 @@ import { MaintenancesService } from '../../../Services/Maintenances_Service/Main
 
 @Component({
   selector: 'app-Maintenances_List',
-  templateUrl: './Maintenances_List.component.html'  
+  templateUrl: './Maintenances_List.component.html'
 })
 export class MaintenancesListComponent implements OnInit {
 
@@ -20,7 +20,7 @@ export class MaintenancesListComponent implements OnInit {
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenances_List */
   ngOnInit() {
     this.getMaintenances();
-    
+
   }
   /* Método con el cual se obtienen los Mantenimientos existentes */
   async getMaintenances() {

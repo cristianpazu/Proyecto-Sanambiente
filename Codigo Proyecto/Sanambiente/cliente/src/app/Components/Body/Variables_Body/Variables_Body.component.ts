@@ -20,18 +20,17 @@ export class VariablesBodyComponent implements OnInit {
   public hide = false; // Permite identificar cuando se debe o no, mostrar el campo del id de la variable, en la vista html
 
 
-  constructor(private variableService: VariablesService, private router: Router, private activedRoute: ActivatedRoute) { 
-   this.formVariable = new FormGroup({
-    'nombre_variable': new FormControl('', [Validators.required,Validators.maxLength(49.9)]),
-    'observacion_variable': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
-  });
-  this.arrayVariables = {
-    observacion_variable: ''
-    
-  };
-}
+  constructor(private variableService: VariablesService, private router: Router, private activedRoute: ActivatedRoute) {
+    this.formVariable = new FormGroup({
+      'nombre_variable': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+      'observacion_variable': new FormControl('', [Validators.required, Validators.maxLength(49.9)]),
+    });
+    this.arrayVariables = {
+      observacion_variable: ''//Se usa para definir el campo observacion_variable y poder mostrar el conteo de caracteres restantes 
+    };
+  }
 
-/* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Variables_Body */
+  /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Variables_Body */
   ngOnInit(): void {
     this.viewVariableById() // Toma el id de la variable, cuando se vaya a editar alguna de ellas
   }

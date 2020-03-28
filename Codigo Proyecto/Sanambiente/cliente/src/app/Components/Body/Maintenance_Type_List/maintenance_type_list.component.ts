@@ -1,7 +1,7 @@
 /* Clase que contiene los metodos y la logica de la vista html en la cual se crean y editan los tipos de mantenimiento*/
 
 import { Component, OnInit, HostBinding } from '@angular/core'; // Angular lo importa por defecto
-import { MaintenancesTypeService } from '../../../Services/Maintenances_Type_Service/Maintenances_Type_Service'; // Importo los servicios de la clase Regions_Service
+import { MaintenancesTypeService } from '../../../Services/Maintenances_Type_Service/Maintenances_Type_Service'; // Importo los servicios de la clase Maintenances_Type_Service
 
 @Component({
   selector: 'app-maintenance_type_list',
@@ -18,7 +18,7 @@ export class MaintenanceTypeListComponent implements OnInit {
   constructor(private maintenanceTypeService: MaintenancesTypeService) {
     this.arrayMaintenanceTypes = [];
   }
-  
+
   /* Se establecen los metodos que se ejecutaran cada vez que se visite la vista Maintenance_Type_List */
   ngOnInit() {
     this.getMaintenanceTypes();

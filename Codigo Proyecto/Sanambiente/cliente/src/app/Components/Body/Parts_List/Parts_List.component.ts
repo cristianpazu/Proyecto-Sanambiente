@@ -25,7 +25,7 @@ export class PartsListComponent implements OnInit {
     this.getParts();
   }
 
-  /* Método con el cual se obtienen las periodicidades existentes */
+  /* Método con el cual se obtienen las partes existentes */
   async getParts() {
     this.arrayParts = await this.partService.viewParts();
   }
