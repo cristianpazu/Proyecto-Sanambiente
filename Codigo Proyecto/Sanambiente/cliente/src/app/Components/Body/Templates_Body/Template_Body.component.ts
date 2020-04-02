@@ -85,6 +85,7 @@ export class TemplateComponent implements OnInit {
   async getCountTemplate() {
     const templates: any = await this.stationService.viewTemplatesStation();
     const lengthTemplate: number = templates.length;
+    console.log(lengthTemplate);
     if (lengthTemplate === 0) {
       return 1;
     } else {

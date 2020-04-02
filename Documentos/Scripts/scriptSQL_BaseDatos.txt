@@ -1,0 +1,550 @@
+CREATE SEQUENCE alertas_id_alerta_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------------------------
+CREATE SEQUENCE categorias_id_catergoria_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------------------------------
+CREATE SEQUENCE ciudades_id_ciudad_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------------------------------------------
+CREATE SEQUENCE estaciones_categorias_id_estaciones_categorias_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+--------------------------------------------------------------------
+
+CREATE SEQUENCE estaciones_id_estacion_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+---------------------------------------------------------------------
+
+CREATE SEQUENCE estaciones_tiempos_id_estaciones_tiempos_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------------------------------------------
+CREATE SEQUENCE organizaciones_id_organizacion_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------------------------------------
+CREATE SEQUENCE regiones_id_region_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+--------------------------------------------------------------
+CREATE SEQUENCE tiempos_id_tiempo_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+---------------------------------------------------------------
+CREATE SEQUENCE rangos_id_rango_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+------------------------------------------------------------------
+CREATE SEQUENCE gmt_id_gmt_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+------------------------------------------------------------------
+
+CREATE SEQUENCE tipos_mantenimiento_id_tipo_mantenimiento_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+------------------------------------------------------------------
+
+CREATE SEQUENCE periodicidades_id_periodicidad_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+------------------------------------------------------------------
+CREATE SEQUENCE partes_id_parte_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+------------------------------------------------------------------
+CREATE SEQUENCE mantenimientos_id_mantenimiento_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+------------------------------------------------------------------
+
+CREATE SEQUENCE plantillas_id_plantilla_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+------------------------------------------------------------------
+
+CREATE SEQUENCE variables_id_variable_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+-------------------------------------------------------------------
+CREATE SEQUENCE plantillas_variables_id_plantillas_variables_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+------------------------------------------------------------------
+
+CREATE SEQUENCE datos_crudos_id_dato_crudo_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.datos_crudos_id_dato_crudo_seq
+    OWNER TO postgres;
+
+------------------------------------------------------------------
+
+CREATE TABLE regiones
+(
+    id_region integer NOT NULL DEFAULT nextval('regiones_id_region_seq'::regclass),
+    nombre_region character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_region character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT regiones_pkey PRIMARY KEY (id_region)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.regiones
+    OWNER to postgres;
+---------------------------------------------------------------------------------------------
+
+CREATE TABLE ciudades
+(
+    id_ciudad integer NOT NULL DEFAULT nextval('ciudades_id_ciudad_seq'::regclass),
+    nombre_ciudad character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_region integer NOT NULL,
+    observacion_ciudad character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT ciudades_pkey PRIMARY KEY (id_ciudad),
+    CONSTRAINT ciudades_id_region_fkey FOREIGN KEY (id_region)
+        REFERENCES public.regiones (id_region) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.ciudades
+    OWNER to postgres;
+----------------------------------------------------------------------------------------------
+
+CREATE TABLE tiempos
+(
+    id_tiempo integer NOT NULL DEFAULT nextval('tiempos_id_tiempo_seq'::regclass),
+    nombre_tiempo character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    escala_tiempo character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_tiempo character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tiempos_pkey PRIMARY KEY (id_tiempo)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tiempos
+    OWNER to postgres;
+---------------------------------------------------------------------------------------------------
+
+CREATE TABLE categorias
+(
+    id_categoria integer NOT NULL DEFAULT nextval('categorias_id_catergoria_seq'::regclass),
+    nombre_categoria character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_categoria character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT categorias_pkey PRIMARY KEY (id_categoria)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.categorias
+    OWNER to postgres;
+------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE alertas
+(
+    id_alerta integer NOT NULL DEFAULT nextval('alertas_id_alerta_seq'::regclass),
+    nombre_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    email_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    contrasena_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    servidorsmtp_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    puertosmtp_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    seguridad_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    autenticacion_alerta boolean,
+    emailpara_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    emailde_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    asunto_alerta character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT alertas_pkey PRIMARY KEY (id_alerta)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.alertas
+    OWNER to postgres;
+---------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE organizaciones
+(
+    id_organizacion integer NOT NULL DEFAULT nextval('organizaciones_id_organizacion_seq'::regclass),
+    nombre_organizacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_organizacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    email_organizacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    telefono_organizacion integer NOT NULL,
+    CONSTRAINT organizaciones_pkey PRIMARY KEY (id_organizacion)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.organizaciones
+    OWNER to postgres;
+----------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE gmt
+(
+    id_gmt integer NOT NULL DEFAULT nextval('gmt_id_gmt_seq'::regclass),
+    nombre_gmt character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_gmt character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT gmt_pkey PRIMARY KEY (id_gmt)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.gmt
+    OWNER to postgres;
+------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE tipos_mantenimiento
+(
+    id_tipo_mantenimiento integer NOT NULL DEFAULT nextval('tipos_mantenimiento_id_tipo_mantenimiento_seq'::regclass),
+    nombre_tipo_mantenimiento character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_tipo_mantenimiento character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tipos_mantenimiento_pkey PRIMARY KEY (id_tipo_mantenimiento)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tipos_mantenimiento
+    OWNER to postgres;
+----------------------------------------------------------------------------------------
+
+CREATE TABLE periodicidades
+(
+    id_periodicidad integer NOT NULL DEFAULT nextval('periodicidades_id_periodicidad_seq'::regclass),
+    tipo_periodicidad character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_periodicidad character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT periodicidades_pkey PRIMARY KEY (id_periodicidad)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.periodicidades
+    OWNER to postgres;
+----------------------------------------------------------------------------------------
+
+CREATE TABLE partes
+(
+    id_parte integer NOT NULL DEFAULT nextval('partes_id_parte_seq'::regclass),
+    nombre_parte character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    codigo_catalogo character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_parte character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT partes_pkey PRIMARY KEY (id_parte)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.partes
+    OWNER to postgres;
+
+----------------------------------------------------------------------------------------
+
+CREATE TABLE estaciones
+(
+    id_estacion integer NOT NULL DEFAULT nextval('estaciones_id_estacion_seq'::regclass),
+    nombre_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    serial_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    nombre_corto_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_categoria integer NOT NULL,
+    id_tiempo integer NOT NULL,
+    observacion_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_ciudad integer NOT NULL,
+    latitud_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    longitud_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    elevacion_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_gmt integer NOT NULL,
+    protocolo_estacion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_region integer NOT NULL,
+    CONSTRAINT estaciones_pkey PRIMARY KEY (id_estacion),
+    CONSTRAINT estaciones_id_ciudad_fkey FOREIGN KEY (id_ciudad)
+        REFERENCES public.ciudades (id_ciudad) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT estaciones_id_gmt_fkey FOREIGN KEY (id_gmt)
+        REFERENCES public.gmt (id_gmt) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT estaciones_id_region_fkey FOREIGN KEY (id_region)
+        REFERENCES public.regiones (id_region) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.estaciones
+    OWNER to postgres;
+
+-------------------------------------------------------------------------------------------------
+
+CREATE TABLE estaciones_categorias
+(
+    id_estacion_categoria integer NOT NULL DEFAULT nextval('estaciones_categorias_id_estaciones_categorias_seq'::regclass),
+    id_estacion integer NOT NULL,
+    id_categoria integer NOT NULL,
+    CONSTRAINT estaciones_categorias_pkey PRIMARY KEY (id_estacion_categoria),
+    CONSTRAINT estaciones_categorias_id_categoria_fkey FOREIGN KEY (id_categoria)
+        REFERENCES public.categorias (id_categoria) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT estaciones_categorias_id_estacion_fkey FOREIGN KEY (id_estacion)
+        REFERENCES public.estaciones (id_estacion) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.estaciones_categorias
+    OWNER to postgres;
+
+------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE estaciones_tiempos
+(
+    id_estacion_tiempo integer NOT NULL DEFAULT nextval('estaciones_tiempos_id_estaciones_tiempos_seq'::regclass),
+    id_tiempo integer NOT NULL,
+    id_estacion integer NOT NULL,
+    CONSTRAINT estaciones_tiempos_pkey PRIMARY KEY (id_estacion_tiempo),
+    CONSTRAINT estaciones_tiempos_id_estacion_fkey FOREIGN KEY (id_estacion)
+        REFERENCES public.estaciones (id_estacion) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT estaciones_tiempos_id_tiempo_fkey FOREIGN KEY (id_tiempo)
+        REFERENCES public.tiempos (id_tiempo) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.estaciones_tiempos
+    OWNER to postgres;
+--------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE rangos
+(
+    id_rango integer NOT NULL DEFAULT nextval('rangos_id_rango_seq'::regclass),
+    nombre_rango character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    valor_minimo integer NOT NULL,
+    valor_maximo integer NOT NULL,
+    id_estacion integer NOT NULL,
+    observacion_rango character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT rangos_pkey PRIMARY KEY (id_rango),
+    CONSTRAINT rangos_id_estacion_fkey FOREIGN KEY (id_estacion)
+        REFERENCES public.estaciones (id_estacion) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.rangos
+    OWNER to postgres;
+------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE variables
+(
+    id_variable integer NOT NULL DEFAULT nextval('variables_id_variable_seq'::regclass),
+    nombre_variable character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    observacion_variable character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT variables_pkey PRIMARY KEY (id_variable)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.variables
+    OWNER to postgres;
+
+-----------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE mantenimientos
+(
+    id_mantenimiento integer NOT NULL DEFAULT nextval('mantenimientos_id_mantenimiento_seq'::regclass),
+    id_estacion integer NOT NULL,
+    id_parte integer NOT NULL,
+    id_tipo_mantenimiento integer NOT NULL,
+    id_periodicidad integer NOT NULL,
+    fecha_inicial timestamp without time zone NOT NULL,
+    fecha_final timestamp without time zone NOT NULL,
+    nombre_funcionario character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    novedad_mantenimiento character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    validacion_mantenimiento boolean,
+    fecha_creacion date,
+    CONSTRAINT mantenimientos_pkey PRIMARY KEY (id_mantenimiento),
+    CONSTRAINT mantenimientos_id_estacion_fkey FOREIGN KEY (id_estacion)
+        REFERENCES public.estaciones (id_estacion) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT mantenimientos_id_parte_fkey FOREIGN KEY (id_parte)
+        REFERENCES public.partes (id_parte) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT mantenimientos_id_periodicidad_fkey FOREIGN KEY (id_periodicidad)
+        REFERENCES public.periodicidades (id_periodicidad) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT mantenimientos_id_tipo_mantenimiento_fkey FOREIGN KEY (id_tipo_mantenimiento)
+        REFERENCES public.tipos_mantenimiento (id_tipo_mantenimiento) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.mantenimientos
+    OWNER to postgres;
+
+-----------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE plantillas
+(
+    id_plantilla integer NOT NULL,
+    id_estacion integer NOT NULL,
+    nombre_plantilla character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    id_variable integer NOT NULL,
+    posicion_variable integer NOT NULL
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.plantillas
+    OWNER to postgres;
+
+------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE datos_crudos
+(
+    id_dato_crudo integer NOT NULL DEFAULT nextval('datos_crudos_id_dato_crudo_seq'::regclass),
+    id_plantilla integer NOT NULL,
+    id_estacion integer NOT NULL,
+    id_conexion integer NOT NULL,
+    posicion_variable integer NOT NULL,
+    valor_variable double precision NOT NULL,
+    fecha_data_crudo character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT datos_crudos_pkey PRIMARY KEY (id_dato_crudo)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.datos_crudos
+    OWNER to postgres;
+
+------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE plantillas_variables
+(
+    id_plantilla_variable integer NOT NULL DEFAULT nextval('plantillas_variables_id_plantillas_variables_seq'::regclass),
+    id_plantilla integer NOT NULL,
+    id_variable integer NOT NULL,
+    CONSTRAINT plantillas_variables_pkey PRIMARY KEY (id_plantilla_variable)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.plantillas_variables
+    OWNER to postgres;
