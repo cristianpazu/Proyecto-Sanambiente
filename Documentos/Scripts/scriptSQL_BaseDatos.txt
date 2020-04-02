@@ -132,7 +132,6 @@ CREATE SEQUENCE plantillas_variables_id_plantillas_variables_seq
     MINVALUE 1
     MAXVALUE 2147483647
     CACHE 1;
-
 ------------------------------------------------------------------
 
 CREATE SEQUENCE datos_crudos_id_dato_crudo_seq
@@ -292,7 +291,7 @@ ALTER TABLE public.tipos_mantenimiento
     OWNER to postgres;
 ----------------------------------------------------------------------------------------
 
-CREATE periodicidades
+CREATE TABLE periodicidades
 (
     id_periodicidad integer NOT NULL DEFAULT nextval('periodicidades_id_periodicidad_seq'::regclass),
     tipo_periodicidad character varying(50) COLLATE pg_catalog."default" NOT NULL,
@@ -467,7 +466,7 @@ CREATE TABLE mantenimientos
     nombre_funcionario character varying(50) COLLATE pg_catalog."default" NOT NULL,
     novedad_mantenimiento character varying(50) COLLATE pg_catalog."default" NOT NULL,
     validacion_mantenimiento boolean,
-    fecha_creacion date NOT NULL,
+    fecha_creacion date,
     CONSTRAINT mantenimientos_pkey PRIMARY KEY (id_mantenimiento),
     CONSTRAINT mantenimientos_id_estacion_fkey FOREIGN KEY (id_estacion)
         REFERENCES public.estaciones (id_estacion) MATCH SIMPLE
@@ -537,7 +536,7 @@ ALTER TABLE public.datos_crudos
 
 CREATE TABLE plantillas_variables
 (
-    id_plantilla_variable integer NOT NULL DEFAULT nextval('plantillas_variables_id_plantilla_variable_seq'::regclass),
+    id_plantilla_variable integer NOT NULL DEFAULT nextval('plantillas_variables_id_plantillas_variables_seq'::regclass),
     id_plantilla integer NOT NULL,
     id_variable integer NOT NULL,
     CONSTRAINT plantillas_variables_pkey PRIMARY KEY (id_plantilla_variable)
@@ -549,4 +548,3 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.plantillas_variables
     OWNER to postgres;
-
