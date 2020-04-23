@@ -53,11 +53,13 @@ export class TemplateComponent implements OnInit {
   /* Método con el cual se agregan un item de varible dentro de plantilla */
   addField() {
     this.arrayAddVariable.push(this.formTemplate.value);
+    console.log(this.arrayAddVariable);
   }
 
   /* Método con el cual se elimina un item de varible dentro de plantilla */
   deleteField() {
     this.arrayAddVariable.pop();
+    console.log(this.arrayAddVariable);
   }
 
   /* Método con el cual se guarda la informacion de la plantilla */
@@ -65,13 +67,19 @@ export class TemplateComponent implements OnInit {
     for (let index = 0; index < this.arrayAddVariable.length; index++) {
       this.arrayAddVariable[index].posicion = index + 1;
       this.arrayForm.push(this.arrayAddVariable[index]);
+
     }
-    this.formTemplate.value.posicion = this.arrayForm.length + 1;
-    this.arrayForm.push(this.formTemplate.value);
-    this.templateService.createTemplate(this.getValuesFormGroup(this.arrayForm));
-    this.arrayForm = [];
-    alert('Plantilla creada correctamente');
-    this.router.navigate(['/connect']);
+    // if (this.formTemplate.value.get('id_variable') !== '') {
+
+
+      this.formTemplate.value.posicion = this.arrayForm.length + 1;
+      this.arrayForm.push(this.formTemplate.value);
+      console.log(this.arrayForm);
+      this.templateService.createTemplate(this.getValuesFormGroup(this.arrayForm));
+      this.arrayForm = [];
+      alert('Plantilla creada correctamente');
+      this.router.navigate(['/connect']);
+    // }
   }
 
   getValuesFormGroup(arrayValues: Array<any>) {
@@ -84,12 +92,25 @@ export class TemplateComponent implements OnInit {
 
   async getCountTemplate() {
     const templates: any = await this.stationService.viewTemplatesStation();
+
+    // console.log(templates);
+
     const lengthTemplate: number = templates.length;
-    console.log(lengthTemplate);
+    // console.log(lengthTemplate);
+
+
     if (lengthTemplate === 0) {
       return 1;
     } else {
-      return templates[lengthTemplate - 1].id_plantilla + 1;
+      // console.log(lengthTemplate);
+      // console.log(templates[lengthTemplate - 1]);
+      // console.log(templates[lengthTemplate - 1].id_plantilla);
+      // console.log(templates[lengthTemplate - 1].id_plantilla + 1);
+      return lengthTemplate + 1;
+
+      // return templates[lengthTemplate - 1].id_plantilla + 1;
+
+      // console.log(lengthTemplate);
     }
   }
 

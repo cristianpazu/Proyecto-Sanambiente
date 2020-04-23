@@ -1,4 +1,4 @@
-/*Esta clase contiene la configuracion de las rutas del lado del servidor
+ /*Esta clase contiene la configuracion de las rutas del lado del servidor
  utilizadas para la tabla estaciones */
 
 import { Router } from 'express';
