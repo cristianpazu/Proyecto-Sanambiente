@@ -1,6 +1,6 @@
 "use strict";
 /*Esta clase contiene la configuracion de las rutas del lado del servidor
- utilizadas para la tabla estaciones */
+utilizadas para la tabla estaciones */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };

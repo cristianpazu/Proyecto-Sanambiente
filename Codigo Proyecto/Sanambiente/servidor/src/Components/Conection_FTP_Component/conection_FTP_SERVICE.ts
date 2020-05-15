@@ -23,8 +23,8 @@ class ConnectionFTPService {
                 if (err) throw err;
                 else {
                     stream.once('close', function () { c.end(); });
-                    stream.pipe(createWriteStream('C:/Users/admin/Downloads/data.cvc'));
-                    readFile('C:/Users/admin/Downloads/data.cvc', "utf8", (err, data) => {
+                    stream.pipe(createWriteStream('C:/Users/juand/Documents/9no semestre/anteproyecto/data.cvc'));
+                    readFile('C:/Users/juand/Documents/9no semestre/anteproyecto/data.cvc', "utf8", (err, data) => {
                         if (err) throw err;
                         let values = csvJSON(data)[0];
                         let valuesArray: Array<any> = [];
